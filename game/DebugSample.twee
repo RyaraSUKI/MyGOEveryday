@@ -1,0 +1,37 @@
+:: 调试示例
+这是一个示例，用于最初的调试。<br>
+[[开始迷子->DebugSampleStart]] | [[设置->DebugSampleSettings]]
+
+:: DebugSampleStart
+你进入了RiNG的后台。<br>
+<img src="img/debug.png" style="max-width:300px;"><br>
+前方有两条小路，你选择哪一条？<br>
+[[左边的小路->DebugSampleLeftPath]] | [[右边的小路->DebugSampleRightPath]]
+
+:: DebugSampleLeftPath
+你走上了左边的小路，遇到了一只偷摸零企鹅，在这待着也太可爱了吧。<br>
+<img src="img/char/tmr.png" style="max-width:300px;"><br>
+[[组一辈子乐队吧！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
+
+:: DebugSampleRightPath
+你走上了右边的小路，发现了一只抹茶小猫。<br>
+<img src="img/char/rana.png" style="max-width:300px;"><br>
+[[抹茶芭菲！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
+
+:: DebugSampleEnding
+即使迷茫，也要前进！！！！！<br>
+[[重新开始->调试示例]]
+
+:: DebugSampleSettings
+这是设置页面，你可以在这里调整一些游戏选项。（*并没有用）<br>
+<<set $volume = $volume or 50>>
+当前音量：<<print $volume>>%<br>
+[[音量增加|IncreaseVolume]] | [[音量减少|DecreaseVolume]] | [[返回主菜单->调试示例]]
+
+:: IncreaseVolume
+<<set $volume = $volume + 10>>
+[[返回设置->DebugSampleSettings]]
+
+:: DecreaseVolume
+<<set $volume = $volume - 10>>
+[[返回设置->DebugSampleSettings]]

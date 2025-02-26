@@ -1,37 +1,6 @@
 :: Start
-这是一单的示例游戏，类似 Degrees of Lewdity。<br>
-[[开始冒险->Adventure]] | [[设置->Settings]]
+MyGOEveryDay!!!!!
+[[迷路的星星终将相遇|Opening]]
 
-:: Adventure
-你进入了一个神秘的森林。<br>
-<img src="images/forest.jpg" alt="森林" style="max-width:300px;"><br>
-前方有两条小路，你选择哪一条？<br>
-[[左边的小路->LeftPath]] | [[右边的小路->RightPath]]
-
-:: LeftPath
-你走上了左边的小路，遇到了一只友好的小动物。<br>
-<img src="images/animal.jpg" alt="小动物" style="max-width:300px;"><br>
-[[继续前进->Ending]] | [[返回->Adventure]]
-
-:: RightPath
-你走上了右边的小路，发现了一座废弃的小屋。<br>
-<img src="images/house.jpg" alt="废弃的小屋" style="max-width:300px;"><br>
-[[进入小屋->Ending]] | [[返回->Adventure]]
-
-:: Ending
-感谢你参与这次冒险！<br>
-[[重新开始->Start]]
-
-:: Settings
-这是设置页面，你可以在这里调整一些游戏选项。<br>
-<<set $volume = $volume or 50>>
-当前音量：<<print $volume>>%<br>
-[[音量增加|IncreaseVolume]] | [[音量减少|DecreaseVolume]] | [[返回主菜单->Start]]
-
-:: IncreaseVolume
-<<set $volume = $volume + 10>>
-[[返回设置->Settings]]
-
-:: DecreaseVolume
-<<set $volume = $volume - 10>>
-[[返回设置->Settings]]
+:: Opening
+在布满裂痕的星空下，五个迷失的少女正编织着她们的日常——
