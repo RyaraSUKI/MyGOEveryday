@@ -9,9 +9,8 @@
 迷子们的每一天
 
 :: StoryInit
-<script src="/js/style.js"></script>
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/animation.css">
 
 :: StoryMenu
-[[调试示例->调试示例]]
+<<link "调试示例">>
+        <<goto "调试示例">>
+<</link>>

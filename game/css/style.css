@@ -1,0 +1,12 @@
+/* 覆盖最外层容器 */
+html,
+body,
+#story {
+    background-color: #191c1d !important;
+}
+
+/* 已设置的部分保持原样 */
+#ui-bar,
+#passages {
+    background-color: #191c1d !important;
+}
