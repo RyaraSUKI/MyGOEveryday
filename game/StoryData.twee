@@ -8,7 +8,42 @@
 :: StoryTitle
 迷子们的每一天
 
-:: StoryInit
+:: StoryInterface
+<body>
+<s-page theme="dark">
+<s-drawer style="display: flex; height: 100vh;" id="drawer">
+  <div slot="start">
+  <s-button id="jumpdebug">调试示例</s-button>
+  <br>
+  <s-button id="opensaves">存档</s-button>
+  <br>
+  <s-button id="opensettings">设置</s-button>
+  </div>
+   <s-appbar>
+    <s-icon-button slot="navigation" onclick="document.querySelector('#drawer').toggle()">
+      <s-icon name="menu"></s-icon>
+    </s-icon-button>
+    <div slot="headline"> MyGo Everyday !!!!! </div>
+  </s-appbar>
+  <s-scroll-view style="display: flex; width: auto;">
+    <div id="passages"></div>
+  </s-scroll-view>
+</s-drawer>
+</s-page>
+</body>
+
+:: StoryScript [script]
+$(document).ready(function() {
+	$("#opensaves").click(function() {
+		UI.saves();
+	});	
+	$("#opensettings").click(function() {
+		UI.settings();
+	});
+	$("#jumpdebug").click(function() {
+		Engine.play("调试示例"), document.querySelector('#drawer').toggle()
+	});
+});
 
 :: StoryMenu
 <<link "调试示例">>

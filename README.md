@@ -9,17 +9,17 @@
   <h2 align="center">迷子们的每一天 !!!!!</h2>
   <h3 align="center">MyGo Everyday !!!!!</h3>
   <p align="center">  
-一个基于BanGDream！世界观的二次创作文字互动网页，主体部分使用Sugarcube2完成，原创代码部分遵从**[MIT LICENSE]**开源许可，原创文字、图像等遵从**[CC BY-NC-SA 4.0]**协议    
+一个基于BanGDream！世界观的二次创作文字互动网页，主体部分使用Sugarcube2完成，原创代码部分遵从 [MIT LICENSE] 开源许可，原创文字、图像等遵从 [CC BY-NC-SA 4.0] 协议    
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>游玩网页版 »</strong></a>
+    <a href="https://github.com/RyaraSUKI/MyGoEveryday"><strong>游玩网页版 »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template/releases/latest">最新发布版</a>
+    <a href="https://github.com/RyaraSUKI/MyGoEveryday/releases/latest">最新发布版</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">反馈Bug</a>
+    <a href="https://github.com/RyaraSUKI/MyGoEveryday/issues">反馈Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">提议新功能</a>
+    <a href="https://github.com/RyaraSUKI/MyGoEveryday/issues">提议新功能</a>
   </p>
 </div>
  
@@ -44,7 +44,10 @@
 
 ### 使用说明
 
-- 你可以直接前往[github-pages]游玩已部署的最新版，如果你要下载本地版或历史版本，请前往[Releases]
+- 你可以直接前往[github-pages]游玩已部署的最新版，如果你要下载本地版或历史版本，请前往[Releases](https://github.com/RyaraSUKI/MyGoEveryday/releases)
+
+---
+格式说明：
 - apk：安卓软件安装包，可自行安装，本项目完全安全无风险
 - exe：Windows可执行文件，可自行双击运行
 - zip：包含html和资源文件夹，下载后请解压，确保html文件和资源文件夹在同一文件夹内，请使用任意**现代浏览器**打开html
@@ -76,13 +79,16 @@ filetree
 
 本项目为文字互动网页，不含完整游戏性
 
-本项目中的代码部分采用[MIT LICENSE]许可，原创素材（包括但不限于文本，图像等）采用[CC BY-NC-SA 4.0]协议。
+本项目中的代码部分采用 [MIT LICENSE] 许可，原创素材（包括但不限于文本，图像等）采用 [CC BY-NC-SA 4.0] 协议。
 
 ### 待办项目
-- [ ] 加入时间系统
+- [X] 最初的起点
+- [ ] 加入天气系统
 - [ ] 优化ui
-- [ ] 加入更多宏(Marco)
-- [ ] 更好的数值计算
+- [ ] 加入更多宏
+- [ ] 加入换装系统
+- [ ] 给RiNG中的Live加入下落式4key小音游
+- [ ] 加入商店系统
 - [ ] 其他四人文案
   - [ ] 千早爱音
   - [ ] 高松灯
@@ -96,4 +102,4 @@ filetree
 - [Best README Template](https://github.com/shaojintian/Best_README_template)
 - [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)
 
-<p align="center">(<a href="#top">返回顶部</a>)</p>
+<p align="center">[<a href="#top">返回顶部</a>]</p>
