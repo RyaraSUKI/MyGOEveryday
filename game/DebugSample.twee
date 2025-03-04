@@ -1,5 +1,6 @@
 :: 调试示例
-这是一个示例，用于最初的调试。<br>
+<div class="animate__animated animate__flipInX" style="animation-duration: 2s">这是一个示例，用于最初的调试。</div>
+<br>
 [[开始迷子->DebugSampleStart]] <br>
 [[设置->DebugSampleSettings]] <br>
 [[sober组件|sober]]<br>

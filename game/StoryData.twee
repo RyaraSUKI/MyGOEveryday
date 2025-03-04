@@ -11,21 +11,28 @@
 :: StoryInterface
 <body>
 <s-page theme="dark">
-<s-drawer style="display: flex; height: 100vh;" id="drawer">
-  <div slot="start">
+<s-drawer style="display: flex; height: 100vh; width: auto" id="drawer">
+  <div slot="start" style="width: auto">
+  <br>
+  <h2 align="center">迷子们的每一天 !!!!!</h2>
+  <h3 align="center">MyGo Everyday !!!!!</h3>
+  <div align="center">一个基于BanGDream！世界观的二次创作文字互动网页，<br>主体部分使用Sugarcube2完成，<br>原创代码部分遵从 [MIT LICENSE] 开源许可，<br>原创文字、图像等遵从 [CC BY-NC-SA 4.0] 协议</div>
+  <br>
   <s-button id="jumpdebug">调试示例</s-button>
   <br>
   <s-button id="opensaves">存档</s-button>
   <br>
   <s-button id="opensettings">设置</s-button>
   </div>
-   <s-appbar>
+   <s-appbar style="height: 80px">
     <s-icon-button slot="navigation" onclick="document.querySelector('#drawer').toggle()">
       <s-icon name="menu"></s-icon>
     </s-icon-button>
     <div slot="headline"> MyGo Everyday !!!!! </div>
-  </s-appbar>
-  <s-scroll-view style="display: flex; width: auto;">
+   </s-appbar>
+  <br>
+  <br>
+  <s-scroll-view style="display: flex; width: auto; height: auto; margin-left: 12px">
     <div id="passages"></div>
   </s-scroll-view>
 </s-drawer>
@@ -35,10 +42,10 @@
 :: StoryScript [script]
 $(document).ready(function() {
 	$("#opensaves").click(function() {
-		UI.saves();
+		UI.saves(), document.querySelector('#drawer').toggle()
 	});	
 	$("#opensettings").click(function() {
-		UI.settings();
+		Engine.play("设置"), document.querySelector('#drawer').toggle()
 	});
 	$("#jumpdebug").click(function() {
 		Engine.play("调试示例"), document.querySelector('#drawer').toggle()
@@ -46,6 +53,9 @@ $(document).ready(function() {
 });
 
 :: StoryMenu
+<br>
+<div class="animate__animated animate__tada">如果你在调试页面之外的场景看到了这段文字和侧边栏，那么表明你打开了Sugarcube2原生侧边栏，这是一个UI上的bug，请汇报</div>
+<br>
 <<link "调试示例">>
         <<goto "调试示例">>
 <</link>>
