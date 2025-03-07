@@ -89,7 +89,7 @@ filetree
 
 ### 更新记录
 
-- [Update_Log](https://github.com/RyaraSUKI/MyGoEveryday/update.md)
+- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/update.md)
 
 ### 引用与鸣谢
 
