@@ -1,0 +1,60 @@
+:: newui_intro
+新UI是一个测试中的未完成功能，主要使用了基于material设计风格的sober组件替换原版ui
+
+:: newui
+<body>
+<s-page theme="dark">
+<s-drawer style="display: flex; height: 100vh; width: auto" id="drawer">
+  <div slot="start" class="sidebar">
+  <div class="sidebar_content">
+  <br><br><br><br><br>
+  <h2 align="center">迷子们的每一天 !!!!!</h2>
+  <h3 align="center">MyGo Everyday !!!!!</h3>
+  <br>
+  <s-card align="center" style="height: auto" type="outlined">
+  <div slot="text">
+  一个基于BanGDream！世界观的<br>
+  二次创作文字互动网页。<br>
+  即使迷茫，<br>
+  也要前进！
+  </div>
+  </s-card>
+  <div style="margin: 100% 10px 10px">
+  <s-button id="jumpdebug" class="bar_button">调试示例</s-button>
+  <br>
+  <br>
+  <s-button id="opensaves" class="bar_button">存档</s-button>
+  <br>
+  <br>
+  <s-button id="opensettings" class="bar_button">设置</s-button>
+  </div>
+  </div>
+  </div>
+  <br><br>
+   <s-appbar class="appbar">
+    <s-icon-button slot="navigation" onclick="document.querySelector('#drawer').toggle()">
+      <s-icon name="menu"></s-icon>
+    </s-icon-button>
+    <div slot="headline"> MyGo Everyday !!!!! </div>
+   </s-appbar>
+  <s-scroll-view>
+  <div class="main_passage">
+    <div id="passages"></div>
+  </div>
+  </s-scroll-view>
+</s-drawer>
+</s-page>
+</body>
+
+:: NewUiScript [script]
+$(document).ready(function() {
+	$("#opensaves").click(function() {
+		UI.saves(), document.querySelector('#drawer').toggle()
+	});	
+	$("#opensettings").click(function() {
+		Engine.play("设置"), document.querySelector('#drawer').toggle()
+	});
+	$("#jumpdebug").click(function() {
+		Engine.play("调试示例"), document.querySelector('#drawer').toggle()
+	});
+});

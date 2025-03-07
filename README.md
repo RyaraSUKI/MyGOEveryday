@@ -78,7 +78,6 @@ filetree
 - [X] 最初的起点
 - [ ] 加入天气系统
 - [ ] 优化ui
-- [ ] 加入更多宏
 - [ ] 加入换装系统
 - [ ] 给RiNG中的Live加入下落式4key小音游
 - [ ] 加入商店系统
@@ -90,25 +89,27 @@ filetree
 
 ### 更新记录
 
-- alpha1.0
+- [Update_Log](https://github.com/RyaraSUKI/MyGoEveryday/update.md)
 
 ### 引用与鸣谢
 
 > 『迷子们的每一天 !!!!!』的主体引擎和组件库使用了以下项目，在此表示感谢！
+
 - [Tweego](https://github.com/tmedwards/tweego)
 - [Sugarcube2](https://github.com/tmedwards/sugarcube-2)
 - [sobar.js](https://soberjs.com/)
+
+> 同时，本项目也参考或引用了下列项目的全部或部分内容，在此表示感谢！
+
 - [Animate.css](https://daneden.github.io/animate.css)
 - [jQuery](https://jquery.com/)
-
-> 同时，本项目也参考了下列项目的部分内容，在此表示感谢！
-
 - [Best README Template](https://github.com/shaojintian/Best_README_template)
 - [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)
 - [Twine/Sugarcube 2 Template](https://awmorgan.itch.io/twine-sugarcube-template)
 
-> 感谢GitHub Pages提供网页版部署托管！
+> 感谢GitHub Pages提供网页托管！
 
 - [GitHub Pages](https://pages.github.com)
 
+<br>
 <p align="center">[<a href="#top">返回顶部</a>]</p>
