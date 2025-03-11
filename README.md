@@ -105,7 +105,8 @@ filetree
 - [jQuery](https://jquery.com/)
 - [Best README Template](https://github.com/shaojintian/Best_README_template)
 - [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)
-- [Twine/Sugarcube 2 Template](https://awmorgan.itch.io/twine-sugarcube-template)
+- [Twine 2 / SugarCube 2 Sample Code byHiEv](https://hiev-heavy-ind.com/Sample_Code/Sample_Code.html)
+- [100% Good Twine Sugarcube Templates](https://manonamora.itch.io/twine-sugarcube-templates)
 
 > 感谢GitHub Pages提供网页托管！
 

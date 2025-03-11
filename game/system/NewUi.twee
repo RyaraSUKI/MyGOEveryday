@@ -1,7 +1,12 @@
-:: newui_intro
+:: newui介绍
 新UI是一个测试中的未完成功能，主要使用了基于material设计风格的sober组件替换原版ui
-
-:: newui
+<br><br>
+  <s-button class="passage-button" data-passage="调试示例">调试示例</s-button>
+<br><br>
+<s-ripple class="passage-button"><<button "打开存档">><<ui saves>><</button>></s-ripple>
+<s-ripple class="passage-button"><<button "打开设置">><<ui settings>><</button>></s-ripple>
+:: Newui(StoryInterface)
+//写的一坨，正常游戏不会进入这个页面
 <body>
 <s-page theme="dark">
 <s-drawer style="display: flex; height: 100vh; width: auto" id="drawer">
@@ -45,16 +50,16 @@
 </s-drawer>
 </s-page>
 </body>
-
-:: NewUiScript [script]
+<script>
 $(document).ready(function() {
 	$("#opensaves").click(function() {
-		UI.saves(), document.querySelector('#drawer').toggle()
+		UI.saves()
 	});	
 	$("#opensettings").click(function() {
-		Engine.play("设置"), document.querySelector('#drawer').toggle()
+		UI.settings()
 	});
 	$("#jumpdebug").click(function() {
-		Engine.play("调试示例"), document.querySelector('#drawer').toggle()
+		Engine.play("调试示例")
 	});
-});
+})
+</script>

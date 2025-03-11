@@ -3,8 +3,9 @@
 <br>
 [[开始迷子->DebugSampleStart]] <br>
 [[设置->DebugSampleSettings]] <br>
-[[sober组件|sober]]<br>
-[[新UI|newui_intro]]<br>
+[[sober组件|sober介绍]]<br>
+[[新UI|newui介绍]]<br>
+[[所有页面|AP]]<br>
 [[退出|Start]]
 
 :: DebugSampleStart
@@ -43,8 +44,7 @@
 <<set $volume = $volume - 10>>
 [[返回设置->DebugSampleSettings]]
 
-:: sober
-<s-page theme="auto" class="theme_mygo">
+:: sober介绍
 <s-button> <<link "调试示例">><<goto "调试示例">><</link>> </s-button>
 <s-divider>剪切线</s-divider>
 <s-drawer style="height: 320px" id="drawer">
@@ -184,4 +184,3 @@ icons
 迷い星のうた，
 唱着迷途之星的歌。
 </s-fold>
-</s-page>

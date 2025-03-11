@@ -1,19 +1,8 @@
-/* 覆盖最外层容器 */
-html,
-body,
-#story {
-    background-color: #191c1d !important;
-}
-/* 已设置的部分保持原样 */
-#ui-bar,
-#passages {
-    background-color: #191c1d !important;
-}
 /* 新ui使用 */
 .sidebar {
   width: auto
 }
-.bar_button {
+.bar-button {
   display: flex;
   width: auto;
   border-radius: 4px;
@@ -29,13 +18,20 @@ body,
   background-color: #191c1d;
   z-index: 1000
 }
-.sidebar_content {
+.sidebar-content {
   width: auto;
   height: 100vh;
   background-color: #191c1d;
 }
-.main_passage {
+.main-passage {
   margin: 20% 10px 10px;
   width: auto
 }
 /* 新ui使用部分结束 */
+.passage-button {
+  display: grid;
+  width: auto;
+  border-radius: 5px;
+  padding: 0 16px;
+  text-align: center
+}
