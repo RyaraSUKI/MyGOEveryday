@@ -1,0 +1,69 @@
+/* ui demo使用 */
+.sidebar {
+  width: auto;
+}
+.bar-button {
+  display: flex;
+  width: auto;
+  border-radius: 4px;
+  padding: 0 16px;
+  text-align: center;
+}
+.appbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+  background-color: #191c1d;
+  z-index: 1000;
+}
+.sidebar-content {
+  width: auto;
+  height: 100vh;
+  background-color: #191c1d;
+}
+.main-passage {
+  margin: 20% 10px 10px;
+  width: auto;
+}
+/* sugarcube和原生组件替换部分 */
+button {
+  border-radius: 5px;
+  height: auto;
+}
+#menu ul {
+  color: #212121;
+  border-color: #006492;
+  border-radius: 5px;
+  height: auto;
+}
+#menu li {
+  border-radius: 5px;
+  height: auto;
+}
+#menu li a {
+  color: #212121;
+  background-color: #006492;
+  border-color: #8bceff;
+  display: block;
+  border-radius: 5px;
+  height: auto;
+}
+#menu li a:hover {
+  color: #8bceff;
+  border-radius: 5px;
+  height: auto;
+}
+/* 自定义部分 */
+.sober-button {
+  display: flex;
+  width: auto;
+  border-radius: 5px;
+  text-align: center;
+}
+.sugar-button {
+  display: grid;
+  width: auto;
+  text-align: center;
+}

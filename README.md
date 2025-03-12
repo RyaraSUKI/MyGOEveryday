@@ -93,16 +93,17 @@ filetree
 
 ### 引用与鸣谢
 
-> 『迷子们的每一天 !!!!!』的主体引擎和组件库使用了以下项目，在此表示感谢！
+> 『迷子们的每一天 !!!!!』的主体引擎、编译工具和组件库使用了以下项目，在此表示感谢！
 
-- [Tweego](https://github.com/tmedwards/tweego)
+- [Twine](https://twinery.org/)
 - [Sugarcube2](https://github.com/tmedwards/sugarcube-2)
+- [Tweego](https://github.com/tmedwards/tweego)
 - [sobar.js](https://soberjs.com/)
 
 > 同时，本项目也参考或引用了下列项目的全部或部分内容，在此表示感谢！
 
 - [Animate.css](https://daneden.github.io/animate.css)
-- [jQuery](https://jquery.com/)
+- [jQuery](https://jquery.com/)  //sugarcube2自带
 - [Best README Template](https://github.com/shaojintian/Best_README_template)
 - [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)
 - [Twine 2 / SugarCube 2 Sample Code byHiEv](https://hiev-heavy-ind.com/Sample_Code/Sample_Code.html)

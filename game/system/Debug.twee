@@ -1,186 +1,47 @@
-:: 调试示例
-<div class="animate__animated animate__flipInX" style="animation-duration: 2s">这是一个示例，用于最初的调试。</div>
-<br>
-[[开始迷子->DebugSampleStart]] <br>
-[[设置->DebugSampleSettings]] <br>
-[[sober组件|sober介绍]]<br>
-[[新UI|newui介绍]]<br>
-[[所有页面|AP]]<br>
-[[退出|Start]]
+:: DebugA
+<div class="animate__animated animate__tada" style="animate-duration: 3s"><u><strong>请注意！</strong></u><br>你接下来要进入游戏调试主页，如果你正处于游玩过程中，<u>进入该页面将清空所有未保存的内容</u>，是否继续？<br>（不是Sugarcube2的调试模式）</div>
+<s-divider>剪切线</s-divider>
+<br><s-ripple class="sugar-button"><button><<back "不，等等">></button></s-ripple><br><s-ripple class="sugar-button"><button style="color: #212121;background-color: #93000a;border-color: #ffb4ab">[[我知道我要去哪！|DebugHome]]</button></s-ripple>
+
+:: DebugHome
+<h1 class="animate__animated animate__flipInX" style="animate-duration: 3s">欢迎进入游戏调试主页！</h1>
+<div class="animate__animated animate__fadeInDown" style="animate-delay: 0.9s">这是用于调试的功能主页，你可以在这里进入各个不同的调试页面</div>
+<br><s-button class="sober-button" data-passage="Start"><s-icon slot="start" name="home"></s-icon>退出到主页</s-button>
+<s-divider>剪切线</s-divider>
+<s-button class="sober-button" data-passage="DebugMain"><s-icon slot="start" name="done"></s-icon>开始调试</s-button>
+<s-button class="sober-button" data-passage="AP">页面导航</s-button>
+<s-divider>DEMO</s-divider>
+<s-button class="sober-button" data-passage="sober介绍">Sober.js介绍</s-button>
+<s-button class="sober-button" data-passage="DebugSample">第一个示例</s-button>
+<s-button class="sober-button" data-passage="newui介绍">UI DEMO</s-button>
+<s-divider>Sugarcube2宏组件</s-divider>
+<s-ripple class="sugar-button"><<button "打开存档">><<ui saves>><</button>></s-ripple>
+<s-ripple class="sugar-button"><<button "打开设置">><<ui settings>><</button>></s-ripple>
+<s-ripple class="sugar-button"><<button "显示一条通知">><<notify>>''🔔 MyGo!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</notify>><</button>></s-ripple>
+
+:: DebugSample
+<s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
+//这是我第一次接触并使用Twine和Sugarcube2时尝试写出的测试实例，一切的开始……//<br>
+所以特地保留了下来:D<br>
+[[开始游戏！->DebugSampleStart]]
 
 :: DebugSampleStart
 你进入了RiNG的后台。<br>
 <img src="img/debug.png" style="max-width:300px;"><br>
-前方有两条小路，你选择哪一条？<br>
-[[左边的小路->DebugSampleLeftPath]] | [[右边的小路->DebugSampleRightPath]]
+前方有两条过道，你选择哪一条？<br>
+[[左边的过道->DebugSampleLeftPath]] | [[右边的过道->DebugSampleRightPath]]
 
 :: DebugSampleLeftPath
-你走上了左边的小路，遇到了一只偷摸零企鹅，在这待着也太可爱了吧。<br>
+你走进了左边的过道，遇到了一只偷摸零企鹅，在这待着也太可爱了吧~<br>
 <img src="img/char/tmr.png" style="max-width:300px;"><br>
 [[组一辈子乐队吧！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
 
 :: DebugSampleRightPath
-你走上了右边的小路，发现了一只抹茶小猫。<br>
+你走上了右边的过道，发现了一只抹茶小猫。<br>
 <img src="img/char/rana.png" style="max-width:300px;"><br>
-[[抹茶芭菲！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
+[[给她抹茶芭菲！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
 
 :: DebugSampleEnding
-即使迷茫，也要前进！！！！！<br>
-[[重新开始->调试示例]]
-
-:: DebugSampleSettings
-这是设置页面，你可以在这里调整一些游戏选项。（*并没有用）<br>
-<<set $volume = $volume or 50>>
-当前音量：<<print $volume>>%<br>
-[[音量增加|IncreaseVolume]] | [[音量减少|DecreaseVolume]] | [[返回主菜单->调试示例]]
-
-:: IncreaseVolume
-"音量"值增加10<br>
-<<set $volume = $volume + 10>>
-[[返回设置->DebugSampleSettings]]
-
-:: DecreaseVolume
-"音量"值减少10<br>
-<<set $volume = $volume - 10>>
-[[返回设置->DebugSampleSettings]]
-
-:: sober介绍
-<s-button> <<link "调试示例">><<goto "调试示例">><</link>> </s-button>
-<s-divider>剪切线</s-divider>
-<s-drawer style="height: 320px" id="drawer">
-  <div slot="start"></div>
-  <s-appbar>
-    <s-icon-button slot="navigation" onclick="document.querySelector('#drawer').toggle()">
-      <s-icon name="menu"></s-icon>
-    </s-icon-button>
-    <div slot="headline"> MyGO!!!!! </div>
-    <s-icon-button slot="action" onclick="document.querySelector('#drawer').toggle('end')">
-      <s-icon name="arrow_back"></s-icon>
-    </s-icon-button>
-  </s-appbar>
-  <s-scroll-view style="display: flex; justify-content: center; align-items: center;">
-    MyGo Everyday!!!!!
-  </s-scroll-view>
-  <div slot="end"></div>
-</s-drawer>
-<s-divider>剪切线</s-divider>
-<s-button> 壱雫空 </s-button>
-<s-button type="elevated"> 碧天伴走 </s-button>
-<s-button type="filled-tonal"> 诗超绊 </s-button>
-<s-button type="outlined"> 迷星叫 </s-button>
-<s-button type="text"> 迷路日 </s-button>
-<s-divider>剪切线</s-divider>
-<s-dialog>
-  <s-button slot="trigger"> 对话弹窗 </s-button>
-  <div slot="headline"> 潜在表明（节选） </div>
-  <div style="padding: 24px">
-    僕であろうとするために  この痛みがあるのなら，
-    若这阵痛楚便是坚守自我 所要付出的必然代价，
-    見失わないように  抱きしめている，
-    那么 只为不迷失自己我定会牢牢铭记，
-    誰かが望む理想（いろ）には  僕は変われない だから，
-    无法顺应他人的期愿 去改变自己 所以说，
-    何度だって  這い出した 声抱えて 生きる，
-    我会将无数次爬出深渊的声音 怀揣于心 竭力活下去。
-  </div>
-  <s-button slot="action" type="text">确定</s-button>
-</s-dialog>
-<s-divider>剪切线</s-divider>
-icons
-<s-icon name="home"></s-icon>
-<s-icon name="add"></s-icon>
-<s-icon name="search"></s-icon>
-<s-icon name="menu"></s-icon>
-<s-icon name="arrow_back"></s-icon>
-<s-icon name="arrow_forward"></s-icon>
-<s-icon name="arrow_upward"></s-icon>
-<s-icon name="arrow_downward"></s-icon>
-<s-icon name="arrow_drop_up"></s-icon>
-<s-icon name="arrow_drop_down"></s-icon>
-<s-icon name="arrow_drop_left"></s-icon>
-<s-icon name="arrow_drop_right"></s-icon>
-<s-icon name="more_vert"></s-icon>
-<s-icon name="more_horiz"></s-icon>
-<s-icon name="close"></s-icon>
-<s-icon name="done"></s-icon>
-<s-icon name="chevron_up"></s-icon>
-<s-icon name="chevron_down"></s-icon>
-<s-icon name="chevron_left"></s-icon>
-<s-icon name="chevron_right"></s-icon>
-<s-icon name="light_mode"></s-icon>
-<s-icon name="dark_mode"></s-icon>
-<s-icon name="star"></s-icon>
-<s-icon name="favorite"></s-icon>
-<s-divider>剪切线</s-divider>
-<s-checkbox>组一辈子乐队!!!!!</s-checkbox>
-<s-checkbox checked="true"></s-checkbox>
-<s-checkbox indeterminate="true"></s-checkbox>
-<s-divider>剪切线</s-divider>
-<s-slider labeled="true"></s-slider>
-<s-divider>剪切线</s-divider>
-<s-linear-progress indeterminate="true"></s-linear-progress>
-<s-divider>剪切线</s-divider>
-<s-circular-progress indeterminate="true"></s-circular-progress>
-<s-divider>剪切线</s-divider>
-<s-switch></s-switch>
-<s-switch checked="true"></s-switch>
-<s-divider>剪切线</s-divider>
-<s-text-field label="点击输入文本🤗" multiLine="true" style="min-height: 96px"></s-text-field>
-<s-divider>剪切线</s-divider>
-母鸡卡评分（心虚）
-<s-rate></s-rate>
-<s-divider>剪切线</s-divider>
-<s-picker onchange="this.firstElementChild.textContent = this.options[this.selectedIndex].textContent">
-  <s-button slot="trigger">选择成员</s-button>
-  <s-picker-item>长崎 素世</s-picker-item>
-  <s-picker-item>千早 爱音</s-picker-item>
-  <s-picker-item>高松 灯</s-picker-item>
-  <s-picker-item>椎名 立希</s-picker-item>
-  <s-picker-item>要 乐奈</s-picker-item>
-</s-picker>
-<s-divider>剪切线</s-divider>
-<s-card type="filled" clickable="true">
-  <div slot="image"></div>
-  <div slot="headline">MyGO!!!!!</div>
-  <div slot="subhead">	迷子でもいい、迷子でも進め。</div>
-  <div slot="text">即便迷茫也要继续前进，五名少女组成了乐队。初中时因为乐队解散而远离了音乐的灯，因为与爱音的相遇而再次开始了乐队活动。成员们的个性各不相同，也经常产生摩擦。但是，她们都想站在舞台上。即便思念得不到回应，即便寻找不到答案，迷路的少女们也仍会不断前进</div>
-  <s-button slot="action">确定</s-button>
-</s-card>
-<s-divider>剪切线</s-divider>
-<s-fold>
-  <s-button slot="trigger">点击展开</s-button>
-交差点の真ん中 急ぐ人に紛れて，
-置身十字路口正中央 混入熙来熙往的人群，
-僕だけがあてもなく 漂うみたいだ，
-唯独我漫无目的 有如漂流者一般，
-流行りの歌はいつも，
-那些流行的首首歌曲，
-僕のことは歌ってない，
-总是唱不出我的心思，
-ねえビジョンの中から，
-请不要在幻象中，
-笑いかけないで，
-对着我露出微笑，
-また今日も声にならずに，
-今天又语不成声，
-飲み込んだ感情，
-将感情吞如心底，
-下書き埋め尽くして，
-书页写满了草稿，
-ああ そうやって何千回夜を越える，
-啊啊 就这么度过了数千个夜晚，
-僕のため，
-为了我自己，
-それだけ それだけだったんだよ，
-只是如此 就仅仅是如此而已，
-出口探し 溢れただけの言葉，
-为从心头满溢而出的话语找寻出口，
-君の心へ届いて，
-若能传达至你的心中，
-隙間をちょっと埋めるなら，
-稍稍填补虚无的空隙，
-こんな僕でも ここにいる 叫ぶよ，
-即使这样的我 也将大喊我在这里，
-迷い星のうた，
-唱着迷途之星的歌。
-</s-fold>
+''迷子でもいい、迷子でも進め！！！！！<br>
+即使迷茫，也要前进！！！！！''<br>
+[[重新开始->DebugSampleStart]]<br>[[退出->DebugSample]]

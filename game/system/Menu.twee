@@ -1,6 +1,6 @@
 :: StoryMenu
-<<link "调试示例">>
-        <<goto "调试示例">>
+<<link "调试">>
+        <<goto "DebugA">>
 <</link>>
 
 :: StoryCaption

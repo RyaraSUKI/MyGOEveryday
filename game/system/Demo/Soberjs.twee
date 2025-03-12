@@ -1,0 +1,122 @@
+:: sober介绍
+<s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
+<s-button> 壱雫空 </s-button>
+<s-button type="elevated"> 碧天伴走 </s-button>
+<s-button type="filled-tonal"> 诗超绊 </s-button>
+<s-button type="outlined"> 迷星叫 </s-button>
+<s-button type="text"> 迷路日 </s-button>
+<s-divider>剪切线</s-divider>
+<s-dialog>
+  <s-button slot="trigger"> 对话弹窗 </s-button>
+  <div slot="headline"> 潜在表明（节选） </div>
+  <div style="padding: 24px">
+    僕であろうとするために  この痛みがあるのなら，
+    若这阵痛楚便是坚守自我 所要付出的必然代价，
+    見失わないように  抱きしめている，
+    那么 只为不迷失自己我定会牢牢铭记，
+    誰かが望む理想（いろ）には  僕は変われない だから，
+    无法顺应他人的期愿 去改变自己 所以说，
+    何度だって  這い出した 声抱えて 生きる，
+    我会将无数次爬出深渊的声音 怀揣于心 竭力活下去。
+  </div>
+  <s-button slot="action" type="text">确定</s-button>
+</s-dialog>
+<s-divider>剪切线</s-divider>
+icons
+<s-icon name="home"></s-icon>
+<s-icon name="add"></s-icon>
+<s-icon name="search"></s-icon>
+<s-icon name="menu"></s-icon>
+<s-icon name="arrow_back"></s-icon>
+<s-icon name="arrow_forward"></s-icon>
+<s-icon name="arrow_upward"></s-icon>
+<s-icon name="arrow_downward"></s-icon>
+<s-icon name="arrow_drop_up"></s-icon>
+<s-icon name="arrow_drop_down"></s-icon>
+<s-icon name="arrow_drop_left"></s-icon>
+<s-icon name="arrow_drop_right"></s-icon>
+<s-icon name="more_vert"></s-icon>
+<s-icon name="more_horiz"></s-icon>
+<s-icon name="close"></s-icon>
+<s-icon name="done"></s-icon>
+<s-icon name="chevron_up"></s-icon>
+<s-icon name="chevron_down"></s-icon>
+<s-icon name="chevron_left"></s-icon>
+<s-icon name="chevron_right"></s-icon>
+<s-icon name="light_mode"></s-icon>
+<s-icon name="dark_mode"></s-icon>
+<s-icon name="star"></s-icon>
+<s-icon name="favorite"></s-icon>
+<s-divider>剪切线</s-divider>
+<s-checkbox>组一辈子乐队!!!!!</s-checkbox>
+<s-checkbox checked="true"></s-checkbox>
+<s-checkbox indeterminate="true"></s-checkbox>
+<s-divider>剪切线</s-divider>
+<s-slider labeled="true"></s-slider>
+<s-divider>剪切线</s-divider>
+<s-linear-progress indeterminate="true"></s-linear-progress>
+<s-divider>剪切线</s-divider>
+<s-circular-progress indeterminate="true"></s-circular-progress>
+<s-divider>剪切线</s-divider>
+<s-switch></s-switch>
+<s-switch checked="true"></s-switch>
+<s-divider>剪切线</s-divider>
+<s-text-field label="点击输入文本🤗" multiLine="true" style="min-height: 96px"></s-text-field>
+<s-divider>剪切线</s-divider>
+母鸡卡评分（心虚）
+<s-rate></s-rate>
+<s-divider>剪切线</s-divider>
+<s-picker onchange="this.firstElementChild.textContent = this.options[this.selectedIndex].textContent">
+  <s-button slot="trigger">选择成员</s-button>
+  <s-picker-item>长崎 素世</s-picker-item>
+  <s-picker-item>千早 爱音</s-picker-item>
+  <s-picker-item>高松 灯</s-picker-item>
+  <s-picker-item>椎名 立希</s-picker-item>
+  <s-picker-item>要 乐奈</s-picker-item>
+</s-picker>
+<s-divider>剪切线</s-divider>
+<s-card type="filled" clickable="true">
+  <div slot="image"></div>
+  <div slot="headline">MyGO!!!!!</div>
+  <div slot="subhead">	迷子でもいい、迷子でも進め。</div>
+  <div slot="text">即便迷茫也要继续前进，五名少女组成了乐队。初中时因为乐队解散而远离了音乐的灯，因为与爱音的相遇而再次开始了乐队活动。成员们的个性各不相同，也经常产生摩擦。但是，她们都想站在舞台上。即便思念得不到回应，即便寻找不到答案，迷路的少女们也仍会不断前进</div>
+  <s-button slot="action">确定</s-button>
+</s-card>
+<s-divider>剪切线</s-divider>
+<s-fold>
+  <s-button slot="trigger">点击展开</s-button>
+交差点の真ん中 急ぐ人に紛れて，
+置身十字路口正中央 混入熙来熙往的人群，
+僕だけがあてもなく 漂うみたいだ，
+唯独我漫无目的 有如漂流者一般，
+流行りの歌はいつも，
+那些流行的首首歌曲，
+僕のことは歌ってない，
+总是唱不出我的心思，
+ねえビジョンの中から，
+请不要在幻象中，
+笑いかけないで，
+对着我露出微笑，
+また今日も声にならずに，
+今天又语不成声，
+飲み込んだ感情，
+将感情吞如心底，
+下書き埋め尽くして，
+书页写满了草稿，
+ああ そうやって何千回夜を越える，
+啊啊 就这么度过了数千个夜晚，
+僕のため，
+为了我自己，
+それだけ それだけだったんだよ，
+只是如此 就仅仅是如此而已，
+出口探し 溢れただけの言葉，
+为从心头满溢而出的话语找寻出口，
+君の心へ届いて，
+若能传达至你的心中，
+隙間をちょっと埋めるなら，
+稍稍填补虚无的空隙，
+こんな僕でも ここにいる 叫ぶよ，
+即使这样的我 也将大喊我在这里，
+迷い星のうた，
+唱着迷途之星的歌。
+</s-fold>
