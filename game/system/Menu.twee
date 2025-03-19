@@ -1,7 +1,14 @@
+:: StoryTitle
+迷子们的每一天 !!!!!
+
+:: StorySubtitle
+MyGo Everyday !!!!!
+
+:: StoryDisplayTitle
+迷子们的每一天 !!!!!
+
 :: StoryMenu
-<<link "调试">>
-        <<goto "DebugA">>
-<</link>>
+<<link "测试">><<goto "进入测试页面">><</link>>
 
 :: StoryCaption
 <br>

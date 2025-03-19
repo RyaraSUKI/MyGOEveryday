@@ -1,0 +1,46 @@
+:: 进入测试页面 [autosave]
+<div class="animate__animated animate__tada" style="animate-duration: 5s"><u><strong>请注意！</strong></u><br>你接下来要进入游戏测试主页，<u>这个页面主要用于开发，非正常游戏流程不会使用该页面</u>，是否继续？</div>
+<s-divider>剪切线</s-divider>
+<br><s-ripple class="sugar-button"><button><<back "不，等等">></button></s-ripple><br><s-ripple class="sugar-button"><button style="color: #212121;background-color: #93000a;border-color: #ffb4ab">[[我知道我要去哪！|DebugHome]]</button></s-ripple>
+
+:: DebugHome
+<h1 class="animate__animated animate__flipInX" style="animate-duration: 3s">欢迎进入游戏测试主页！</h1>
+<div class="animate__animated animate__fadeInDown" style="animate-delay: 0.9s">这是用于测试的功能主页，你可以在这里进入各个不同的测试页面</div>
+<br><s-button class="sober-button" data-passage="Start"><s-icon slot="start" name="home"></s-icon>退出到主页</s-button>
+<s-divider>剪切线</s-divider>
+<s-button class="sober-button" data-passage="DebugMain"><s-icon slot="start" name="done"></s-icon>调试</s-button>
+<s-button class="sober-button" data-passage="AP">页面导航</s-button>
+<s-divider>DEMO</s-divider>
+<s-button class="sober-button" data-passage="sober介绍">Sober.js</s-button>
+<s-button class="sober-button" data-passage="DebugSample">第一个示例</s-button>
+<s-divider>Sugarcube2宏组件</s-divider>
+<s-ripple class="sugar-button"><<button "打开存档">><<ui saves>><</button>></s-ripple>
+<s-ripple class="sugar-button"><<button "打开设置">><<ui settings>><</button>></s-ripple>
+<s-ripple class="sugar-button"><<button "显示一条通知">><<notify>>''🔔 MyGo!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</notify>><</button>></s-ripple>
+
+:: DebugSample
+<s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
+//这是我第一次接触并使用Twine和Sugarcube2时尝试写出的测试实例，一切的开始……//<br>
+所以特地保留了下来:D<br>
+[[开始游戏！->DebugSampleStart]]
+
+:: DebugSampleStart
+你进入了RiNG的后台。<br>
+<img src="img/debug.png" style="max-width:300px;"><br>
+前方有两条过道，你选择哪一条？<br>
+[[左边的过道->DebugSampleLeftPath]] | [[右边的过道->DebugSampleRightPath]]
+
+:: DebugSampleLeftPath
+你走进了左边的过道，遇到了一只偷摸零企鹅，在这待着也太可爱了吧~<br>
+<img src="img/char/tmr.png" style="max-width:300px;"><br>
+[[组一辈子乐队吧！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
+
+:: DebugSampleRightPath
+你走上了右边的过道，发现了一只抹茶小猫。<br>
+<img src="img/char/rana.png" style="max-width:300px;"><br>
+[[给她抹茶芭菲！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
+
+:: DebugSampleEnding
+''迷子でもいい、迷子でも進め！！！！！<br>
+即使迷茫，也要前进！！！！！''<br>
+[[重新开始->DebugSampleStart]]<br>[[退出->DebugSample]]
