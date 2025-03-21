@@ -4177,24 +4177,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
-/* twine-user-stylesheet #2: "notify.css" */
-/* Chapel's Notification Macro */
-#notify {
-    position : fixed;
-    display : block;
-    width : 16em;
-    right : -20em; top : 2em;
-    padding : 0.5em;
-    background-color : #8bceff;
-    color : #191c1d;
-    -webkit-transition : right 1s;
-    -moz-transition : right 1s;
-    -o-transition : right 1s;
-    transition : right 1s;
-    border-radius: 4px;
-}
-#notify.open { right : 0; }
-/* twine-user-stylesheet #3: "settings.css" */
+/* twine-user-stylesheet #2: "settings.css" */
 /*字体导入*/
 @font-face {
     font-family: "default";
@@ -4209,6 +4192,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
     font-weight: normal;
 }
 /*字体*/
+/*主要应该引用的地方: .passage, #ui-dialog, #ui-bar, #notify*/
 .default body {font-family: '系统字体', default;}
 .unifont body {font-family:  "像素字体", unifont}
 /*对齐*/ 
@@ -4219,7 +4203,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 .lh-medium .passage {line-height: 1.6;}
 .lh-large .passage {line-height: 2.0;}
 .lh-biggest .passage {line-height: 2.4;}
-/* twine-user-stylesheet #4: "style.css" */
+/* twine-user-stylesheet #3: "style.css" */
 /* sugarcube和原生组件替换部分 */
 button {
   border-radius: 5px;
@@ -4242,6 +4226,21 @@ button {
   border-radius: 5px;
   height: auto;
 }
+/* Chapel's Notification Macro */
+#notify {
+    position : fixed;
+    display : block;
+    width : 16em;
+    right : -20em; top : 2em;
+    padding : 0.5em;
+    -webkit-transition : right 1s;
+    -moz-transition : right 1s;
+    -o-transition : right 1s;
+    transition : right 1s;
+    border: 3px solid;
+    border-radius: 4px;
+}
+#notify.open { right : 0; }
 /* 自定义部分 */
 .sober-button {
   display: flex;
@@ -4254,17 +4253,17 @@ button {
   width: auto;
   text-align: center;
 }
-/* twine-user-stylesheet #5: "theme.css" */
+/* twine-user-stylesheet #4: "theme.css" */
 /* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖 */
 /* Sugarcube2主题配色，保证优先加载，.rev为暗色主题 */
       /*Body*/
 body {
-    background-color: #ccc;
+    background-color: #eee;
     color: #212121;
 }
 .rev body {
     background-color: #212121;
-    color : #ccc;
+    color : #eee;
 }
     /*原生按钮 和 link链接*/
 a {
@@ -4349,8 +4348,8 @@ hr {
 }
     /*UI 侧边栏*/
 #ui-bar {
-    background-color: #aaa;
-    border-color: #999;
+    background-color: #bbb;
+    border-color: #aaa;
 }
 .rev #ui-bar {
     background-color: #212121;
@@ -4460,6 +4459,17 @@ hr {
 }
 #ui-dialog-body.settings button[id|="setting-control"].enabled {
     color: #ccc;
+}
+/*通知或成就小弹窗*/
+#notify {
+    color: #212121;
+    background-color : #3388bb;
+    border-color: #88ccff;
+}
+.rev #notify {
+    color: #212121;
+    background-color : #88ccff;
+    border-color : #3388bb;
 }
 /*Sober.js组件主题，-d为暗色；-l为亮色*/
 .theme-d {
@@ -4732,12 +4742,18 @@ Config.saves.isAllowed = function (saveType) {
     if (saveType === Save.Type.Auto) {
         if (settings.autosave && !tags().includes('autosave')){ //检查passage是否带有autosave标签，若有则自动存档
             return false;
+        };
+        if (settings.autosave && !tags().includes('nosave')){ //检查passage是否带有nosave标签，若有则禁止自动或手动存档
+            return true;
         }
         return true;
     }
     else {
         if (tags().includes('autosave')) {
             return true;
+        };
+        if (tags().includes('nosave')) {
+            return false;
         }
         return true;
     }
@@ -4889,9 +4905,9 @@ Setting.addToggle("autoname", {
 		Dialog: Restart.
 	*******************************************************************************/
 
-	l10nStrings.restartTitle = '重新迷子';
+	l10nStrings.restartTitle = '重新出发吧';
 
-	l10nStrings.restartMesgPrompt = '即将重启，所有未记录的都将迷失——确定要重新载入吗？';
+	l10nStrings.restartMesgPrompt = '让我们在这里重新出发吧，所有未记录的日记都将消散——确定要重新开始吗？';
 
 
 	/*******************************************************************************
@@ -4902,9 +4918,9 @@ Setting.addToggle("autoname", {
 
 	l10nStrings.savesTitle = '迷子们的日记本';
 
-	l10nStrings.savesHeaderBrowser = '浏览器内';
+	l10nStrings.savesHeaderBrowser = '浏览器内的日记';
 
-	l10nStrings.savesHeaderDisk = '本地';
+	l10nStrings.savesHeaderDisk = '本地的日记';
 
 	l10nStrings.savesLabelBrowserClear = '清空浏览器里迷子的记录';
 
@@ -4912,13 +4928,13 @@ Setting.addToggle("autoname", {
 
 	l10nStrings.savesLabelBrowserImport = '从bundle导入浏览器记录';
 
-	l10nStrings.savesLabelDiskLoad = '从本地加载';
+	l10nStrings.savesLabelDiskLoad = '从本地加载日记';
 
-	l10nStrings.savesLabelDiskSave = '保存至本地';
+	l10nStrings.savesLabelDiskSave = '保存日记至本地';
 
 	l10nStrings.savesTextBrowserAuto = '自动记录';
 
-	l10nStrings.savesTextBrowserSlot = '记录槽';
+	l10nStrings.savesTextBrowserSlot = '日记本';
 
 	l10nStrings.savesTextNoDate = '未知时间';
 
@@ -4929,14 +4945,14 @@ Setting.addToggle("autoname", {
 
 	l10nStrings.settingsTitle = '迷子们的北极星';
 
-	l10nStrings.settingsTextReset = '重置为默认项';
+	l10nStrings.settingsTextReset = '重置为默认';
 
 
 	/*******************************************************************************
 		Debugging: Error Views.
 	*******************************************************************************/
 
-	l10nStrings.errorViewTitle = '错误';
+	l10nStrings.errorViewTitle = '错误！';
 
 	l10nStrings.errorViewLabelToggle = '展开/收起错误视图';
 
@@ -5015,16 +5031,14 @@ Setting.addToggle("autoname", {
 
 	l10nStrings.shareTitle = '分享';
 })();
-</script><tw-passagedata pid="1" name="Start" tags="" position="100,100" size="100,100">MyGO Everyday !!!!!
-[img[img/mygo.png]]
+</script><tw-passagedata pid="1" name="Start" tags="nosave" position="100,100" size="100,100">MyGO Everyday !!!!!
+[img[img/mygoe_logo.png]]
 [[迷路的星星终将相遇|Opening]]</tw-passagedata><tw-passagedata pid="2" name="Opening" tags="" position="225,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="3" name="AP" tags="AP" position="350,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;br&gt;这里记录了所有的角色的专属passage和共通passage，相当于一个目录，方便在没有可视化编辑器的时候调试和预览&lt;br&gt;
 共通页面：&lt;br&gt;</tw-passagedata><tw-passagedata pid="4" name="DebugMain" tags="" position="475,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;s-divider&gt;剪切线&lt;/s-divider&gt;
 写得一坨，敬请谅解
-&lt;&lt;button &quot;启用sugarcube2调试视图&quot;&gt;&gt;&lt;&lt;script&gt;&gt;DebugView.toggle()&lt;&lt;/script&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="StoryMenu" tags="" position="600,100" size="100,100">&lt;&lt;link &quot;测试&quot;&gt;&gt;
-        &lt;&lt;goto &quot;TestA&quot;&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="StoryCaption" tags="" position="725,100" size="100,100">&lt;br&gt;</tw-passagedata><tw-passagedata pid="7" name="sober介绍" tags="" position="850,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;&lt;br&gt;
+&lt;&lt;button &quot;启用sugarcube2调试视图&quot;&gt;&gt;&lt;&lt;script&gt;&gt;DebugView.toggle()&lt;&lt;/script&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="StorySubtitle" tags="" position="600,100" size="100,100">MyGo Everyday !!!!!</tw-passagedata><tw-passagedata pid="6" name="StoryDisplayTitle" tags="" position="725,100" size="100,100">迷子们的每一天 !!!!!</tw-passagedata><tw-passagedata pid="7" name="StoryMenu" tags="" position="850,100" size="100,100">&lt;&lt;link &quot;测试&quot;&gt;&gt;&lt;&lt;goto &quot;进入测试页面&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="StoryCaption" tags="" position="975,100" size="100,100">&lt;br&gt;</tw-passagedata><tw-passagedata pid="9" name="sober介绍" tags="" position="1100,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;&lt;br&gt;
 //[[Sober|https://github.com/apprat/sober]] 是参考 Google Material You 设计规范的 Web Component UI 组件库，具有非侵入和自适应等特性，『迷子们的每一天』使用了其部分组件作为互动功能的一部分。//&lt;br&gt;
 下面是一些组件演示：
 &lt;s-divider&gt;选项卡&lt;/s-divider&gt;
@@ -5074,7 +5088,7 @@ Setting.addToggle("autoname", {
   &lt;div slot=&quot;subhead&quot;&gt;	迷子でもいい、迷子でも進め。&lt;/div&gt;
   &lt;div slot=&quot;text&quot;&gt;即便迷茫也要继续前进，五名少女组成了乐队。初中时因为乐队解散而远离了音乐的灯，因为与爱音的相遇而再次开始了乐队活动。成员们的个性各不相同，也经常产生摩擦。但是，她们都想站在舞台上。即便思念得不到回应，即便寻找不到答案，迷路的少女们也仍会不断前进&lt;/div&gt;
   &lt;s-button slot=&quot;action&quot;&gt;确定&lt;/s-button&gt;
-&lt;/s-card&gt;</tw-passagedata><tw-passagedata pid="8" name="StorySubtitle" tags="" position="975,100" size="100,100">MyGo Everyday !!!!!</tw-passagedata><tw-passagedata pid="9" name="StoryDisplayTitle" tags="" position="1100,100" size="100,100">MyGoEveryday!!!!!</tw-passagedata><tw-passagedata pid="10" name="StoryInit" tags="" position="1225,100" size="100,100"></tw-passagedata><tw-passagedata pid="11" name="TestA" tags="autosave" position="100,225" size="100,100">&lt;div class=&quot;animate__animated animate__tada&quot; style=&quot;animate-duration: 5s&quot;&gt;&lt;u&gt;&lt;strong&gt;请注意！&lt;/strong&gt;&lt;/u&gt;&lt;br&gt;你接下来要进入游戏测试主页，&lt;u&gt;这个页面主要用于开发，非正常游戏流程不会使用该页面&lt;/u&gt;，是否继续？&lt;/div&gt;
+&lt;/s-card&gt;</tw-passagedata><tw-passagedata pid="10" name="StoryInit" tags="" position="1225,100" size="100,100"></tw-passagedata><tw-passagedata pid="11" name="进入测试页面" tags="autosave" position="100,225" size="100,100">&lt;div class=&quot;animate__animated animate__tada&quot; style=&quot;animate-duration: 5s&quot;&gt;&lt;u&gt;&lt;strong&gt;请注意！&lt;/strong&gt;&lt;/u&gt;&lt;br&gt;你接下来要进入游戏测试主页，&lt;u&gt;这个页面主要用于开发，非正常游戏流程不会使用该页面&lt;/u&gt;，是否继续？&lt;/div&gt;
 &lt;s-divider&gt;剪切线&lt;/s-divider&gt;
 &lt;br&gt;&lt;s-ripple class=&quot;sugar-button&quot;&gt;&lt;button&gt;&lt;&lt;back &quot;不，等等&quot;&gt;&gt;&lt;/button&gt;&lt;/s-ripple&gt;&lt;br&gt;&lt;s-ripple class=&quot;sugar-button&quot;&gt;&lt;button style=&quot;color: #212121;background-color: #93000a;border-color: #ffb4ab&quot;&gt;[[我知道我要去哪！|DebugHome]]&lt;/button&gt;&lt;/s-ripple&gt;</tw-passagedata><tw-passagedata pid="12" name="DebugHome" tags="" position="225,225" size="100,100">&lt;h1 class=&quot;animate__animated animate__flipInX&quot; style=&quot;animate-duration: 3s&quot;&gt;欢迎进入游戏测试主页！&lt;/h1&gt;
 &lt;div class=&quot;animate__animated animate__fadeInDown&quot; style=&quot;animate-delay: 0.9s&quot;&gt;这是用于测试的功能主页，你可以在这里进入各个不同的测试页面&lt;/div&gt;

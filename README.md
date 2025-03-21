@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/RyaraSUKI/MyGoEveryday">
-    <img src="img/mygoe_logo.png" alt="Logo" width="80" height="80">
+    <img src="img/mygoe_logo.png" alt="Logo" width="auto" height="auto">
   </a>
 
   <h2 align="center">迷子们的每一天 !!!!!</h2>

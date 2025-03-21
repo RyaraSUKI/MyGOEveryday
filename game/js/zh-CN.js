@@ -116,9 +116,9 @@
 		Dialog: Restart.
 	*******************************************************************************/
 
-	l10nStrings.restartTitle = '重新迷子';
+	l10nStrings.restartTitle = '重新出发吧';
 
-	l10nStrings.restartMesgPrompt = '即将重启，所有未记录的都将迷失——确定要重新载入吗？';
+	l10nStrings.restartMesgPrompt = '让我们在这里重新出发吧，所有未记录的日记都将消散——确定要重新开始吗？';
 
 
 	/*******************************************************************************
@@ -129,9 +129,9 @@
 
 	l10nStrings.savesTitle = '迷子们的日记本';
 
-	l10nStrings.savesHeaderBrowser = '浏览器内';
+	l10nStrings.savesHeaderBrowser = '浏览器内的日记';
 
-	l10nStrings.savesHeaderDisk = '本地';
+	l10nStrings.savesHeaderDisk = '本地的日记';
 
 	l10nStrings.savesLabelBrowserClear = '清空浏览器里迷子的记录';
 
@@ -139,13 +139,13 @@
 
 	l10nStrings.savesLabelBrowserImport = '从bundle导入浏览器记录';
 
-	l10nStrings.savesLabelDiskLoad = '从本地加载';
+	l10nStrings.savesLabelDiskLoad = '从本地加载日记';
 
-	l10nStrings.savesLabelDiskSave = '保存至本地';
+	l10nStrings.savesLabelDiskSave = '保存日记至本地';
 
 	l10nStrings.savesTextBrowserAuto = '自动记录';
 
-	l10nStrings.savesTextBrowserSlot = '记录槽';
+	l10nStrings.savesTextBrowserSlot = '日记本';
 
 	l10nStrings.savesTextNoDate = '未知时间';
 
@@ -156,14 +156,14 @@
 
 	l10nStrings.settingsTitle = '迷子们的北极星';
 
-	l10nStrings.settingsTextReset = '重置为默认项';
+	l10nStrings.settingsTextReset = '重置为默认';
 
 
 	/*******************************************************************************
 		Debugging: Error Views.
 	*******************************************************************************/
 
-	l10nStrings.errorViewTitle = '错误';
+	l10nStrings.errorViewTitle = '错误！';
 
 	l10nStrings.errorViewLabelToggle = '展开/收起错误视图';
 

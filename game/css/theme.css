@@ -2,12 +2,12 @@
 /* Sugarcube2主题配色，保证优先加载，.rev为暗色主题 */
       /*Body*/
 body {
-    background-color: #ccc;
+    background-color: #eee;
     color: #212121;
 }
 .rev body {
     background-color: #212121;
-    color : #ccc;
+    color : #eee;
 }
     /*原生按钮 和 link链接*/
 a {
@@ -92,8 +92,8 @@ hr {
 }
     /*UI 侧边栏*/
 #ui-bar {
-    background-color: #aaa;
-    border-color: #999;
+    background-color: #bbb;
+    border-color: #aaa;
 }
 .rev #ui-bar {
     background-color: #212121;
@@ -203,6 +203,17 @@ hr {
 }
 #ui-dialog-body.settings button[id|="setting-control"].enabled {
     color: #ccc;
+}
+/*通知或成就小弹窗*/
+#notify {
+    color: #212121;
+    background-color : #3388bb;
+    border-color: #88ccff;
+}
+.rev #notify {
+    color: #212121;
+    background-color : #88ccff;
+    border-color : #3388bb;
 }
 /*Sober.js组件主题，-d为暗色；-l为亮色*/
 .theme-d {

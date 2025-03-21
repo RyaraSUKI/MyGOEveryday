@@ -123,12 +123,18 @@ Config.saves.isAllowed = function (saveType) {
     if (saveType === Save.Type.Auto) {
         if (settings.autosave && !tags().includes('autosave')){ //检查passage是否带有autosave标签，若有则自动存档
             return false;
+        };
+        if (settings.autosave && !tags().includes('nosave')){ //检查passage是否带有nosave标签，若有则禁止自动或手动存档
+            return true;
         }
         return true;
     }
     else {
         if (tags().includes('autosave')) {
             return true;
+        };
+        if (tags().includes('nosave')) {
+            return false;
         }
         return true;
     }
