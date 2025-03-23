@@ -167,3 +167,12 @@ Setting.addToggle("autoname", {
     desc        : "在这里开启/关闭记录自动命名吧！（对应写下记录的页面名）",
     default     : false,
 });
+/*带hidebar标签的页面则隐藏侧边栏，由于侧边栏已经隐藏，因此同样无法存档*/
+$(document).on(':passageend', (ev) => {
+  if (ev.passage.tags.includes('hidebar')) {
+    UIBar.hide();
+    UIBar.stow();
+  }else{
+    UIBar.show();
+  }
+});

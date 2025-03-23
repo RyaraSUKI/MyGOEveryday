@@ -71,11 +71,11 @@
 1. 前往[tweego官方网站](https://www.motoslave.net/tweego/)或[tweego的仓库](https://github.com/tmedwards/tweego)下载最新版 tweego，注意选择自己系统的版本
 2. 前往[Sugarcube2官方网站](https://www.motoslave.net/sugarcube/2/)或[Sugarcube2的仓库](https://github.com/tmedwards/sugarcube-2)下载最新版Sugarcube2故事格式（请下载本地版本，如sugarcube-2.37.3-for-twine-2.1-local.zip），然后将解压的文件放置/替换在
 ```
-你的项目/tweego文件夹/storyformats/sugarcube-2/
+/你的项目/tweego文件夹/storyformats/sugarcube-2/
 ```
 3. 编译命令，-o 为发布编译，-t 为调试模式编译，具体参数参见[tweego文档](https://www.motoslave.net/tweego/docs/)（只需编译game/即可，否则将连同图片字体等资源文件一起编译导致html容量剧增！）
 ```
-tweego -o 你的项目/mygoeveryday根文件夹/game/
+tweego -o /你的项目/mygoeveryday根文件夹/game/
 ```
 4. 推荐使用VSC进行编辑，有一个[适配twee文件的插件](https://marketplace.visualstudio.com/items?itemName=cyrusfirheir.twee3-language-tools)推荐下载
 

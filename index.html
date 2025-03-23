@@ -4203,6 +4203,10 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 .lh-medium .passage {line-height: 1.6;}
 .lh-large .passage {line-height: 2.0;}
 .lh-biggest .passage {line-height: 2.4;}
+
+[data-tags~="hidebar"] #ui-bar {
+    display: none;
+};
 /* twine-user-stylesheet #3: "style.css" */
 /* sugarcube和原生组件替换部分 */
 button {
@@ -4786,6 +4790,15 @@ Setting.addToggle("autoname", {
     desc        : "在这里开启/关闭记录自动命名吧！（对应写下记录的页面名）",
     default     : false,
 });
+/*带hidebar标签的页面则隐藏侧边栏，由于侧边栏已经隐藏，因此同样无法存档
+$(document).on(':passageend', (ev) => {
+  if (ev.passage.tags.includes('hidebar')) {
+    UIBar.hide();
+    UIBar.stow();
+  }else{
+    UIBar.show();
+  }
+});*/
 /* twine-user-script #5: "zh-CN.js" */
 /***********************************************************************************************************************
 
@@ -5031,9 +5044,11 @@ Setting.addToggle("autoname", {
 
 	l10nStrings.shareTitle = '分享';
 })();
-</script><tw-passagedata pid="1" name="Start" tags="nosave" position="100,100" size="100,100">MyGO Everyday !!!!!
-[img[img/mygoe_logo.png]]
-[[迷路的星星终将相遇|Opening]]</tw-passagedata><tw-passagedata pid="2" name="Opening" tags="" position="225,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="3" name="AP" tags="AP" position="350,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
+</script><tw-passagedata pid="1" name="Start" tags="hidebar nosave" position="100,100" size="100,100">&lt;div style=&quot;margin: auto; width: 100%; text-align: center;&quot;&gt;
+    &lt;img id=&quot;menu-logo&quot; src=&quot;img/mygoe_logo.png&quot; style=&quot;width: 100%&quot;&gt;
+&lt;/div&gt;
+MyGO Everyday !!!!!
+[[迷路的星星终将相遇|Opening]]</tw-passagedata><tw-passagedata pid="2" name="Opening" tags="nosave" position="225,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="3" name="AP" tags="AP" position="350,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;br&gt;这里记录了所有的角色的专属passage和共通passage，相当于一个目录，方便在没有可视化编辑器的时候调试和预览&lt;br&gt;
 共通页面：&lt;br&gt;</tw-passagedata><tw-passagedata pid="4" name="DebugMain" tags="" position="475,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;s-divider&gt;剪切线&lt;/s-divider&gt;
