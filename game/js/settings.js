@@ -43,7 +43,7 @@ Setting.addList("fontFamily", {
     label		: "切换字体",
     desc        : "选择你想要的字体吧！", 
     list		: settingFontFamily,
-    default     : "系统字体", 
+    default     : "像素字体", 
     onInit		: fontFamily,
     onChange	: fontFamily
 });
@@ -119,6 +119,7 @@ Setting.addToggle("textalign", {
 });
 // 存档
 Setting.addHeader("迷子的日记本设定");
+Config.saves.maxSlotSaves = 16;
 Config.saves.isAllowed = function (saveType) {
     if (saveType === Save.Type.Auto) {
         if (settings.autosave && !tags().includes('autosave')){ //检查passage是否带有autosave标签，若有则自动存档
@@ -164,15 +165,6 @@ Config.saves.descriptions = function (saveType) {
 
 Setting.addToggle("autoname", {
     label       : "自动命名",
-    desc        : "在这里开启/关闭记录自动命名吧！（对应写下记录的页面名）",
+    desc        : "在这里开启/关闭记录自动命名吧！",
     default     : false,
-});
-/*带hidebar标签的页面则隐藏侧边栏，由于侧边栏已经隐藏，因此同样无法存档*/
-$(document).on(':passageend', (ev) => {
-  if (ev.passage.tags.includes('hidebar')) {
-    UIBar.hide();
-    UIBar.stow();
-  }else{
-    UIBar.show();
-  }
 });

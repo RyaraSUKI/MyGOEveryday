@@ -1,4 +1,4 @@
-:: Start [hidebar nosave]
+:: Start [nosave hidebar]
 <div style="margin: auto; width: 100%; text-align: center;">
     <img id="menu-logo" src="img/mygoe_logo.png" style="width: 100%">
 </div>

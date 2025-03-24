@@ -8,7 +8,7 @@ MyGo Everyday !!!!!
 迷子们的每一天 !!!!!
 
 :: StoryMenu
-<<link "测试">><<goto "进入测试页面">><</link>>
+<<link "测试">><<goto "进入测试页面">><<run UIBar.stow()>><</link>>
 
 :: StoryCaption
 <br>

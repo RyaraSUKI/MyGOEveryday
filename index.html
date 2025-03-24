@@ -4203,10 +4203,6 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 .lh-medium .passage {line-height: 1.6;}
 .lh-large .passage {line-height: 2.0;}
 .lh-biggest .passage {line-height: 2.4;}
-
-[data-tags~="hidebar"] #ui-bar {
-    display: none;
-};
 /* twine-user-stylesheet #3: "style.css" */
 /* sugarcube和原生组件替换部分 */
 button {
@@ -4620,7 +4616,17 @@ hr {
 // v1.0.1, 2024-07-22, 336675ff2cabe5f729a5f30d86aa409cc8432726
 ;!function(){var s={update:UIBar.setStoryElements,stow:UIBar.stow,unstow:UIBar.unstow,toggle:function(){$("#ui-bar").hasClass("stowed")?UIBar.unstow():UIBar.stow()},hide:function(){$("#ui-bar").css("display","none")},show:function(){$("#ui-bar").css("display","block")},kill:function(){$("#ui-bar").css("display","none"),$("#story").css("margin-left","2.5em")},restore:function(){$("#ui-bar").css("display","block"),$("#story").css("margin-left","20em")},jump:UI.jumpto,saves:UI.saves,restart:UI.restart,settings:UI.settings,share:UI.share,aliases:{refresh:"update",reload:"update",destroy:"kill",revive:"restore",jumpto:"jump",save:"saves",load:"saves",setting:"settings",sharing:"share"}},r=Object.keys(s);function t(t){return t&&"string"==typeof t?function(s){return r.includes(s)}(t=t.toLowerCase().trim())||(t=function(r){return s.aliases[r]||null}(t))?(s[t](),!1):'Command "'+t+'" is not a valid command.':"Command is not a string."}Macro.add("ui",{handler:function(){Array.isArray(this.args)&&this.args.length||this.error("No commands passed to macro.");var s,r=function(s){if(!Array.isArray(s))return"Command list error.";var r=[];return s.forEach((function(s){r.push(t(s))})),r}(this.args.flat(1/0));s=(r=r.filter((function(s){return"string"==typeof s}))).join(" "),r.length&&s&&this.error(s)}})}();
 // end ui-macro.min.js
-/* twine-user-script #4: "settings.js" */
+/* twine-user-script #4: "menubar.js" */
+/*带hidebar标签的页面则隐藏侧边栏，由于侧边栏已经隐藏，因此无法存档*/
+$(document).on(':passagerender', _ => {
+  if (tags().includes('hidebar')) {
+    UIBar.hide();
+    UIBar.stow();
+  }else{
+    UIBar.show();
+  }
+});
+/* twine-user-script #5: "settings.js" */
 /* 感谢manonamora的设置模板代码!Thanks for manonamora's Settings Template source code! */
 // 主题切换
 Setting.addHeader("主题");
@@ -4666,7 +4672,7 @@ Setting.addList("fontFamily", {
     label		: "切换字体",
     desc        : "选择你想要的字体吧！", 
     list		: settingFontFamily,
-    default     : "系统字体", 
+    default     : "像素字体", 
     onInit		: fontFamily,
     onChange	: fontFamily
 });
@@ -4742,6 +4748,7 @@ Setting.addToggle("textalign", {
 });
 // 存档
 Setting.addHeader("迷子的日记本设定");
+Config.saves.maxSlotSaves = 16;
 Config.saves.isAllowed = function (saveType) {
     if (saveType === Save.Type.Auto) {
         if (settings.autosave && !tags().includes('autosave')){ //检查passage是否带有autosave标签，若有则自动存档
@@ -4787,19 +4794,10 @@ Config.saves.descriptions = function (saveType) {
 
 Setting.addToggle("autoname", {
     label       : "自动命名",
-    desc        : "在这里开启/关闭记录自动命名吧！（对应写下记录的页面名）",
+    desc        : "在这里开启/关闭记录自动命名吧！",
     default     : false,
 });
-/*带hidebar标签的页面则隐藏侧边栏，由于侧边栏已经隐藏，因此同样无法存档
-$(document).on(':passageend', (ev) => {
-  if (ev.passage.tags.includes('hidebar')) {
-    UIBar.hide();
-    UIBar.stow();
-  }else{
-    UIBar.show();
-  }
-});*/
-/* twine-user-script #5: "zh-CN.js" */
+/* twine-user-script #6: "zh-CN.js" */
 /***********************************************************************************************************************
 
 	locale/zh-CN.js – 简体中文
@@ -4852,7 +4850,7 @@ $(document).on(':passageend', (ev) => {
 	l10nStrings.textSave = '记录';
 
 	// (noun) chance to act (in a game), moment, period
-	l10nStrings.textTurn = '迷子的记忆';
+	l10nStrings.textTurn = '迷子的某个记忆';
 
 
 	/*******************************************************************************
@@ -4882,15 +4880,15 @@ $(document).on(':passageend', (ev) => {
 
 	l10nStrings.saveErrorDisallowed = '现在还不能留下迷子的足迹……';
 
-	l10nStrings.saveErrorDecodeFail = '无法读取迷子的记录，该记录可能已经损坏';
+	l10nStrings.saveErrorDecodeFail = '无法读取这个迷子的记录，该记录可能已经损坏';
 
-	l10nStrings.saveErrorDiskLoadFail = '读取迷子的记录失败';
+	l10nStrings.saveErrorDiskLoadFail = '读取迷子的记录失败！';
 
 	l10nStrings.saveErrorIdMismatch = '这不是迷子的记忆！';
 
-	l10nStrings.saveErrorInvalidData = '缺少迷子的数据，该记录可能已经损坏';
+	l10nStrings.saveErrorInvalidData = '缺少这个迷子的数据，该记录可能已经损坏';
 
-	l10nStrings.saveErrorNonexistent = '记录迷子了';
+	l10nStrings.saveErrorNonexistent = '这个记录不存在……';
 
 
 	/*******************************************************************************
@@ -5044,7 +5042,7 @@ $(document).on(':passageend', (ev) => {
 
 	l10nStrings.shareTitle = '分享';
 })();
-</script><tw-passagedata pid="1" name="Start" tags="hidebar nosave" position="100,100" size="100,100">&lt;div style=&quot;margin: auto; width: 100%; text-align: center;&quot;&gt;
+</script><tw-passagedata pid="1" name="Start" tags="nosave hidebar" position="100,100" size="100,100">&lt;div style=&quot;margin: auto; width: 100%; text-align: center;&quot;&gt;
     &lt;img id=&quot;menu-logo&quot; src=&quot;img/mygoe_logo.png&quot; style=&quot;width: 100%&quot;&gt;
 &lt;/div&gt;
 MyGO Everyday !!!!!
@@ -5053,7 +5051,7 @@ MyGO Everyday !!!!!
 共通页面：&lt;br&gt;</tw-passagedata><tw-passagedata pid="4" name="DebugMain" tags="" position="475,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;s-divider&gt;剪切线&lt;/s-divider&gt;
 写得一坨，敬请谅解
-&lt;&lt;button &quot;启用sugarcube2调试视图&quot;&gt;&gt;&lt;&lt;script&gt;&gt;DebugView.toggle()&lt;&lt;/script&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="StorySubtitle" tags="" position="600,100" size="100,100">MyGo Everyday !!!!!</tw-passagedata><tw-passagedata pid="6" name="StoryDisplayTitle" tags="" position="725,100" size="100,100">迷子们的每一天 !!!!!</tw-passagedata><tw-passagedata pid="7" name="StoryMenu" tags="" position="850,100" size="100,100">&lt;&lt;link &quot;测试&quot;&gt;&gt;&lt;&lt;goto &quot;进入测试页面&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="StoryCaption" tags="" position="975,100" size="100,100">&lt;br&gt;</tw-passagedata><tw-passagedata pid="9" name="sober介绍" tags="" position="1100,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;&lt;br&gt;
+&lt;&lt;button &quot;启用sugarcube2调试视图&quot;&gt;&gt;&lt;&lt;script&gt;&gt;DebugView.toggle()&lt;&lt;/script&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="StorySubtitle" tags="" position="600,100" size="100,100">MyGo Everyday !!!!!</tw-passagedata><tw-passagedata pid="6" name="StoryDisplayTitle" tags="" position="725,100" size="100,100">迷子们的每一天 !!!!!</tw-passagedata><tw-passagedata pid="7" name="StoryMenu" tags="" position="850,100" size="100,100">&lt;&lt;link &quot;测试&quot;&gt;&gt;&lt;&lt;goto &quot;进入测试页面&quot;&gt;&gt;&lt;&lt;run UIBar.stow()&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="StoryCaption" tags="" position="975,100" size="100,100">&lt;br&gt;</tw-passagedata><tw-passagedata pid="9" name="sober介绍" tags="" position="1100,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;&lt;br&gt;
 //[[Sober|https://github.com/apprat/sober]] 是参考 Google Material You 设计规范的 Web Component UI 组件库，具有非侵入和自适应等特性，『迷子们的每一天』使用了其部分组件作为互动功能的一部分。//&lt;br&gt;
 下面是一些组件演示：
 &lt;s-divider&gt;选项卡&lt;/s-divider&gt;

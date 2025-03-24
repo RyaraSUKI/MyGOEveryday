@@ -50,7 +50,7 @@
 	l10nStrings.textSave = '记录';
 
 	// (noun) chance to act (in a game), moment, period
-	l10nStrings.textTurn = '迷子的记忆';
+	l10nStrings.textTurn = '迷子的某个记忆';
 
 
 	/*******************************************************************************
@@ -80,15 +80,15 @@
 
 	l10nStrings.saveErrorDisallowed = '现在还不能留下迷子的足迹……';
 
-	l10nStrings.saveErrorDecodeFail = '无法读取迷子的记录，该记录可能已经损坏';
+	l10nStrings.saveErrorDecodeFail = '无法读取这个迷子的记录，该记录可能已经损坏';
 
-	l10nStrings.saveErrorDiskLoadFail = '读取迷子的记录失败';
+	l10nStrings.saveErrorDiskLoadFail = '读取迷子的记录失败！';
 
 	l10nStrings.saveErrorIdMismatch = '这不是迷子的记忆！';
 
-	l10nStrings.saveErrorInvalidData = '缺少迷子的数据，该记录可能已经损坏';
+	l10nStrings.saveErrorInvalidData = '缺少这个迷子的数据，该记录可能已经损坏';
 
-	l10nStrings.saveErrorNonexistent = '记录迷子了';
+	l10nStrings.saveErrorNonexistent = '这个记录不存在……';
 
 
 	/*******************************************************************************
