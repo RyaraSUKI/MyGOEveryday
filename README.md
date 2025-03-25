@@ -86,6 +86,7 @@ tweego -o /你的项目/mygoeveryday根文件夹/game/
 - [ ] 加入互动游戏
 - [ ] 加入商店系统
 - [ ] 丰富网页内容
+- [ ] 存档系统更新
 
 ### 更新记录
 
@@ -114,7 +115,7 @@ tweego -o /你的项目/mygoeveryday根文件夹/game/
 
 > 特别鸣谢
 
-- 感谢[B站熔岩泡芙](https://b23.tv/2YHc679)以及热心群友们的帮助！
+- 感谢[Sguarcube2群代码整合](https://www.yuque.com/u45355763/twine)热心群友们的帮助！
 - 感谢[GitHub Pages](https://pages.github.com)提供网页托管！
 
 <br>

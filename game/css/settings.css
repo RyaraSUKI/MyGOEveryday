@@ -16,7 +16,7 @@
 .default body {font-family: '系统字体', default;}
 .unifont body {font-family:  "像素字体", unifont}
 /*对齐*/ 
-.justified .passage {text-align: justify;}
+.textcenter .passage {text-align: center;}
 
 /*行高*/
 .lh-small .passage {line-height: 1.2;}

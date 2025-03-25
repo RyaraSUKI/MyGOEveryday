@@ -106,20 +106,20 @@ Setting.addList("lineheight", {
 // 文本对齐
 var settingtextAlign = function () {
     if (settings.textalign) { 
-        $("html").addClass("justified");
+        $("html").addClass("textcenter");
     } else {
-        $("html").removeClass("justified");
+        $("html").removeClass("textcenter");
 }};
 Setting.addToggle("textalign", {
     label       : "切换文本对齐",
-    desc        : "在这里开启文本绝对位置对齐吧！",
+    desc        : "在这里开启文本中间对齐吧！",
     default     : false,
     onInit      : settingtextAlign,
     onChange    : settingtextAlign
 });
 // 存档
 Setting.addHeader("迷子的日记本设定");
-Config.saves.maxSlotSaves = 16;
+Config.saves.maxSlotSaves = 16;//设置最大存档数0~16
 Config.saves.isAllowed = function (saveType) {
     if (saveType === Save.Type.Auto) {
         if (settings.autosave && !tags().includes('autosave')){ //检查passage是否带有autosave标签，若有则自动存档
