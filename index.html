@@ -4177,7 +4177,13 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
-/* twine-user-stylesheet #2: "settings.css" */
+/* twine-user-stylesheet #2: "root.css" */
+/*此部分主要用于导入资源*/
+:root {
+    /*引入MyGO图标svg，只能在这里引用，外置资源加载前会用回原生样式*/
+    --svg-mygo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -0.5 53 53' shape-rendering='crispEdges'%3E%3Cpath stroke='%233388bb' d='M25 0h3M24 1h1M28 1h1M24 2h1M28 2h1M23 3h1M29 3h1M23 4h1M26 4h1M29 4h1M22 5h2M26 5h1M29 5h2M19 6h3M26 6h1M31 6h3M17 7h2M25 7h3M34 7h2M15 8h2M22 8h9M36 8h2M14 9h1M19 9h15M38 9h1M12 10h2M17 10h6M25 10h3M30 10h6M39 10h2M11 11h1M16 11h4M24 11h1M26 11h3M33 11h4M41 11h1M10 12h1M15 12h3M24 12h1M26 12h3M35 12h3M42 12h1M10 13h1M14 13h3M24 13h1M26 13h3M36 13h3M42 13h1M9 14h1M13 14h3M24 14h1M26 14h3M37 14h3M43 14h1M8 15h1M12 15h3M23 15h1M26 15h4M38 15h3M44 15h1M8 16h1M11 16h3M23 16h1M26 16h4M39 16h3M44 16h1M7 17h1M10 17h3M23 17h1M26 17h4M40 17h3M45 17h1M7 18h1M10 18h2M18 18h1M23 18h1M26 18h4M34 18h1M41 18h2M45 18h1M6 19h1M9 19h3M19 19h2M23 19h1M26 19h4M32 19h2M41 19h3M46 19h1M6 20h1M9 20h2M19 20h4M26 20h8M42 20h2M46 20h1M6 21h1M9 21h2M20 21h3M26 21h7M42 21h2M46 21h1M5 22h1M8 22h3M20 22h4M26 22h7M42 22h3M47 22h1M3 23h3M8 23h2M15 23h9M26 23h5M33 23h5M43 23h2M47 23h3M1 24h2M8 24h2M11 24h14M26 24h3M38 24h4M43 24h2M50 24h2M0 25h1M7 25h21M42 25h4M52 25h1M0 26h1M4 26h45M52 26h1M0 27h1M7 27h4M25 27h21M52 27h1M1 28h2M8 28h2M11 28h4M24 28h3M28 28h14M43 28h2M50 28h2M3 29h3M8 29h2M15 29h5M22 29h5M29 29h9M43 29h2M47 29h3M5 30h1M8 30h3M20 30h7M29 30h4M42 30h3M47 30h1M6 31h1M9 31h2M20 31h7M30 31h3M42 31h2M46 31h1M6 32h1M9 32h2M19 32h8M30 32h4M42 32h2M46 32h1M6 33h1M9 33h3M19 33h2M23 33h4M29 33h1M32 33h2M41 33h3M46 33h1M7 34h1M10 34h2M18 34h1M23 34h4M29 34h1M34 34h1M41 34h2M45 34h1M7 35h1M10 35h3M23 35h4M29 35h1M40 35h3M45 35h1M8 36h1M11 36h3M23 36h4M29 36h1M39 36h3M44 36h1M8 37h1M12 37h3M23 37h4M29 37h1M38 37h3M44 37h1M9 38h1M13 38h3M24 38h3M28 38h1M37 38h3M43 38h1M10 39h1M14 39h3M24 39h3M28 39h1M36 39h3M42 39h1M10 40h1M15 40h3M24 40h3M28 40h1M35 40h3M42 40h1M11 41h1M16 41h4M24 41h3M28 41h1M33 41h4M41 41h1M12 42h2M17 42h6M25 42h3M30 42h6M39 42h2M14 43h1M19 43h15M38 43h1M15 44h2M22 44h9M36 44h2M17 45h2M25 45h3M34 45h2M19 46h3M26 46h1M31 46h3M22 47h2M26 47h1M29 47h2M23 48h1M26 48h1M29 48h1M23 49h1M29 49h1M24 50h1M28 50h1M24 51h1M28 51h1M25 52h3'/%3E%3Cpath width='53' height='53' /%3E%3C/svg%3E");
+}
+/* twine-user-stylesheet #3: "settings.css" */
 /*字体导入*/
 @font-face {
     font-family: "default";
@@ -4203,7 +4209,19 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 .lh-medium .passage {line-height: 1.6;}
 .lh-large .passage {line-height: 2.0;}
 .lh-biggest .passage {line-height: 2.4;}
-/* twine-user-stylesheet #3: "style.css" */
+/* twine-user-stylesheet #4: "style.css" */
+
+/*加载页面*/
+html[data-init="loading"] #init-loading {
+    animation: init-loading-spin 2s linear infinite; 
+    background-image: var(--svg-mygo);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+    margin: auto; 
+    border: none;
+}
 /* sugarcube和原生组件替换部分 */
 button {
   border-radius: 5px;
@@ -4251,9 +4269,28 @@ button {
 .sugar-button {
   display: grid;
   width: auto;
+  height: auto;
   text-align: center;
 }
-/* twine-user-stylesheet #4: "theme.css" */
+.menu-button {
+  display: grid;
+  width: auto;
+  height: 50%;
+  text-align: center;
+}
+[data-tags~="hidebar"] #ui-bar {
+    display: none;
+}
+[data-tags~="hidebar"] .passage {
+    text-align: center;
+    position: absolute;
+    top: 3%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding: 2em;
+}
+/* twine-user-stylesheet #5: "theme.css" */
 /* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖 */
 /* Sugarcube2主题配色，保证优先加载，.rev为暗色主题 */
       /*Body*/
@@ -4787,16 +4824,16 @@ Setting.addToggle("autoname", {
     desc        : "在这里开启/关闭记录自动命名吧！",
     default     : false,
 });
-/* twine-user-script #5: "ui.js" */
-/*带hidebar标签的页面则隐藏侧边栏，由于侧边栏已经隐藏，因此无法存档*/
+/*按钮弹窗事件*/
+/*使用js方式实现带hidebar标签的页面则隐藏侧边栏，css已实现，已弃用
 $(document).on(':passagerender', _ => {
   if (tags().includes('hidebar')) {
-    UIBar.hide().stow();
+    UIBar.stow().hide();
   }else{
     UIBar.show();
   }
-});
-/* twine-user-script #6: "zh-CN.js" */
+});*/
+/* twine-user-script #5: "zh-CN.js" */
 /***********************************************************************************************************************
 
 	locale/zh-CN.js – 简体中文
@@ -5041,15 +5078,17 @@ $(document).on(':passagerender', _ => {
 
 	l10nStrings.shareTitle = '分享';
 })();
-</script><tw-passagedata pid="1" name="Start" tags="nosave hidebar" position="100,100" size="100,100">&lt;div style=&quot;margin: auto; width: 100%; text-align: center;&quot;&gt;
-        &lt;img id=&quot;menu-logo&quot; src=&quot;img/mygoe_logo.png&quot; style=&quot;width: 100%&quot;&gt;
+</script><tw-passagedata pid="1" name="Start" tags="nosave hidebar" position="100,100" size="100,100">&lt;img id=&quot;menu-logo&quot; src=&quot;img/mygoe_logo.png&quot; style=&quot;width: 100%&quot;&gt;
+    &lt;br&gt;
+    &lt;div class=&quot;menu-button&quot;&gt;
+        &lt;&lt;button &quot;存档&quot;&gt;&gt;&lt;&lt;ui saves&gt;&gt;&lt;&lt;/button&gt;&gt;
     &lt;/div&gt;
-&lt;br&gt;
-&lt;div style=&quot;display: grid; width: auto; height: auto; text-align: center&quot;&gt;
-&lt;&lt;button &quot;存档&quot;&gt;&gt;&lt;&lt;ui saves&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;br&gt;
-&lt;&lt;button &quot;开始&quot;&gt;&gt;&lt;&lt;goto Start2&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;br&gt;
-&lt;&lt;button &quot;设置&quot;&gt;&gt;&lt;&lt;ui settings&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Start2" tags="nosave" position="225,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="3" name="AP" tags="AP" position="350,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
+    &lt;div class=&quot;menu-button&quot;&gt;
+        &lt;&lt;button &quot;开始&quot;&gt;&gt;&lt;&lt;goto Start2&gt;&gt;&lt;&lt;/button&gt;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;menu-button&quot;&gt;
+        &lt;&lt;button &quot;设置&quot;&gt;&gt;&lt;&lt;ui settings&gt;&gt;&lt;&lt;/button&gt;&gt;
+    &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Start2" tags="nosave" position="225,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="3" name="AP" tags="AP" position="350,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;br&gt;这里记录了所有的角色的专属passage和共通passage，相当于一个目录，方便在没有可视化编辑器的时候调试和预览&lt;br&gt;
 共通页面：&lt;br&gt;</tw-passagedata><tw-passagedata pid="4" name="DebugMain" tags="" position="475,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;s-divider&gt;剪切线&lt;/s-divider&gt;

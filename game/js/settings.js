@@ -168,3 +168,12 @@ Setting.addToggle("autoname", {
     desc        : "在这里开启/关闭记录自动命名吧！",
     default     : false,
 });
+/*按钮弹窗事件*/
+/*使用js方式实现带hidebar标签的页面则隐藏侧边栏，css已实现，已弃用
+$(document).on(':passagerender', _ => {
+  if (tags().includes('hidebar')) {
+    UIBar.stow().hide();
+  }else{
+    UIBar.show();
+  }
+});*/

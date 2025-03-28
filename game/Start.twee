@@ -1,12 +1,14 @@
 :: Start [nosave hidebar]
-    <div style="margin: auto; width: 100%; text-align: center;">
-        <img id="menu-logo" src="img/mygoe_logo.png" style="width: 100%">
+    <img id="menu-logo" src="img/mygoe_logo.png" style="width: 100%">
+    <br>
+    <div class="menu-button">
+        <<button "存档">><<ui saves>><</button>>
     </div>
-<br>
-<div style="display: grid; width: auto; height: auto; text-align: center">
-<<button "存档">><<ui saves>><</button>><br>
-<<button "开始">><<goto Start2>><</button>><br>
-<<button "设置">><<ui settings>><</button>>
-</div>
+    <div class="menu-button">
+        <<button "开始">><<goto Start2>><</button>>
+    </div>
+    <div class="menu-button">
+        <<button "设置">><<ui settings>><</button>>
+    </div>
 :: Start2 [nosave]
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
