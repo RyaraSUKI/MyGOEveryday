@@ -205,12 +205,12 @@ hr {
     color: #ccc;
 }
 /*通知或成就小弹窗*/
-#notify {
+.notify-item {
     color: #212121;
     background-color : #3388bb;
     border-color: #88ccff;
 }
-.rev #notify {
+.rev .notify-item {
     color: #212121;
     background-color : #88ccff;
     border-color : #3388bb;
@@ -241,8 +241,8 @@ hr {
   --s-color-on-surface: #e2e2e5;
   --s-color-surface-variant: #41474d;
   --s-color-on-surface-variant: #c1c7ce;
-  --s-color-inverse-surface: #e2e2e5;
-  --s-color-inverse-on-surface: #2e3133;
+  --s-color-inverse-surface: #2e3133;
+  --s-color-inverse-on-surface: #e2e2e5;
   --s-color-inverse-primary: #3388BB;
   --s-color-surface-container: #1e2022;
   --s-color-surface-container-lowest: #0c0e11;
@@ -304,11 +304,11 @@ hr {
   --s-color-outline: #72787e;
   --s-color-outline-variant: #c1c7ce;
   --s-color-surface: #fcfcff;
-  --s-color-on-surface: #1a1c1e;
+  --s-color-on-surface: #e2e2e5;
   --s-color-surface-variant: #dde3ea;
   --s-color-on-surface-variant: #41474d;
-  --s-color-inverse-surface: #2e3133;
-  --s-color-inverse-on-surface: #f0f0f3;
+  --s-color-inverse-surface: #e2e2e5;
+  --s-color-inverse-on-surface: #2e3133;
   --s-color-inverse-primary: #88ccff;
   --s-color-surface-container: #edeef1;
   --s-color-surface-container-lowest: #e2e2e5;
@@ -336,7 +336,7 @@ hr {
   --s-color-dark-outline: #8b9198;
   --s-color-dark-outline-variant: #41474d;
   --s-color-dark-surface: #1a1c1e;
-  --s-color-dark-on-surface: #e2e2e5;
+  --s-color-dark-on-surface: #1a1c1e;
   --s-color-dark-surface-variant: #41474d;
   --s-color-dark-on-surface-variant: #c1c7ce;
   --s-color-dark-inverse-surface: #e2e2e5;
