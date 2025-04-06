@@ -21,6 +21,8 @@ html[data-init="loading"] #init-loading {
     transform: scale(1);
     transition: transform 0.6s ease-out, opacity 0.6s ease-out;
     pointer-events: none;
+    z-index: 9999;
+    /* 保证圆圈显示在最顶层 */
 }
 
 /* sugarcube和原生组件替换部分 */
@@ -104,6 +106,7 @@ button {
     height: 50%;
     text-align: center;
 }
+
 /*hidebar标签处理*/
 [data-tags~="hidebar"] #ui-bar {
     display: none;

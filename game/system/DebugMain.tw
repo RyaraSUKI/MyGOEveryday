@@ -1,4 +1,4 @@
-:: DebugMain
+:: DebugMain [nosave]
 <s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
 <s-divider>剪切线</s-divider>
 写得一坨，敬请谅解

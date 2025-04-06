@@ -1,4 +1,4 @@
-:: AP [AP]
+:: AP [nosave hidebar]
 <s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
 <br>这里记录了所有的角色的专属passage和共通passage，相当于一个目录，方便在没有可视化编辑器的时候调试和预览<br>
 共通页面：<br>

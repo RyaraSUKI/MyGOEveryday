@@ -1,5 +1,5 @@
 /* 感谢manonamora的设置模板代码!Thanks for manonamora's Settings Template source code! */
-// 主题切换
+// 主题与视觉效果
 Setting.addHeader("主题与视觉效果");
 var settingThemeNames = ["明弦音（亮色主题）", "夜隠染（暗色主题）"];
 var changeTheme = function() {
@@ -25,8 +25,6 @@ Setting.addList("theme", {
 });
 // 点击圆圈
 var settingclickCircle = function() {
-    const colors = ['#ffdd88', '#ff8899', '#77bbdd', '#7777aa', '#77dd77'];
-
     // 先移除之前的事件监听器，防止重复绑定
     $(document).off('click', clickCircleHandler);
 

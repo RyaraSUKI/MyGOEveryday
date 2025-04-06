@@ -1,4 +1,4 @@
-:: sober介绍
+:: sober介绍 [nosave]
 <s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button><br>
 //[[Sober|https://github.com/apprat/sober]] 是参考 Google Material You 设计规范的 Web Component UI 组件库，具有非侵入和自适应等特性，『迷子们的每一天』使用了其部分组件作为互动功能的一部分。//<br>
 下面是一些组件演示：

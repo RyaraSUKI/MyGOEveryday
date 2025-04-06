@@ -14,7 +14,7 @@
 /*字体*/
 /*主要应该引用的地方: .passage, #ui-dialog, #ui-bar, #notify*/
 .default body {font-family: '系统字体', default;}
-.unifont body {font-family:  "像素字体", unifont}
+.unifont body {font-family:  '像素字体', unifont}
 /*对齐*/ 
 .textcenter .passage {text-align: center;}
 
