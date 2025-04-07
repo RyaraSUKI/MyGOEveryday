@@ -20,8 +20,3 @@
 - [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)
 - [Twine 2 / SugarCube 2 Sample Code byHiEv](https://hiev-heavy-ind.com/Sample_Code/Sample_Code.html)
 - [100% Good Twine Sugarcube Templates](https://manonamora.itch.io/twine-sugarcube-templates)
-
-> 特别鸣谢
-
-- 感谢[Sguarcube2群代码整合](https://www.yuque.com/u45355763/twine)热心群友们的帮助！
-- 感谢[GitHub Pages](https://pages.github.com)提供网页托管！

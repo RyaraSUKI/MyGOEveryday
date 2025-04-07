@@ -98,22 +98,15 @@ tweego -o /你的项目/mygoeveryday根文件夹/game/
 
 ### 引用与鸣谢
 
-> 『迷子们的每一天 !!!!!』的主体引擎和模组加载器使用了以下项目，在此表示感谢！
+> 『迷子们的每一天 !!!!!』
+> 以下是本项目完整的引用列表，感谢所有提供支持的开源项目贡献者的无私奉献！
 
-- [Twine](https://twinery.org/)
-- [Sugarcube2](https://github.com/tmedwards/sugarcube-2)
-- [Modloader](https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader)
-
-> 像素字体使用了unifont点阵字体，遵守GNU General Public协议
-- [Unifont](https://unifoundry.com/unifont/index.html)
-
-> 以下是本项目完整的引用列表，感谢所有提供支持的开源项目！
-
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/USEDLIBS.md))
+- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/USEDLIBS.md)
 
 > 特别鸣谢
 
 - 感谢[Sguarcube2群代码整合](https://www.yuque.com/u45355763/twine)热心群友们的帮助！
+- 感谢[Modloader](https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader)，不止为DoL社区贡献了如此强大的模组加载器，也为SugarCube2社区提供了扩展新方法
 - 感谢[GitHub Pages](https://pages.github.com)提供网页托管！
 
 <br>
