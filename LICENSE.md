@@ -1,25 +1,25 @@
 ## 版权声明
 
-** 本项目系粉丝二次创作，与官方无关，仅供学习和研究，修改内容不得用于商业用途。 **
+1. **本项目系粉丝二次创作，与官方无关，仅供学习和研究，修改内容不得用于商业用途。**
 
-本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有
+2. 本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有
 
-本项目为文字互动网页，不含完整游戏性
+3. 本项目为文字互动网页，不含完整游戏性
 
-本项目中的代码部分采用[MIT LICENSE]许可，原创素材（包括但不限于文本，图像等）采用[CC BY-NC-SA 4.0]协议。 
+4. 本项目中的代码部分采用[MIT LICENSE]许可，原创素材（包括但不限于文本，图像等）采用[CC BY-NC-SA 4.0]协议。 
 
 ## Copyright Notice
 
-This is a ** fan-made non-commercial re-creation ** with no affiliation to the official rights holders. All resources are provided for ** learning and research purposes only **. Any derivative works must maintain:
+1. This is a **fan-made non-commercial re-creation** with no affiliation to the official rights holders. All resources are provided for **learning and research purposes only**. Any derivative works must maintain:
 - Clear attribution to original author
 - Non-commercial nature
 - Same license terms
 
-This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. 
+2. This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. 
 
-This project is a text-interactive web page and does not include any gameplay.
+3. This project is a text-interactive web page and does not include any gameplay.
 
-Original created codes in this project are licensed under ** [MIT LICENSE] ** & resources (including but not limited to texts , images) in this project are licensed under ** [CC BY-NC-SA 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) **.
+4. Original created codes in this project are licensed under **[MIT LICENSE]** & resources (including but not limited to texts , images) in this project are licensed under **[CC BY-NC-SA 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)**.
 
 
 ## MIT License (Code part)

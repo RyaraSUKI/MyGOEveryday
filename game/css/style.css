@@ -1,6 +1,7 @@
 /*加载页面*/
 html[data-init="loading"] #init-loading {
     animation: init-loading-spin 2s linear infinite;
+    /* 引用存在root里的svg变量，这部分是引擎加载结束后网页游戏的加载界面 */
     background-image: var(--svg-mygo);
     background-size: contain;
     background-repeat: no-repeat;
@@ -8,6 +9,9 @@ html[data-init="loading"] #init-loading {
     height: 300px;
     margin: auto;
     border: none;
+    /* 移除引擎加载界面的遮罩，保证自定义图片显示完整 */
+    -webkit-mask: none;
+    mask: none;
 }
 
 /*点击圆圈*/

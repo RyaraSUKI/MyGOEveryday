@@ -1,0 +1,19 @@
+{
+    "name": "TesterMod",
+    "version": "1.0.0",
+    "styleFileList": [],
+    "scriptFileList": [],
+    "tweeFileList": [
+        "system/AllPassage.twee"
+    ],
+    "imgFileList": [],
+    "additionFile": [
+        "readme.txt"
+    ],
+    "dependenceInfo": [
+        {
+            "modName": "TweeReplacer",
+            "version": ">=1.0.0"
+        }
+    ]
+}

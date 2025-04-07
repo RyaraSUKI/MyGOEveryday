@@ -206,7 +206,7 @@ hr {
 }
 /*通知或成就小弹窗*/
 .notify-item {
-    color: #212121;
+    color: #eee;
     background-color : #3388bb;
     border-color: #88ccff;
 }

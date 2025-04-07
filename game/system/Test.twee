@@ -8,9 +8,9 @@
 <div class="animate__animated animate__fadeInDown" style="animate-delay: 0.9s">这是用于测试的功能主页，你可以在这里进入各个不同的测试页面</div>
 <br><s-button class="sober-button" data-passage="Start"><s-icon slot="start" name="home"></s-icon>退出到主页</s-button>
 <s-divider>剪切线</s-divider>
-<s-button class="sober-button" data-passage="AP">页面导航</s-button>
-<s-button class="sober-button" data-passage="DebugMain"><s-icon slot="start" name="done"></s-icon>调试空间</s-button>
-<s-button class="sober-button" data-passage="TestPlace">测试空间</s-button>
+<s-button class="sober-button" data-passage="AP"><s-icon slot="start" name="search" style="color: #fff"></s-icon>页面导航</s-button>
+<s-button class="sober-button" data-passage="DebugMain"><s-icon slot="start" name="star" style="color: #ffdd88"></s-icon>调试空间</s-button>
+<s-button class="sober-button" data-passage="TestPlace"><s-icon slot="start" name="favorite" style="color: #ff8899"></s-icon>测试空间</s-button>
 <s-divider>DEMO</s-divider>
 <s-button class="sober-button" data-passage="sober介绍">Sober.Js</s-button>
 <s-button class="sober-button" data-passage="DebugSample">第一个示例</s-button>
