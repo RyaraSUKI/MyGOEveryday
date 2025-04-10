@@ -5,8 +5,8 @@ html[data-init="loading"] #init-loading {
     background-image: var(--svg-mygo);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     margin: auto;
     border: none;
     /* 移除引擎加载界面的遮罩，保证自定义图片显示完整 */
