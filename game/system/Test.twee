@@ -47,20 +47,23 @@
 即使迷茫，也要前进！！！！！''<br>
 [[重新开始->DebugSampleStart]]<br>[[退出->DebugSample]]
 
-:: TestPlace [nosave]
+:: TestPlace [nosave nobr]
 <s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
 <h1>测试空间</h1>
 <p style="text-align: center;">用于开发测试，正式发布版应该将<u>下面的所有内容注释掉或清空</u></p>
 <br><br><br>
-<<nochar>>
-没有可用的角色信息。
-<</nochar>>
-<<anon>>
-这是关于 anon 的内容。
-<</anon>>
-<<soyo>>
-这是关于 soyo 的内容。
-<</soyo>>
+这是所有人都会看到的普通内容。<br>
+<<set $soyo to true>>
+<<set $anon to true>>
+<<set $tomori to true>>
+<<set $taki to true>>
+<<set $rana to true>>
+<<anon>>爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰<</anon>><br>
+<<soyo>>这是素世的视角。<</soyo>><br>
+<<tomori>>灯的心声。<</tomori>><br>
+<<taki>>立希漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮<</taki>><br>
+<<rana>>抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲🥺<</rana>><br>
+<<nochar>>没有角色被选中时显示的内容。<</nochar>><br>
 <br><br>
 <s-ripple class="sugar-button"><<button "一次性显示三条通知">><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></s-ripple>
-<s-ripple class="sugar-button"><<button "显示三条通知，先后持续时间不同">><<notify 5s>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify 3s>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></s-ripple>
+<br><br><s-ripple class="sugar-button"><<button "显示三条通知，先后持续时间不同">><<notify 5s>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify 3s>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></s-ripple>

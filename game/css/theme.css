@@ -1,12 +1,12 @@
-/* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖 */
-/* Sugarcube2主题配色，保证优先加载，.rev为暗色主题 */
+/* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖（除非有必要同时加载） */
+/* Sugarcube2主题配色，保证优先加载，.drk为暗色主题 */
 /*Body*/
 body {
     background-color: #eee;
     color: #212121;
 }
 
-.rev body {
+.drk body {
     background-color: #212121;
     color: #eee;
 }
@@ -17,7 +17,7 @@ a {
     font-weight: bold;
 }
 
-.rev a {
+.drk a {
     color: #88ccff;
 }
 
@@ -25,7 +25,7 @@ a:hover {
     color: #006699;
 }
 
-.rev a:hover {
+.drk a:hover {
     color: #88ffff;
 }
 
@@ -35,7 +35,7 @@ button {
     border-color: #303f9f;
 }
 
-.rev button {
+.drk button {
     color: #ccc;
     background-color: #303f9f;
     border-color: #8ca0ff;
@@ -48,7 +48,7 @@ button:hover {
     color: #ccc;
 }
 
-.rev button:hover {
+.drk button:hover {
     background-color: #70d0ff;
     border-color: #303f9f;
     color: #212121;
@@ -60,7 +60,7 @@ button:disabled {
     opacity: 0.7;
 }
 
-.rev button:disabled {
+.drk button:disabled {
     background-color: #3b3b3b;
     border-color: #616060;
 }
@@ -74,9 +74,9 @@ textarea {
     border-color: #ccc;
 }
 
-.rev input,
-.rev select,
-.rev textarea {
+.drk input,
+.drk select,
+.drk textarea {
     color: #ccc;
     background-color: #424242;
     border-color: #3b3b3b;
@@ -92,12 +92,12 @@ textarea:not(:disabled):hover {
     border-color: #111;
 }
 
-.rev input:not(:disabled):focus,
-.rev select:not(:disabled):focus,
-.rev textarea:not(:disabled):focus,
-.rev input:not(:disabled):hover,
-.rev select:not(:disabled):hover,
-.rev textarea:not(:disabled):hover {
+.drk input:not(:disabled):focus,
+.drk select:not(:disabled):focus,
+.drk textarea:not(:disabled):focus,
+.drk input:not(:disabled):hover,
+.drk select:not(:disabled):hover,
+.drk textarea:not(:disabled):hover {
     background-color: #303f9f;
     border-color: #8ca0ff;
 }
@@ -111,7 +111,7 @@ hr {
     border-color: #212121;
 }
 
-.rev hr {
+.drk hr {
     border-color: #ccc;
 }
 
@@ -122,22 +122,22 @@ hr {
     border: 1px solid #212121;
 }
 
-.rev .passage caption,
-.rev .passage td,
-.rev .passage th,
-.rev .passage tr {
+.drk .passage caption,
+.drk .passage td,
+.drk .passage th,
+.drk .passage tr {
     border: 1px solid #ccc;
 }
 
 /*UI 侧边栏*/
 #ui-bar {
-    background-color: #bbb;
-    border-color: #aaa;
+    border: 5px solid #aaa;
+    background-color: rgba(187, 187, 187, 0.75);
 }
 
-.rev #ui-bar {
-    background-color: #212121;
-    border-color: #424242;
+.drk #ui-bar {
+    border: 5px solid #424242;
+    background-color: rgba(33, 33, 33, 0.75);
 }
 
 #ui-bar-toggle,
@@ -146,8 +146,8 @@ hr {
     border-color: #ccc;
 }
 
-.rev #ui-bar-toggle,
-.rev #ui-bar-history [id|="history"] {
+.drk #ui-bar-toggle,
+.drk #ui-bar-history [id|="history"] {
     color: #ccc;
     border-color: #212121;
 }
@@ -158,8 +158,8 @@ hr {
     border-color: #212121;
 }
 
-.rev #ui-bar-toggle:hover,
-.rev #ui-bar-history [id|="history"]:hover {
+.drk #ui-bar-toggle:hover,
+.drk #ui-bar-history [id|="history"]:hover {
     background-color: #424242;
     border-color: #ddd;
 }
@@ -170,7 +170,7 @@ hr {
     border-color: #ccc;
 }
 
-.rev #ui-bar-history [id|="history"]:disabled {
+.drk #ui-bar-history [id|="history"]:disabled {
     color: #424242;
     background-color: transparent;
     border-color: transparent;
@@ -181,7 +181,7 @@ hr {
     border-color: #88ccff;
 }
 
-.rev #menu ul {
+.drk #menu ul {
     color: #fafafa;
     border-color: #3388bb;
 }
@@ -190,7 +190,7 @@ hr {
     border-top-color: #ccc;
 }
 
-.rev #menu li:not(:first-child) {
+.drk #menu li:not(:first-child) {
     border-top-color: #424242;
 }
 
@@ -200,7 +200,7 @@ hr {
     border-color: #3388bb;
 }
 
-.rev #menu li a {
+.drk #menu li a {
     color: #fafafa;
     background-color: #3388bb;
     border-color: #88ccff;
@@ -212,7 +212,7 @@ hr {
     border-color: #3388bb;
 }
 
-.rev #menu li a:hover {
+.drk #menu li a:hover {
     color: #212121;
     background-color: #3388bb;
     border-color: #88ccff;
@@ -223,7 +223,7 @@ hr {
     background-color: #777;
 }
 
-.rev #ui-overlay {
+.drk #ui-overlay {
     background-color: #212121;
 }
 
@@ -231,7 +231,7 @@ hr {
     background-color: #ccc;
 }
 
-.rev #ui-dialog-titlebar {
+.drk #ui-dialog-titlebar {
     background-color: #424242;
 }
 
@@ -240,7 +240,7 @@ hr {
     border-color: #ccc;
 }
 
-.rev #ui-dialog-body {
+.drk #ui-dialog-body {
     background-color: #212121;
     border-color: #424242;
 }
@@ -249,7 +249,7 @@ hr {
     background-color: #424242;
 }
 
-.rev #ui-dialog-body hr {
+.drk #ui-dialog-body hr {
     background-color: #ccc;
 }
 
@@ -257,7 +257,7 @@ hr {
     background-color: #eee;
 }
 
-.rev #ui-dialog-body.saves>h2 {
+.drk #ui-dialog-body.saves>h2 {
     background-color: #333;
 }
 
@@ -266,7 +266,7 @@ hr {
     color: #212121;
 }
 
-.rev #ui-dialog-body.settings button[id|="setting-control"] {
+.drk #ui-dialog-body.settings button[id|="setting-control"] {
     background-color: #424242;
     color: #ddd;
 }
@@ -282,10 +282,31 @@ hr {
     border-color: #88ccff;
 }
 
-.rev .notify-item {
+.drk .notify-item {
     color: #212121;
     background-color: #88ccff;
     border-color: #3388bb;
+}
+
+/* 角色文本卡片背景色 */
+.char-anon {
+    background-color: #ff8899;
+}
+
+.char-soyo {
+    background-color: #ffdd88;
+}
+
+.char-tomori {
+    background-color: #77bbdd;
+}
+
+.char-taki {
+    background-color: #7777aa;
+}
+
+.char-rana {
+    background-color: #77dd77;
 }
 
 /*Sober.js组件主题，-d为暗色；-l为亮色*/

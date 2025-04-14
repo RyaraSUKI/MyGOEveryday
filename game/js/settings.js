@@ -4,12 +4,12 @@ Setting.addHeader("主题与视觉效果");
 var settingThemeNames = ["明弦音（亮色主题）", "夜隠染（暗色主题）"];
 var changeTheme = function() {
     var $html = $("html");
-    $html.removeClass("rev");
+    $html.removeClass("drk");
     $("#passages").removeClass("theme-d");
     $("#passages").addClass("theme-l");
     switch (settings.theme) {
         case "夜隠染（暗色主题）":
-            $html.addClass("rev");
+            $html.addClass("drk");
             $("#passages").removeClass("theme-l");
             $("#passages").addClass("theme-d");
             break;

@@ -110,7 +110,15 @@ button {
     height: 50%;
     text-align: center;
 }
-
+/* 角色文本卡片样式 */
+.char-card {
+    color: #212121;
+    border: 1px solid #212121;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 0.8em 1em;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
 /*hidebar标签处理*/
 [data-tags~="hidebar"] #ui-bar {
     display: none;

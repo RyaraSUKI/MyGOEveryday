@@ -6418,13 +6418,28 @@ html[data-debug-view] .debug[data-name][data-type|="special"]::before {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
-/* twine-user-stylesheet #2: "root.css" */
+/* twine-user-stylesheet #2: "new-ui-bar.css" */
+#ui-bar {
+    /* Q弹小动画 */
+    transition: all 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    backdrop-filter: blur(8px);
+    /* 兼容Safari */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#story {
+    transition: margin-left 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55)
+}
+/* twine-user-stylesheet #3: "root.css" */
 /* 此部分主要用于导入资源 */
 :root {
     /* 引入像素MyGO图标svg，用于游戏启动样式 */
     --svg-mygo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -0.5 53 53' shape-rendering='crispEdges'%3E%3Cpath stroke='%233388bb' d='M25 0h3M24 1h1M28 1h1M24 2h1M28 2h1M23 3h1M29 3h1M23 4h1M26 4h1M29 4h1M22 5h2M26 5h1M29 5h2M19 6h3M26 6h1M31 6h3M17 7h2M25 7h3M34 7h2M15 8h2M22 8h9M36 8h2M14 9h1M19 9h15M38 9h1M12 10h2M17 10h6M25 10h3M30 10h6M39 10h2M11 11h1M16 11h4M24 11h1M26 11h3M33 11h4M41 11h1M10 12h1M15 12h3M24 12h1M26 12h3M35 12h3M42 12h1M10 13h1M14 13h3M24 13h1M26 13h3M36 13h3M42 13h1M9 14h1M13 14h3M24 14h1M26 14h3M37 14h3M43 14h1M8 15h1M12 15h3M23 15h1M26 15h4M38 15h3M44 15h1M8 16h1M11 16h3M23 16h1M26 16h4M39 16h3M44 16h1M7 17h1M10 17h3M23 17h1M26 17h4M40 17h3M45 17h1M7 18h1M10 18h2M18 18h1M23 18h1M26 18h4M34 18h1M41 18h2M45 18h1M6 19h1M9 19h3M19 19h2M23 19h1M26 19h4M32 19h2M41 19h3M46 19h1M6 20h1M9 20h2M19 20h4M26 20h8M42 20h2M46 20h1M6 21h1M9 21h2M20 21h3M26 21h7M42 21h2M46 21h1M5 22h1M8 22h3M20 22h4M26 22h7M42 22h3M47 22h1M3 23h3M8 23h2M15 23h9M26 23h5M33 23h5M43 23h2M47 23h3M1 24h2M8 24h2M11 24h14M26 24h3M38 24h4M43 24h2M50 24h2M0 25h1M7 25h21M42 25h4M52 25h1M0 26h1M4 26h45M52 26h1M0 27h1M7 27h4M25 27h21M52 27h1M1 28h2M8 28h2M11 28h4M24 28h3M28 28h14M43 28h2M50 28h2M3 29h3M8 29h2M15 29h5M22 29h5M29 29h9M43 29h2M47 29h3M5 30h1M8 30h3M20 30h7M29 30h4M42 30h3M47 30h1M6 31h1M9 31h2M20 31h7M30 31h3M42 31h2M46 31h1M6 32h1M9 32h2M19 32h8M30 32h4M42 32h2M46 32h1M6 33h1M9 33h3M19 33h2M23 33h4M29 33h1M32 33h2M41 33h3M46 33h1M7 34h1M10 34h2M18 34h1M23 34h4M29 34h1M34 34h1M41 34h2M45 34h1M7 35h1M10 35h3M23 35h4M29 35h1M40 35h3M45 35h1M8 36h1M11 36h3M23 36h4M29 36h1M39 36h3M44 36h1M8 37h1M12 37h3M23 37h4M29 37h1M38 37h3M44 37h1M9 38h1M13 38h3M24 38h3M28 38h1M37 38h3M43 38h1M10 39h1M14 39h3M24 39h3M28 39h1M36 39h3M42 39h1M10 40h1M15 40h3M24 40h3M28 40h1M35 40h3M42 40h1M11 41h1M16 41h4M24 41h3M28 41h1M33 41h4M41 41h1M12 42h2M17 42h6M25 42h3M30 42h6M39 42h2M14 43h1M19 43h15M38 43h1M15 44h2M22 44h9M36 44h2M17 45h2M25 45h3M34 45h2M19 46h3M26 46h1M31 46h3M22 47h2M26 47h1M29 47h2M23 48h1M26 48h1M29 48h1M23 49h1M29 49h1M24 50h1M28 50h1M24 51h1M28 51h1M25 52h3'/%3E%3Cpath width='53' height='53' /%3E%3C/svg%3E");
 }
-/* twine-user-stylesheet #3: "settings.css" */
+/* twine-user-stylesheet #4: "settings.css" */
 /*字体导入*/
 @font-face {
     font-family: "default";
@@ -6471,7 +6486,7 @@ html[data-debug-view] .debug[data-name][data-type|="special"]::before {
 .lh-biggest .passage {
     line-height: 2.4;
 }
-/* twine-user-stylesheet #4: "style.css" */
+/* twine-user-stylesheet #5: "style.css" */
 /*加载页面*/
 html[data-init="loading"] #init-loading {
     animation: init-loading-spin 2s linear infinite;
@@ -6584,7 +6599,15 @@ button {
     height: 50%;
     text-align: center;
 }
-
+/* 角色文本卡片样式 */
+.char-card {
+    color: #212121;
+    border: 1px solid #212121;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 0.8em 1em;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
 /*hidebar标签处理*/
 [data-tags~="hidebar"] #ui-bar {
     display: none;
@@ -6599,16 +6622,16 @@ button {
     right: 0;
     padding: 2em;
 }
-/* twine-user-stylesheet #5: "theme.css" */
-/* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖 */
-/* Sugarcube2主题配色，保证优先加载，.rev为暗色主题 */
+/* twine-user-stylesheet #6: "theme.css" */
+/* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖（除非有必要同时加载） */
+/* Sugarcube2主题配色，保证优先加载，.drk为暗色主题 */
 /*Body*/
 body {
     background-color: #eee;
     color: #212121;
 }
 
-.rev body {
+.drk body {
     background-color: #212121;
     color: #eee;
 }
@@ -6619,7 +6642,7 @@ a {
     font-weight: bold;
 }
 
-.rev a {
+.drk a {
     color: #88ccff;
 }
 
@@ -6627,7 +6650,7 @@ a:hover {
     color: #006699;
 }
 
-.rev a:hover {
+.drk a:hover {
     color: #88ffff;
 }
 
@@ -6637,7 +6660,7 @@ button {
     border-color: #303f9f;
 }
 
-.rev button {
+.drk button {
     color: #ccc;
     background-color: #303f9f;
     border-color: #8ca0ff;
@@ -6650,7 +6673,7 @@ button:hover {
     color: #ccc;
 }
 
-.rev button:hover {
+.drk button:hover {
     background-color: #70d0ff;
     border-color: #303f9f;
     color: #212121;
@@ -6662,7 +6685,7 @@ button:disabled {
     opacity: 0.7;
 }
 
-.rev button:disabled {
+.drk button:disabled {
     background-color: #3b3b3b;
     border-color: #616060;
 }
@@ -6676,9 +6699,9 @@ textarea {
     border-color: #ccc;
 }
 
-.rev input,
-.rev select,
-.rev textarea {
+.drk input,
+.drk select,
+.drk textarea {
     color: #ccc;
     background-color: #424242;
     border-color: #3b3b3b;
@@ -6694,12 +6717,12 @@ textarea:not(:disabled):hover {
     border-color: #111;
 }
 
-.rev input:not(:disabled):focus,
-.rev select:not(:disabled):focus,
-.rev textarea:not(:disabled):focus,
-.rev input:not(:disabled):hover,
-.rev select:not(:disabled):hover,
-.rev textarea:not(:disabled):hover {
+.drk input:not(:disabled):focus,
+.drk select:not(:disabled):focus,
+.drk textarea:not(:disabled):focus,
+.drk input:not(:disabled):hover,
+.drk select:not(:disabled):hover,
+.drk textarea:not(:disabled):hover {
     background-color: #303f9f;
     border-color: #8ca0ff;
 }
@@ -6713,7 +6736,7 @@ hr {
     border-color: #212121;
 }
 
-.rev hr {
+.drk hr {
     border-color: #ccc;
 }
 
@@ -6724,22 +6747,22 @@ hr {
     border: 1px solid #212121;
 }
 
-.rev .passage caption,
-.rev .passage td,
-.rev .passage th,
-.rev .passage tr {
+.drk .passage caption,
+.drk .passage td,
+.drk .passage th,
+.drk .passage tr {
     border: 1px solid #ccc;
 }
 
 /*UI 侧边栏*/
 #ui-bar {
-    background-color: #bbb;
-    border-color: #aaa;
+    border: 5px solid #aaa;
+    background-color: rgba(187,187,187,0.75);
 }
 
-.rev #ui-bar {
-    background-color: #212121;
-    border-color: #424242;
+.drk #ui-bar {
+    border: 5px solid #424242;
+    background-color: rgba(33,33,33,0.75);
 }
 
 #ui-bar-toggle,
@@ -6748,8 +6771,8 @@ hr {
     border-color: #ccc;
 }
 
-.rev #ui-bar-toggle,
-.rev #ui-bar-history [id|="history"] {
+.drk #ui-bar-toggle,
+.drk #ui-bar-history [id|="history"] {
     color: #ccc;
     border-color: #212121;
 }
@@ -6760,8 +6783,8 @@ hr {
     border-color: #212121;
 }
 
-.rev #ui-bar-toggle:hover,
-.rev #ui-bar-history [id|="history"]:hover {
+.drk #ui-bar-toggle:hover,
+.drk #ui-bar-history [id|="history"]:hover {
     background-color: #424242;
     border-color: #ddd;
 }
@@ -6772,7 +6795,7 @@ hr {
     border-color: #ccc;
 }
 
-.rev #ui-bar-history [id|="history"]:disabled {
+.drk #ui-bar-history [id|="history"]:disabled {
     color: #424242;
     background-color: transparent;
     border-color: transparent;
@@ -6783,7 +6806,7 @@ hr {
     border-color: #88ccff;
 }
 
-.rev #menu ul {
+.drk #menu ul {
     color: #fafafa;
     border-color: #3388bb;
 }
@@ -6792,7 +6815,7 @@ hr {
     border-top-color: #ccc;
 }
 
-.rev #menu li:not(:first-child) {
+.drk #menu li:not(:first-child) {
     border-top-color: #424242;
 }
 
@@ -6802,7 +6825,7 @@ hr {
     border-color: #3388bb;
 }
 
-.rev #menu li a {
+.drk #menu li a {
     color: #fafafa;
     background-color: #3388bb;
     border-color: #88ccff;
@@ -6814,7 +6837,7 @@ hr {
     border-color: #3388bb;
 }
 
-.rev #menu li a:hover {
+.drk #menu li a:hover {
     color: #212121;
     background-color: #3388bb;
     border-color: #88ccff;
@@ -6825,7 +6848,7 @@ hr {
     background-color: #777;
 }
 
-.rev #ui-overlay {
+.drk #ui-overlay {
     background-color: #212121;
 }
 
@@ -6833,7 +6856,7 @@ hr {
     background-color: #ccc;
 }
 
-.rev #ui-dialog-titlebar {
+.drk #ui-dialog-titlebar {
     background-color: #424242;
 }
 
@@ -6842,7 +6865,7 @@ hr {
     border-color: #ccc;
 }
 
-.rev #ui-dialog-body {
+.drk #ui-dialog-body {
     background-color: #212121;
     border-color: #424242;
 }
@@ -6851,7 +6874,7 @@ hr {
     background-color: #424242;
 }
 
-.rev #ui-dialog-body hr {
+.drk #ui-dialog-body hr {
     background-color: #ccc;
 }
 
@@ -6859,7 +6882,7 @@ hr {
     background-color: #eee;
 }
 
-.rev #ui-dialog-body.saves>h2 {
+.drk #ui-dialog-body.saves>h2 {
     background-color: #333;
 }
 
@@ -6868,7 +6891,7 @@ hr {
     color: #212121;
 }
 
-.rev #ui-dialog-body.settings button[id|="setting-control"] {
+.drk #ui-dialog-body.settings button[id|="setting-control"] {
     background-color: #424242;
     color: #ddd;
 }
@@ -6884,10 +6907,31 @@ hr {
     border-color: #88ccff;
 }
 
-.rev .notify-item {
+.drk .notify-item {
     color: #212121;
     background-color: #88ccff;
     border-color: #3388bb;
+}
+
+/* 角色文本卡片背景色 */
+.char-anon {
+    background-color: #ff8899;
+}
+
+.char-soyo {
+    background-color: #ffdd88;
+}
+
+.char-tomori {
+    background-color: #77bbdd;
+}
+
+.char-taki {
+    background-color: #7777aa;
+}
+
+.char-rana {
+    background-color: #77dd77;
 }
 
 /*Sober.js组件主题，-d为暗色；-l为亮色*/
@@ -7028,34 +7072,52 @@ hr {
 //# sourceMappingURL=sober.min.js.map
 /* twine-user-script #2: "character.js" */
 (function () {
-    const characters = ["anon", "soyo", "tomori", "taki", "rana"];
-    let nocharContent = "";
+    // 角色对应css
+    const styleMap = {
+        anon: "char-anon",
+        soyo: "char-soyo",
+        tomori: "char-tomori",
+        taki: "char-taki",
+        rana: "char-rana"
+    };
 
-    // 定义 <<nochar>> 宏
-    Macro.add("nochar", {
-        tags: null,
-        handler() {
-            nocharContent = this.payload[0].contents;
-        }
-    });
+    // 获取当前的角色变量
+    function getActiveCharacters() {
+        return Object.keys(styleMap).filter(char => State.getVar(`$${char}`));
+    }
 
-    // 为每个角色宏创建闭合标签宏
-    characters.forEach(char => {
+    // 为每个角色添加对应的宏
+    Object.entries(styleMap).forEach(([char, className]) => {
         Macro.add(char, {
-            tags: null,
+            tags: null, // 这是个闭合标签！
             handler() {
-                const varName = "$" + char;
-                const hasChar = State.getVar(varName);
+                const activeChars = getActiveCharacters(); // 获取当前为true的角色变量
 
-                if (hasChar) {
-                    // 显示内容
-                    new Wikifier(this.output, this.payload[0].contents);
-                } else {
-                    // 显示 nochar 内容
-                    new Wikifier(this.output, nocharContent);
+                // 如果当前角色变量为true，显示内容
+                if (activeChars.includes(char)) {
+                    const content = this.payload[0].contents;
+
+                    // 多角色变量同时存在，添加卡片样式
+                    if (activeChars.length > 1) {
+                        const html = `<div class="char-card ${className}">${content}</div>`;
+                        new Wikifier(this.output, html);
+                    } else {
+                        // 只有一个角色变量存在时，直接显示内容，不加样式
+                        new Wikifier(this.output, content);
+                    }
                 }
             }
         });
+    });
+
+    // nochar，当没有任何角色变量时显示这里面的内容
+    Macro.add("nochar", {
+        tags: null,
+        handler() {
+            if (getActiveCharacters().length === 0) {
+                new Wikifier(this.output, this.payload[0].contents);
+            }
+        }
     });
 })();
 /* twine-user-script #3: "ui-macro.min.js" */
@@ -7193,12 +7255,12 @@ Setting.addHeader("主题与视觉效果");
 var settingThemeNames = ["明弦音（亮色主题）", "夜隠染（暗色主题）"];
 var changeTheme = function() {
     var $html = $("html");
-    $html.removeClass("rev");
+    $html.removeClass("drk");
     $("#passages").removeClass("theme-d");
     $("#passages").addClass("theme-l");
     switch (settings.theme) {
         case "夜隠染（暗色主题）":
-            $html.addClass("rev");
+            $html.addClass("drk");
             $("#passages").removeClass("theme-l");
             $("#passages").addClass("theme-d");
             break;
@@ -7745,22 +7807,25 @@ $(document).on(':passagerender', _ => {
 &lt;img src=&quot;img/char/rana.png&quot; style=&quot;max-width:300px;&quot;&gt;&lt;br&gt;
 [[给她抹茶芭菲！-&gt;DebugSampleEnding]] | [[返回-&gt;DebugSampleStart]]</tw-passagedata><tw-passagedata pid="17" name="DebugSampleEnding" tags="nosave" position="850,225" size="100,100">&#39;&#39;迷子でもいい、迷子でも進め！！！！！&lt;br&gt;
 即使迷茫，也要前进！！！！！&#39;&#39;&lt;br&gt;
-[[重新开始-&gt;DebugSampleStart]]&lt;br&gt;[[退出-&gt;DebugSample]]</tw-passagedata><tw-passagedata pid="18" name="TestPlace" tags="nosave" position="975,225" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
+[[重新开始-&gt;DebugSampleStart]]&lt;br&gt;[[退出-&gt;DebugSample]]</tw-passagedata><tw-passagedata pid="18" name="TestPlace" tags="nosave nobr" position="975,225" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;h1&gt;测试空间&lt;/h1&gt;
 &lt;p style=&quot;text-align: center;&quot;&gt;用于开发测试，正式发布版应该将&lt;u&gt;下面的所有内容注释掉或清空&lt;/u&gt;&lt;/p&gt;
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
-&lt;&lt;nochar&gt;&gt;
-没有可用的角色信息。
-&lt;&lt;/nochar&gt;&gt;
-&lt;&lt;anon&gt;&gt;
-这是关于 anon 的内容。
-&lt;&lt;/anon&gt;&gt;
-&lt;&lt;soyo&gt;&gt;
-这是关于 soyo 的内容。
-&lt;&lt;/soyo&gt;&gt;
+这是所有人都会看到的普通内容。&lt;br&gt;
+&lt;&lt;set $soyo to true&gt;&gt;
+&lt;&lt;set $anon to true&gt;&gt;
+&lt;&lt;set $tomori to true&gt;&gt;
+&lt;&lt;set $taki to true&gt;&gt;
+&lt;&lt;set $rana to true&gt;&gt;
+&lt;&lt;anon&gt;&gt;爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰&lt;&lt;/anon&gt;&gt;&lt;br&gt;
+&lt;&lt;soyo&gt;&gt;这是素世的视角。&lt;&lt;/soyo&gt;&gt;&lt;br&gt;
+&lt;&lt;tomori&gt;&gt;灯的心声。&lt;&lt;/tomori&gt;&gt;&lt;br&gt;
+&lt;&lt;taki&gt;&gt;立希漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮&lt;&lt;/taki&gt;&gt;&lt;br&gt;
+&lt;&lt;rana&gt;&gt;抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲🥺&lt;&lt;/rana&gt;&gt;&lt;br&gt;
+&lt;&lt;nochar&gt;&gt;没有角色被选中时显示的内容。&lt;&lt;/nochar&gt;&gt;&lt;br&gt;
 &lt;br&gt;&lt;br&gt;
 &lt;s-ripple class=&quot;sugar-button&quot;&gt;&lt;&lt;button &quot;一次性显示三条通知&quot;&gt;&gt;&lt;&lt;notify&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;notify&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;notify&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/s-ripple&gt;
-&lt;s-ripple class=&quot;sugar-button&quot;&gt;&lt;&lt;button &quot;显示三条通知，先后持续时间不同&quot;&gt;&gt;&lt;&lt;notify 5s&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;notify 3s&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;notify&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/s-ripple&gt;</tw-passagedata></tw-storydata>
+&lt;br&gt;&lt;br&gt;&lt;s-ripple class=&quot;sugar-button&quot;&gt;&lt;&lt;button &quot;显示三条通知，先后持续时间不同&quot;&gt;&gt;&lt;&lt;notify 5s&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;notify 3s&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;notify&gt;&gt;&#39;&#39;🔔 Test (5) · 刚刚&#39;&#39;&lt;br&gt;Hello：World~&lt;&lt;/notify&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/s-ripple&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
 	if(document.documentElement.getAttribute("data-init")==="loading"){window.BUILD_TWINE1=false;
