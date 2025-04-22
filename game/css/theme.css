@@ -1,5 +1,13 @@
-/* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖（除非有必要同时加载） */
-/* Sugarcube2主题配色，保证优先加载，.drk为暗色主题 */
+/* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖
+    主题配色：
+        没有添加任何类为默认亮色主题"明弦音"  |  白蓝主题
+        .drk为默认暗色主题"夜隠染"  |  黑蓝主题
+        .szk为亮色主题"壱雫空"  |  蓝绿主题
+        .nrs为亮色主题"無路矢"  |  红黄主题
+        .shd为暗色主题"影色舞"  |  紫橙主题
+        .myu为暗色主题"迷星叫"  |  绿蓝主题
+    root内配置了每个主题的颜色变量，可以直接在root内修改
+*/
 /*Body*/
 body {
     background-color: #eee;
@@ -131,12 +139,12 @@ hr {
 
 /*UI 侧边栏*/
 #ui-bar {
-    border: 5px solid #aaa;
+    border: 4px solid #88ccff;
     background-color: rgba(187, 187, 187, 0.75);
 }
 
 .drk #ui-bar {
-    border: 5px solid #424242;
+    border: 4px solid #3388bb;
     background-color: rgba(33, 33, 33, 0.75);
 }
 
@@ -275,19 +283,6 @@ hr {
     color: #ccc;
 }
 
-/*通知或成就小弹窗*/
-.notify-item {
-    color: #eee;
-    background-color: #3388bb;
-    border-color: #88ccff;
-}
-
-.drk .notify-item {
-    color: #212121;
-    background-color: #88ccff;
-    border-color: #3388bb;
-}
-
 /* 角色文本卡片背景色 */
 .char-anon {
     background-color: #ff8899;
@@ -309,7 +304,13 @@ hr {
     background-color: #77dd77;
 }
 
-/*Sober.js组件主题，-d为暗色；-l为亮色*/
+/* sober组件配色 */
+.s-warn-button {
+    color: var(--s-color-on-error);
+    background: var(--s-color-error);
+}
+
+/* Sober.js组件主题，-d为暗色；-l为亮色 */
 .theme-d {
     --s-color-primary: #3388BB;
     --s-color-on-primary: #c9e6ff;

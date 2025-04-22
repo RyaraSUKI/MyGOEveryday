@@ -1,11 +1,26 @@
 :: Start [nosave hidebar]
     <img id="menu-logo" src="img/mygoe_logo.png" style="width: 100%">
     <br>
-    <div class="menu-button">
-        <<button "存档">><<ui saves>><</button>>
+    <<if Save.browser.size > 0>>
+<<button "继续游戏">>
+<<script>>
+Save.browser.continue()
+    	.then(() => {
+		    Engine.show();
+        })
+		.catch(error => {
+			/* Failure.  Handle the error. */
+			console.error(error);
+			UI.alert('加载存档错误');
+		});
+<</script>>
+<</button>><br>
+<</if>>
+<div class="menu-button">
+        <<button "开始">><<goto Start2>><</button>>
     </div>
     <div class="menu-button">
-        <<button "开始">><<goto Start2>><</button>>
+        <<button "存档">><<ui saves>><</button>>
     </div>
     <div class="menu-button">
         <<button "设置">><<ui settings>><</button>>

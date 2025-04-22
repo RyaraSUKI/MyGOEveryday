@@ -1,7 +1,19 @@
 :: 进入测试页面 [autosave]
-<div class="animate__animated animate__tada" style="animate-duration: 5s"><u><strong>请注意！</strong></u><br>你接下来要进入游戏测试主页，<u>这个页面主要用于开发，非正常游戏流程不会使用该页面</u>，是否继续？</div>
+<div class="animate__animated animate__tada" style="animate-duration: 5s"><h2><u><strong>请注意！</strong></u></h2><strong>这不是修改器页面！</strong><br>你接下来要进入游戏测试主页，<u>这个页面主要用于开发，非正常游戏流程不会使用该页面，且只能通过网页信息弹窗进入</u>，是否继续？</div>
 <s-divider>剪切线</s-divider>
-<br><s-ripple class="sugar-button"><button><<back "不，等等">></button></s-ripple><br><s-ripple class="sugar-button"><button style="color: #212121;background-color: #93000a;border-color: #ffb4ab">[[我知道我要去哪！|DebugHome]]</button></s-ripple>
+<br>
+<s-button id="no-test-home" class="sober-button">不，等等!</s-button>
+<s-button id="go-test-home" class="sober-button s-warn-button">我知道我要去哪!</s-button>
+<<script>>
+    $(document).ready(function() {
+        $("#go-test-home").click(function() {
+            Engine.play("DebugHome");
+        });
+        $("#no-test-home").click(function() {
+            Engine.backward();
+        });
+    });
+<</script>>
 
 :: DebugHome [nosave]
 <h1 class="animate__animated animate__flipInX" style="animate-duration: 3s">欢迎进入游戏测试主页！</h1>
@@ -18,7 +30,7 @@
 <s-divider>Sugarcube2宏组件</s-divider>
 <s-ripple class="sugar-button"><<button "打开存档">><<ui saves>><</button>></s-ripple>
 <s-ripple class="sugar-button"><<button "打开设置">><<ui settings>><</button>></s-ripple>
-<s-ripple class="sugar-button"><<button "显示一条通知，持续五秒">><<notify 5s>>''🔔 MyGo!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</notify>><</button>></s-ripple>
+<s-ripple class="sugar-button"><<button "显示一条通知，持续五秒">><<notify 5000>>''🔔 MyGo!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</notify>><</button>></s-ripple>
 
 :: DebugSample [nosave]
 <s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
@@ -58,12 +70,15 @@
 <<set $tomori to true>>
 <<set $taki to true>>
 <<set $rana to true>>
-<<anon>>爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰<</anon>><br>
-<<soyo>>这是素世的视角。<</soyo>><br>
-<<tomori>>灯的心声。<</tomori>><br>
-<<taki>>立希漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮<</taki>><br>
-<<rana>>抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲🥺<</rana>><br>
-<<nochar>>没有角色被选中时显示的内容。<</nochar>><br>
+<<anon>>爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰<</anon>>
+<<soyo>>这是素世的视角。<</soyo>>
+<<tomori>>灯的心声。<</tomori>>
+<<taki>>立希漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮漂亮<</taki>>
+<<rana>>抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲抹茶巴菲🥺<</rana>>
+<<nochar>>没有角色被选中时显示的内容。<</nochar>>
+<br><br>
+<<link "This documentation is a reference for SugarCube v2, a free (gratis and libre) story format for Twine/Twee.">>TestPlace<</link>>
 <br><br>
 <s-ripple class="sugar-button"><<button "一次性显示三条通知">><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></s-ripple>
-<br><br><s-ripple class="sugar-button"><<button "显示三条通知，先后持续时间不同">><<notify 5s>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify 3s>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></s-ripple>
+<br><br><s-ripple class="sugar-button"><<button "显示三条通知，先后持续时间不同">><<notify 5000>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify 3000>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></s-ripple>
+<br><br><br>

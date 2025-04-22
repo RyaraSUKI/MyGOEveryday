@@ -1,11 +1,8 @@
 :: StoryTitle
 迷子们的每一天 !!!!!
 
-:: StorySubtitle
-MyGo Everyday !!!!!
-
 :: StoryDisplayTitle
-迷子们的每一天 !!!!!
+迷子的日记本
 
 :: StoryMenu
 <<link "测试">><<goto "进入测试页面">><<run UIBar.stow()>><</link>>

@@ -1,5 +1,5 @@
 (function () {
-    // 角色对应css
+    // 定义角色对应卡片css
     const styleMap = {
         anon: "char-anon",
         soyo: "char-soyo",
@@ -13,10 +13,10 @@
         return Object.keys(styleMap).filter(char => State.getVar(`$${char}`));
     }
 
-    // 为每个角色添加对应的宏
+    // 为每个角色添加对应的宏，用object的遍历
     Object.entries(styleMap).forEach(([char, className]) => {
         Macro.add(char, {
-            tags: null, // 这是个闭合标签！
+            tags: null, // 说明这是个闭合标签
             handler() {
                 const activeChars = getActiveCharacters(); // 获取当前为true的角色变量
 

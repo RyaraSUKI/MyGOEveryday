@@ -1,3 +1,112 @@
+:root {
+    /* 移除移动浏览器默认点击高亮 */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* sugarcube和原生组件替换部分 */
+a {
+    display: inline;
+    padding: 2px;
+    text-decoration: none;
+    border: 1px solid #212121;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5em;
+    outline: none;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    background-clip: padding-box;
+}
+
+.passage a.link-internal {
+    /* 去除passage内文本下划线 */
+    text-decoration: none;
+}
+
+button {
+    border-radius: 5px;
+    height: auto;
+    outline: none;
+}
+
+#menu ul {
+    border-radius: 5px;
+    height: auto;
+}
+
+#menu li {
+    border-radius: 5px;
+    height: auto;
+}
+
+#menu li a {
+    display: block;
+    border-radius: 5px;
+    height: auto;
+}
+
+#menu li a:hover {
+    border-radius: 5px;
+    height: auto;
+}
+
+#ui-bar {
+    /* 收展时小动画 */
+    transition: all 600ms cubic-bezier(0.7, -1, 0.3, 2);
+    backdrop-filter: blur(8px);
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+#story {
+    /* passage部分收展时动画 */
+    transition: margin-left 600ms cubic-bezier(0.7, -1, 0.3, 2);
+}
+
+#ui-bar.stowed #ui-bar-body,
+#ui-bar.stowed #ui-bar-history {
+    /* 收起时渐隐侧边栏内容 */
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        max-height 500ms ease,
+        opacity 300ms ease,
+        visibility 300ms ease 300ms;
+}
+
+/* 自定义部分 */
+.sober-button {
+    display: flex;
+    width: auto;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sugar-button {
+    display: grid;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.menu-button {
+    display: grid;
+    width: auto;
+    height: 50%;
+    text-align: center;
+}
+
+/* 角色文本卡片样式 */
+.char-card {
+    color: #212121;
+    border: 1px solid #212121;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 0.8em 1em;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
 /*加载页面*/
 html[data-init="loading"] #init-loading {
     animation: init-loading-spin 2s linear infinite;
@@ -29,96 +138,6 @@ html[data-init="loading"] #init-loading {
     /* 保证圆圈显示在最顶层 */
 }
 
-/* sugarcube和原生组件替换部分 */
-button {
-    border-radius: 5px;
-    height: auto;
-}
-
-#menu ul {
-    border-radius: 5px;
-    height: auto;
-}
-
-#menu li {
-    border-radius: 5px;
-    height: auto;
-}
-
-#menu li a {
-    display: block;
-    border-radius: 5px;
-    height: auto;
-}
-
-#menu li a:hover {
-    border-radius: 5px;
-    height: auto;
-}
-
-/* 通知弹窗宏部分 */
-#notify-container {
-    position: fixed;
-    top: 2em;
-    right: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    max-width: 20em;
-}
-
-.notify-item {
-    display: block;
-    width: 16em;
-    padding: 0.5em;
-    border: 3px solid;
-    border-radius: 4px;
-    position: relative;
-    right: -20em;
-    opacity: 0;
-    transition: right 0.5s ease-in-out, opacity 0.5s;
-}
-
-.notify-item.open {
-    right: 0;
-    opacity: 1;
-}
-
-.notify-item.close {
-    opacity: 0;
-    right: -20em;
-}
-
-/* 自定义部分 */
-.sober-button {
-    display: flex;
-    width: auto;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.sugar-button {
-    display: grid;
-    width: auto;
-    height: auto;
-    text-align: center;
-}
-
-.menu-button {
-    display: grid;
-    width: auto;
-    height: 50%;
-    text-align: center;
-}
-/* 角色文本卡片样式 */
-.char-card {
-    color: #212121;
-    border: 1px solid #212121;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    padding: 0.8em 1em;
-    border-radius: 0.5em;
-    font-weight: bold;
-}
 /*hidebar标签处理*/
 [data-tags~="hidebar"] #ui-bar {
     display: none;
