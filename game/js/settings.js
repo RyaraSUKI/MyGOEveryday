@@ -1,17 +1,37 @@
 /* 感谢manonamora的设置模板代码!Thanks for manonamora's Settings Template source code! */
 // 主题与视觉效果
 Setting.addHeader("主题与视觉效果");
-var settingThemeNames = ["明弦音（亮色主题）", "夜隠染（暗色主题）"];
+var settingThemeNames = ["夜隠染", "明弦音", "壱雫空", "無路矢", "影色舞", "迷星叫"];
 var changeTheme = function() {
     var $html = $("html");
-    $html.removeClass("drk");
-    $("#passages").removeClass("theme-d");
-    $("#passages").addClass("theme-l");
+    $html.addClass("theme-drk");
+    $html.addClass("theme-sober-d");
+    $html.removeClass("theme-sober-l");
+    $html.removeClass("theme-lgt");
+    $html.removeClass("theme-szk");
+    $html.removeClass("theme-nrs");
+    $html.removeClass("theme-shd");
+    $html.removeClass("theme-myu");
     switch (settings.theme) {
-        case "夜隠染（暗色主题）":
-            $html.addClass("drk");
-            $("#passages").removeClass("theme-l");
-            $("#passages").addClass("theme-d");
+        case "明弦音":
+            $html.toggleClass("theme-lgt");
+            $html.addClass("theme-sober-l");
+            break;
+        case "壱雫空":
+            $html.toggleClass("theme-szk");
+            $html.addClass("theme-sober-l");
+            break;
+        case "無路矢":
+            $html.toggleClass("theme-nrs");
+            $html.addClass("theme-sober-l");
+            break;
+        case "影色舞":
+            $html.toggleClass("theme-shd");
+            $html.addClass("theme-sober-d");
+            break;
+        case "迷星叫":
+            $html.toggleClass("theme-myu");
+            $html.addClass("theme-sober-d");
             break;
     }
 };
@@ -19,7 +39,7 @@ Setting.addList("theme", {
     label: "主题切换",
     desc: "在这里选择你喜欢的主题吧！",
     list: settingThemeNames,
-    default: "夜隠染（暗色主题）",
+    default: "夜隠染",
     onInit: changeTheme,
     onChange: changeTheme
 });
