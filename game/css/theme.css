@@ -65,9 +65,6 @@
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
-
-    /* 侧边栏 */
-    --color-barbg: var(--color-secondary-d2);
 }
 
 :root.theme-lgt {
@@ -97,9 +94,6 @@
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
-
-    /* 侧边栏 */
-    --color-barbg: var(--color-secondary-l2);
 }
 
 :root.theme-lgt2 {
@@ -127,9 +121,6 @@
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
-
-    /* 侧边栏 */
-    --color-barbg: var(--color-secondary-l2);
 }
 
 :root.theme-szk {
@@ -157,9 +148,6 @@
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
-
-    /* 侧边栏 */
-    --color-barbg: var(--color-secondary-l2);
 }
 
 :root.theme-nrs {
@@ -187,9 +175,6 @@
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
-
-    /* 侧边栏 */
-    --color-barbg: var(--color-secondary-l2);
 }
 
 :root.theme-shd {
@@ -217,9 +202,6 @@
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
-
-    /* 侧边栏 */
-    --color-barbg: var(--color-secondary-d2);
 }
 
 :root.theme-myu {
@@ -247,12 +229,9 @@
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
-
-    /* 侧边栏 */
-    --color-barbg: var(--color-secondary-d2);
 }
 
-.theme-sober-d {
+:root.theme-sober-d {
     /* Sober.js组件配色dark */
     --s-color-primary: #3388BB;
     --s-color-on-primary: #c9e6ff;
@@ -288,7 +267,7 @@
     --s-color-surface-container-highest: #333537;
 }
 
-.theme-sober-l {
+:root.theme-sober-l {
     /* Sober.js组件配色light */
     --s-color-primary: #3388BB;
     --s-color-on-primary: #ffffff;
