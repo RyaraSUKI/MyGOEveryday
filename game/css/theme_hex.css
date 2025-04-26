@@ -3,8 +3,9 @@
         默认-theme-drk为暗色主题"夜隠染"  |  黑蓝主题  |  "夜空尽染遍"
         theme-lgt为亮色主题"明弦音"  |  白蓝主题  |  "明亮弦清音"
         theme-szk为亮色主题"壱雫空"  |  蓝绿主题  |  "雨过天晴空"
-        theme-nrs为亮色主题"無路矢"  |  红黄主题  |  "大漠狼烟起"
-        theme-shd为暗色主题"影色舞"  |  紫橙主题  |  "影色伴余霞"
+        theme-nrs为亮色主题"無路矢"  |  黄蓝主题  |  "大漠狼烟起"
+        theme-shd为暗色主题"影色舞"  |  紫蓝主题  |  "影色中起舞"
+        theme-szhm为暗色主题"潜在表明"  |  紫蓝主题  |  "深渊心新生"
         theme-myu为暗色主题"迷星叫"  |  绿蓝主题  |  "迷星光交错"
     这里配置了每个主题的颜色变量，可以直接在每个主题的root内修改
 */
@@ -24,6 +25,13 @@
     --color-mutsumi: #779977;
     --color-mujica: #881144;
     --color-crychic: #60c0c4;
+    --color-ppp: #ff3377;
+    --color-ag: #ee3344;
+    --color-pp: #33ddaa;
+    --color-rose: #3344aa;
+    --color-hhw: #ffdd00;
+    --color-monica: #33aaff;
+    --color-ras: #33cccc;
 
     /* 黑白色带 */
     --color-b1: #111;
@@ -42,11 +50,11 @@
     /* 默认-暗色主题"夜隠染" */
 
     /* 主色调-黑 */
-    --color-primary: #3d3d4d;
-    --color-primary-l: #4e4e5f;
-    --color-primary-l2: #5e5e6e;
-    --color-primary-d: #2a2a3c;
-    --color-primary-d2: #1e1e2f;
+    --color-primary: #1a1a2a;
+    --color-primary-l: #2a2a3c;
+    --color-primary-l2: #3a3a4d;
+    --color-primary-d: #0d0d1a;
+    --color-primary-d2: #05050f;
 
     /* 副色调-蓝 */
     --color-secondary: #3388bb;
@@ -55,7 +63,7 @@
     --color-secondary-d: #2672a3;
     --color-secondary-d2: #1a5c8a;
 
-    /* 强调色系-黄 */
+    /* 强调色-黄 */
     --color-accent: #ffba1a;
     --color-accent-l: #ffda61;
     --color-accent-l2: #f6e5b1;
@@ -65,6 +73,12 @@
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
+    
+    /* 暗色阴影 */
+    --color-shadow-rgb: var(--color-secondary-l2-rgb);
+    
+    /* 暗色链接 */
+    --color-link: var(--color-secondary-l2);
 }
 
 :root.theme-lgt {
@@ -78,13 +92,13 @@
     --color-primary-d2: #cccccc;
 
     /* 副色调-蓝 */
-    --color-secondary: #6da4cc;
-    --color-secondary-l: #9ec7e3;
-    --color-secondary-l2: #c5e0f1;
-    --color-secondary-d: #4c8ab4;
-    --color-secondary-d2: #2e6c96;
+    --color-secondary: #8dbedd;
+    --color-secondary-l: #b4d4e6;
+    --color-secondary-l2: #d1e6f0;
+    --color-secondary-d: #6da4cc;
+    --color-secondary-d2: #4c8ab4;
 
-    /* 强调色系-粉 */
+    /* 强调色-粉 */
     --color-accent: #ff4d70;
     --color-accent-l: #ff7086;
     --color-accent-l2: #ff8a9b;
@@ -94,105 +108,137 @@
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
-}
-
-:root.theme-lgt2 {
-    /* 主色调-瓷白 */
-    --color-primary: #f0f4f8;
-    --color-primary-l: #ffffff;
-    --color-primary-l2: #e3e9ef;
-    --color-primary-d: #d8dee4;
-    --color-primary-d2: #c2c8ce;
-
-    /* 副色调-冰蓝 */
-    --color-secondary: #6da4cc;
-    --color-secondary-l: #9ec7e3;
-    --color-secondary-l2: #c5e0f1;
-    --color-secondary-d: #4c8ab4;
-    --color-secondary-d2: #2e6c96;
-
-    /* 强调色系-晨雾金 */
-    --color-accent: #ffd285;
-    --color-accent-l: #ffe4b5;
-    --color-accent-l2: #fff0d7;
-    --color-accent-d: #f5b45c;
-    --color-accent-d2: #e69c3e;
-
-    /* 亮色字体 */
-    --color-text1: var(--color-b1);
-    --color-text2: var(--color-w5);
+    
+    /* 亮色阴影 */
+    --color-shadow-rgb: var(--color-secondary-d2-rgb);
+    
+    /* 亮色链接 */
+    --color-link: var(--color-secondary-d2);
 }
 
 :root.theme-szk {
-    /* 主色调-霁空蓝 */
-    --color-primary: #87CEEB;
-    --color-primary-l: #a8ddf0;
-    --color-primary-l2: #c9ecf5;
-    --color-primary-d: #6ab4d1;
-    --color-primary-d2: #4d9ab7;
+    /* 亮色主题"壱雫空" */
+    
+    /* 主色调-雫绿 */
+    --color-primary: #7ac0cc;
+    --color-primary-l: #9bd4dd;
+    --color-primary-l2: #b8e2e8;
+    --color-primary-d: #5dafbc;
+    --color-primary-d2: #469ca9;
 
-    /* 副色调-新叶绿 */
-    --color-secondary: #7AB894;
-    --color-secondary-l: #9DCFB6;
-    --color-secondary-l2: #C0E5D3;
-    --color-secondary-d: #5A9E7A;
-    --color-secondary-d2: #3D8460;
+    /* 副色调-迷子蓝 */
+    --color-secondary: #3388bb;
+    --color-secondary-l: #5fa3d1;
+    --color-secondary-l2: #8dbedd;
+    --color-secondary-d: #2672a3;
+    --color-secondary-d2: #1a5c8a;
 
-    /* 强调色系-虹光橙 */
-    --color-accent: #FFA07A;
-    --color-accent-l: #FFC4A8;
-    --color-accent-l2: #FFE0D4;
-    --color-accent-d: #F08058;
-    --color-accent-d2: #D1653E;
+    /* 强调色-橙 */
+    --color-accent: #ffa07a;
+    --color-accent-l: #ffc4a8;
+    --color-accent-l2: #ffe0d4;
+    --color-accent-d: #f08058;
+    --color-accent-d2: #d1653e;
 
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
+    
+    /* 亮色阴影 */
+    --color-shadow-rgb: var(--color-secondary-d2-rgb);
+    
+    /* 亮色链接 */
+    --color-link: var(--color-secondary-d2);
 }
 
 :root.theme-nrs {
-    /* 主色调-砂岩黄 */
-    --color-primary: #D4B48E;
-    --color-primary-l: #E6D2B8;
-    --color-primary-l2: #F4E9DC;
-    --color-primary-d: #C09E70;
-    --color-primary-d2: #A88555;
-
-    /* 副色调-赤陶红 */
-    --color-secondary: #B34A4A;
-    --color-secondary-l: #CF7878;
-    --color-secondary-l2: #E5A9A9;
-    --color-secondary-d: #963434;
-    --color-secondary-d2: #792222;
-
-    /* 强调色系-靛蓝 */
-    --color-accent: #4A6B8E;
-    --color-accent-l: #6E8FB0;
-    --color-accent-l2: #9BB3CC;
-    --color-accent-d: #325170;
-    --color-accent-d2: #1F3852;
+    /* 亮色主题"無路矢" */
+    
+    /* 主色调-沙黄 */
+    --color-primary: #d4b48e;
+    --color-primary-l: #e6d2b8;
+    --color-primary-l2: #f4e9dc;
+    --color-primary-d: #c09e70;
+    --color-primary-d2: #a88555;
+    
+    /* 副色调-深蓝 */
+    --color-secondary: #4a6b8e;
+    --color-secondary-l: #6e8fb0;
+    --color-secondary-l2: #9bb3cc;
+    --color-secondary-d: #325170;
+    --color-secondary-d2: #1f3852;
+    
+    /* 强调色-深红 */
+    --color-accent: #b34a4a;
+    --color-accent-l: #cf7878;
+    --color-accent-l2: #e5a9a9;
+    --color-accent-d: #963434;
+    --color-accent-d2: #792222;
 
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
+    
+    /* 亮色阴影 */
+    --color-shadow-rgb: var(--color-secondary-d2-rgb);
+
+    /* 亮色链接 */
+    --color-link: var(--color-secondary-d2);
 }
 
 :root.theme-shd {
-    /* 主色调-暮霭紫 */
+    /* 暗色主题"影色舞" */
+
+    /* 主色调-光蓝 */
+    --color-primary: #3a75e6;
+    --color-primary-l: #6a95ff;
+    --color-primary-l2: #94b3ff;
+    --color-primary-d: #1d4fc7;
+    --color-primary-d2: #0a2d8f;
+    
+    /* 副色调-影紫 */
+    --color-secondary: #8b65fe;
+    --color-secondary-l: #a88cff;
+    --color-secondary-l2: #c5b3ff;
+    --color-secondary-d: #6d4ce6;
+    --color-secondary-d2: #4f35c2;
+    
+    /* 强调色-亮红 */
+    --color-accent: #ff6b6b;
+    --color-accent-l: #ff8f8f;
+    --color-accent-l2: #ffbdbd;
+    --color-accent-d: #e64c4c;
+    --color-accent-d2: #c73232;
+    
+    /* 暗色字体 */
+    --color-text1: var(--color-w5);
+    --color-text2: var(--color-b1);
+    
+    /* 暗色阴影 */
+    --color-shadow-rgb: var(--color-secondary-l2-rgb);
+    
+    /* 暗色链接 */
+    --color-link: var(--color-secondary-l2);
+}
+
+:root.theme-szhm {
+    /* 暗色主题"潜在表明" */
+
+    /* 主色调-深紫 */
     --color-primary: #48466D;
     --color-primary-l: #5D5B83;
     --color-primary-l2: #75739B;
     --color-primary-d: #353356;
     --color-primary-d2: #242340;
 
-    /* 副色调-余烬橙 */
-    --color-secondary: #FF7F50;
-    --color-secondary-l: #FFA07D;
-    --color-secondary-l2: #FFC4AD;
-    --color-secondary-d: #E5673C;
-    --color-secondary-d2: #C44F28;
+    /* 副色调-渊蓝 */
+    --color-secondary:#3D5A79;
+    --color-secondary-l:#4F6E8D;
+    --color-secondary-l2:#6B89A6;
+    --color-secondary-d:#2B435D;
+    --color-secondary-d2:#1A3045;
 
-    /* 强调色系-鎏金 */
+    /* 强调色-光金 */
     --color-accent: #FFD700;
     --color-accent-l: #FFE55C;
     --color-accent-l2: #FFF0A3;
@@ -202,24 +248,32 @@
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
+    
+    /* 暗色阴影 */
+    --color-shadow-rgb: var(--color-secondary-l2-rgb);
+
+    /* 暗色链接 */
+    --color-link: var(--color-secondary-l2);
 }
 
 :root.theme-myu {
-    /* 主色调-深潭绿 */
+    /* 暗色主题"迷星叫" */
+
+    /* 主色调-深绿 */
     --color-primary: #2D545E;
     --color-primary-l: #3E6A75;
     --color-primary-l2: #54828D;
     --color-primary-d: #1F404A;
     --color-primary-d2: #122C36;
 
-    /* 副色调-极光蓝 */
+    /* 副色调-光蓝 */
     --color-secondary: #5F9EA0;
     --color-secondary-l: #7FB9B9;
     --color-secondary-l2: #A3D2D2;
     --color-secondary-d: #458486;
     --color-secondary-d2: #2D696B;
 
-    /* 强调色系-星芒青 */
+    /* 强调色-星青 */
     --color-accent: #7FFFD4;
     --color-accent-l: #A5FFE4;
     --color-accent-l2: #CFFFF4;
@@ -229,11 +283,17 @@
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
+    
+    /* 暗色阴影 */
+    --color-shadow-rgb: var(--color-secondary-l2-rgb);
+
+    /* 暗色链接 */
+    --color-link: var(--color-secondary-l2);
 }
 
 :root.theme-sober-d {
     /* Sober.js组件配色dark */
-    --s-color-primary: #3388BB;
+    --s-color-primary: #3388bb;
     --s-color-on-primary: #c9e6ff;
     --s-color-primary-container: #004b6f;
     --s-color-on-primary-container: #c9e6ff;
@@ -259,7 +319,7 @@
     --s-color-on-surface-variant: #c1c7ce;
     --s-color-inverse-surface: #2e3133;
     --s-color-inverse-on-surface: #e2e2e5;
-    --s-color-inverse-primary: #3388BB;
+    --s-color-inverse-primary: #3388bb;
     --s-color-surface-container: #1e2022;
     --s-color-surface-container-lowest: #0c0e11;
     --s-color-surface-container-low: #1a1c1e;
@@ -269,7 +329,7 @@
 
 :root.theme-sober-l {
     /* Sober.js组件配色light */
-    --s-color-primary: #3388BB;
+    --s-color-primary: #3388bb;
     --s-color-on-primary: #ffffff;
     --s-color-primary-container: #c9e6ff;
     --s-color-on-primary-container: #001e2f;

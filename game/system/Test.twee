@@ -3,7 +3,7 @@
 <s-divider>剪切线</s-divider>
 <br>
 <s-button id="no-test-home" class="sober-button">不，等等!</s-button>
-<s-button id="go-test-home" class="sober-button s-warn-button">我知道我要去哪!</s-button>
+<s-button id="go-test-home" class="sober-button warn-button">我知道我要去哪!</s-button>
 <<script>>
     $(document).ready(function() {
         $("#go-test-home").click(function() {

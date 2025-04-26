@@ -1,29 +1,34 @@
-:: Start [nosave hidebar]
-    <img id="menu-logo" src="img/mygoe_logo.png" style="width: 100%">
-    <br>
-    <<if Save.browser.size > 0>>
-<<button "继续游戏">>
+:: Start [menu nosave hidebar nobr]
+<div id="menu-logo" oncontextmenu="return false;">
+[img[mygoe_logo]]
+</div>
 <<script>>
-Save.browser.continue()
-    	.then(() => {
-		    Engine.show();
-        })
-		.catch(error => {
-			/* Failure.  Handle the error. */
-			console.error(error);
-			UI.alert('加载存档错误');
-		});
+    $(document).ready(function() {
+        $("#menu-logo").on("click", function() {
+            UI.alert("成功");
+        });
+    });
 <</script>>
-<</button>><br>
-<</if>>
-<div class="menu-button">
-        <<button "开始">><<goto Start2>><</button>>
-    </div>
-    <div class="menu-button">
-        <<button "存档">><<ui saves>><</button>>
-    </div>
-    <div class="menu-button">
-        <<button "设置">><<ui settings>><</button>>
-    </div>
+<br><br><br>
+    <<if Save.browser.size > 0>>
+        <<button "继续">>
+            <<script>>
+            Save.browser.continue()
+                	.then(() => {
+            		    Engine.show();
+                    })
+            		.catch(error => {
+            			console.error(error);
+            			UI.alert('加载记录错误！');
+            		});
+            <</script>>
+        <</button>>
+    <</if>>
+    <br><br><br>
+    <<button "开始">><<goto Start2>><</button>>
+    <br><br><br>
+    <<button "存档">><<ui saves>><</button>>
+    <br><br><br>
+    <<button "设置">><<ui settings>><</button>>
 :: Start2 [nosave]
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——

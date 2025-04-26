@@ -1,7 +1,7 @@
 /* 感谢manonamora的设置模板代码!Thanks for manonamora's Settings Template source code! */
 // 主题与视觉效果
 Setting.addHeader("主题与视觉效果");
-var settingThemeNames = ["夜隠染", "明弦音", "壱雫空", "無路矢", "影色舞", "迷星叫"];
+var settingThemeNames = ["夜隠染", "明弦音", "壱雫空", "無路矢", "影色舞", "潜在表明", "迷星叫"];
 var changeTheme = function() {
     var $html = $("html");
     $html.addClass("theme-drk");
@@ -11,6 +11,7 @@ var changeTheme = function() {
     $html.removeClass("theme-szk");
     $html.removeClass("theme-nrs");
     $html.removeClass("theme-shd");
+    $html.removeClass("theme-szhm");
     $html.removeClass("theme-myu");
     switch (settings.theme) {
         case "明弦音":
@@ -27,6 +28,10 @@ var changeTheme = function() {
             break;
         case "影色舞":
             $html.toggleClass("theme-shd");
+            $html.addClass("theme-sober-d");
+            break;
+        case "潜在表明":
+            $html.toggleClass("theme-szhm");
             $html.addClass("theme-sober-d");
             break;
         case "迷星叫":
