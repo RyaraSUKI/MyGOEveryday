@@ -185,7 +185,9 @@ hr {
 
 /*UI 弹窗*/
 #ui-overlay {
-    background-color: var(--color-primary-d2);
+    background-color: rgba(var(--color-b2), 0.75);
+    backdrop-filter: blur(4px); /* 添加模糊效果 */
+    -webkit-backdrop-filter: blur(4px);
 }
 
 #ui-dialog-titlebar {
