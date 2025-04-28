@@ -20,7 +20,7 @@
     <br />
     <a href="https://github.com/RyaraSUKI/MyGoEveryday/releases/latest">最新发布版</a>
     ·
-    <a href="https://github.com/RyaraSUKI/MyGoEveryday/master/docs/COWORK.md">[参与创作！]</a>
+    <a href="https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/COWORK.md">[参与创作！]</a>
     ·
     <a href="https://github.com/RyaraSUKI/MyGoEveryday/issues">反馈与建议</a>
   </p>
@@ -29,7 +29,7 @@
 ## 目录
 
 - [简介](#简介)
-- [参与创作！](#参与创作)
+- [参与创作](#参与创作)
 - [贡献者](#贡献者)
 - [版权声明](#版权声明)
 - [更新日志](#更新日志)
@@ -54,7 +54,7 @@
 
 ## 参与创作
 
-『迷子们的每一天 !!!!!』欢迎所有热爱者的共同创作，请在[此处](https://github.com/RyaraSUKI/MyGoEveryday/master/docs/COWORK.md)查看指引！
+『迷子们的每一天 !!!!!』欢迎所有热爱者的共同创作，请在[此处](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/COWORK.md)查看指引！
 另外，欢迎加入[讨论群]():
 
 ## 贡献者

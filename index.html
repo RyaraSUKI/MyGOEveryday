@@ -8342,7 +8342,7 @@ $(document).on(':passagerender', _ => {
 &lt;&lt;script&gt;&gt;
     $(document).ready(function() {
         $(&quot;#menu-logo&quot;).on(&quot;click&quot;, function() {
-            Dialog.create(&quot;关于『迷子们的每一天 !!!!!』&quot;);
+            Dialog.create(&quot;关于&quot;);
             Dialog.wikiPassage(&quot;关于&quot;);
             Dialog.open();
         });
@@ -8372,10 +8372,11 @@ $(document).on(':passagerender', _ => {
 &lt;h2&gt;『迷子们的每一天 !!!!!』&lt;/h2&gt;
     &lt;h3&gt;版本 Alpha 1.0.0&lt;/h3&gt;
     &lt;strong&gt;&quot;是今日初雫，使我昂首前行&quot;&lt;/strong&gt;
-&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 GitHub:&lt;br&gt;[[RyaraSUKI/MyGoEveryday|https://github.com/RyaraSUKI/MyGoEveryday]]
 &lt;br&gt;&lt;br&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="AP" tags="nosave hidebar" position="600,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
-&lt;br&gt;这里记录了所有的角色的专属passage和共通passage，相当于一个目录，方便在没有可视化编辑器的时候调试和预览&lt;br&gt;
+&lt;br&gt;这里记录了所有的页面，相当于一个目录，方便统计或在没有可视化编辑器的时候调试和预览&lt;br&gt;
+// 后面再做分页
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;script&gt;&gt;
     var passages = Story.lookup(&#39;&#39;);
