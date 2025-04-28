@@ -6,11 +6,11 @@
 - 承诺非商业性质
 - 使用相同的许可证书
 
-2. 本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有
+2. 本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有，本项目只引用了BanGDream!世界观的角色名、形象和特征等必要设定。
 
-3. 本项目为文字互动同人小说网页，不含完整游戏性，实质上是通过WEB形式表现的同人小说
+3. 本项目为文字互动同人小说网页，不含完整游戏性，实质上是通过WEB形式表现的同人小说。
 
-4. 本项目中的代码部分采用 **[MIT LICENSE](https://mit-license.org/)** 许可，原创素材（包括但不限于文本，图像等）采用 **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** 协议。 
+4. 本项目中的代码部分采用 **[MIT LICENSE](https://mit-license.org/)** 许可，**依雅莱所属原创素材（包括但不限于文本，图像等）**采用 **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** 协议，社区共创内容版权所属，由作者**自行决定**，本项目将**严格尊守**。
 
 ## Copyright Notice
 
@@ -20,11 +20,11 @@ Any derivative works must maintain:
 - Non-commercial promise
 - Same license terms
 
-2. This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. 
+2. This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. This project only uses the necessary settings such as character names, appearance, and characteristics of the BanGDream! worldview. 
 
 3. This project is a text-interactive fan-made fiction web page and does not include any gameplay. This project is actually a fan-made fiction expressed in the WEB form.
 
-4. Original created codes in this project are licensed under **[MIT LICENSE](https://mit-license.org/)** & resources (including but not limited to texts , images) in this project are licensed under **[CC BY-NC-SA 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)** .
+4. Original created codes in this project are licensed under **[MIT LICENSE](https://mit-license.org/)** & **resources by RyaraSUKI (including but not limited to texts , images)** in this project are licensed under **[CC BY-NC-SA 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)**. The copyright of the content co-created by the community belongs to **the author's decision** and this project will **strictly abide by**.
 
 
 ## MIT License (Code part)

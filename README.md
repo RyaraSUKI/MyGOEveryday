@@ -1,5 +1,5 @@
-# 本项目正在积极开发中，敬请期待
-## 在完成基本剧情和框架后，将会进行宣发，届时将提供讨论群组，欢迎加入
+## 本项目正在积极开发中，敬请期待
+### 你可以通过[部署的pages]进行最新进度预览
 
 <div id="top"></div>
 
@@ -20,37 +20,42 @@
     <br />
     <a href="https://github.com/RyaraSUKI/MyGoEveryday/releases/latest">最新发布版</a>
     ·
-    <a href="https://github.com/RyaraSUKI/MyGoEveryday/issues">反馈Bug</a>
+    <a href="https://github.com/RyaraSUKI/MyGoEveryday/master/docs/COWORK.md">[参与创作！]</a>
     ·
-    <a href="https://github.com/RyaraSUKI/MyGoEveryday/issues">提议新功能</a>
+    <a href="https://github.com/RyaraSUKI/MyGoEveryday/issues">反馈与建议</a>
   </p>
 </div>
  
 ## 目录
 
 - [简介](#简介)
+- [参与创作！](#参与创作)
 - [贡献者](#贡献者)
 - [版权声明](#版权声明)
 - [更新日志](#更新日志)
 - [使用说明](#使用说明)
-- [编译说明](#编译说明)
 - [待办项目](#待办项目)
 - [引用与鸣谢](#引用与鸣谢)
 
 ## 简介
 
-『即使迷茫，也要前进——』
+> 『不畏迷茫，迷茫着也要砥砺前行——』
 
 通过五个不同的视角，去看迷路的每一天，<br>
-在迷子们和朋友们的互动中，逐渐展现属于MyGO!!!!!&Ave Mujica官方剧情中<br>
-十一个主要角色的羁绊。
+在迷子们和朋友们的互动中，<br>
+逐渐展现属于MyGO!!!!!&Ave Mujica官方剧情中十一个主要角色的羁绊。
 
-迷子们的平淡日常，一日一日，一点一滴，汇聚成了她们的故事——<br>
-一辈子的誓言，映射在每一天。
+**迷子们的平淡日常，一日一月，一点一滴，汇聚成了她们的故事，
+一辈子的誓言，映射在每一天。**
 
-互动网页小说提供了三种不同的模式，分为主线剧情『Story』、自由日常『FreeDay』和支线故事『AnotherStory』，在游玩中感受不同的体验
+本互动网页小说提供了三种不同的模式，分为**主线剧情『Story』**、**自由日常『FreeDay』**和**支线故事『AnotherStory』**，在游玩中，感受不同选项带来的独特体验。
 
-这同时是一个开放包容的社区项目，欢迎各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到创作中，让我们写出自己认可的故事！
+同时，本项目意在建设一个开放包容的二创社区，欢迎各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到创作中，让我们写出自己认可的故事，感受这个企划真正的美好，体会来自初心的快乐！
+
+## 参与创作
+
+『迷子们的每一天 !!!!!』欢迎所有热爱者的共同创作，请在[此处](https://github.com/RyaraSUKI/MyGoEveryday/master/docs/COWORK.md)查看指引！
+另外，欢迎加入[讨论群]():
 
 ## 贡献者
 
@@ -58,7 +63,7 @@
 
 ## 版权声明
 
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/LICENSE.md)
+- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/LICENSE.md)
 
 ## 更新记录
 
@@ -73,59 +78,8 @@
 - exe：Windows可执行文件，可自行双击运行
 - zip：包含html和资源文件夹，下载后请解压，确保html文件和资源文件夹在同一文件夹内，请使用任意**现代浏览器**打开html
 
-## 编译说明
-
-**欢迎参与本项目贡献！**
-
-- 如果你熟悉Twine的操作方式，要修改本项目，你可以直接将最新版的index.html导入Twine软件中
-
-**tweego编译原版html**
-
-> tweego是Twine引擎网页游戏的命令行编译工具，可以将分散的文件编译成html
-
-如果有命令行及web开发基础，强烈推荐使用这个工具进行开发
-
-以下提供使用tweego的编译说明（以Linux为例）：
-1. 前往[tweego官方网站](https://www.motoslave.net/tweego/)或[tweego的仓库](https://github.com/tmedwards/tweego)下载最新版 tweego，注意选择自己系统的版本
-
-2. 前往[本仓库开发工具中](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/devtools/storyformats)下载『MyGo Everyday !!!!! 』专用修改版Sugarcube2故事格式，然后将全部文件放置/替换在
-```
-你的项目/tweego/storyformats/sugarcube-2/
-```
-
-3. 编译HTML文件，-o 为发布编译，-t 为调试模式编译，具体参数参见[tweego文档](https://www.motoslave.net/tweego/docs/)
-
-    - 注意，只需编译" game/ "即可，否则将连同图片字体等资源文件一起编译导致html容量剧增！
-
-```
-tweego -o 本项目根文件夹/game/
-```
-
-**打包**
-
-- 一个完整的发布包应该包含：
-    - img/ (图像资源文件)
-    - fonts/ (字体资源文件)
-    - index.html (网页主文件)
-    - README.md (说明)
-    - LICENSE.md (许可)
-
-- 而这些文件只用于开发，不应该被添加到发布包里：
-    - docs/ (文档)
-    - devtools/ (开发工具)
-    - game/ (源码)
-    - 以及所有隐藏文件夹
-
-**ModLoader相关**
-
-为扩展网页功能，选择了[ModLoader框架](https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader)，仍处于测试实验阶段，详见[此处](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/MODLOADER.md)
-
-**其余的建议**
-
-- 推荐使用VSC进行编辑，有一个[适配twee文件的插件](https://marketplace.visualstudio.com/items?itemName=cyrusfirheir.twee3-language-tools)推荐下载
-
-## ~~已画饼~~ 待办项目
-
+## 待办项目
+~~画饼清单~~
 - [X] 最初的起点
 - [ ] UI美化再装修
 - [ ] 加入换装系统

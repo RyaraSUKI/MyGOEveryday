@@ -190,10 +190,10 @@ Setting.addHeader("迷子的日记本设定");
 Config.saves.maxSlotSaves = 16; //设置最大存档数0~16
 Config.saves.isAllowed = function(saveType) {
     if (saveType === Save.Type.Auto) {
-        if (settings.autosave && !tags().includes('autosave')) { //检查passage是否带有autosave标签，若有则自动存档
+        if (settings.autosave && !tags().includes('autosave')) { // 检查passage是否带有autosave标签，若有则自动存档
             return false;
         };
-        if (settings.autosave && !tags().includes('nosave')) { //检查passage是否带有nosave标签，若有则禁止自动或手动存档
+        if (settings.autosave && !tags().includes('nosave')) { // 检查passage是否带有nosave标签，若有则禁止自动或手动存档
             return true;
         }
         return true;
@@ -234,12 +234,3 @@ Setting.addToggle("autoname", {
     desc: "在这里开启/关闭记录自动命名吧！",
     default: false,
 });
-/*按钮弹窗事件*/
-/*使用js方式实现带hidebar标签的页面则隐藏侧边栏，css已实现，已弃用
-$(document).on(':passagerender', _ => {
-  if (tags().includes('hidebar')) {
-    UIBar.stow().hide();
-  }else{
-    UIBar.show();
-  }
-});*/

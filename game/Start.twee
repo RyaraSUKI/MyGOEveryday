@@ -5,13 +5,15 @@
 <<script>>
     $(document).ready(function() {
         $("#menu-logo").on("click", function() {
-            UI.alert("成功");
+            Dialog.create("关于");
+            Dialog.wikiPassage("关于");
+            Dialog.open();
         });
     });
 <</script>>
 <br><br><br>
     <<if Save.browser.size > 0>>
-        <<button "继续">>
+        <<button "继续迷子">>
             <<script>>
             Save.browser.continue()
                 	.then(() => {
@@ -25,10 +27,12 @@
         <</button>>
     <</if>>
     <br><br><br>
-    <<button "开始">><<goto Start2>><</button>>
+    <<button "新的故事">><<goto Start2>><</button>>
     <br><br><br>
-    <<button "存档">><<ui saves>><</button>>
+    <<button "日记本">><<ui saves>><</button>>
     <br><br><br>
-    <<button "设置">><<ui settings>><</button>>
-:: Start2 [nosave]
+    <<button "北极星">><<ui settings>><</button>>
+:: Start2 [hidebar nosave nobr]
+[[Start|Start]]
+:: Start3 [hidebar nosave nobr]
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——

@@ -1,0 +1,30 @@
+/* menu标签处理 */
+[data-tags~="menu"] #menu-logo {
+    -webkit-touch-callout: none;
+    user-select: none;
+    transition: transform 0.3s ease;
+    height: auto;
+    width: auto;
+    max-width: 320px;
+    min-width: 120px;
+    margin: auto;
+}
+
+[data-tags~="menu"] #menu-logo:hover {
+    transform: scale(1.1);
+}
+
+/* hidebar标签处理 */
+[data-tags~="hidebar"] #ui-bar {
+    display: none;
+}
+
+[data-tags~="hidebar"] .passage {
+    text-align: center;
+    position: absolute;
+    top: 3%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding: 2em;
+}
