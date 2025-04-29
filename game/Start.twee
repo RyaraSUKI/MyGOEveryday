@@ -1,5 +1,5 @@
 :: Start [menu nosave hidebar nobr]
-<div id="menu-logo" oncontextmenu="return false;">
+<div id="menu-logo" oncontextmenu="return false;" class="animate__animated animate__fadeIn">
 [img[mygoe_logo]]
 </div>
 <<script>>
@@ -12,27 +12,37 @@
     });
 <</script>>
 <br><br><br>
-    <<if Save.browser.size > 0>>
-        <<button "继续迷子">>
-            <<script>>
-            Save.browser.continue()
-                	.then(() => {
-            		    Engine.show();
-                    })
-            		.catch(error => {
-            			console.error(error);
-            			UI.alert('加载记录错误！');
-            		});
-            <</script>>
-        <</button>>
-    <</if>>
+<div class="animate__animated animate__fadeInUp">
+        <<if Save.browser.size > 0>>
+            <<button "继续迷子">>
+                <<script>>
+                Save.browser.continue()
+                    	.then(() => {
+                		    Engine.show();
+                        })
+                		.catch(error => {
+                			console.error(error);
+                			UI.alert('加载记录错误！');
+                		});
+                <</script>>
+            <</button>>
+        <</if>>
     <br><br><br>
-    <<button "新的故事">><<goto Start2>><</button>>
+        <<button "新的故事">><<goto Start2>><</button>>
     <br><br><br>
-    <<button "日记本">><<ui saves>><</button>>
+        <<button "查看日记">><<ui saves>><</button>>
     <br><br><br>
-    <<button "北极星">><<ui settings>><</button>>
+        <<button "调整设置">><<ui settings>><</button>>
+</div>
+
 :: Start2 [hidebar nosave nobr]
 [[Start|Start]]
+
 :: Start3 [hidebar nosave nobr]
+
+:: StartOurStories [hidebar nosave nobr]
+
+:: StartFreeDays [hidebar nosave nobr]
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
+
+:: StartAnotherStory [hidebar nosave nobr]

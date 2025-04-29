@@ -1,8 +1,46 @@
-:: 关于 [nobr]
+:: 关于 [nobr dialog]
 <div style="text-align: center;">
-<h2>『迷子们的每一天 !!!!!』</h2>
-    <h3>版本 Alpha 1.0.0</h3>
-    <strong>"是今日初雫，使我昂首前行"</strong>
+    <div id="about-title" class="animate__animated animate__jackInTheBox">
+        <h2>『迷子们的每一天!!!!!』</h2>
+    </div>
+    <div id="about-version" class="animate__animated animate__zoomIn">
+       <h3>版本 Alpha 1.0.0</h3>
+       <strong>"是今日初雫，使我昂首前行"</strong>
+    </div>
 <br><br>
+<div id="about-urls" class="animate__animated animate__slideInUp">
 GitHub:<br>[[RyaraSUKI/MyGoEveryday|https://github.com/RyaraSUKI/MyGoEveryday]]
-<br><br></div>
+<br><br>
+BiliBili:<br>[[依雅莱Ryara的B站空间|https://space.bilibili.com/454918815]]
+<br><br>
+QQ群:<br>[[等待补充|https://github.com/RyaraSUKI/MyGoEveryday]]
+<br><br>
+</div>
+<<script>>
+    $(document).ready(function() {
+        $("#about-title").click(function() {
+            Dialog.close();
+            Dialog.create("进入测试页面");
+            Dialog.wikiPassage("TestAbout");
+            Dialog.open();
+        });
+    });
+<</script>>
+<br><br>
+</div>
+
+:: TestAbout [dialog]
+<div style="text-align: center;" class="animate__animated animate__flash">
+    <u><strong>确定要进入测试页面吗？</strong></u>
+</div>
+<br><br>
+<s-button id="go-testhome" class="sober-button">确定</s-button>
+
+<<script>>
+$(document).ready(function() {
+        $("#go-testhome").click(function() {
+            Engine.play("进入测试页面");
+            Dialog.close();
+        });
+    });
+<</script>>

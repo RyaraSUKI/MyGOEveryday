@@ -1,5 +1,6 @@
 ## 本项目正在积极开发中，敬请期待
-### 你可以通过[部署的pages]进行最新进度预览
+### 你可以通过[部署的pages](https://ryarasuki.github.io/MyGoEveryday/)进行最新进度预览
+### 请禁用浏览器自带的自动翻译插件！
 
 <div id="top"></div>
 
@@ -15,7 +16,7 @@
 一个基于BanGDream！世界观的二次创作文字互动网页，主体部分使用Sugarcube2完成，原创代码部分遵从 [MIT LICENSE] 开源许可，原创文字、图像等遵从 [CC BY-NC-SA 4.0] 协议
     <br />
     <br />
-    <a href="https://github.com/RyaraSUKI/MyGoEveryday"><strong>游玩网页版 »</strong></a>
+    <a href="https://ryarasuki.github.io/MyGoEveryday/"><strong>游玩网页版 »</strong></a>
     <br />
     <br />
     <a href="https://github.com/RyaraSUKI/MyGoEveryday/releases/latest">最新发布版</a>
@@ -44,12 +45,12 @@
 通过五个不同的视角，去看迷路的每一天，<br>
 在迷子们和朋友们的互动中，<br>
 逐渐展现属于MyGO!!!!!&Ave Mujica官方剧情中十一个主要角色的羁绊。
-
+<br>
 **迷子们的平淡日常，一日一月，一点一滴，汇聚成了她们的故事，
 一辈子的誓言，映射在每一天。**
-
-本互动网页小说提供了三种不同的模式，分为**主线剧情『Story』**、**自由日常『FreeDay』**和**支线故事『AnotherStory』**，在游玩中，感受不同选项带来的独特体验。
-
+<br>
+本互动网页小说提供了三种不同的模式，分为**主线故事『OurStoires』**、**自由日常『FreeDay』**和**支线故事『AnotherStory』**，在游玩中，感受不同选项带来的独特体验。
+<br>
 同时，本项目意在建设一个开放包容的二创社区，欢迎各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到创作中，让我们写出自己认可的故事，感受这个企划真正的美好，体会来自初心的快乐！
 
 ## 参与创作
@@ -71,7 +72,7 @@
 
 ## 使用说明
 
-- 你可以直接前往[github-pages]游玩已部署的最新版，如果你要下载本地版或历史版本，请前往[Releases](https://github.com/RyaraSUKI/MyGoEveryday/releases)
+- 你可以直接前往[GitHub Pages](https://ryarasuki.github.io/MyGoEveryday/)游玩已部署的最新版，如果你要下载本地版或历史版本，请前往[Releases](https://github.com/RyaraSUKI/MyGoEveryday/releases)
 
 **格式说明：**
 - apk：安卓软件安装包，可自行安装，本项目完全安全无风险
