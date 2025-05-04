@@ -8,35 +8,12 @@
 body {
     background-color: var(--color-primary);
     color: var(--color-text1);
+    font-weight: 500;
+    font-size: 16px;
+    overflow: auto;
 }
 
 /*原生按钮 和 link链接*/
-a {
-    color: var(--color-link);
-    font-weight: bold;
-    display: inline;
-    padding: 2px;
-    text-decoration: none;
-    border: 2px solid var(--color-primary-d2);
-    box-shadow: 2px 2px 5px rgba(var(--color-shadow-rgb), 0.3);
-    border-radius: 0.5em;
-    outline: none;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    background-clip: padding-box;
-    transition: transform 0.2s ease;
-}
-
-a:hover {
-    color: var(--color-accent-l);
-    transform: scale(1.1);
-}
-
-.passage a.link-internal {
-    /* 去除passage内文本下划线 */
-    text-decoration: none;
-}
-
 button {
     color: var(--color-text1);
     background-color: var(--color-secondary-l);
@@ -44,18 +21,85 @@ button {
     border-radius: 5px;
     height: auto;
     outline: none;
+    transition: transform 0.3s ease;
 }
 
 button:hover {
     background-color: var(--color-secondary);
     border-color: var(--color-secondary-l2);
     color: var(--color-text2);
+    transform: scale(1.1);
 }
 
 button:disabled {
     background-color: var(--color-primary-d);
     border-color: var(--color-primary-d2);
     opacity: 0.7;
+}
+
+a {
+    display: inline;
+    font-weight: bold;
+    color:var(--color-text2);
+    /* 去除passage内文本下划线 */
+	text-decoration:none;
+    background-color:var(--color-link);
+	padding: 3px 15px;
+	text-align: center;
+	border-radius: 1em;
+    line-height: 2rem;
+    outline: none;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    background-clip: padding-box;
+}
+
+a:hover {
+    background-color:var(--color-accent-l);
+    box-shadow: 0px 0px 10px rgba(var(--color-shadow-rgb), 0.8);
+}
+
+/* story和passage */
+#story {
+    /* 确保passage内容被uibar展开时遮挡，覆盖引擎内置的宽屏对齐方式 */
+    margin-left: 3.5em;
+    /* passage部分收展时动画 */
+    transition: margin-left 600ms cubic-bezier(0.7, -1, 0.3, 2);
+}
+
+.passage { 
+    background-color:rgba(var(--color-primary-l-rgb),0.8);
+    border-radius: 2em;
+    padding: 15px;
+}
+
+.passage caption,
+.passage td,
+.passage th,
+.passage tr {
+    border: 1px solid var(--color-primary-d2);
+}
+
+/* passage内链接 */
+.passage a.link-internal { 
+    display: inline;
+    font-weight: bold;
+    color:var(--color-text2);
+    /* 去除passage内文本下划线 */
+	text-decoration:none;
+    background-color:var(--color-link);
+	padding: 3px 15px;
+	text-align: center;
+	border-radius: 1em;
+    line-height: 2rem;
+    outline: none;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    background-clip: padding-box;
+}  
+.passage a.link-internal:hover { 
+    background-color:var(--color-accent-l);
+    box-shadow: 0px 0px 10px rgba(var(--color-shadow-rgb), 0.8);
 }
 
 /*原生组件*/
@@ -65,6 +109,8 @@ textarea {
     color: var(--color-text1);
     background-color: var(--color-primary-l2);
     border-color: var(--color-primary-d);
+    padding: 0.2em 0.8em;
+    border-radius: 2em;
 }
 
 input:not(:disabled):focus,
@@ -77,13 +123,14 @@ textarea:not(:disabled):hover {
     border-color: var(--color-primary-d2);
 }
 
-/*HTML元素*/
+/* 表格 */
 label {
     font-weight: bold;
 }
 
 hr {
     border-color: var(--color-primary-d);
+    margin:0.1em auto;
 }
 
 /* 基础滚动条样式 */
@@ -110,13 +157,6 @@ hr {
 *::placeholder {
     color: var(--color-primary-d);
     opacity: 0.7;
-}
-
-.passage caption,
-.passage td,
-.passage th,
-.passage tr {
-    border: 1px solid var(--color-primary-d2);
 }
 
 /*UI 侧边栏*/
@@ -216,13 +256,6 @@ hr {
 
 #ui-dialog-body.settings button[id|="setting-control"].enabled {
     color: var(--color-text2);
-}
-
-#story {
-    /* 确保passage内容被uibar展开时遮挡，覆盖引擎内置的宽屏对齐方式 */
-    margin-left: 3.5em;
-    /* passage部分收展时动画 */
-    transition: margin-left 600ms cubic-bezier(0.7, -1, 0.3, 2);
 }
 
 #ui-bar.stowed ~ #story {

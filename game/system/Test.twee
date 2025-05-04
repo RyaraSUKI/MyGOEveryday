@@ -28,9 +28,9 @@
 <s-button class="sober-button" data-passage="DebugSample">第一个示例</s-button>
 
 <s-divider>Sugarcube2宏组件</s-divider>
-<s-ripple class="sugar-button"><<button "打开存档">><<ui saves>><</button>></s-ripple>
-<s-ripple class="sugar-button"><<button "打开设置">><<ui settings>><</button>></s-ripple>
-<s-ripple class="sugar-button"><<button "显示一条通知，持续五秒">><<notify 5000>>''🔔 MyGo!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</notify>><</button>></s-ripple>
+<div class="sugar-button"><<button "打开存档">><<ui saves>><</button>></div>
+<div class="sugar-button"><<button "打开设置">><<ui settings>><</button>></div>
+<div class="sugar-button"><<button "显示一条通知，持续五秒">><<notify 5000>>''🔔 MyGo!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</notify>><</button>></div>
 
 :: DebugSample [nosave]
 <s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
@@ -79,6 +79,6 @@
 <br><br>
 <<link "This documentation is a reference for SugarCube v2, a free (gratis and libre) story format for Twine/Twee.">>TestPlace<</link>>
 <br><br>
-<s-ripple class="sugar-button"><<button "一次性显示三条通知">><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></s-ripple>
-<br><br><s-ripple class="sugar-button"><<button "显示三条通知，先后持续时间不同">><<notify 5000>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify 3000>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></s-ripple>
+<div class="sugar-button"><<button "一次性显示三条通知">><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></div>
+<br><br><div class="sugar-button"><<button "显示三条通知，先后持续时间不同">><<notify 5000>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify 3000>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><<notify>>''🔔 Test (5) · 刚刚''<br>Hello：World~<</notify>><</button>></div>
 <br><br><br>

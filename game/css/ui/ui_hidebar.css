@@ -11,4 +11,5 @@
     left: 0;
     right: 0;
     padding: 2em;
+    background-color: var(--color-primary);
 }
