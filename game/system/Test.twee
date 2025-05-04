@@ -1,5 +1,5 @@
 :: 进入测试页面 [autosave]
-<div class="animate__animated animate__tada" style="animate-duration: 5s"><h2><u><strong>请注意！</strong></u></h2><strong>这不是修改器页面！</strong><br>你接下来要进入游戏测试主页，<u>这个页面主要用于开发，非正常游戏流程不会使用该页面，且只能通过主页面弹窗进入</u>，是否继续？</div>
+<div class="animate__animated animate__tada"><h2><u><strong>请注意！</strong></u></h2><strong>这不是修改器页面！</strong><br>你接下来要进入游戏测试主页，<u>这个页面主要用于开发，非正常游戏流程不会使用该页面，且只能通过主页面弹窗进入</u>，是否继续？</div>
 <s-divider>剪切线</s-divider>
 <br>
 <s-button id="no-test-home" class="sober-button">不，等等!</s-button>
@@ -40,7 +40,7 @@
 
 :: DebugSampleStart [nosave]
 你进入了RiNG的后台。<br>
-<img src="img/debug.png" style="max-width:300px;"><br>
+<img src="img/icon/ring_logo.png" style="max-width:300px;"><br>
 前方有两条过道，你选择哪一条？<br>
 [[左边的过道->DebugSampleLeftPath]] | [[右边的过道->DebugSampleRightPath]]
 

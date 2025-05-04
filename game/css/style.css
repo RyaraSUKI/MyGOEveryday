@@ -24,10 +24,12 @@ a {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     background-clip: padding-box;
+    transition: transform 0.2s ease;
 }
 
 a:hover {
     color: var(--color-accent-l);
+    transform: scale(1.1);
 }
 
 .passage a.link-internal {
@@ -304,6 +306,32 @@ html[data-init="loading"] #init-loading {
 .warn-button {
     color: var(--color-text2);
     background: var(--color-accent);
+}
+
+.warn-card {
+    color: var(--color-text2);
+    background-color: var(--color-accent-d2);
+    border: none;
+    box-shadow: 2px 2px 5px rgba(var(--color-shadow-rgb), 0.3);
+    padding: 0 4em;
+    border-radius: 2em;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 2em;
+    text-align: center;
+}
+
+.warn-card .title {
+    color: var(--color-accent-l2);
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.warn-card .subtitle {
+    color: var(--color-accent-l);
+    font-size: 1.5em;
+    margin-top: -0.6em;
 }
 
 /*点击圆圈*/

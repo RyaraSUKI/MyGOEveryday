@@ -1,41 +1,54 @@
 :: Start [menu nosave hidebar nobr]
-<div id="menu-logo" oncontextmenu="return false;" class="animate__animated animate__fadeIn">
-[img[mygoe_logo]]
-</div>
-<<script>>
-    $(document).ready(function() {
-        $("#menu-logo").on("click", function() {
-            Dialog.create("关于");
-            Dialog.wikiPassage("关于");
-            Dialog.open();
-        });
-    });
-<</script>>
-<br><br><br>
-<div class="animate__animated animate__fadeInUp">
-        <<if Save.browser.size > 0>>
-            <<button "继续迷子">>
-                <<script>>
-                Save.browser.continue()
-                    	.then(() => {
-                		    Engine.show();
-                        })
-                		.catch(error => {
-                			console.error(error);
-                			UI.alert('加载记录错误！');
-                		});
-                <</script>>
-            <</button>>
-        <</if>>
-    <br><br><br>
-        <<button "新的故事">><<goto Start2>><</button>>
-    <br><br><br>
-        <<button "查看日记">><<ui saves>><</button>>
-    <br><br><br>
-        <<button "调整设置">><<ui settings>><</button>>
+<div id="menu-container">
+    <div id="menu-logo" oncontextmenu="return false;" class="animate__animated animate__fadeIn animate__slow">
+    	[img[mygoe_logo]]
+    </div>
+    <div id="menu-button" class="animate__animated animate__fadeInUp">
+    	<<if Save.browser.size > 0>>
+    		<div id="menu-button-con" class="hvr-pulse">
+    			<<button "继续迷子">>
+    				<<script>>
+    				Save.browser.continue()
+    					.then(() => Engine.show())
+    					.catch(error => {
+    						console.error(error);
+    						UI.alert('加载日记错误！');
+    					});
+    				<</script>>
+    			<</button>>
+    		</div>
+   		<</if>>
+    
+   		<div id="menu-button-new" class="hvr-pulse">
+   			<<button "新的故事">><<goto Start2>><</button>>
+   		</div>
+    
+   		<div id="menu-button-sav" class="hvr-pulse">
+   			<<button "查看日记">><<ui saves>><</button>>
+   		</div>
+    
+    	<div id="menu-button-set" class="hvr-pulse">
+    		<<button "调整设置">><<ui settings>><</button>>
+    	</div>
+   	</div>
 </div>
 
+<<script>>
+$(document).ready(function() {
+	$("#menu-logo").on("click", function() {
+		Dialog.create("关于");
+		Dialog.wikiPassage("关于");
+		Dialog.open();
+	});
+});
+<</script>>
+
 :: Start2 [hidebar nosave nobr]
+<div class="warn-card">
+    <div class="title">须知</div>
+    <div class="subtitle">Notice</div>
+</div>
+<br>
 [[Start|Start]]
 
 :: Start3 [hidebar nosave nobr]

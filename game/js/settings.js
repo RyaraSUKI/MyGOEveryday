@@ -28,7 +28,7 @@ var changeTheme = function() {
             break;
         case "影色舞":
             $html.toggleClass("theme-shd");
-            $html.addClass("theme-sober-d");
+            $html.addClass("theme-sober-l");
             break;
         case "潜在表明":
             $html.toggleClass("theme-szhm");
@@ -180,7 +180,7 @@ var settingtextAlign = function() {
 };
 Setting.addToggle("textalign", {
     label: "切换文本对齐",
-    desc: "在这里开启文本中间对齐吧！",
+    desc: "在这里开启文本居中对齐吧！",
     default: false,
     onInit: settingtextAlign,
     onChange: settingtextAlign
@@ -196,7 +196,7 @@ Config.saves.isAllowed = function(saveType) {
         if (settings.autosave && !tags().includes('nosave')) { // 检查passage是否带有nosave标签，若有则禁止自动或手动存档
             return true;
         }
-        return true;
+        return false;
     } else {
         if (tags().includes('autosave')) {
             return true;

@@ -1,7 +1,7 @@
 :: 关于 [nobr dialog]
 <div style="text-align: center;">
-    <div id="about-title" class="animate__animated animate__jackInTheBox">
-        <h2>『迷子们的每一天!!!!!』</h2>
+    <div id="about-title" class="animate__animated animate__slideInDown">
+        <h2 class="hvr-grow">『迷子们的每一天!!!!!』</h2>
     </div>
     <div id="about-version" class="animate__animated animate__zoomIn">
        <h3>版本 Alpha 1.0.0</h3>
@@ -30,6 +30,7 @@ QQ群:<br>[[等待补充|https://github.com/RyaraSUKI/MyGoEveryday]]
 </div>
 
 :: TestAbout [dialog]
+<br><br>
 <div style="text-align: center;" class="animate__animated animate__flash">
     <u><strong>确定要进入测试页面吗？</strong></u>
 </div>

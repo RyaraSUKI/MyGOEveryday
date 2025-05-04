@@ -1,27 +1,28 @@
 :: AP [nosave hidebar]
 <s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
+<br><img src="img/city.png">
 <br>这里记录了所有的片段，相当于一个目录，方便统计或在没有Twine2可视化编辑器的时候调试和预览<br>
 <<nobr>>
-<<script>>
-    var passages = Story.lookup('');
-    var passageNames = passages.map(p => p.title);
-
-    passageNames.sort(function(a, b) {
-        return a.localeCompare(b, 'zh');
-    });
-
-    State.temporary.passageList = passageNames;
-    State.temporary.passageCount = passageNames.length;
-<</script>>
-<div style="color: var(--color-accent-l);">
-    //为防止产生严重问题，没有跳转功能，请使用调试模式进行跳转页面<br>后继将会对该页面进行优化//
-</div>
-<p>总计 <<= _passageCount>> 个 片段(Passages)</p>
-<ul>
-<<for _name range _passageList>>
-    <li>
-        <<= _name>>
-    </li>
-<</for>>
-</ul>
+    <<script>>
+        var passages = Story.lookup('');
+        var passageNames = passages.map(p => p.title);
+    
+        passageNames.sort(function(a, b) {
+            return a.localeCompare(b, 'zh');
+        });
+    
+        State.temporary.passageList = passageNames;
+        State.temporary.passageCount = passageNames.length;
+    <</script>>
+    <div style="color: var(--color-accent-l);">
+        //为防止产生严重问题，没有跳转功能，请使用调试模式进行跳转页面<br>后继将会对该页面进行优化//
+    </div>
+    <p>总计 <<= _passageCount>> 个 片段(Passages)</p>
+    <ul>
+        <<for _name range _passageList>>
+            <li>
+                <<= _name>>
+            </li>
+        <</for>>
+    </ul>
 <</nobr>>
