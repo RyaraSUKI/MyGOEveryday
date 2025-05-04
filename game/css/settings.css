@@ -44,3 +44,11 @@
 .lh-biggest .passage {
     line-height: 2.4;
 }
+
+.settings button {
+    color: var(--color-text1);
+    background-color: var(--color-primary-l2);
+    border-color: var(--color-primary-d);
+    padding: 0.2em 0.8em;
+    border-radius: 10px;
+}
