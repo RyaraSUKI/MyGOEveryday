@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>多卡片展示</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: sans-serif;
+      background-color: #f8fafc;
+    }
+
+    .container {
+      display: grid;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .card {
+      border-radius: 1rem;
+      padding: 24px;
+      width: 360px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      transition: transform 0.4s ease;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .text-block {
+      flex: 1;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      transition: transform 0.4s ease;
+      transform-origin: left top;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-top: 4px;
+      color: white;
+      transition: transform 0.4s ease;
+      transform-origin: left top;
+    }
+
+    .description {
+      font-size: 0.875rem;
+      color: white;
+      margin-top: 12px;
+      max-height: 100px;
+      line-height: 1.4;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+    }
+
+    .card:hover .description {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    .card:hover .title {
+      transform: scale(1.15);
+    }
+
+    .card:hover .subtitle {
+      transform: scale(1.1);
+    }
+
+    .arrow {
+      font-size: 2.5rem;
+      color: white;
+      margin-top: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .arrow {
+      transform: translateX(12px);
+    }
+
+    .arrow.clicked {
+      animation: bounce 0.3s ease;
+    }
+
+    @keyframes bounce {
+      0%   { transform: translateX(12px); }
+      50%  { transform: translateX(24px); }
+      100% { transform: translateX(12px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card" style="background-color: #facc15;" onclick="clickArrow(this)">
+      <div class="text-block">
+        <div class="title">主线故事</div>
+        <div class="subtitle">It'sMyStory</div>
+        <div class="description">这是主线剧情的简要描述，悬停时描述会收起，标题放大。</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </div>
+
+    <div class="card" style="background-color: #60a5fa;" onclick="clickArrow(this)">
+      <div class="text-block">
+        <div class="title">支线任务</div>
+        <div class="subtitle">SideQuest</div>
+        <div class="description">探索新的支线任务，为世界增添更多故事与冒险。描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </div>
+
+    <div class="card" style="background-color: #34d399;" onclick="clickArrow(this)">
+      <div class="text-block">
+        <div class="title">角色档案</div>
+        <div class="subtitle">Character Log</div>
+        <div class="description">查看角色的成长轨迹、背景故事与关键事件。</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </div>
+  </div>
+
+  <script>
+    function clickArrow(card) {
+      const arrow = card.querySelector('.arrow');
+      arrow.classList.add('clicked');
+      setTimeout(() => {
+        arrow.classList.remove('clicked');
+      }, 300);
+    }
+  </script>
+</body>
+</html>

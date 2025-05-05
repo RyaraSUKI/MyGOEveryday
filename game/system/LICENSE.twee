@@ -1,26 +1,14 @@
 :: 版权声明 [dialog nosave hidebar]
-
-<s-button class="sober-button" data-passage="Start"><s-icon slot="start" name="home"></s-icon>退出到主页</s-button>
-
-<br><br>
-
 <h2>版权声明</h2>
 <ol>
     <li><strong>本项目系粉丝二次创作，与官方无关，仅供学习和研究，修改内容不得用于商业用途。</strong>
         任何衍生作品都必须保持：</li>
     <li>明确的原作者/贡献者指向</li>
     <li>承诺非商业性质</li>
-    <li>
-        使用相同的许可证书
-    </li>
-    <li>本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有，本项目只引用了BanGDream!世界观的角色名、形象和特征等必要设定。
-    </li>
-    <li>
-        本项目为文字互动同人小说网页，不含完整游戏性，实质上是通过WEB形式表现的同人小说。
-    </li>
-    <li>
-        本项目中的代码部分采用 <strong><a href="https://mit-license.org/">MIT LICENSE</a></strong> 许可，<strong>依雅莱所属原创素材（包括但不限于文本，图像等）</strong>采用 <strong><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></strong> 协议，社区共创内容版权所属，由作者<strong>自行决定</strong>，本项目将<strong>严格尊守</strong>。
-    </li>
+    <li>使用相同的许可证书</li>
+    <li>本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有，本项目只引用了BanGDream!世界观的角色名、形象和特征等必要设定。</li>
+    <li>本项目为文字互动同人小说网页，不含完整游戏性，实质上是通过WEB形式表现的同人小说。</li>
+    <li>本项目中的代码部分采用 <strong><a href="https://mit-license.org/">MIT LICENSE</a></strong> 许可，<strong>依雅莱所属原创素材（包括但不限于文本，图像等）</strong>采用 <strong><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></strong> 协议，社区共创内容版权所属，由作者<strong>自行决定</strong>，本项目将<strong>严格尊守</strong>。</li>
 </ol>
 <h2 id="copyright-notice">Copyright Notice</h2>
 <ol>
@@ -28,21 +16,13 @@
         Any derivative works must maintain:</li>
     <li>Clear attribution to original author/contributors</li>
     <li>Non-commercial promise</li>
-    <li>
-        Same license terms
-    </li>
-    <li>
-        This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. This project only uses the necessary settings such as character names, appearance, and characteristics of the BanGDream! worldview. 
-    </li>
-    <li>
-        This project is a text-interactive fan-made fiction web page and does not include any gameplay. This project is actually a fan-made fiction expressed in the WEB form.
-    </li>
-    <li>
-        Original created codes in this project are licensed under <strong><a href="https://mit-license.org/">MIT LICENSE</a></strong> &amp; <strong>resources by RyaraSUKI (including but not limited to texts , images)</strong> in this project are licensed under <strong><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 International</a></strong>. The copyright of the content co-created by the community belongs to <strong>the author&#39;s decision</strong> and this project will <strong>strictly abide by</strong>.
-    </li>
+    <li>Same license terms</li>
+    <li>This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. This project only uses the necessary settings such as character names, appearance, and characteristics of the BanGDream! worldview.</li>
+    <li>This project is a text-interactive fan-made fiction web page and does not include any gameplay. This project is actually a fan-made fiction expressed in the WEB form.</li>
+    <li>Original created codes in this project are licensed under <strong><a href="https://mit-license.org/">MIT LICENSE</a></strong> &amp; <strong>resources by RyaraSUKI (including but not limited to texts , images)</strong> in this project are licensed under <strong><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 International</a></strong>. The copyright of the content co-created by the community belongs to <strong>the author&#39;s decision</strong> and this project will <strong>strictly abide by</strong>.</li>
 </ol>
-<h2 id="mit-license-code-part-">MIT License (Code part)</h2>
-<p>Copyright (c) 2025 RyaraSUKI</p>
+<h2>MIT License (Code part)</h2>
+Copyright (c) 2025 RyaraSUKI
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the &quot;Software&quot;), to deal
     in the Software without restriction, including without limitation the rights
@@ -58,11 +38,9 @@
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.</p>
-<h2 id="mit-">MIT 许可证 （代码部分）</h2>
-<blockquote>
-    <p>这是 MIT 许可证的非正式简体中文翻译。它不是使用 MIT 许可证软件的发布法律声明——只有 MIT 许可证的原始英文版才有法律意义。不过，我们希望该翻译能够帮助简体中文用户更好地理解 MIT 许可证。此翻译文本以CC0 1.0 通用发布至公有领域。<a href="https://licenses.peaksol.org/mit-license-zh.html">来源</a></p>
-</blockquote>
-<p>版权所有 © 2025 RyaraSUKI（依雅莱）</p>
+<h2>MIT 许可证 （代码部分）</h2>
+<p><em>这是 MIT 许可证的非正式简体中文翻译。它不是使用 MIT 许可证软件的发布法律声明——只有 MIT 许可证的原始英文版才有法律意义。不过，我们希望该翻译能够帮助简体中文用户更好地理解 MIT 许可证。此翻译文本以CC0 1.0 通用发布至公有领域。<a href="https://licenses.peaksol.org/mit-license-zh.html">来源</a></em></p>
+版权所有 © 2025 RyaraSUKI（依雅莱）
 <p>特此，为任何获得此软件及其相关文档文件的部分（下称“本软件”）的人，免费授予不受限制地处置本软件的权利，包括但不限于对本软件的使用、修改、合并、发布、分发、分授权和/或售卖其副本的权利，以及向被供以本软件的人授予上述权利的权利，前提是满足以下条件：</p>
 <p>上述版权声明及本许可证声明应被包含于本软件的所有部分或主要部分之中。</p>
 <p>本软件“照原样”发布，不附带任何形式的显示或隐式的担保，包括但不限于有经济价值、适合特定用途、无侵权行为的担保。在任何情况下，作者或版权持有人都不对任何索赔、损害或其他责任负责，无论其来自合同的起诉、侵权行为或其他来源，还是产生于、源于或有关于本软件或对其进行的其他处置。</p>

@@ -1,29 +1,18 @@
 :: 贡献名单 [dialog hidebar nosave]
-
-<s-button class="sober-button" data-passage="Start"><s-icon slot="start" name="home"></s-icon>退出到主页</s-button>
-
-<br><br>
-
 <h2>贡献者</h2>
 <p>初创：RyaraSUKI</p>
 <h2>引用与鸣谢</h2>
-<blockquote>
-    <p>『迷子们的每一天 !!!!!』的主体引擎使用了以下项目，在此表示感谢！</p>
-</blockquote>
+<p><em>『迷子们的每一天 !!!!!』的主体引擎使用了以下项目，在此表示感谢！</em></p>
 <ul>
     <li><a href="https://twinery.org/">Twine</a></li>
     <li><a href="https://github.com/tmedwards/sugarcube-2">Sugarcube2</a></li>
 </ul>
-<blockquote>
-    <p>感谢Modloader，不止为DoL社区贡献了如此强大的模组加载器，也为SugarCube2社区提供了扩展新方法</p>
-</blockquote>
+<p><em>感谢Modloader，不止为DoL社区贡献了如此强大的模组加载器，也为SugarCube2社区提供了扩展新方法</em></p>
 <ul>
     <li><a href="https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader">Modloader</a></li>
 </ul>
-<blockquote>
-    <p>像素字体使用了unifont点阵字体，遵守GNU General Public协议</p>
-    <ul>
-        <li><a href="https://unifoundry.com/unifont/index.html">Unifont</a></li>
-    </ul>
-    <p>其余贡献请至仓库查看</p>
-</blockquote>
+<p><em>像素字体使用了unifont点阵字体，遵守GNU General Public协议</em></p>
+<ul>
+    <li><a href="https://unifoundry.com/unifont/index.html">Unifont</a></li>
+</ul>
+<p><em>其余贡献请至仓库查看</em></p>

@@ -31,11 +31,7 @@ QQ群:<br>[[等待补充|https://github.com/RyaraSUKI/MyGoEveryday]]
 
 :: AboutMore [dialog]
 <br>
-    <s-button id="go-license" class="sober-button">&#xf05a;  版权声明</s-button>
-<br>
-    <s-button id="go-credits" class="sober-button">&#xf004;  贡献名单</s-button>
-<br>
-    <s-button id="go-testhome" class="sober-button">&#xf7d9;  测试页面</s-button>
+<s-button id="go-license" class="sober-button"><s-icon slot="start"><svg viewbox="0 -960 960 960"><path d="M480-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-40v-309q-38-42-59-96t-21-115q0-134 93-227t227-93q134 0 227 93t93 227q0 61-21 115t-59 96v309l-240-80-240 80Zm240-280q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70Z"></path></svg></s-icon>版权声明</s-button><br><s-button id="go-credits" class="sober-button"><s-icon slot="start"><svg viewbox="0 -960 960 960"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"></path></svg></s-icon>贡献名单</s-button><br><s-button id="go-testhome" class="sober-button"><s-icon slot="start"><svg viewbox="0 -960 960 960"><path d="M160-160q-33 0-56.5-23.5T80-240v-160h200v40h80v-40h240v40h80v-40h200v160q0 33-23.5 56.5T800-160H160ZM97-480l83-192q9-22 29-35t43-13h28v-40q0-33 23.5-56.5T360-840h240q33 0 56.5 23.5T680-760v40h28q23 0 43 13t29 35l83 192H680v-40h-80v40H360v-40h-80v40H97Zm263-240h240v-40H360v40Z"></path></svg></s-icon>测试页面</s-button>
 <br>
 
 <<script>>
