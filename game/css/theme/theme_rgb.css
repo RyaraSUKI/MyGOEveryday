@@ -213,10 +213,10 @@
     --color-secondary-d-rgb: 69, 132, 134;
     --color-secondary-d2-rgb: 45, 105, 107;
 
-    /* 强调色-星青 */
-    --color-accent-rgb: 127, 255, 212;
-    --color-accent-l-rgb: 165, 255, 228;
-    --color-accent-l2-rgb: 207, 255, 244;
-    --color-accent-d-rgb: 90, 216, 176;
-    --color-accent-d2-rgb: 58, 176, 140;
+    /* 强调色-星芒 */
+    --color-accent-rgb: 190, 157, 45;
+    --color-accent-l-rgb: 212, 180, 78;
+    --color-accent-l2-rgb: 231, 203, 111;
+    --color-accent-d-rgb: 156, 127, 31;
+    --color-accent-d2-rgb: 120, 98, 21;
 }

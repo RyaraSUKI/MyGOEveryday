@@ -2865,7 +2865,8 @@ hr {
     min-width: 100%;
     max-width: 100%;
     position: relative;
-    background-color: var(--color-secondary-d);
+    background-color: var(--color-secondary-l);
+    border: 3px outset var(--color-accent-l);
     border-radius: .5em;
     margin: 20px auto;
 }
@@ -2906,8 +2907,7 @@ hr {
     height: calc(100% - 3rem);
     color: var(--color-text1);
     background-color: var(--color-primary-l);
-    border-color: var(--color-secondary-d);
-    border: transparent;
+    border: 3px solid var(--color-secondary-d);
     text-align: left;
     line-height: 1.5;
     padding: 20px;
@@ -3130,10 +3130,10 @@ html[data-init="loading"] #init-loading {
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
-    
+
     /* 暗色阴影 */
     --color-shadow-rgb: var(--color-secondary-l2-rgb);
-    
+
     /* 暗色链接 */
     --color-link: var(--color-secondary-l2);
 }
@@ -3165,17 +3165,17 @@ html[data-init="loading"] #init-loading {
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
-    
+
     /* 亮色阴影 */
     --color-shadow-rgb: var(--color-secondary-d2-rgb);
-    
+
     /* 亮色链接 */
     --color-link: var(--color-secondary-d2);
 }
 
 :root.theme-szk {
     /* 亮色主题"壱雫空" */
-    
+
     /* 主色调-雫绿 */
     --color-primary: #7ac0cc;
     --color-primary-l: #9bd4dd;
@@ -3200,31 +3200,31 @@ html[data-init="loading"] #init-loading {
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
-    
+
     /* 亮色阴影 */
     --color-shadow-rgb: var(--color-secondary-d2-rgb);
-    
+
     /* 亮色链接 */
     --color-link: var(--color-secondary-d2);
 }
 
 :root.theme-nrs {
     /* 亮色主题"無路矢" */
-    
+
     /* 主色调-沙黄 */
     --color-primary: #d4b48e;
     --color-primary-l: #e6d2b8;
     --color-primary-l2: #f4e9dc;
     --color-primary-d: #c09e70;
     --color-primary-d2: #a88555;
-    
+
     /* 副色调-深蓝 */
     --color-secondary: #4a6b8e;
     --color-secondary-l: #6e8fb0;
     --color-secondary-l2: #9bb3cc;
     --color-secondary-d: #325170;
     --color-secondary-d2: #1f3852;
-    
+
     /* 强调色-深红 */
     --color-accent: #b34a4a;
     --color-accent-l: #cf7878;
@@ -3235,7 +3235,7 @@ html[data-init="loading"] #init-loading {
     /* 亮色字体 */
     --color-text1: var(--color-b1);
     --color-text2: var(--color-w5);
-    
+
     /* 亮色阴影 */
     --color-shadow-rgb: var(--color-secondary-d2-rgb);
 
@@ -3252,28 +3252,28 @@ html[data-init="loading"] #init-loading {
     --color-primary-l2: #94b3ff;
     --color-primary-d: #1d4fc7;
     --color-primary-d2: #0a2d8f;
-    
+
     /* 副色调-影紫 */
     --color-secondary: #8b65fe;
     --color-secondary-l: #a88cff;
     --color-secondary-l2: #c5b3ff;
     --color-secondary-d: #6d4ce6;
     --color-secondary-d2: #4f35c2;
-    
+
     /* 强调色-亮红 */
     --color-accent: #ff6b6b;
     --color-accent-l: #ff8f8f;
     --color-accent-l2: #ffbdbd;
     --color-accent-d: #e64c4c;
     --color-accent-d2: #c73232;
-    
+
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
-    
+
     /* 暗色阴影 */
     --color-shadow-rgb: var(--color-secondary-l2-rgb);
-    
+
     /* 暗色链接 */
     --color-link: var(--color-secondary-l2);
 }
@@ -3289,11 +3289,11 @@ html[data-init="loading"] #init-loading {
     --color-primary-d2: #242340;
 
     /* 副色调-渊蓝 */
-    --color-secondary:#3D5A79;
-    --color-secondary-l:#4F6E8D;
-    --color-secondary-l2:#6B89A6;
-    --color-secondary-d:#2B435D;
-    --color-secondary-d2:#1A3045;
+    --color-secondary: #3D5A79;
+    --color-secondary-l: #4F6E8D;
+    --color-secondary-l2: #6B89A6;
+    --color-secondary-d: #2B435D;
+    --color-secondary-d2: #1A3045;
 
     /* 强调色-光金 */
     --color-accent: #FFD700;
@@ -3305,7 +3305,7 @@ html[data-init="loading"] #init-loading {
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
-    
+
     /* 暗色阴影 */
     --color-shadow-rgb: var(--color-secondary-l2-rgb);
 
@@ -3330,17 +3330,17 @@ html[data-init="loading"] #init-loading {
     --color-secondary-d: #458486;
     --color-secondary-d2: #2D696B;
 
-    /* 强调色-星青 */
-    --color-accent: #7FFFD4;
-    --color-accent-l: #A5FFE4;
-    --color-accent-l2: #CFFFF4;
-    --color-accent-d: #5AD8B0;
-    --color-accent-d2: #3AB08C;
+    /* 强调色-星芒 */
+    --color-accent: #BE9D2D;
+    --color-accent-l: #D4B44E;
+    --color-accent-l2: #E7CB6F;
+    --color-accent-d: #9C7F1F;
+    --color-accent-d2: #786215;
 
     /* 暗色字体 */
     --color-text1: var(--color-w5);
     --color-text2: var(--color-b1);
-    
+
     /* 暗色阴影 */
     --color-shadow-rgb: var(--color-secondary-l2-rgb);
 
@@ -3635,12 +3635,12 @@ html[data-init="loading"] #init-loading {
     --color-secondary-d-rgb: 69, 132, 134;
     --color-secondary-d2-rgb: 45, 105, 107;
 
-    /* 强调色-星青 */
-    --color-accent-rgb: 127, 255, 212;
-    --color-accent-l-rgb: 165, 255, 228;
-    --color-accent-l2-rgb: 207, 255, 244;
-    --color-accent-d-rgb: 90, 216, 176;
-    --color-accent-d2-rgb: 58, 176, 140;
+    /* 强调色-星芒 */
+    --color-accent-rgb: 190, 157, 45;
+    --color-accent-l-rgb: 212, 180, 78;
+    --color-accent-l2-rgb: 231, 203, 111;
+    --color-accent-d-rgb: 156, 127, 31;
+    --color-accent-d2-rgb: 120, 98, 21;
 }
 /* twine-user-stylesheet #7: "img_url.css" */
 /* 此部分主要用于导入必要的图像资源 */

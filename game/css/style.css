@@ -443,7 +443,8 @@ hr {
     min-width: 100%;
     max-width: 100%;
     position: relative;
-    background-color: var(--color-secondary-d);
+    background-color: var(--color-secondary-l);
+    border: 3px outset var(--color-accent-l);
     border-radius: .5em;
     margin: 20px auto;
 }
@@ -484,8 +485,7 @@ hr {
     height: calc(100% - 3rem);
     color: var(--color-text1);
     background-color: var(--color-primary-l);
-    border-color: var(--color-secondary-d);
-    border: transparent;
+    border: 3px solid var(--color-secondary-d);
     text-align: left;
     line-height: 1.5;
     padding: 20px;
