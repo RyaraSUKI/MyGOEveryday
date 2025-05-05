@@ -20,8 +20,8 @@ QQ群:<br>[[等待补充|https://github.com/RyaraSUKI/MyGoEveryday]]
     $(document).ready(function() {
         $("#about-title").click(function() {
             Dialog.close();
-            Dialog.create("进入测试页面");
-            Dialog.wikiPassage("TestAbout");
+            Dialog.create("关于更多…");
+            Dialog.wikiPassage("AboutMore");
             Dialog.open();
         });
     });
@@ -29,16 +29,25 @@ QQ群:<br>[[等待补充|https://github.com/RyaraSUKI/MyGoEveryday]]
 <br><br>
 </div>
 
-:: TestAbout [dialog]
-<br><br>
-<div style="text-align: center;" class="animate__animated animate__flash">
-    <u><strong>确定要进入测试页面吗？</strong></u>
-</div>
-<br><br>
-<s-button id="go-testhome" class="sober-button">确定</s-button>
+:: AboutMore [dialog]
+<br>
+    <s-button id="go-license" class="sober-button">&#xf05a;  版权声明</s-button>
+<br>
+    <s-button id="go-credits" class="sober-button">&#xf004;  贡献名单</s-button>
+<br>
+    <s-button id="go-testhome" class="sober-button">&#xf7d9;  测试页面</s-button>
+<br>
 
 <<script>>
 $(document).ready(function() {
+        $("#go-license").click(function() {
+            Dialog.close();
+            Dialog.create("版权声明").wikiPassage("版权声明").open();
+        });
+        $("#go-credits").click(function() {
+            Dialog.close();
+            Dialog.create("贡献名单").wikiPassage("贡献名单").open();
+        });
         $("#go-testhome").click(function() {
             Engine.play("进入测试页面");
             Dialog.close();

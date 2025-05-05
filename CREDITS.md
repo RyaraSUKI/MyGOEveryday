@@ -1,3 +1,8 @@
+## 贡献者
+
+初创：RyaraSUKI
+
+## 引用与鸣谢
 > 『迷子们的每一天 !!!!!』的主体引擎使用了以下项目，在此表示感谢！
 
 - [Twine](https://twinery.org/)
@@ -15,6 +20,7 @@
 - [TweeGo](https://github.com/tmedwards/tweego)
 - [sober.js](https://soberjs.com/)
 - [Animate.css](https://daneden.github.io/animate.css)
+- [Hover.css](http://ianlunn.github.io/Hover/)
 - [jQuery](https://jquery.com/)
 - [Best README Template](https://github.com/shaojintian/Best_README_template)
 - [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)

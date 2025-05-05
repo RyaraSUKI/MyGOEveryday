@@ -60,7 +60,7 @@
 
 ## 贡献者
 
-初创：RyaraSUKI
+- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/CREDITS.md)
 
 ## 版权声明
 
@@ -93,7 +93,7 @@
 
 > 以下是『迷子们的每一天 !!!!!』完整的引用列表，感谢所有提供支持的开源项目贡献者的无私奉献！
 
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/USEDLIBS.md)
+- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/CREDITS.md)
 
 **特别鸣谢**
 

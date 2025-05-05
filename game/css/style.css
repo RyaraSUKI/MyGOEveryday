@@ -145,27 +145,26 @@ hr {
 
 /* 基础滚动条样式 */
 *::-webkit-scrollbar {
-    width: 10px;
-    height: 16px;
+    width: 5px;
+    height: 6px;
 }
 
 /* 滚动条轨道 */
 *::-webkit-scrollbar-track {
-    background: rgba(var(--color-b1), 0.1);
-    border-radius: 10px;
+    background: rgba(var(--color-primary), 0.1);
+    border-radius: 8px;
 }
 
 /* 滚动条滑块 */
 *::-webkit-scrollbar-thumb {
-    background: var(--color-secondary);
+    background: var(--color-secondary-l);
     border-radius: 10px;
-    border: 3px solid var(--color-accent);
+    border: none;
 }
 
 /* 滚动条滑块 hover 状态 */
 *::-webkit-scrollbar-thumb:hover {
-    background: var(--color-secondary-d);
-    border: 3px solid var(--color-accent-d);
+    background: var(--color-secondary-l2);
 }
 
 /* 选择文本高亮 */
@@ -444,7 +443,7 @@ hr {
     max-width: 100%;
     position: relative;
     background-color: var(--color-secondary-l);
-    border: 3px outset var(--color-accent-l);
+    border: 3px solid var(--color-accent-l);
     border-radius: .5em;
     margin: 20px auto;
 }
