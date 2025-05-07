@@ -26,7 +26,7 @@
 
                     // 多角色变量同时存在，添加卡片样式
                     if (activeChars.length > 1) {
-                        const html = `<div class="char-card ${className}">${content}</div>`;
+                        const html = `<div class="charcard ${className}">${content}</div>`;
                         new Wikifier(this.output, html);
                     } else {
                         // 只有一个角色变量存在时，直接显示内容，不加样式

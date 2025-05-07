@@ -10,6 +10,11 @@
     margin: auto;
     left: 0;
     right: 0;
-    padding: 2em;
-    background-color: var(--color-primary);
+    padding: 3%;
+    height: 100%;
+}
+
+[data-tags~="hidebar"] .menucard-container, .menucard {
+    text-align: start;
+    position: static;
 }

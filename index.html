@@ -2438,25 +2438,28 @@ body {
 /*原生按钮 和 link链接*/
 button {
     color: var(--color-text1);
-    background-color: var(--color-secondary-l);
-    border-color: var(--color-secondary-d);
-    border-radius: 5px;
-    height: auto;
+    background-color: var(--color-secondary-d);
+    border: none;
+    border-radius: 1em;
     outline: none;
+    text-align: center;
     transition: transform 0.3s ease;
 }
 
 button:hover {
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary-l2);
-    color: var(--color-text2);
+    color: var(--color-accent-d2);
+    background-color: var(--color-accent-l2);
     transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(var(--color-shadow-rgb), 0.8);
 }
 
 button:disabled {
     background-color: var(--color-primary-d);
-    border-color: var(--color-primary-d2);
     opacity: 0.7;
+}
+
+button:disabled:hover {
+    color: var(--color-accent-d2);
 }
 
 a {
@@ -2641,11 +2644,11 @@ hr {
     background-color: var(--color-secondary-d);
     border-color: none;
     color: var(--color-accent-l);
-    border-radius: 8px;
 }
 
 #ui-bar-toggle {
     color: var(--color-accent);
+    border-radius: 8px;
 }
 
 #ui-bar-toggle:hover {
@@ -2678,7 +2681,7 @@ hr {
     border-radius: 8px;
 }
 
-/* 收起侧边栏的属性 */
+/* 收起侧边栏容器 */
 .portrait {
     width: 100%;
     height: auto;
@@ -2865,7 +2868,7 @@ hr {
     max-width: 100%;
     position: relative;
     background-color: var(--color-secondary-l);
-    border: 3px solid var(--color-accent-l);
+    border: 3px solid var(--color-secondary-d);
     border-radius: .5em;
     margin: 20px auto;
 }
@@ -2900,6 +2903,7 @@ hr {
     color: var(--color-accent-d);
     background-color: transparent;
     border: transparent;
+    box-shadow: none;
 }
 
 #ui-dialog-body {
@@ -2943,6 +2947,10 @@ hr {
     border-top: 1px solid var(--color-secondary-d2);
 }
 
+#ui-dialog-body.saves button[id="saves-clear"]:hover {
+    color: var(--color-text2);
+}
+
 #ui-dialog-body.settings button[id|="setting-control"] {
     background-color: var(--color-primary-d2);
     color: var(--color-text1);
@@ -2962,7 +2970,7 @@ hr {
     color: var(--color-text1);
 }
 
-/* 手机适配 */
+/* 弹窗手机适配 */
 @media (max-width: 500px) {
     #ui-dialog {
         min-width: calc(80%);
@@ -3052,6 +3060,16 @@ html[data-init="loading"] #init-loading {
     pointer-events: none;
     z-index: 9999;
     /* 保证圆圈显示在最顶层 */
+}
+/* 正弦波背景 */
+#wave-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* 显示在最底层 */
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 /* twine-user-stylesheet #5: "theme_hex.css" */
 /* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖
@@ -3660,14 +3678,20 @@ html[data-init="loading"] #init-loading {
     margin: auto;
     left: 0;
     right: 0;
-    padding: 2em;
-    background-color: var(--color-primary);
+    padding: 3%;
+    height: 100%;
+}
+
+[data-tags~="hidebar"] .menucard-container, .menucard {
+    text-align: start;
+    position: static;
 }
 /* twine-user-stylesheet #9: "ui_menu.css" */
 #menu-container {
     align-items: center;
     text-align: center;
     max-height: 100vh;
+    background-color: transparent;
 }
 
 /* menulogo */
@@ -3714,10 +3738,11 @@ html[data-init="loading"] #init-loading {
 
 #menu-button button:hover {
     color: var(--color-link);
+    box-shadow: none;
 }
-/* twine-user-stylesheet #10: "char-card.css" */
+/* twine-user-stylesheet #10: "charcard.css" */
 /* 角色文本卡片样式 */
-.char-card {
+.charcard {
     color: var(--color-b1);
     border: 2px solid var(--color-secondary-d2);
     box-shadow: 2px 2px 5px rgba(var(--color-shadow-rgb), 0.3);
@@ -3746,7 +3771,146 @@ html[data-init="loading"] #init-loading {
 .char-rana {
     background-color: var(--color-rana);
 }
-/* twine-user-stylesheet #11: "popout.css" */
+/* twine-user-stylesheet #11: "menucard.css" */
+.menucard-container {
+    display: grid;
+    gap: 12px;
+    justify-content: center;
+}
+
+.menucard {
+    border-radius: 1em;
+    padding: 24px;
+    width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.4s ease;
+    overflow: hidden;
+    font-family: sc-icons !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    speak: never;
+    text-rendering: auto;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.menucard-text-block {
+    flex: 1
+}
+
+.menucard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.4s ease;
+    transform-origin: left top;
+}
+
+.menucard-sub {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 4px;
+    color: white;
+    transition: transform 0.4s ease;
+    transform-origin: left top;
+}
+
+.menucard-desc {
+    font-size: .75rem;
+    color: white;
+    margin-top: 12px;
+    max-height: 100px;
+    line-height: 1.4;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease
+}
+
+.menucard:hover {
+    transform: scale(1.1)
+}
+
+.menucard:hover .menucard-desc {
+    max-height: 0;
+    opacity: 0;
+}
+
+.menucard:hover .menucard-title {
+    transform: scale(2)
+}
+
+.menucard:hover .menucard-sub {
+    transform: translateY(10px) translateX(2px) scale(1.5)
+}
+
+.menucard-arrow {
+    font-size: 2.5rem;
+    color: white;
+    margin-top: 10px;
+    transition: transform 0.3s ease
+}
+
+.menucard:hover .menucard-arrow {
+    transform: translateX(5px) scale(1.25);
+}
+
+.menucard-arrow.clicked {
+    animation: menucard-bounce 0.3s ease
+}
+
+.menucard:active .menucard-arrow {
+    menucard-bounce 0.3s ease;
+}
+
+@keyframes menucard-bounce {
+    0% {
+        transform: translateX(5px) scale(1.25)
+    }
+
+    50% {
+        transform: translateX(20px) scale(1.25)
+    }
+
+    100% {
+        transform: translateX(5px) scale(1.25)
+    }
+}
+
+@media (max-width:500px) {
+    .menucard-container {
+        align-items: center;
+        gap: 6px;
+        padding: 15px;
+    }
+
+    .menucard {
+        width: auto;
+        padding: 15px;
+    }
+
+    .menucard-title {
+        font-size: 1.5rem;
+    }
+
+    .menucard-sub {
+        font-size: 1rem;
+    }
+
+    .menucard-desc {
+        font-size: 0.75rem;
+    }
+
+    .menucard-arrow {
+        font-size: 2rem;
+    }
+}
+/* twine-user-stylesheet #12: "popout.css" */
 /* 气泡弹窗 top/bottom 容器部分 */
 #popout-container {
     position: fixed;
@@ -3889,7 +4053,7 @@ html[data-init="loading"] #init-loading {
 
                     // 多角色变量同时存在，添加卡片样式
                     if (activeChars.length > 1) {
-                        const html = `<div class="char-card ${className}">${content}</div>`;
+                        const html = `<div class="charcard ${className}">${content}</div>`;
                         new Wikifier(this.output, html);
                     } else {
                         // 只有一个角色变量存在时，直接显示内容，不加样式
@@ -4216,6 +4380,78 @@ Setting.addToggle("clickcircle", {
     onInit: settingclickCircle,
     onChange: settingclickCircle
 });
+// 正弦波背景
+var settingwaveBg = function() {
+    // 先移除之前的事件监听器，防止重复绑定
+    $(document).off('click', waveBgHandler);
+
+    // 如果开启了点击效果，则绑定事件
+    if (settings.wavebg) {
+        $(document).on('click', waveBgHandler);
+    }
+};
+
+/*function waveBgHandler(event) {
+    // 如果已存在就不再添加
+    if ($('#menu-bg').length > 0) return;
+        
+    $(document).on(':passagerender', function () {
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'wave-bg';
+        document.getElementById('story').prepend(canvas);
+    
+        const ctx = canvas.getContext('2d');
+        const colors = ['#ffdd88', '#ff8899', '#77bbdd', '#7777aa', '#77dd77'];
+    
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+    
+        const waves = colors.map(color => ({
+            amp: Math.random() * 40 + 30,
+            freq: Math.random() * 0.02 + 0.005,
+            phase: Math.random() * Math.PI * 2,
+            color
+        }));
+    
+        const step = 2;
+        function draw(t) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const width = canvas.width;
+            const height = canvas.height;
+            const midX = width / 2;
+    
+            for (const wave of waves) {
+                ctx.beginPath();
+                ctx.strokeStyle = wave.color;
+                ctx.lineWidth = 2;
+    
+                for (let y = 0; y < height; y += step) {
+                    const x = midX + Math.sin(y * wave.freq + t * 0.002 + wave.phase) * wave.amp;
+                    if (y === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+    
+                ctx.stroke();
+            }
+    
+            requestAnimationFrame(draw);
+        }
+    
+        requestAnimationFrame(draw);
+    });
+};
+Setting.addToggle("wavebg", {
+    label: "正弦波背景",
+    desc: "在这里开启页面迷子的正弦波交错背景吧！",
+    default: true,
+    onInit: settingwaveBg,
+    onChange: settingwaveBg
+})*/
 // 文本显示
 Setting.addHeader("文本显示", "在这里调整页面正文的字体、文字大小、行高与对齐哟~");
 //字体切换
@@ -4361,10 +4597,9 @@ Setting.addToggle("autoname", {
     default: false,
 });
 /* twine-user-script #6: "ui.js" */
-// 点击空白区域关闭侧边栏
 $(document).on(':passagerender', function() {
+    // 点击空白区域关闭侧边栏
     $(document).off('click.uiBarAutoHide');
-
     $(document).on('click.uiBarAutoHide', function(ev) {
         if (!$('#ui-bar').hasClass('stowed')) {
             if (!$(ev.target).closest('#ui-bar').length) {
@@ -4372,6 +4607,18 @@ $(document).on(':passagerender', function() {
             }
         }
     });
+    
+    // 自动存档提示
+    if (tags().includes('autosave') && settings.autosave) {
+        setup.popout("💾<strong>迷子的日记</strong><br>已完成自动记录！", 3000, "side", "UI.saves()");
+    };
+    
+    /*使用js方式实现带hidebar标签的页面则隐藏侧边栏，css已实现，已弃用
+    if (tags().includes('hidebar')) {
+    UIBar.stow().hide();
+  }else{
+    UIBar.show();
+  };*/
 });
 // 绑定空格按键收起侧边栏
 $(document).on('keydown', function(ev) {
@@ -4379,20 +4626,7 @@ $(document).on('keydown', function(ev) {
         UIBar.stow();
     }
 });
-// 自动存档通知
-$(document).on(':passagerender', function() {
-    if (tags().includes('autosave') && settings.autosave) {
-        setup.popout("💾<strong>迷子的日记</strong><br>已完成自动记录！", 3000, "side", "UI.saves()");
-    }
-});
-/*使用js方式实现带hidebar标签的页面则隐藏侧边栏，css已实现，已弃用
-$(document).on(':passagerender', _ => {
-  if (tags().includes('hidebar')) {
-    UIBar.stow().hide();
-  }else{
-    UIBar.show();
-  }
-});*/
+
 // 返回操作函数
 $(document).ready(function () {
     history.replaceState({ page: 'start' }, '', location.href);
@@ -4408,7 +4642,56 @@ $(document).ready(function () {
         return '离开此网站？系统可能不会保存您所做的更改。';
     });
 });
-/* twine-user-script #7: "zh-CN.js" */
+/* twine-user-script #7: "wavebg.js" */
+$(document).on(':storyready', function () {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'wave-bg';
+    document.getElementById('story').prepend(canvas);
+
+    const ctx = canvas.getContext('2d');
+    const colors = ['#ffdd88', '#ff8899', '#77bbdd', '#7777aa', '#77dd77'];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const waves = colors.map(color => ({
+        amp: Math.random() * 40 + 30,
+        freq: Math.random() * 0.02 + 0.005,
+        phase: Math.random() * Math.PI * 2,
+        color
+    }));
+
+    const step = 2;
+    function draw(t) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const width = canvas.width;
+        const height = canvas.height;
+        const midX = width / 2;
+
+        for (const wave of waves) {
+            ctx.beginPath();
+            ctx.strokeStyle = wave.color;
+            ctx.lineWidth = 2;
+
+            for (let y = 0; y < height; y += step) {
+                const x = midX + Math.sin(y * wave.freq + t * 0.002 + wave.phase) * wave.amp;
+                if (y === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+
+            ctx.stroke();
+        }
+
+        requestAnimationFrame(draw);
+    }
+
+    requestAnimationFrame(draw);
+});
+/* twine-user-script #8: "zh-CN.js" */
 /***********************************************************************************************************************
 
 	locale/zh-CN.js – 简体中文
@@ -4695,12 +4978,81 @@ $(document).ready(function() {
 		Dialog.open();
 	});
 });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start2" tags="hidebar nosave nobr" position="225,100" size="100,100">&lt;div class=&quot;warn-card&quot;&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start2" tags="hidebar nosave nobr" position="225,100" size="100,100">&lt;div class=&quot;sugar-button animate__animated animate__fadeIn animate__slower&quot;&gt;
+    &lt;&lt;button [[↩️  返回到主页|Start]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div class=&quot;warn-card animate__animated animate__fadeIn&quot;&gt;
     &lt;div class=&quot;title&quot;&gt;须知&lt;/div&gt;
     &lt;div class=&quot;subtitle&quot;&gt;Notice&lt;/div&gt;
 &lt;/div&gt;
 &lt;br&gt;
-[[Start|Start]]</tw-passagedata><tw-passagedata pid="3" name="Start3" tags="hidebar nosave nobr" position="350,100" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="StartOurStories" tags="hidebar nosave nobr" position="475,100" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="StartFreeDays" tags="hidebar nosave nobr" position="600,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="6" name="StartAnotherStory" tags="hidebar nosave nobr" position="725,100" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="关于" tags="nobr dialog" position="850,100" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
+&lt;s-checkbox type=&quot;checkbox&quot; id=&quot;start2-check&quot; class=&quot;animate__animated animate__fadeIn animate__slow&quot;&gt;已阅读用户协议&lt;/s-checkbox&gt;
+&lt;br&gt;
+&lt;div id=&quot;start2-go&quot; class=&quot;animate__animated animate__fadeIn animate__slow&quot; style=&quot;display: none; item-align: center;&quot;&gt;
+    &lt;&lt;button [[It&#39;s MyGo !!!!!|Start3]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;/div&gt;
+
+&lt;&lt;script&gt;&gt;
+$(document).ready(function () {
+    $(&#39;#start2-check&#39;).on(&#39;change&#39;, function () {
+    	if (this.checked) {
+    		$(&#39;#start2-go&#39;).show();
+    	} else {
+    		$(&#39;#start2-go&#39;).hide();
+    	}
+    });
+});
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Start3" tags="hidebar nosave nobr" position="350,100" size="100,100">&lt;div class=&quot;sugar-button animate__animated animate__fadeIn animate__slower&quot;&gt;
+    &lt;&lt;button [[↩️  返回到主页|Start]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div class=&quot;menucard-container animate__animated animate__fadeInUpBig&quot;&gt;
+    &lt;div class=&quot;menucard&quot; style=&quot;background-color: #facc15;&quot;&gt;
+      &lt;div class=&quot;menucard-text-block&quot;&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;主线故事&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;It&#39;sMyStory&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;这是主线剧情的简要描述，悬停时描述会收起，标题放大。&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;menucard&quot; style=&quot;background-color: #60a5fa;&quot;&gt;
+      &lt;div class=&quot;menucard-text-block&quot;&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;支线任务&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;SideQuest&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;探索新的支线任务，为世界增添更多故事与冒险。描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;menucard&quot; style=&quot;background-color: #34d399;&quot;&gt;
+      &lt;div class=&quot;menucard-text-block&quot;&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;角色档案&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;Character Log&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;查看角色的成长轨迹、背景故事与关键事件。&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;&lt;script&gt;&gt;
+$(document).ready(function () {
+  $(&#39;.menucard&#39;).on(&#39;click&#39;, function () {
+    const $arrow = $(this).find(&#39;.menucard-arrow&#39;);
+    $arrow.addClass(&#39;clicked&#39;);
+    setTimeout(() =&gt; {
+      $arrow.removeClass(&#39;clicked&#39;);
+    }, 300);
+  });
+});
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="StartOurStories" tags="hidebar nosave nobr" position="475,100" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="StartFreeDays" tags="hidebar nosave nobr" position="600,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="6" name="StartAnotherStory" tags="hidebar nosave nobr" position="725,100" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="关于" tags="nobr dialog" position="850,100" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
     &lt;div id=&quot;about-title&quot; class=&quot;animate__animated animate__slideInDown&quot;&gt;
         &lt;h2 class=&quot;hvr-grow&quot;&gt;『迷子们的每一天!!!!!』&lt;/h2&gt;
     &lt;/div&gt;

@@ -16,25 +16,28 @@ body {
 /*原生按钮 和 link链接*/
 button {
     color: var(--color-text1);
-    background-color: var(--color-secondary-l);
-    border-color: var(--color-secondary-d);
-    border-radius: 5px;
-    height: auto;
+    background-color: var(--color-secondary-d);
+    border: none;
+    border-radius: 1em;
     outline: none;
+    text-align: center;
     transition: transform 0.3s ease;
 }
 
 button:hover {
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary-l2);
-    color: var(--color-text2);
+    color: var(--color-accent-d2);
+    background-color: var(--color-accent-l2);
     transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(var(--color-shadow-rgb), 0.8);
 }
 
 button:disabled {
     background-color: var(--color-primary-d);
-    border-color: var(--color-primary-d2);
     opacity: 0.7;
+}
+
+button:disabled:hover {
+    color: var(--color-accent-d2);
 }
 
 a {
@@ -219,11 +222,11 @@ hr {
     background-color: var(--color-secondary-d);
     border-color: none;
     color: var(--color-accent-l);
-    border-radius: 8px;
 }
 
 #ui-bar-toggle {
     color: var(--color-accent);
+    border-radius: 8px;
 }
 
 #ui-bar-toggle:hover {
@@ -256,7 +259,7 @@ hr {
     border-radius: 8px;
 }
 
-/* 收起侧边栏的属性 */
+/* 收起侧边栏容器 */
 .portrait {
     width: 100%;
     height: auto;
@@ -443,7 +446,7 @@ hr {
     max-width: 100%;
     position: relative;
     background-color: var(--color-secondary-l);
-    border: 3px solid var(--color-accent-l);
+    border: 3px solid var(--color-secondary-d);
     border-radius: .5em;
     margin: 20px auto;
 }
@@ -478,6 +481,7 @@ hr {
     color: var(--color-accent-d);
     background-color: transparent;
     border: transparent;
+    box-shadow: none;
 }
 
 #ui-dialog-body {
@@ -521,6 +525,10 @@ hr {
     border-top: 1px solid var(--color-secondary-d2);
 }
 
+#ui-dialog-body.saves button[id="saves-clear"]:hover {
+    color: var(--color-text2);
+}
+
 #ui-dialog-body.settings button[id|="setting-control"] {
     background-color: var(--color-primary-d2);
     color: var(--color-text1);
@@ -540,7 +548,7 @@ hr {
     color: var(--color-text1);
 }
 
-/* 手机适配 */
+/* 弹窗手机适配 */
 @media (max-width: 500px) {
     #ui-dialog {
         min-width: calc(80%);
@@ -630,4 +638,14 @@ html[data-init="loading"] #init-loading {
     pointer-events: none;
     z-index: 9999;
     /* 保证圆圈显示在最顶层 */
+}
+/* 正弦波背景 */
+#wave-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* 显示在最底层 */
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }

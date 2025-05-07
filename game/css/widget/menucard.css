@@ -1,0 +1,138 @@
+.menucard-container {
+    display: grid;
+    gap: 12px;
+    justify-content: center;
+}
+
+.menucard {
+    border-radius: 1em;
+    padding: 24px;
+    width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.4s ease;
+    overflow: hidden;
+    font-family: sc-icons !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    speak: never;
+    text-rendering: auto;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.menucard-text-block {
+    flex: 1
+}
+
+.menucard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.4s ease;
+    transform-origin: left top;
+}
+
+.menucard-sub {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 4px;
+    color: white;
+    transition: transform 0.4s ease;
+    transform-origin: left top;
+}
+
+.menucard-desc {
+    font-size: .75rem;
+    color: white;
+    margin-top: 12px;
+    max-height: 100px;
+    line-height: 1.4;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease
+}
+
+.menucard:hover {
+    transform: scale(1.1)
+}
+
+.menucard:hover .menucard-desc {
+    max-height: 0;
+    opacity: 0;
+}
+
+.menucard:hover .menucard-title {
+    transform: scale(2)
+}
+
+.menucard:hover .menucard-sub {
+    transform: translateY(10px) translateX(2px) scale(1.5)
+}
+
+.menucard-arrow {
+    font-size: 2.5rem;
+    color: white;
+    margin-top: 10px;
+    transition: transform 0.3s ease
+}
+
+.menucard:hover .menucard-arrow {
+    transform: translateX(5px) scale(1.25);
+}
+
+.menucard-arrow.clicked {
+    animation: menucard-bounce 0.3s ease
+}
+
+.menucard:active .menucard-arrow {
+    menucard-bounce 0.3s ease;
+}
+
+@keyframes menucard-bounce {
+    0% {
+        transform: translateX(5px) scale(1.25)
+    }
+
+    50% {
+        transform: translateX(20px) scale(1.25)
+    }
+
+    100% {
+        transform: translateX(5px) scale(1.25)
+    }
+}
+
+@media (max-width:500px) {
+    .menucard-container {
+        align-items: center;
+        gap: 6px;
+        padding: 15px;
+    }
+
+    .menucard {
+        width: auto;
+        padding: 15px;
+    }
+
+    .menucard-title {
+        font-size: 1.5rem;
+    }
+
+    .menucard-sub {
+        font-size: 1rem;
+    }
+
+    .menucard-desc {
+        font-size: 0.75rem;
+    }
+
+    .menucard-arrow {
+        font-size: 2rem;
+    }
+}

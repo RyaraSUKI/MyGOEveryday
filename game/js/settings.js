@@ -90,6 +90,78 @@ Setting.addToggle("clickcircle", {
     onInit: settingclickCircle,
     onChange: settingclickCircle
 });
+// 正弦波背景
+var settingwaveBg = function() {
+    // 先移除之前的事件监听器，防止重复绑定
+    $(document).off('click', waveBgHandler);
+
+    // 如果开启了点击效果，则绑定事件
+    if (settings.wavebg) {
+        $(document).on('click', waveBgHandler);
+    }
+};
+
+/*function waveBgHandler(event) {
+    // 如果已存在就不再添加
+    if ($('#menu-bg').length > 0) return;
+        
+    $(document).on(':passagerender', function () {
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'wave-bg';
+        document.getElementById('story').prepend(canvas);
+    
+        const ctx = canvas.getContext('2d');
+        const colors = ['#ffdd88', '#ff8899', '#77bbdd', '#7777aa', '#77dd77'];
+    
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+    
+        const waves = colors.map(color => ({
+            amp: Math.random() * 40 + 30,
+            freq: Math.random() * 0.02 + 0.005,
+            phase: Math.random() * Math.PI * 2,
+            color
+        }));
+    
+        const step = 2;
+        function draw(t) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const width = canvas.width;
+            const height = canvas.height;
+            const midX = width / 2;
+    
+            for (const wave of waves) {
+                ctx.beginPath();
+                ctx.strokeStyle = wave.color;
+                ctx.lineWidth = 2;
+    
+                for (let y = 0; y < height; y += step) {
+                    const x = midX + Math.sin(y * wave.freq + t * 0.002 + wave.phase) * wave.amp;
+                    if (y === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+    
+                ctx.stroke();
+            }
+    
+            requestAnimationFrame(draw);
+        }
+    
+        requestAnimationFrame(draw);
+    });
+};
+Setting.addToggle("wavebg", {
+    label: "正弦波背景",
+    desc: "在这里开启页面迷子的正弦波交错背景吧！",
+    default: true,
+    onInit: settingwaveBg,
+    onChange: settingwaveBg
+})*/
 // 文本显示
 Setting.addHeader("文本显示", "在这里调整页面正文的字体、文字大小、行高与对齐哟~");
 //字体切换

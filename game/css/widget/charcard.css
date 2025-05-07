@@ -1,5 +1,5 @@
 /* 角色文本卡片样式 */
-.char-card {
+.charcard {
     color: var(--color-b1);
     border: 2px solid var(--color-secondary-d2);
     box-shadow: 2px 2px 5px rgba(var(--color-shadow-rgb), 0.3);
