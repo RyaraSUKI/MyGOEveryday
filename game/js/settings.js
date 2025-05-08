@@ -178,7 +178,7 @@ var waveBgScale = function() {
 Setting.addList("wavebgscale", {
     label: "正弦波背景缩放",
     desc: "在这里切换背景动画的大小缩放吧！",
-    default: "100%",
+    default: "200%",
     list: settingWaveBgScale,
     onInit: waveBgScale,
     onChange: waveBgScale

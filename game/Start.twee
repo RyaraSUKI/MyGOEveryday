@@ -74,12 +74,12 @@ $(document).ready(function () {
 <div class="sugar-button animate__animated animate__fadeIn animate__slower">
     <<button [[↩️  返回到主页|Start]]>><</button>>
 </div>
-<br>
+<br><br><br>
 <div class="menucard-container animate__animated animate__fadeInUpBig">
     <div class="menucard" style="background-color: #3388bb;">
       <div class="menucard-text-block">
-        <div class="menucard-title">『主线故事』</div>
-        <br>
+        <div class="menucard-title">主线故事</div>
+        <br><br>
         <div class="menucard-sub">OurStory</div>
         <br>
         <div class="menucard-desc"></div>
@@ -89,8 +89,8 @@ $(document).ready(function () {
 <br><br>
     <div class="menucard" style="background-color: #60a5fa;">
       <div class="menucard-text-block">
-        <div class="menucard-title">『迷子日常』</div>
-        <br>
+        <div class="menucard-title">迷子日常</div>
+        <br><br>
         <div class="menucard-sub">DailyStory</div>
         <br>
         <div class="menucard-desc">探索新的支线任务，为世界增添更多故事与冒险。描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介</div>
@@ -100,8 +100,8 @@ $(document).ready(function () {
 <br><br>
     <div class="menucard" style="background-color: #34d399;">
       <div class="menucard-text-block">
-        <div class="menucard-title">『附加故事』</div>
-        <br>
+        <div class="menucard-title">附加故事</div>
+        <br><br>
         <div class="menucard-sub">AnotherStory</div>
         <br>
         <div class="menucard-desc">纯线性</div>
