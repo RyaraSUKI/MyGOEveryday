@@ -2345,7 +2345,7 @@ html[data-debug-view] .debug[data-name][data-type|="special"]::before {
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://31EC661A-C4DF-4663-B24B-EEA91B363523// --><tw-storydata name="迷子们的每一天 !!!!!" startnode="1" creator="Tweego" creator-version="2.1.1" ifid="31EC661A-C4DF-4663-B24B-EEA91B363523" zoom="1" format="SugarCube" format-version="2.37.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "animate.min.css" */
+	<!-- UUID://31EC661A-C4DF-4663-B24B-EEA91B363523// --><tw-storydata name="迷子们的每一天 !!!!!" startnode="5" creator="Tweego" creator-version="2.1.1" ifid="31EC661A-C4DF-4663-B24B-EEA91B363523" zoom="1" format="SugarCube" format-version="2.37.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "animate.min.css" */
 
 /*!
  * animate.css - https://animate.style/
@@ -3066,7 +3066,7 @@ html[data-init="loading"] #init-loading {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1; /* 显示在最底层 */
+    z-index: -100; /* 显示在最底层 */
     width: 100%;
     height: 100%;
     pointer-events: none;
@@ -3712,6 +3712,15 @@ html[data-init="loading"] #init-loading {
     right: 0;
     padding: 3%;
     height: 100%;
+    background-color: rgba(var(--color-primary-rgb), 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    overflow: auto;
+    -ms-overflow-style: none;
+}
+
+[data-tags~="hidebar"] .passage*::-webkit-scrollbar {
+  display: none;
 }
 
 [data-tags~="hidebar"] .menucard-container, .menucard {
@@ -4413,8 +4422,22 @@ Setting.addToggle("clickcircle", {
     onChange: settingclickCircle
 });
 // 正弦波背景
+// 总开关
+var settingwaveBg = function() {
+    if (settings.wavebg) {
+        $("html").removeClass("wbg-close");
+    } else {
+        $("html").addClass("wbg-close");
+    }
+};
+Setting.addToggle("wavebg", {
+    label: "背景动画开关",
+    desc: "迷子们的正弦波相互交错，在这里切换背景动画显示吧！每次开关都要刷新网页！",
+    default: true,
+    onInit: settingwaveBg
+});
 // 切换显示
-var settingWaveBgDisplay = ["竖直", "水平", "关闭"];
+var settingWaveBgDisplay = ["竖直", "水平", "隐藏"];
 var waveBgDisplay = function() {
     var $html = $("html");
     $html.removeClass("wbg-x wbg-close wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
@@ -4448,14 +4471,14 @@ var waveBgDisplay = function() {
                 $html.addClass("wbg-x");
             }
             break;
-        case "关闭":
+        case "隐藏":
             $html.addClass("wbg-close");
             break;
     }
 };
 Setting.addList("wavebgdisplay", {
     label: "正弦波背景样式",
-    desc: "迷子们的正弦波相互交错，在这里切换背景动画的显示样式吧！",
+    desc: "在这里切换背景动画的显示样式吧！",
     default: "竖直",
     list: settingWaveBgDisplay,
     onInit: waveBgDisplay,
@@ -4500,7 +4523,7 @@ var waveBgScale = function() {
 Setting.addList("wavebgscale", {
     label: "正弦波背景缩放",
     desc: "在这里切换背景动画的大小缩放吧！",
-    default: "200%",
+    default: "100%",
     list: settingWaveBgScale,
     onInit: waveBgScale,
     onChange: waveBgScale
@@ -4697,53 +4720,60 @@ $(document).ready(function () {
 });
 /* twine-user-script #7: "wavebg.js" */
 // 模拟迷星叫mv五色正弦波背景，利用原生js写法创建全局canvas，使用了GPT辅助
-$(document).on(':storyready', function () {
-    const canvas = document.createElement('canvas');
-    canvas.id = 'wave-bg';
-    document.getElementById('story').prepend(canvas);
+$(document).on(':storyready', function() {
+    if (!settings.wavebg) {
+        const nocanvas = document.createElement('canvas');
+        nocanvas.id = 'wave-bg';
+        document.getElementById('story').prepend(nocanvas);
+    } else {
+        const canvas = document.createElement('canvas');
+        canvas.id = 'wave-bg';
+        document.getElementById('story').prepend(canvas);
 
-    const ctx = canvas.getContext('2d');
-    const colors = ['#ffdd88', '#ff8899', '#77bbdd', '#7777aa', '#77dd77'];
+        const ctx = canvas.getContext('2d');
+        const colors = ['#ffdd88', '#ff8899', '#77bbdd', '#7777aa', '#77dd77'];
 
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
 
-    const waves = colors.map(color => ({
-        amp: Math.random() * 40 + 30,
-        freq: Math.random() * 0.02 + 0.005,
-        phase: Math.random() * Math.PI * 2,
-        color
-    }));
+        const waves = colors.map(color => ({
+            amp: Math.random() * 40 + 30,
+            freq: Math.random() * 0.02 + 0.005,
+            phase: Math.random() * Math.PI * 2,
+            color
+        }));
 
-    const step = 2;
-    function draw(t) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const width = canvas.width;
-        const height = canvas.height;
-        const midX = width / 2;
+        const step = 2;
 
-        for (const wave of waves) {
-            ctx.beginPath();
-            ctx.strokeStyle = wave.color;
-            ctx.lineWidth = 2;
+        function draw(t) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const width = canvas.width;
+            const height = canvas.height;
+            const midX = width / 2;
 
-            for (let y = 0; y < height; y += step) {
-                const x = midX + Math.sin(y * wave.freq + t * 0.002 + wave.phase) * wave.amp;
-                if (y === 0) ctx.moveTo(x, y);
-                else ctx.lineTo(x, y);
+            for (const wave of waves) {
+                ctx.beginPath();
+                ctx.strokeStyle = wave.color;
+                ctx.lineWidth = 2;
+
+                for (let y = 0; y < height; y += step) {
+                    const x = midX + Math.sin(y * wave.freq + t * 0.0005 + wave.phase) * wave.amp;
+                    if (y === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+
+                ctx.stroke();
             }
 
-            ctx.stroke();
+            requestAnimationFrame(draw);
         }
 
         requestAnimationFrame(draw);
     }
-
-    requestAnimationFrame(draw);
 });
 /* twine-user-script #8: "zh-CN.js" */
 /***********************************************************************************************************************
@@ -4751,7 +4781,7 @@ $(document).on(':storyready', function () {
 	locale/zh-CN.js – 简体中文
 
 	Localization by: Alt236679.
-	Edited by: RyaraSUKI , For MyGoEveryday !!!!!
+	Edited by: RyaraSUKI , For MyGo Everyday !!!!!
 
 	Copyright © 2017–2025 Thomas Michael Edwards <thomasmedwards@gmail.com>. All rights reserved.
 	Use of this source code is governed by a BSD 2-clause "Simplified" License, which may be found in the LICENSE file.
@@ -4806,7 +4836,7 @@ $(document).on(':storyready', function () {
 	*******************************************************************************/
 
 	// NOTE: `passage` is supplied locally.
-	l10nStrings.errorNonexistentPassage = '页面"{passage}"不存在';
+	l10nStrings.errorNonexistentPassage = '片段"{passage}"不存在';
 
 
 	/*******************************************************************************
@@ -4826,17 +4856,17 @@ $(document).on(':storyready', function () {
 		API: Save.
 	*******************************************************************************/
 
-	l10nStrings.saveErrorDisallowed = '现在还不能留下迷子的足迹……';
+	l10nStrings.saveErrorDisallowed = '现在还不能写下迷子的日记……';
 
-	l10nStrings.saveErrorDecodeFail = '无法读取这个迷子的记录，该记录可能已经损坏';
+	l10nStrings.saveErrorDecodeFail = '无法阅读这个迷子的日记，该日记可能已经损坏';
 
-	l10nStrings.saveErrorDiskLoadFail = '读取迷子的记录失败！';
+	l10nStrings.saveErrorDiskLoadFail = '读取迷子的日记失败！';
 
-	l10nStrings.saveErrorIdMismatch = '这不是迷子的记忆！';
+	l10nStrings.saveErrorIdMismatch = '这不是迷子们的记忆！';
 
-	l10nStrings.saveErrorInvalidData = '缺少这个迷子的数据，该记录可能已经损坏';
+	l10nStrings.saveErrorInvalidData = '缺少这个迷子的数据，该日记可能已经损坏';
 
-	l10nStrings.saveErrorNonexistent = '这个记录不存在……';
+	l10nStrings.saveErrorNonexistent = '这个日记不存在……';
 
 
 	/*******************************************************************************
@@ -4845,28 +4875,28 @@ $(document).on(':storyready', function () {
 
 	l10nStrings.uiBarLabelToggle = '展开/收起UI栏';
 
-	l10nStrings.uiBarLabelBackward = '在{textIdentity}迷子日记中后退';
+	l10nStrings.uiBarLabelBackward = '在{textIdentity}迷子记录中后退';
 
-	l10nStrings.uiBarLabelForward = '在{textIdentity}迷子日记中前进';
+	l10nStrings.uiBarLabelForward = '在{textIdentity}迷子记录中前进';
 
 	// [DEPRECATED]
-	l10nStrings.uiBarLabelJumpto = '回忆至{textIdentity}迷子日记中的某一点';
+	l10nStrings.uiBarLabelJumpto = '回忆至{textIdentity}迷子记录中的某一点';
 
 
 	/*******************************************************************************
 		Dialog: Alert.
 	*******************************************************************************/
 
-	l10nStrings.alertTitle = '警告';
+	l10nStrings.alertTitle = '提示';
 
 
 	/*******************************************************************************
 		Dialog: Restart.
 	*******************************************************************************/
 
-	l10nStrings.restartTitle = '重新出发吧';
+	l10nStrings.restartTitle = '迷子们的再出发';
 
-	l10nStrings.restartMesgPrompt = '让我们在这里重新出发吧，所有未记录的日记都将消散——确定要重新开始吗？';
+	l10nStrings.restartMesgPrompt = '让我们在这里重新出发吧，所有未记录的日记都将消失——确定要重新载入网页吗？';
 
 
 	/*******************************************************************************
@@ -4881,11 +4911,11 @@ $(document).on(':storyready', function () {
 
 	l10nStrings.savesHeaderDisk = '本地的日记';
 
-	l10nStrings.savesLabelBrowserClear = '清空浏览器里迷子的记录';
+	l10nStrings.savesLabelBrowserClear = '清空浏览器里迷子的日记';
 
-	l10nStrings.savesLabelBrowserExport = '导出浏览器记录为bundle';
+	l10nStrings.savesLabelBrowserExport = '导出浏览器内日记为bundle';
 
-	l10nStrings.savesLabelBrowserImport = '从bundle导入浏览器记录';
+	l10nStrings.savesLabelBrowserImport = '从bundle导入浏览器日记';
 
 	l10nStrings.savesLabelDiskLoad = '从本地加载日记';
 
@@ -4959,7 +4989,7 @@ $(document).on(':storyready', function () {
 	l10nStrings.macroBackText = '回退';
 
 	// (verb) go/send back
-	l10nStrings.macroReturnText = '返回';
+	l10nStrings.macroReturnText = '前进';
 
 
 	/*******************************************************************************
@@ -4990,7 +5020,121 @@ $(document).on(':storyready', function () {
 
 	l10nStrings.shareTitle = '分享';
 })();
-</script><tw-passagedata pid="1" name="Start" tags="menu nosave hidebar nobr" position="100,100" size="100,100">&lt;div id=&quot;menu-container&quot;&gt;
+</script><tw-passagedata pid="1" name="关于" tags="nobr dialog" position="100,100" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
+    &lt;div id=&quot;about-title&quot; class=&quot;animate__animated animate__slideInDown&quot;&gt;
+        &lt;h2 class=&quot;hvr-grow&quot;&gt;『迷子们的每一天!!!!!』&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;about-version&quot; class=&quot;animate__animated animate__zoomIn&quot;&gt;
+       &lt;h3&gt;版本 Alpha 1.0.0&lt;/h3&gt;
+       &lt;strong&gt;&quot;是今日初雫，使我昂首前行&quot;&lt;/strong&gt;
+    &lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;div id=&quot;about-urls&quot; class=&quot;animate__animated animate__slideInUp&quot;&gt;
+GitHub:&lt;br&gt;[[RyaraSUKI/MyGoEveryday|https://github.com/RyaraSUKI/MyGoEveryday]]
+&lt;br&gt;&lt;br&gt;
+BiliBili:&lt;br&gt;[[依雅莱Ryara的B站空间|https://space.bilibili.com/454918815]]
+&lt;br&gt;&lt;br&gt;
+QQ群:&lt;br&gt;[[等待补充|https://github.com/RyaraSUKI/MyGoEveryday]]
+&lt;br&gt;&lt;br&gt;
+&lt;/div&gt;
+&lt;&lt;script&gt;&gt;
+    $(document).ready(function() {
+        $(&quot;#about-title&quot;).click(function() {
+            Dialog.close();
+            Dialog.create(&quot;关于更多…&quot;);
+            Dialog.wikiPassage(&quot;AboutMore&quot;);
+            Dialog.open();
+        });
+    });
+&lt;&lt;/script&gt;&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="AboutMore" tags="dialog" position="225,100" size="100,100">&lt;br&gt;
+&lt;s-button id=&quot;go-license&quot; class=&quot;sober-button&quot;&gt;&lt;s-icon slot=&quot;start&quot;&gt;&lt;svg viewbox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-40v-309q-38-42-59-96t-21-115q0-134 93-227t227-93q134 0 227 93t93 227q0 61-21 115t-59 96v309l-240-80-240 80Zm240-280q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/s-icon&gt;版权声明&lt;/s-button&gt;&lt;br&gt;&lt;s-button id=&quot;go-credits&quot; class=&quot;sober-button&quot;&gt;&lt;s-icon slot=&quot;start&quot;&gt;&lt;svg viewbox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/s-icon&gt;创作名单&lt;/s-button&gt;&lt;br&gt;&lt;s-button id=&quot;go-testhome&quot; class=&quot;sober-button&quot;&gt;&lt;s-icon slot=&quot;start&quot;&gt;&lt;svg viewbox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M160-160q-33 0-56.5-23.5T80-240v-160h200v40h80v-40h240v40h80v-40h200v160q0 33-23.5 56.5T800-160H160ZM97-480l83-192q9-22 29-35t43-13h28v-40q0-33 23.5-56.5T360-840h240q33 0 56.5 23.5T680-760v40h28q23 0 43 13t29 35l83 192H680v-40h-80v40H360v-40h-80v40H97Zm263-240h240v-40H360v40Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/s-icon&gt;测试页面&lt;/s-button&gt;
+&lt;br&gt;
+
+&lt;&lt;script&gt;&gt;
+$(document).ready(function() {
+        $(&quot;#go-license&quot;).click(function() {
+            Dialog.close();
+            Dialog.create(&quot;版权声明&quot;).wikiPassage(&quot;版权声明&quot;).open();
+        });
+        $(&quot;#go-credits&quot;).click(function() {
+            Dialog.close();
+            Dialog.create(&quot;创作名单&quot;).wikiPassage(&quot;创作名单&quot;).open();
+        });
+        $(&quot;#go-testhome&quot;).click(function() {
+            Engine.play(&quot;进入测试页面&quot;);
+            Dialog.close();
+        });
+    });
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="创作名单" tags="dialog hidebar nosave" position="350,100" size="100,100">&lt;h2&gt;创作者&lt;/h2&gt;
+&lt;p&gt;
+初创：RyaraSUKI
+&lt;/p&gt;
+&lt;h2&gt;引用与鸣谢&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;特别鸣谢&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;感谢&lt;a href=&quot;https://www.yuque.com/u45355763/twine&quot;&gt;Sguarcube2群代码整合&lt;/a&gt;所有热心群友们的帮助！&lt;/li&gt;
+&lt;li&gt;感谢&lt;a href=&quot;https://pages.github.com&quot;&gt;GitHub Pages&lt;/a&gt;提供网页托管！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;『迷子们的每一天 !!!!!』的主体引擎使用了以下项目，在此表示感谢！&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://twinery.org/&quot;&gt;Twine&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://github.com/tmedwards/sugarcube-2&quot;&gt;Sugarcube2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;感谢Modloader，为SugarCube2社区提供了扩展新方法&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader&quot;&gt;Modloader&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;像素字体使用了unifont点阵字体，遵守GNU General Public协议&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://unifoundry.com/unifont/index.html&quot;&gt;Unifont&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;其余贡献请至仓库查看&lt;/em&gt;&lt;/p&gt;</tw-passagedata><tw-passagedata pid="4" name="版权声明" tags="dialog nosave hidebar" position="475,100" size="100,100">&lt;h2&gt;版权声明&lt;/h2&gt;
+&lt;ol&gt;
+    &lt;li&gt;&lt;strong&gt;本项目系粉丝二次创作，与官方无关，仅供学习和研究，修改内容不得用于商业用途。&lt;/strong&gt;
+        任何衍生作品都必须保持：&lt;/li&gt;
+    &lt;li&gt;明确的原作者/贡献者指向&lt;/li&gt;
+    &lt;li&gt;承诺非商业性质&lt;/li&gt;
+    &lt;li&gt;使用相同的许可证书&lt;/li&gt;
+    &lt;li&gt;本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有，本项目只引用了BanGDream!世界观的角色名、形象和特征等必要设定。&lt;/li&gt;
+    &lt;li&gt;本项目为文字互动同人小说网页，不含完整游戏性，实质上是通过WEB形式表现的同人小说。&lt;/li&gt;
+    &lt;li&gt;本项目中的代码部分采用 &lt;strong&gt;&lt;a href=&quot;https://mit-license.org/&quot;&gt;MIT LICENSE&lt;/a&gt;&lt;/strong&gt; 许可，&lt;strong&gt;依雅莱所属原创素材（包括但不限于文本，图像等）&lt;/strong&gt;采用 &lt;strong&gt;&lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;CC BY-NC-SA 4.0&lt;/a&gt;&lt;/strong&gt; 协议，社区共创内容版权所属，由作者&lt;strong&gt;自行决定&lt;/strong&gt;，本项目将&lt;strong&gt;严格尊守&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;copyright-notice&quot;&gt;Copyright Notice&lt;/h2&gt;
+&lt;ol&gt;
+    &lt;li&gt;This is a &lt;strong&gt;fan-made non-commercial re-creation&lt;/strong&gt; with no affiliation to the official rights holders. All resources are provided for &lt;strong&gt;learning and research purposes only&lt;/strong&gt;.
+        Any derivative works must maintain:&lt;/li&gt;
+    &lt;li&gt;Clear attribution to original author/contributors&lt;/li&gt;
+    &lt;li&gt;Non-commercial promise&lt;/li&gt;
+    &lt;li&gt;Same license terms&lt;/li&gt;
+    &lt;li&gt;This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. This project only uses the necessary settings such as character names, appearance, and characteristics of the BanGDream! worldview.&lt;/li&gt;
+    &lt;li&gt;This project is a text-interactive fan-made fiction web page and does not include any gameplay. This project is actually a fan-made fiction expressed in the WEB form.&lt;/li&gt;
+    &lt;li&gt;Original created codes in this project are licensed under &lt;strong&gt;&lt;a href=&quot;https://mit-license.org/&quot;&gt;MIT LICENSE&lt;/a&gt;&lt;/strong&gt; &amp;amp; &lt;strong&gt;resources by RyaraSUKI (including but not limited to texts , images)&lt;/strong&gt; in this project are licensed under &lt;strong&gt;&lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;CC BY-NC-SA 4.0 International&lt;/a&gt;&lt;/strong&gt;. The copyright of the content co-created by the community belongs to &lt;strong&gt;the author&amp;#39;s decision&lt;/strong&gt; and this project will &lt;strong&gt;strictly abide by&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;MIT License (Code part)&lt;/h2&gt;
+Copyright (c) 2025 RyaraSUKI
+&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the &amp;quot;Software&amp;quot;), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:&lt;/p&gt;
+&lt;p&gt;The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.&lt;/p&gt;
+&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.&lt;/p&gt;
+&lt;h2&gt;MIT 许可证 （代码部分）&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;这是 MIT 许可证的非正式简体中文翻译。它不是使用 MIT 许可证软件的发布法律声明——只有 MIT 许可证的原始英文版才有法律意义。不过，我们希望该翻译能够帮助简体中文用户更好地理解 MIT 许可证。此翻译文本以CC0 1.0 通用发布至公有领域。&lt;a href=&quot;https://licenses.peaksol.org/mit-license-zh.html&quot;&gt;来源&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+版权所有 © 2025 RyaraSUKI（依雅莱）
+&lt;p&gt;特此，为任何获得此软件及其相关文档文件的部分（下称“本软件”）的人，免费授予不受限制地处置本软件的权利，包括但不限于对本软件的使用、修改、合并、发布、分发、分授权和/或售卖其副本的权利，以及向被供以本软件的人授予上述权利的权利，前提是满足以下条件：&lt;/p&gt;
+&lt;p&gt;上述版权声明及本许可证声明应被包含于本软件的所有部分或主要部分之中。&lt;/p&gt;
+&lt;p&gt;本软件“照原样”发布，不附带任何形式的显示或隐式的担保，包括但不限于有经济价值、适合特定用途、无侵权行为的担保。在任何情况下，作者或版权持有人都不对任何索赔、损害或其他责任负责，无论其来自合同的起诉、侵权行为或其他来源，还是产生于、源于或有关于本软件或对其进行的其他处置。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="5" name="Start" tags="menu nosave hidebar nobr" position="600,100" size="100,100">&lt;div id=&quot;menu-container&quot;&gt;
     &lt;div id=&quot;menu-logo&quot; oncontextmenu=&quot;return false;&quot; class=&quot;animate__animated animate__fadeIn animate__slow&quot;&gt;
     	[img[mygoe_logo]]
     &lt;/div&gt;
@@ -5003,7 +5147,7 @@ $(document).on(':storyready', function () {
     					.then(() =&gt; Engine.show())
     					.catch(error =&gt; {
     						console.error(error);
-    						UI.alert(&#39;加载日记错误！&#39;);
+    						UI.alert(&#39;没有找到最近写下的日记！&#39;);
     					});
     				&lt;&lt;/script&gt;&gt;
     			&lt;&lt;/button&gt;&gt;
@@ -5032,18 +5176,21 @@ $(document).ready(function() {
 		Dialog.open();
 	});
 });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start2" tags="hidebar nosave nobr" position="225,100" size="100,100">&lt;div class=&quot;sugar-button animate__animated animate__fadeIn animate__slower&quot;&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="Start2" tags="hidebar nosave nobr" position="725,100" size="100,100">&lt;div class=&quot;sugar-button animate__animated animate__bounceInDown&quot;&gt;
     &lt;&lt;button [[↩️  返回到主页|Start]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;br&gt;
-&lt;div class=&quot;warn-card animate__animated animate__fadeIn&quot;&gt;
+&lt;div class=&quot;warn-card animate__animated animate__zoomIn&quot;&gt;
     &lt;div class=&quot;title&quot;&gt;须知&lt;/div&gt;
     &lt;div class=&quot;subtitle&quot;&gt;Notice&lt;/div&gt;
 &lt;/div&gt;
+&lt;div class=&quot;animate__animated animate__zoomIn&quot;&gt;
+
+&lt;/div&gt;
 &lt;br&gt;
-&lt;s-checkbox type=&quot;checkbox&quot; id=&quot;start2-check&quot; class=&quot;animate__animated animate__fadeIn animate__slow&quot;&gt;已阅读用户协议&lt;/s-checkbox&gt;
+&lt;s-checkbox type=&quot;checkbox&quot; id=&quot;start2-check&quot; class=&quot;animate__animated animate__fadeIn animate__slow&quot;&gt;已阅读并接受须知内容&lt;/s-checkbox&gt;
 &lt;br&gt;
-&lt;div id=&quot;start2-go&quot; class=&quot;animate__animated animate__fadeIn animate__slow&quot; style=&quot;display: none; item-align: center;&quot;&gt;
+&lt;div id=&quot;start2-go&quot; class=&quot;animate__animated animate__jackInTheBox&quot; style=&quot;display: none; item-align: center;&quot;&gt;
     &lt;&lt;button [[It&#39;s MyGo !!!!!|Start3]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 
@@ -5057,11 +5204,12 @@ $(document).ready(function () {
     	}
     });
 });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Start3" tags="hidebar nosave nobr" position="350,100" size="100,100">&lt;div class=&quot;sugar-button animate__animated animate__fadeIn animate__slower&quot;&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Start3" tags="hidebar nosave nobr" position="850,100" size="100,100">&lt;div class=&quot;sugar-button animate__animated animate__bounceInDown&quot;&gt;
     &lt;&lt;button [[↩️  返回到主页|Start]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-&lt;div class=&quot;menucard-container animate__animated animate__fadeInUpBig&quot;&gt;
+&lt;br&gt;
+//&#39;&#39;请选择要游玩的故事模式：&#39;&#39;//
+&lt;div class=&quot;menucard-container animate__animated animate__zoomInUp animate__slow&quot;&gt;
     &lt;div class=&quot;menucard&quot; style=&quot;background-color: #3388bb;&quot;&gt;
       &lt;div class=&quot;menucard-text-block&quot;&gt;
         &lt;div class=&quot;menucard-title&quot;&gt;主线故事&lt;/div&gt;
@@ -5106,54 +5254,7 @@ $(document).ready(function () {
     }, 300);
   });
 });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="StartOurStories" tags="hidebar nosave nobr" position="475,100" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="StartFreeDays" tags="hidebar nosave nobr" position="600,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="6" name="StartAnotherStory" tags="hidebar nosave nobr" position="725,100" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="关于" tags="nobr dialog" position="850,100" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
-    &lt;div id=&quot;about-title&quot; class=&quot;animate__animated animate__slideInDown&quot;&gt;
-        &lt;h2 class=&quot;hvr-grow&quot;&gt;『迷子们的每一天!!!!!』&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;about-version&quot; class=&quot;animate__animated animate__zoomIn&quot;&gt;
-       &lt;h3&gt;版本 Alpha 1.0.0&lt;/h3&gt;
-       &lt;strong&gt;&quot;是今日初雫，使我昂首前行&quot;&lt;/strong&gt;
-    &lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;div id=&quot;about-urls&quot; class=&quot;animate__animated animate__slideInUp&quot;&gt;
-GitHub:&lt;br&gt;[[RyaraSUKI/MyGoEveryday|https://github.com/RyaraSUKI/MyGoEveryday]]
-&lt;br&gt;&lt;br&gt;
-BiliBili:&lt;br&gt;[[依雅莱Ryara的B站空间|https://space.bilibili.com/454918815]]
-&lt;br&gt;&lt;br&gt;
-QQ群:&lt;br&gt;[[等待补充|https://github.com/RyaraSUKI/MyGoEveryday]]
-&lt;br&gt;&lt;br&gt;
-&lt;/div&gt;
-&lt;&lt;script&gt;&gt;
-    $(document).ready(function() {
-        $(&quot;#about-title&quot;).click(function() {
-            Dialog.close();
-            Dialog.create(&quot;关于更多…&quot;);
-            Dialog.wikiPassage(&quot;AboutMore&quot;);
-            Dialog.open();
-        });
-    });
-&lt;&lt;/script&gt;&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="AboutMore" tags="dialog" position="975,100" size="100,100">&lt;br&gt;
-&lt;s-button id=&quot;go-license&quot; class=&quot;sober-button&quot;&gt;&lt;s-icon slot=&quot;start&quot;&gt;&lt;svg viewbox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-40v-309q-38-42-59-96t-21-115q0-134 93-227t227-93q134 0 227 93t93 227q0 61-21 115t-59 96v309l-240-80-240 80Zm240-280q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/s-icon&gt;版权声明&lt;/s-button&gt;&lt;br&gt;&lt;s-button id=&quot;go-credits&quot; class=&quot;sober-button&quot;&gt;&lt;s-icon slot=&quot;start&quot;&gt;&lt;svg viewbox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/s-icon&gt;贡献名单&lt;/s-button&gt;&lt;br&gt;&lt;s-button id=&quot;go-testhome&quot; class=&quot;sober-button&quot;&gt;&lt;s-icon slot=&quot;start&quot;&gt;&lt;svg viewbox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M160-160q-33 0-56.5-23.5T80-240v-160h200v40h80v-40h240v40h80v-40h200v160q0 33-23.5 56.5T800-160H160ZM97-480l83-192q9-22 29-35t43-13h28v-40q0-33 23.5-56.5T360-840h240q33 0 56.5 23.5T680-760v40h28q23 0 43 13t29 35l83 192H680v-40h-80v40H360v-40h-80v40H97Zm263-240h240v-40H360v40Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/s-icon&gt;测试页面&lt;/s-button&gt;
-&lt;br&gt;
-
-&lt;&lt;script&gt;&gt;
-$(document).ready(function() {
-        $(&quot;#go-license&quot;).click(function() {
-            Dialog.close();
-            Dialog.create(&quot;版权声明&quot;).wikiPassage(&quot;版权声明&quot;).open();
-        });
-        $(&quot;#go-credits&quot;).click(function() {
-            Dialog.close();
-            Dialog.create(&quot;贡献名单&quot;).wikiPassage(&quot;贡献名单&quot;).open();
-        });
-        $(&quot;#go-testhome&quot;).click(function() {
-            Engine.play(&quot;进入测试页面&quot;);
-            Dialog.close();
-        });
-    });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="AP" tags="nosave hidebar" position="1100,100" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="StartOurStory" tags="hidebar nosave nobr" position="975,100" size="100,100"></tw-passagedata><tw-passagedata pid="9" name="StartDailyStory" tags="hidebar nosave nobr" position="1100,100" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="10" name="StartAnotherStory" tags="hidebar nosave nobr" position="1225,100" size="100,100"></tw-passagedata><tw-passagedata pid="11" name="AP" tags="nosave hidebar" position="100,225" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;br&gt;&lt;img src=&quot;img/city.png&quot;&gt;
 &lt;br&gt;这里记录了所有的片段，相当于一个目录，方便统计或在没有Twine2可视化编辑器的时候调试和预览&lt;br&gt;
 &lt;&lt;nobr&gt;&gt;
@@ -5179,109 +5280,26 @@ $(document).ready(function() {
             &lt;/li&gt;
         &lt;&lt;/for&gt;&gt;
     &lt;/ul&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="贡献名单" tags="dialog hidebar nosave" position="1225,100" size="100,100">&lt;h2&gt;贡献者&lt;/h2&gt;
-&lt;p&gt;初创：RyaraSUKI&lt;/p&gt;
-&lt;h2&gt;引用与鸣谢&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;『迷子们的每一天 !!!!!』的主体引擎使用了以下项目，在此表示感谢！&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;https://twinery.org/&quot;&gt;Twine&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://github.com/tmedwards/sugarcube-2&quot;&gt;Sugarcube2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;感谢Modloader，不止为DoL社区贡献了如此强大的模组加载器，也为SugarCube2社区提供了扩展新方法&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader&quot;&gt;Modloader&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;像素字体使用了unifont点阵字体，遵守GNU General Public协议&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;https://unifoundry.com/unifont/index.html&quot;&gt;Unifont&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;其余贡献请至仓库查看&lt;/em&gt;&lt;/p&gt;</tw-passagedata><tw-passagedata pid="11" name="DebugMain" tags="nosave" position="100,225" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="DebugMain" tags="nosave" position="225,225" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;
 &lt;s-divider&gt;剪切线&lt;/s-divider&gt;
 写得一坨，敬请谅解
-&lt;&lt;button &quot;启用sugarcube2调试视图&quot;&gt;&gt;&lt;&lt;script&gt;&gt;DebugView.toggle()&lt;&lt;/script&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="版权声明" tags="dialog nosave hidebar" position="225,225" size="100,100">&lt;h2&gt;版权声明&lt;/h2&gt;
-&lt;ol&gt;
-    &lt;li&gt;&lt;strong&gt;本项目系粉丝二次创作，与官方无关，仅供学习和研究，修改内容不得用于商业用途。&lt;/strong&gt;
-        任何衍生作品都必须保持：&lt;/li&gt;
-    &lt;li&gt;明确的原作者/贡献者指向&lt;/li&gt;
-    &lt;li&gt;承诺非商业性质&lt;/li&gt;
-    &lt;li&gt;使用相同的许可证书&lt;/li&gt;
-    &lt;li&gt;本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有，本项目只引用了BanGDream!世界观的角色名、形象和特征等必要设定。&lt;/li&gt;
-    &lt;li&gt;本项目为文字互动同人小说网页，不含完整游戏性，实质上是通过WEB形式表现的同人小说。&lt;/li&gt;
-    &lt;li&gt;本项目中的代码部分采用 &lt;strong&gt;&lt;a href=&quot;https://mit-license.org/&quot;&gt;MIT LICENSE&lt;/a&gt;&lt;/strong&gt; 许可，&lt;strong&gt;依雅莱所属原创素材（包括但不限于文本，图像等）&lt;/strong&gt;采用 &lt;strong&gt;&lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;CC BY-NC-SA 4.0&lt;/a&gt;&lt;/strong&gt; 协议，社区共创内容版权所属，由作者&lt;strong&gt;自行决定&lt;/strong&gt;，本项目将&lt;strong&gt;严格尊守&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;copyright-notice&quot;&gt;Copyright Notice&lt;/h2&gt;
-&lt;ol&gt;
-    &lt;li&gt;This is a &lt;strong&gt;fan-made non-commercial re-creation&lt;/strong&gt; with no affiliation to the official rights holders. All resources are provided for &lt;strong&gt;learning and research purposes only&lt;/strong&gt;.
-        Any derivative works must maintain:&lt;/li&gt;
-    &lt;li&gt;Clear attribution to original author/contributors&lt;/li&gt;
-    &lt;li&gt;Non-commercial promise&lt;/li&gt;
-    &lt;li&gt;Same license terms&lt;/li&gt;
-    &lt;li&gt;This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. This project only uses the necessary settings such as character names, appearance, and characteristics of the BanGDream! worldview.&lt;/li&gt;
-    &lt;li&gt;This project is a text-interactive fan-made fiction web page and does not include any gameplay. This project is actually a fan-made fiction expressed in the WEB form.&lt;/li&gt;
-    &lt;li&gt;Original created codes in this project are licensed under &lt;strong&gt;&lt;a href=&quot;https://mit-license.org/&quot;&gt;MIT LICENSE&lt;/a&gt;&lt;/strong&gt; &amp;amp; &lt;strong&gt;resources by RyaraSUKI (including but not limited to texts , images)&lt;/strong&gt; in this project are licensed under &lt;strong&gt;&lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;CC BY-NC-SA 4.0 International&lt;/a&gt;&lt;/strong&gt;. The copyright of the content co-created by the community belongs to &lt;strong&gt;the author&amp;#39;s decision&lt;/strong&gt; and this project will &lt;strong&gt;strictly abide by&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;MIT License (Code part)&lt;/h2&gt;
-Copyright (c) 2025 RyaraSUKI
-&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the &amp;quot;Software&amp;quot;), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:&lt;/p&gt;
-&lt;p&gt;The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.&lt;/p&gt;
-&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.&lt;/p&gt;
-&lt;h2&gt;MIT 许可证 （代码部分）&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;这是 MIT 许可证的非正式简体中文翻译。它不是使用 MIT 许可证软件的发布法律声明——只有 MIT 许可证的原始英文版才有法律意义。不过，我们希望该翻译能够帮助简体中文用户更好地理解 MIT 许可证。此翻译文本以CC0 1.0 通用发布至公有领域。&lt;a href=&quot;https://licenses.peaksol.org/mit-license-zh.html&quot;&gt;来源&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-版权所有 © 2025 RyaraSUKI（依雅莱）
-&lt;p&gt;特此，为任何获得此软件及其相关文档文件的部分（下称“本软件”）的人，免费授予不受限制地处置本软件的权利，包括但不限于对本软件的使用、修改、合并、发布、分发、分授权和/或售卖其副本的权利，以及向被供以本软件的人授予上述权利的权利，前提是满足以下条件：&lt;/p&gt;
-&lt;p&gt;上述版权声明及本许可证声明应被包含于本软件的所有部分或主要部分之中。&lt;/p&gt;
-&lt;p&gt;本软件“照原样”发布，不附带任何形式的显示或隐式的担保，包括但不限于有经济价值、适合特定用途、无侵权行为的担保。在任何情况下，作者或版权持有人都不对任何索赔、损害或其他责任负责，无论其来自合同的起诉、侵权行为或其他来源，还是产生于、源于或有关于本软件或对其进行的其他处置。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="13" name="StoryMenu" tags="" position="350,225" size="100,100"></tw-passagedata><tw-passagedata pid="14" name="StoryCaption" tags="" position="475,225" size="100,100">&lt;br&gt;</tw-passagedata><tw-passagedata pid="15" name="sober介绍" tags="nosave" position="600,225" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;&lt;br&gt;
+&lt;&lt;button &quot;启用sugarcube2调试视图&quot;&gt;&gt;&lt;&lt;script&gt;&gt;DebugView.toggle()&lt;&lt;/script&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="StoryMenu" tags="" position="350,225" size="100,100"></tw-passagedata><tw-passagedata pid="14" name="StoryCaption" tags="" position="475,225" size="100,100">&lt;br&gt;</tw-passagedata><tw-passagedata pid="15" name="sober介绍" tags="nosave" position="600,225" size="100,100">&lt;s-button class=&quot;sober-button&quot; data-passage=&quot;DebugHome&quot;&gt;&lt;s-icon slot=&quot;start&quot; name=&quot;home&quot;&gt;&lt;/s-icon&gt;返回调试主页&lt;/s-button&gt;&lt;br&gt;
 //[[Sober|https://github.com/apprat/sober]] 是参考 Google Material You 设计规范的 Web Component UI 组件库，具有非侵入和自适应等特性，『迷子们的每一天』使用了其部分组件作为互动功能的一部分。//&lt;br&gt;
-下面是部分组件演示：
-&lt;s-divider&gt;选项卡&lt;/s-divider&gt;
-&lt;s-picker onchange=&quot;this.firstElementChild.textContent = this.options[this.selectedIndex].textContent&quot;&gt;
-  &lt;s-button slot=&quot;trigger&quot;&gt;选择成员&lt;/s-button&gt;
-  &lt;s-picker-item&gt;长崎 素世&lt;/s-picker-item&gt;
-  &lt;s-picker-item&gt;千早 爱音&lt;/s-picker-item&gt;
-  &lt;s-picker-item&gt;高松 灯&lt;/s-picker-item&gt;
-  &lt;s-picker-item&gt;椎名 立希&lt;/s-picker-item&gt;
-  &lt;s-picker-item&gt;要 乐奈&lt;/s-picker-item&gt;
-&lt;/s-picker&gt;
-&lt;s-divider&gt;按钮组&lt;/s-divider&gt;
+下面是部分组件，以检查主题样式和js正常工作：
+&lt;s-divider&gt;组件演示&lt;/s-divider&gt;
 &lt;s-button class=&quot;sober-button&quot;&gt; 壱雫空 &lt;/s-button&gt;
 &lt;s-button type=&quot;elevated&quot; class=&quot;sober-button&quot;&gt; 碧天伴走 &lt;/s-button&gt;
 &lt;s-button type=&quot;filled-tonal&quot; class=&quot;sober-button&quot;&gt; 詩超絆 &lt;/s-button&gt;
 &lt;s-button type=&quot;outlined&quot; class=&quot;sober-button&quot;&gt; 迷星叫 &lt;/s-button&gt;
 &lt;s-button type=&quot;text&quot; class=&quot;sober-button&quot;&gt; 迷路日々 &lt;/s-button&gt;
-&lt;s-divider&gt;对话框&lt;/s-divider&gt;
-&lt;s-dialog&gt;
-  &lt;s-button slot=&quot;trigger&quot;&gt; MyGO!!!!! &lt;/s-button&gt;
-  &lt;div slot=&quot;headline&quot;&gt; It&#39;s MyGo !!!!! &lt;/div&gt;
-     迷子でもいい、迷子でも進め。
-     不畏迷茫，迷茫着也要砥砺前行。
-  &lt;s-button slot=&quot;action&quot; type=&quot;text&quot;&gt;关闭&lt;/s-button&gt;
-&lt;/s-dialog&gt;
-&lt;s-divider&gt;状态&lt;/s-divider&gt;
 &lt;s-alert&gt;LiveHouse RiNG 今日已开始营业！&lt;/s-alert&gt;&lt;br&gt;
-&lt;s-alert type=&quot;error&quot;&gt;LiveHouse CiRCLE 今日已结束营业！&lt;/s-alert&gt;
-&lt;s-divider&gt;开关、复选框&lt;/s-divider&gt;
+&lt;s-alert type=&quot;error&quot;&gt;LiveHouse CiRCLE 今日已结束营业！&lt;/s-alert&gt;&lt;br&gt;
 &lt;s-switch&gt;&lt;/s-switch&gt;
-&lt;s-switch checked=&quot;true&quot;&gt;&lt;/s-switch&gt;
 &lt;s-checkbox&gt;组一辈子乐队!!!!!&lt;/s-checkbox&gt;
-&lt;s-divider&gt;其他组件&lt;/s-divider&gt;
-&lt;s-slider labeled=&quot;true&quot;&gt;&lt;/s-slider&gt;&lt;br&gt;
-&lt;s-linear-progress indeterminate=&quot;true&quot;&gt;&lt;/s-linear-progress&gt;&lt;br&gt;
-&lt;s-circular-progress indeterminate=&quot;true&quot;&gt;&lt;/s-circular-progress&gt;&lt;br&gt;
 &lt;s-rate&gt;&lt;/s-rate&gt;
-&lt;s-divider&gt;日期&lt;/s-divider&gt;
-&lt;s-date&gt;&lt;/s-date&gt;</tw-passagedata><tw-passagedata pid="16" name="StoryInit" tags="" position="725,225" size="100,100"></tw-passagedata><tw-passagedata pid="17" name="进入测试页面" tags="autosave" position="850,225" size="100,100">&lt;div class=&quot;animate__animated animate__tada&quot;&gt;&lt;h2&gt;&lt;u&gt;&lt;strong&gt;请注意！&lt;/strong&gt;&lt;/u&gt;&lt;/h2&gt;&lt;strong&gt;这不是修改器页面！&lt;/strong&gt;&lt;br&gt;你接下来要进入游戏测试主页，&lt;u&gt;这个页面主要用于开发，非正常游戏流程不会使用该页面，且只能通过主页面弹窗进入&lt;/u&gt;，是否继续？&lt;/div&gt;
+&lt;s-circular-progress indeterminate=&quot;true&quot;&gt;&lt;/s-circular-progress&gt;&lt;br&gt;
+&lt;s-slider labeled=&quot;true&quot;&gt;&lt;/s-slider&gt;&lt;br&gt;
+&lt;s-linear-progress indeterminate=&quot;true&quot;&gt;&lt;/s-linear-progress&gt;</tw-passagedata><tw-passagedata pid="16" name="StoryInit" tags="" position="725,225" size="100,100"></tw-passagedata><tw-passagedata pid="17" name="进入测试页面" tags="autosave" position="850,225" size="100,100">&lt;div class=&quot;animate__animated animate__tada&quot;&gt;&lt;h2&gt;&lt;u&gt;&lt;strong&gt;请注意！&lt;/strong&gt;&lt;/u&gt;&lt;/h2&gt;&lt;strong&gt;这不是修改器页面！&lt;/strong&gt;&lt;br&gt;你接下来要进入游戏测试主页，&lt;u&gt;这个页面主要用于开发，非正常游戏流程不会使用该页面，且只能通过主页面弹窗进入&lt;/u&gt;，是否继续？&lt;/div&gt;
 &lt;s-divider&gt;剪切线&lt;/s-divider&gt;
 &lt;br&gt;
 &lt;s-button id=&quot;no-test-home&quot; class=&quot;sober-button&quot;&gt;不，等等!&lt;/s-button&gt;

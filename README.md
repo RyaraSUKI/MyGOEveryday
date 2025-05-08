@@ -1,13 +1,12 @@
 ## 本项目正在积极开发中，敬请期待
 ### 你可以通过[部署的pages](https://ryarasuki.github.io/MyGoEveryday/)进行最新进度预览
-### 请禁用浏览器自带的自动翻译插件！
 
 <div id="top"></div>
 
 <br />
 <div align="center">
   <a href="https://github.com/RyaraSUKI/MyGoEveryday">
-    <img src="img/mygoe_logo.png" alt="Logo" width="auto" height="auto">
+    <img src="img/icon/mygoe_logo.png" alt="Logo" width="auto" height="auto">
   </a>
 
   <h2 align="center">迷子们的每一天 !!!!!</h2>
@@ -26,16 +25,18 @@
     <a href="https://github.com/RyaraSUKI/MyGoEveryday/issues">反馈与建议</a>
   </p>
 </div>
- 
+
+### 请确保使用现代浏览器！请禁用浏览器的自动翻译插件！
+
 ## 目录
 
 - [简介](#简介)
 - [参与创作](#参与创作)
-- [贡献者](#贡献者)
-- [版权声明](#版权声明)
-- [更新日志](#更新日志)
 - [使用说明](#使用说明)
 - [待办项目](#待办项目)
+- [创作者](#创作者)
+- [版权声明](#版权声明)
+- [更新日志](#更新日志)
 - [引用与鸣谢](#引用与鸣谢)
 
 ## 简介
@@ -58,18 +59,6 @@
 『迷子们的每一天 !!!!!』欢迎所有热爱者的共同创作，请在[此处](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/COWORK.md)查看指引！
 另外，欢迎加入[讨论群]():
 
-## 贡献者
-
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/CREDITS.md)
-
-## 版权声明
-
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/LICENSE.md)
-
-## 更新记录
-
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/UPDATE.md)
-
 ## 使用说明
 
 - 你可以直接前往[GitHub Pages](https://ryarasuki.github.io/MyGoEveryday/)游玩已部署的最新版，如果你要下载本地版或历史版本，请前往[Releases](https://github.com/RyaraSUKI/MyGoEveryday/releases)
@@ -82,12 +71,25 @@
 ## 待办项目
 ~~画饼清单~~
 - [X] 最初的起点
-- [ ] UI美化再装修
+- [ ] UI样式性能优化
 - [ ] 加入换装系统
 - [ ] 加入互动游戏
 - [ ] 加入商店系统
 - [ ] 丰富网页内容
 - [ ] 存档系统更新
+- [ ] 附加故事实现
+
+## 创作者
+
+- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/CREDITS.md)
+
+## 版权声明
+
+- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/LICENSE.md)
+
+## 更新记录
+
+- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/UPDATE.md)
 
 ## 引用与鸣谢
 
@@ -97,8 +99,7 @@
 
 **特别鸣谢**
 
-- 感谢[Sguarcube2群代码整合](https://www.yuque.com/u45355763/twine)热心群友们的帮助！
-- 感谢[Modloader](https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader)，不止为DoL社区贡献了如此强大的模组加载器，也为SugarCube2社区提供了扩展新方法
+- 感谢[Sguarcube2群代码整合](https://www.yuque.com/u45355763/twine)所有热心群友们的帮助！
 - 感谢[GitHub Pages](https://pages.github.com)提供网页托管！
 
 <br>

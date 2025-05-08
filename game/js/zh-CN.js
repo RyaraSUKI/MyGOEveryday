@@ -3,7 +3,7 @@
 	locale/zh-CN.js – 简体中文
 
 	Localization by: Alt236679.
-	Edited by: RyaraSUKI , For MyGoEveryday !!!!!
+	Edited by: RyaraSUKI , For MyGo Everyday !!!!!
 
 	Copyright © 2017–2025 Thomas Michael Edwards <thomasmedwards@gmail.com>. All rights reserved.
 	Use of this source code is governed by a BSD 2-clause "Simplified" License, which may be found in the LICENSE file.
@@ -58,7 +58,7 @@
 	*******************************************************************************/
 
 	// NOTE: `passage` is supplied locally.
-	l10nStrings.errorNonexistentPassage = '页面"{passage}"不存在';
+	l10nStrings.errorNonexistentPassage = '片段"{passage}"不存在';
 
 
 	/*******************************************************************************
@@ -78,17 +78,17 @@
 		API: Save.
 	*******************************************************************************/
 
-	l10nStrings.saveErrorDisallowed = '现在还不能留下迷子的足迹……';
+	l10nStrings.saveErrorDisallowed = '现在还不能写下迷子的日记……';
 
-	l10nStrings.saveErrorDecodeFail = '无法读取这个迷子的记录，该记录可能已经损坏';
+	l10nStrings.saveErrorDecodeFail = '无法阅读这个迷子的日记，该日记可能已经损坏';
 
-	l10nStrings.saveErrorDiskLoadFail = '读取迷子的记录失败！';
+	l10nStrings.saveErrorDiskLoadFail = '读取迷子的日记失败！';
 
-	l10nStrings.saveErrorIdMismatch = '这不是迷子的记忆！';
+	l10nStrings.saveErrorIdMismatch = '这不是迷子们的记忆！';
 
-	l10nStrings.saveErrorInvalidData = '缺少这个迷子的数据，该记录可能已经损坏';
+	l10nStrings.saveErrorInvalidData = '缺少这个迷子的数据，该日记可能已经损坏';
 
-	l10nStrings.saveErrorNonexistent = '这个记录不存在……';
+	l10nStrings.saveErrorNonexistent = '这个日记不存在……';
 
 
 	/*******************************************************************************
@@ -97,28 +97,28 @@
 
 	l10nStrings.uiBarLabelToggle = '展开/收起UI栏';
 
-	l10nStrings.uiBarLabelBackward = '在{textIdentity}迷子日记中后退';
+	l10nStrings.uiBarLabelBackward = '在{textIdentity}迷子记录中后退';
 
-	l10nStrings.uiBarLabelForward = '在{textIdentity}迷子日记中前进';
+	l10nStrings.uiBarLabelForward = '在{textIdentity}迷子记录中前进';
 
 	// [DEPRECATED]
-	l10nStrings.uiBarLabelJumpto = '回忆至{textIdentity}迷子日记中的某一点';
+	l10nStrings.uiBarLabelJumpto = '回忆至{textIdentity}迷子记录中的某一点';
 
 
 	/*******************************************************************************
 		Dialog: Alert.
 	*******************************************************************************/
 
-	l10nStrings.alertTitle = '警告';
+	l10nStrings.alertTitle = '提示';
 
 
 	/*******************************************************************************
 		Dialog: Restart.
 	*******************************************************************************/
 
-	l10nStrings.restartTitle = '重新出发吧';
+	l10nStrings.restartTitle = '迷子们的再出发';
 
-	l10nStrings.restartMesgPrompt = '让我们在这里重新出发吧，所有未记录的日记都将消散——确定要重新开始吗？';
+	l10nStrings.restartMesgPrompt = '让我们在这里重新出发吧，所有未记录的日记都将消失——确定要重新载入网页吗？';
 
 
 	/*******************************************************************************
@@ -133,11 +133,11 @@
 
 	l10nStrings.savesHeaderDisk = '本地的日记';
 
-	l10nStrings.savesLabelBrowserClear = '清空浏览器里迷子的记录';
+	l10nStrings.savesLabelBrowserClear = '清空浏览器里迷子的日记';
 
-	l10nStrings.savesLabelBrowserExport = '导出浏览器记录为bundle';
+	l10nStrings.savesLabelBrowserExport = '导出浏览器内日记为bundle';
 
-	l10nStrings.savesLabelBrowserImport = '从bundle导入浏览器记录';
+	l10nStrings.savesLabelBrowserImport = '从bundle导入浏览器日记';
 
 	l10nStrings.savesLabelDiskLoad = '从本地加载日记';
 
@@ -211,7 +211,7 @@
 	l10nStrings.macroBackText = '回退';
 
 	// (verb) go/send back
-	l10nStrings.macroReturnText = '返回';
+	l10nStrings.macroReturnText = '前进';
 
 
 	/*******************************************************************************

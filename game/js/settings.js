@@ -91,8 +91,22 @@ Setting.addToggle("clickcircle", {
     onChange: settingclickCircle
 });
 // 正弦波背景
+// 总开关
+var settingwaveBg = function() {
+    if (settings.wavebg) {
+        $("html").removeClass("wbg-close");
+    } else {
+        $("html").addClass("wbg-close");
+    }
+};
+Setting.addToggle("wavebg", {
+    label: "背景动画开关",
+    desc: "迷子们的正弦波相互交错，在这里切换背景动画显示吧！每次开关都要刷新网页！",
+    default: true,
+    onInit: settingwaveBg
+});
 // 切换显示
-var settingWaveBgDisplay = ["竖直", "水平", "关闭"];
+var settingWaveBgDisplay = ["竖直", "水平", "隐藏"];
 var waveBgDisplay = function() {
     var $html = $("html");
     $html.removeClass("wbg-x wbg-close wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
@@ -126,14 +140,14 @@ var waveBgDisplay = function() {
                 $html.addClass("wbg-x");
             }
             break;
-        case "关闭":
+        case "隐藏":
             $html.addClass("wbg-close");
             break;
     }
 };
 Setting.addList("wavebgdisplay", {
     label: "正弦波背景样式",
-    desc: "迷子们的正弦波相互交错，在这里切换背景动画的显示样式吧！",
+    desc: "在这里切换背景动画的显示样式吧！",
     default: "竖直",
     list: settingWaveBgDisplay,
     onInit: waveBgDisplay,
@@ -178,7 +192,7 @@ var waveBgScale = function() {
 Setting.addList("wavebgscale", {
     label: "正弦波背景缩放",
     desc: "在这里切换背景动画的大小缩放吧！",
-    default: "200%",
+    default: "100%",
     list: settingWaveBgScale,
     onInit: waveBgScale,
     onChange: waveBgScale

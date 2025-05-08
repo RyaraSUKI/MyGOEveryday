@@ -1,13 +1,20 @@
-:: 贡献名单 [dialog hidebar nosave]
-<h2>贡献者</h2>
-<p>初创：RyaraSUKI</p>
+:: 创作名单 [dialog hidebar nosave]
+<h2>创作者</h2>
+<p>
+初创：RyaraSUKI
+</p>
 <h2>引用与鸣谢</h2>
+<p><strong>特别鸣谢</strong></p>
+<ul>
+<li>感谢<a href="https://www.yuque.com/u45355763/twine">Sguarcube2群代码整合</a>所有热心群友们的帮助！</li>
+<li>感谢<a href="https://pages.github.com">GitHub Pages</a>提供网页托管！</li>
+</ul>
 <p><em>『迷子们的每一天 !!!!!』的主体引擎使用了以下项目，在此表示感谢！</em></p>
 <ul>
     <li><a href="https://twinery.org/">Twine</a></li>
     <li><a href="https://github.com/tmedwards/sugarcube-2">Sugarcube2</a></li>
 </ul>
-<p><em>感谢Modloader，不止为DoL社区贡献了如此强大的模组加载器，也为SugarCube2社区提供了扩展新方法</em></p>
+<p><em>感谢Modloader，为SugarCube2社区提供了扩展新方法</em></p>
 <ul>
     <li><a href="https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader">Modloader</a></li>
 </ul>

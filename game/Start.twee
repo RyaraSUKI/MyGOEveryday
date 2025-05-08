@@ -12,7 +12,7 @@
     					.then(() => Engine.show())
     					.catch(error => {
     						console.error(error);
-    						UI.alert('加载日记错误！');
+    						UI.alert('没有找到最近写下的日记！');
     					});
     				<</script>>
     			<</button>>
@@ -43,18 +43,21 @@ $(document).ready(function() {
 });
 <</script>>
 :: Start2 [hidebar nosave nobr]
-<div class="sugar-button animate__animated animate__fadeIn animate__slower">
+<div class="sugar-button animate__animated animate__bounceInDown">
     <<button [[↩️  返回到主页|Start]]>><</button>>
 </div>
 <br>
-<div class="warn-card animate__animated animate__fadeIn">
+<div class="warn-card animate__animated animate__zoomIn">
     <div class="title">须知</div>
     <div class="subtitle">Notice</div>
 </div>
+<div class="animate__animated animate__zoomIn">
+
+</div>
 <br>
-<s-checkbox type="checkbox" id="start2-check" class="animate__animated animate__fadeIn animate__slow">已阅读用户协议</s-checkbox>
+<s-checkbox type="checkbox" id="start2-check" class="animate__animated animate__fadeIn animate__slow">已阅读并接受须知内容</s-checkbox>
 <br>
-<div id="start2-go" class="animate__animated animate__fadeIn animate__slow" style="display: none; item-align: center;">
+<div id="start2-go" class="animate__animated animate__jackInTheBox" style="display: none; item-align: center;">
     <<button [[It's MyGo !!!!!|Start3]]>><</button>>
 </div>
 
@@ -71,11 +74,12 @@ $(document).ready(function () {
 <</script>>
 
 :: Start3 [hidebar nosave nobr]
-<div class="sugar-button animate__animated animate__fadeIn animate__slower">
+<div class="sugar-button animate__animated animate__bounceInDown">
     <<button [[↩️  返回到主页|Start]]>><</button>>
 </div>
-<br><br><br>
-<div class="menucard-container animate__animated animate__fadeInUpBig">
+<br>
+//''请选择要游玩的故事模式：''//
+<div class="menucard-container animate__animated animate__zoomInUp animate__slow">
     <div class="menucard" style="background-color: #3388bb;">
       <div class="menucard-text-block">
         <div class="menucard-title">主线故事</div>
@@ -122,9 +126,9 @@ $(document).ready(function () {
 });
 <</script>>
 
-:: StartOurStories [hidebar nosave nobr]
+:: StartOurStory [hidebar nosave nobr]
 
-:: StartFreeDays [hidebar nosave nobr]
+:: StartDailyStory [hidebar nosave nobr]
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
 
 :: StartAnotherStory [hidebar nosave nobr]

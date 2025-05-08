@@ -12,6 +12,15 @@
     right: 0;
     padding: 3%;
     height: 100%;
+    background-color: rgba(var(--color-primary-rgb), 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    overflow: auto;
+    -ms-overflow-style: none;
+}
+
+[data-tags~="hidebar"] .passage*::-webkit-scrollbar {
+  display: none;
 }
 
 [data-tags~="hidebar"] .menucard-container, .menucard {

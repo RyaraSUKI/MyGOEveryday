@@ -1,4 +1,4 @@
-## 贡献者
+## 创作者
 
 初创：RyaraSUKI
 
@@ -8,7 +8,7 @@
 - [Twine](https://twinery.org/)
 - [Sugarcube2](https://github.com/tmedwards/sugarcube-2)
 
-> 感谢Modloader，不止为DoL社区贡献了如此强大的模组加载器，也为SugarCube2社区提供了扩展新方法
+> 感谢Modloader，为SugarCube2社区提供了扩展新方法
 
 - [Modloader](https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader)
 
