@@ -2568,29 +2568,29 @@ hr {
     margin: 0.1em auto;
 }
 
-/* 基础滚动条样式 */
+/* 基础滚动条样式 
 *::-webkit-scrollbar {
     width: 5px;
     height: 6px;
 }
 
-/* 滚动条轨道 */
+/* 滚动条轨道 
 *::-webkit-scrollbar-track {
     background: rgba(var(--color-primary), 0.1);
     border-radius: 8px;
 }
 
-/* 滚动条滑块 */
+/* 滚动条滑块 
 *::-webkit-scrollbar-thumb {
     background: var(--color-secondary-l);
     border-radius: 10px;
     border: none;
 }
 
-/* 滚动条滑块 hover 状态 */
+/* 滚动条滑块 hover 状态 
 *::-webkit-scrollbar-thumb:hover {
     background: var(--color-secondary-l2);
-}
+}*/
 
 /* 选择文本高亮 */
 *::selection {
@@ -3070,6 +3070,38 @@ html[data-init="loading"] #init-loading {
     width: 100%;
     height: 100%;
     pointer-events: none;
+}
+
+.wbg-close #wave-bg {
+    display: none;
+}
+
+.wbg-x #wave-bg {
+    transform: rotate(90deg);
+}
+
+.wbg-125 #wave-bg {
+    transform: scale(1.25);
+}
+
+.wbg-150 #wave-bg {
+    transform: scale(1.5);
+}
+
+.wbg-200 #wave-bg {
+    transform: scale(2);
+}
+
+.wbg-x-125 #wave-bg {
+    transform: rotate(90deg) scale(1.25);
+}
+
+.wbg-x-150 #wave-bg {
+    transform: rotate(90deg) scale(1.5);
+}
+
+.wbg-x-200 #wave-bg {
+    transform: rotate(90deg) scale(2);
 }
 /* twine-user-stylesheet #5: "theme_hex.css" */
 /* 这里包含所有css样式的配色，请不要在其他地方添加颜色相关属性以免被覆盖
@@ -3719,7 +3751,7 @@ html[data-init="loading"] #init-loading {
     align-items: center;
     text-align: center;
     padding: 2em;
-    gap: 3em;
+    gap: 3rem;
     box-sizing: border-box;
 }
 
@@ -4381,77 +4413,98 @@ Setting.addToggle("clickcircle", {
     onChange: settingclickCircle
 });
 // 正弦波背景
-var settingwaveBg = function() {
-    // 先移除之前的事件监听器，防止重复绑定
-    $(document).off('click', waveBgHandler);
-
-    // 如果开启了点击效果，则绑定事件
-    if (settings.wavebg) {
-        $(document).on('click', waveBgHandler);
+// 切换显示
+var settingWaveBgDisplay = ["竖直", "水平", "关闭"];
+var waveBgDisplay = function() {
+    var $html = $("html");
+    $html.removeClass("wbg-x wbg-close wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
+    switch (settings.wavebgdisplay) {
+        case "竖直":
+            if (settings.wavebgscale === "125%") {
+                $html.removeClass("wbg-x-125");
+                $html.addClass("wbg-125");
+            } else if (settings.wavebgscale === "150%") {
+                $html.removeClass("wbg-x-150");
+                $html.addClass("wbg-150");
+            } else if (settings.wavebgscale === "200%") {
+                $html.removeClass("wbg-x-200");
+                $html.addClass("wbg-200");
+            } else {
+                $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
+            }
+            break;
+        case "水平":
+            if (settings.wavebgscale === "125%") {
+                $html.removeClass("wbg-125");
+                $html.addClass("wbg-x-125");
+            } else if (settings.wavebgscale === "150%") {
+                $html.removeClass("wbg-150");
+                $html.addClass("wbg-x-150");
+            } else if (settings.wavebgscale === "200%") {
+                $html.removeClass("wbg-200");
+                $html.addClass("wbg-x-200");
+            } else {
+                $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
+                $html.addClass("wbg-x");
+            }
+            break;
+        case "关闭":
+            $html.addClass("wbg-close");
+            break;
     }
 };
-
-/*function waveBgHandler(event) {
-    // 如果已存在就不再添加
-    if ($('#menu-bg').length > 0) return;
-        
-    $(document).on(':passagerender', function () {
-
-        const canvas = document.createElement('canvas');
-        canvas.id = 'wave-bg';
-        document.getElementById('story').prepend(canvas);
-    
-        const ctx = canvas.getContext('2d');
-        const colors = ['#ffdd88', '#ff8899', '#77bbdd', '#7777aa', '#77dd77'];
-    
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-    
-        const waves = colors.map(color => ({
-            amp: Math.random() * 40 + 30,
-            freq: Math.random() * 0.02 + 0.005,
-            phase: Math.random() * Math.PI * 2,
-            color
-        }));
-    
-        const step = 2;
-        function draw(t) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const width = canvas.width;
-            const height = canvas.height;
-            const midX = width / 2;
-    
-            for (const wave of waves) {
-                ctx.beginPath();
-                ctx.strokeStyle = wave.color;
-                ctx.lineWidth = 2;
-    
-                for (let y = 0; y < height; y += step) {
-                    const x = midX + Math.sin(y * wave.freq + t * 0.002 + wave.phase) * wave.amp;
-                    if (y === 0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
-                }
-    
-                ctx.stroke();
+Setting.addList("wavebgdisplay", {
+    label: "正弦波背景样式",
+    desc: "迷子们的正弦波相互交错，在这里切换背景动画的显示样式吧！",
+    default: "竖直",
+    list: settingWaveBgDisplay,
+    onInit: waveBgDisplay,
+    onChange: waveBgDisplay
+});
+// 切换缩放
+var settingWaveBgScale = ["100%", "125%", "150%", "200%"];
+var waveBgScale = function() {
+    var $html = $("html");
+    $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
+    switch (settings.wavebgscale) {
+        case "100%":
+            if (settings.wavebgdisplay === "水平") {
+                $html.addClass("wbg-x");
+            } else {
+                $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
             }
-    
-            requestAnimationFrame(draw);
-        }
-    
-        requestAnimationFrame(draw);
-    });
+            break;
+        case "125%":
+            if (settings.wavebgdisplay === "水平") {
+                $html.addClass("wbg-x-125");
+            } else {
+                $html.addClass("wbg-125");
+            }
+            break;
+        case "150%":
+            if (settings.wavebgdisplay === "水平") {
+                $html.addClass("wbg-x-150");
+            } else {
+                $html.addClass("wbg-150");
+            }
+            break;
+        case "200%":
+            if (settings.wavebgdisplay === "水平") {
+                $html.addClass("wbg-x-200");
+            } else {
+                $html.addClass("wbg-200");
+            }
+            break;
+    }
 };
-Setting.addToggle("wavebg", {
-    label: "正弦波背景",
-    desc: "在这里开启页面迷子的正弦波交错背景吧！",
-    default: true,
-    onInit: settingwaveBg,
-    onChange: settingwaveBg
-})*/
+Setting.addList("wavebgscale", {
+    label: "正弦波背景缩放",
+    desc: "在这里切换背景动画的大小缩放吧！",
+    default: "100%",
+    list: settingWaveBgScale,
+    onInit: waveBgScale,
+    onChange: waveBgScale
+});
 // 文本显示
 Setting.addHeader("文本显示", "在这里调整页面正文的字体、文字大小、行高与对齐哟~");
 //字体切换
@@ -4643,6 +4696,7 @@ $(document).ready(function () {
     });
 });
 /* twine-user-script #7: "wavebg.js" */
+// 模拟迷星叫mv五色正弦波背景，利用原生js写法创建全局canvas，使用了GPT辅助
 $(document).on(':storyready', function () {
     const canvas = document.createElement('canvas');
     canvas.id = 'wave-bg';
@@ -5008,22 +5062,22 @@ $(document).ready(function () {
 &lt;/div&gt;
 &lt;br&gt;
 &lt;div class=&quot;menucard-container animate__animated animate__fadeInUpBig&quot;&gt;
-    &lt;div class=&quot;menucard&quot; style=&quot;background-color: #facc15;&quot;&gt;
+    &lt;div class=&quot;menucard&quot; style=&quot;background-color: #3388bb;&quot;&gt;
       &lt;div class=&quot;menucard-text-block&quot;&gt;
-        &lt;div class=&quot;menucard-title&quot;&gt;主线故事&lt;/div&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;『主线故事』&lt;/div&gt;
         &lt;br&gt;
-        &lt;div class=&quot;menucard-sub&quot;&gt;It&#39;sMyStory&lt;/div&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;OurStory&lt;/div&gt;
         &lt;br&gt;
-        &lt;div class=&quot;menucard-desc&quot;&gt;这是主线剧情的简要描述，悬停时描述会收起，标题放大。&lt;/div&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;&lt;/div&gt;
       &lt;/div&gt;
       &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
     &lt;/div&gt;
 &lt;br&gt;&lt;br&gt;
     &lt;div class=&quot;menucard&quot; style=&quot;background-color: #60a5fa;&quot;&gt;
       &lt;div class=&quot;menucard-text-block&quot;&gt;
-        &lt;div class=&quot;menucard-title&quot;&gt;支线任务&lt;/div&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;『迷子日常』&lt;/div&gt;
         &lt;br&gt;
-        &lt;div class=&quot;menucard-sub&quot;&gt;SideQuest&lt;/div&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;DailyStory&lt;/div&gt;
         &lt;br&gt;
         &lt;div class=&quot;menucard-desc&quot;&gt;探索新的支线任务，为世界增添更多故事与冒险。描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介&lt;/div&gt;
       &lt;/div&gt;
@@ -5032,11 +5086,11 @@ $(document).ready(function () {
 &lt;br&gt;&lt;br&gt;
     &lt;div class=&quot;menucard&quot; style=&quot;background-color: #34d399;&quot;&gt;
       &lt;div class=&quot;menucard-text-block&quot;&gt;
-        &lt;div class=&quot;menucard-title&quot;&gt;角色档案&lt;/div&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;『附加故事』&lt;/div&gt;
         &lt;br&gt;
-        &lt;div class=&quot;menucard-sub&quot;&gt;Character Log&lt;/div&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;AnotherStory&lt;/div&gt;
         &lt;br&gt;
-        &lt;div class=&quot;menucard-desc&quot;&gt;查看角色的成长轨迹、背景故事与关键事件。&lt;/div&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;纯线性&lt;/div&gt;
       &lt;/div&gt;
       &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
     &lt;/div&gt;

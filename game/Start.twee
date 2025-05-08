@@ -76,22 +76,22 @@ $(document).ready(function () {
 </div>
 <br>
 <div class="menucard-container animate__animated animate__fadeInUpBig">
-    <div class="menucard" style="background-color: #facc15;">
+    <div class="menucard" style="background-color: #3388bb;">
       <div class="menucard-text-block">
-        <div class="menucard-title">主线故事</div>
+        <div class="menucard-title">『主线故事』</div>
         <br>
-        <div class="menucard-sub">It'sMyStory</div>
+        <div class="menucard-sub">OurStory</div>
         <br>
-        <div class="menucard-desc">这是主线剧情的简要描述，悬停时描述会收起，标题放大。</div>
+        <div class="menucard-desc"></div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>
 <br><br>
     <div class="menucard" style="background-color: #60a5fa;">
       <div class="menucard-text-block">
-        <div class="menucard-title">支线任务</div>
+        <div class="menucard-title">『迷子日常』</div>
         <br>
-        <div class="menucard-sub">SideQuest</div>
+        <div class="menucard-sub">DailyStory</div>
         <br>
         <div class="menucard-desc">探索新的支线任务，为世界增添更多故事与冒险。描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介</div>
       </div>
@@ -100,11 +100,11 @@ $(document).ready(function () {
 <br><br>
     <div class="menucard" style="background-color: #34d399;">
       <div class="menucard-text-block">
-        <div class="menucard-title">角色档案</div>
+        <div class="menucard-title">『附加故事』</div>
         <br>
-        <div class="menucard-sub">Character Log</div>
+        <div class="menucard-sub">AnotherStory</div>
         <br>
-        <div class="menucard-desc">查看角色的成长轨迹、背景故事与关键事件。</div>
+        <div class="menucard-desc">纯线性</div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>

@@ -91,77 +91,98 @@ Setting.addToggle("clickcircle", {
     onChange: settingclickCircle
 });
 // 正弦波背景
-var settingwaveBg = function() {
-    // 先移除之前的事件监听器，防止重复绑定
-    $(document).off('click', waveBgHandler);
-
-    // 如果开启了点击效果，则绑定事件
-    if (settings.wavebg) {
-        $(document).on('click', waveBgHandler);
+// 切换显示
+var settingWaveBgDisplay = ["竖直", "水平", "关闭"];
+var waveBgDisplay = function() {
+    var $html = $("html");
+    $html.removeClass("wbg-x wbg-close wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
+    switch (settings.wavebgdisplay) {
+        case "竖直":
+            if (settings.wavebgscale === "125%") {
+                $html.removeClass("wbg-x-125");
+                $html.addClass("wbg-125");
+            } else if (settings.wavebgscale === "150%") {
+                $html.removeClass("wbg-x-150");
+                $html.addClass("wbg-150");
+            } else if (settings.wavebgscale === "200%") {
+                $html.removeClass("wbg-x-200");
+                $html.addClass("wbg-200");
+            } else {
+                $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
+            }
+            break;
+        case "水平":
+            if (settings.wavebgscale === "125%") {
+                $html.removeClass("wbg-125");
+                $html.addClass("wbg-x-125");
+            } else if (settings.wavebgscale === "150%") {
+                $html.removeClass("wbg-150");
+                $html.addClass("wbg-x-150");
+            } else if (settings.wavebgscale === "200%") {
+                $html.removeClass("wbg-200");
+                $html.addClass("wbg-x-200");
+            } else {
+                $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
+                $html.addClass("wbg-x");
+            }
+            break;
+        case "关闭":
+            $html.addClass("wbg-close");
+            break;
     }
 };
-
-/*function waveBgHandler(event) {
-    // 如果已存在就不再添加
-    if ($('#menu-bg').length > 0) return;
-        
-    $(document).on(':passagerender', function () {
-
-        const canvas = document.createElement('canvas');
-        canvas.id = 'wave-bg';
-        document.getElementById('story').prepend(canvas);
-    
-        const ctx = canvas.getContext('2d');
-        const colors = ['#ffdd88', '#ff8899', '#77bbdd', '#7777aa', '#77dd77'];
-    
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-    
-        const waves = colors.map(color => ({
-            amp: Math.random() * 40 + 30,
-            freq: Math.random() * 0.02 + 0.005,
-            phase: Math.random() * Math.PI * 2,
-            color
-        }));
-    
-        const step = 2;
-        function draw(t) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const width = canvas.width;
-            const height = canvas.height;
-            const midX = width / 2;
-    
-            for (const wave of waves) {
-                ctx.beginPath();
-                ctx.strokeStyle = wave.color;
-                ctx.lineWidth = 2;
-    
-                for (let y = 0; y < height; y += step) {
-                    const x = midX + Math.sin(y * wave.freq + t * 0.002 + wave.phase) * wave.amp;
-                    if (y === 0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
-                }
-    
-                ctx.stroke();
+Setting.addList("wavebgdisplay", {
+    label: "正弦波背景样式",
+    desc: "迷子们的正弦波相互交错，在这里切换背景动画的显示样式吧！",
+    default: "竖直",
+    list: settingWaveBgDisplay,
+    onInit: waveBgDisplay,
+    onChange: waveBgDisplay
+});
+// 切换缩放
+var settingWaveBgScale = ["100%", "125%", "150%", "200%"];
+var waveBgScale = function() {
+    var $html = $("html");
+    $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
+    switch (settings.wavebgscale) {
+        case "100%":
+            if (settings.wavebgdisplay === "水平") {
+                $html.addClass("wbg-x");
+            } else {
+                $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
             }
-    
-            requestAnimationFrame(draw);
-        }
-    
-        requestAnimationFrame(draw);
-    });
+            break;
+        case "125%":
+            if (settings.wavebgdisplay === "水平") {
+                $html.addClass("wbg-x-125");
+            } else {
+                $html.addClass("wbg-125");
+            }
+            break;
+        case "150%":
+            if (settings.wavebgdisplay === "水平") {
+                $html.addClass("wbg-x-150");
+            } else {
+                $html.addClass("wbg-150");
+            }
+            break;
+        case "200%":
+            if (settings.wavebgdisplay === "水平") {
+                $html.addClass("wbg-x-200");
+            } else {
+                $html.addClass("wbg-200");
+            }
+            break;
+    }
 };
-Setting.addToggle("wavebg", {
-    label: "正弦波背景",
-    desc: "在这里开启页面迷子的正弦波交错背景吧！",
-    default: true,
-    onInit: settingwaveBg,
-    onChange: settingwaveBg
-})*/
+Setting.addList("wavebgscale", {
+    label: "正弦波背景缩放",
+    desc: "在这里切换背景动画的大小缩放吧！",
+    default: "100%",
+    list: settingWaveBgScale,
+    onInit: waveBgScale,
+    onChange: waveBgScale
+});
 // 文本显示
 Setting.addHeader("文本显示", "在这里调整页面正文的字体、文字大小、行高与对齐哟~");
 //字体切换

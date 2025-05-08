@@ -1,3 +1,4 @@
+// 模拟迷星叫mv五色正弦波背景，利用原生js写法创建全局canvas，使用了GPT辅助
 $(document).on(':storyready', function () {
     const canvas = document.createElement('canvas');
     canvas.id = 'wave-bg';
