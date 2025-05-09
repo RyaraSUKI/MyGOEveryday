@@ -106,7 +106,7 @@ Setting.addToggle("wavebg", {
     onInit: settingwaveBg
 });
 // 切换显示
-var settingWaveBgDisplay = ["竖直", "水平", "隐藏"];
+var settingWaveBgDisplay = ["竖直", "水平"];
 var waveBgDisplay = function() {
     var $html = $("html");
     $html.removeClass("wbg-x wbg-close wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
@@ -139,9 +139,6 @@ var waveBgDisplay = function() {
                 $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
                 $html.addClass("wbg-x");
             }
-            break;
-        case "隐藏":
-            $html.addClass("wbg-close");
             break;
     }
 };

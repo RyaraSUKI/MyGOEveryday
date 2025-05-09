@@ -2449,7 +2449,7 @@ button {
 button:hover {
     color: var(--color-accent-d2);
     background-color: var(--color-accent-l2);
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0px 0px 10px rgba(var(--color-shadow-rgb), 0.8);
 }
 
@@ -2499,7 +2499,9 @@ a:hover {
 }
 
 .passage {
-    background-color: rgba(var(--color-primary-l-rgb), 0.8);
+    background-color: rgba(var(--color-primary-l-rgb), 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border-radius: 2em;
     padding: 15px;
 }
@@ -3070,6 +3072,8 @@ html[data-init="loading"] #init-loading {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
 }
 
 .wbg-close #wave-bg {
@@ -4437,7 +4441,7 @@ Setting.addToggle("wavebg", {
     onInit: settingwaveBg
 });
 // 切换显示
-var settingWaveBgDisplay = ["竖直", "水平", "隐藏"];
+var settingWaveBgDisplay = ["竖直", "水平"];
 var waveBgDisplay = function() {
     var $html = $("html");
     $html.removeClass("wbg-x wbg-close wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
@@ -4470,9 +4474,6 @@ var waveBgDisplay = function() {
                 $html.removeClass("wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
                 $html.addClass("wbg-x");
             }
-            break;
-        case "隐藏":
-            $html.addClass("wbg-close");
             break;
     }
 };
@@ -4740,14 +4741,34 @@ $(document).on(':storyready', function() {
         resize();
         window.addEventListener('resize', resize);
 
-        const waves = colors.map(color => ({
-            amp: Math.random() * 40 + 30,
-            freq: Math.random() * 0.02 + 0.005,
-            phase: Math.random() * Math.PI * 2,
-            color
-        }));
+        const subWaveCount = 3;
+        const waves = [];
+
+        // 创建 5 条曲线，每条由多个动态子波组成
+        for (let i = 0; i < colors.length; i++) {
+            const subWaves = [];
+            for (let j = 0; j < subWaveCount; j++) {
+                subWaves.push({
+                    baseAmp: Math.random() * 25 + 20,
+                    baseFreq: Math.random() * 0.01 + 0.002,
+                    phase: Math.random() * Math.PI * 2,
+                    speed: Math.random() * 0.01 + 0.005,
+                });
+            }
+            waves.push({ subWaves, color: colors[i] });
+        }
 
         const step = 2;
+
+        function getWaveX(subWaves, y, t) {
+            let x = 0;
+            for (const w of subWaves) {
+                const amp = w.baseAmp * (1 + 0.3 * Math.sin(t * w.speed));
+                const freq = w.baseFreq * (1 + 0.3 * Math.cos(t * w.speed));
+                x += amp * Math.sin(freq * y + w.phase + t);
+            }
+            return x;
+        }
 
         function draw(t) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -4755,13 +4776,13 @@ $(document).on(':storyready', function() {
             const height = canvas.height;
             const midX = width / 2;
 
-            for (const wave of waves) {
+            for (let i = 0; i < waves.length; i++) {
                 ctx.beginPath();
-                ctx.strokeStyle = wave.color;
+                ctx.strokeStyle = waves[i].color;
                 ctx.lineWidth = 2;
 
                 for (let y = 0; y < height; y += step) {
-                    const x = midX + Math.sin(y * wave.freq + t * 0.0005 + wave.phase) * wave.amp;
+                    const x = midX + getWaveX(waves[i].subWaves, y, t * 0.0005);
                     if (y === 0) ctx.moveTo(x, y);
                     else ctx.lineTo(x, y);
                 }
