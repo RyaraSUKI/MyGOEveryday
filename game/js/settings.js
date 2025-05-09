@@ -50,7 +50,7 @@ Setting.addList("theme", {
 });
 // 点击圆圈
 var settingclickCircle = function() {
-    // 先移除之前的事件监听器，防止重复绑定
+    // 先移除之前的事件监听，防止重复绑定
     $(document).off('click', clickCircleHandler);
 
     // 如果开启了点击效果，则绑定事件
@@ -91,7 +91,7 @@ Setting.addToggle("clickcircle", {
     onChange: settingclickCircle
 });
 // 正弦波背景
-// 总开关
+/* 总开关
 var settingwaveBg = function() {
     if (settings.wavebg) {
         $("html").removeClass("wbg-close");
@@ -104,9 +104,9 @@ Setting.addToggle("wavebg", {
     desc: "迷子们的正弦波相互交错，在这里切换背景动画显示吧！每次开关都要刷新网页！",
     default: true,
     onInit: settingwaveBg
-});
+});*/
 // 切换显示
-var settingWaveBgDisplay = ["竖直", "水平"];
+var settingWaveBgDisplay = ["竖直", "水平", "隐藏"];
 var waveBgDisplay = function() {
     var $html = $("html");
     $html.removeClass("wbg-x wbg-close wbg-125 wbg-150 wbg-200 wbg-x-125 wbg-x-150 wbg-x-200");
@@ -140,11 +140,14 @@ var waveBgDisplay = function() {
                 $html.addClass("wbg-x");
             }
             break;
+        case "隐藏":
+            $html.addClass("wbg-close");
+            break;
     }
 };
 Setting.addList("wavebgdisplay", {
-    label: "正弦波背景样式",
-    desc: "在这里切换背景动画的显示样式吧！",
+    label: "背景动画样式",
+    desc: "迷子们的正弦波相互交错，在这里切换背景动画的显示样式吧！",
     default: "竖直",
     list: settingWaveBgDisplay,
     onInit: waveBgDisplay,
@@ -187,7 +190,7 @@ var waveBgScale = function() {
     }
 };
 Setting.addList("wavebgscale", {
-    label: "正弦波背景缩放",
+    label: "背景动画缩放",
     desc: "在这里切换背景动画的大小缩放吧！",
     default: "100%",
     list: settingWaveBgScale,

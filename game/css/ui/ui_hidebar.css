@@ -19,11 +19,12 @@
     -ms-overflow-style: none;
 }
 
-[data-tags~="hidebar"] .passage*::-webkit-scrollbar {
-  display: none;
-}
-
 [data-tags~="hidebar"] .menucard-container, .menucard {
     text-align: start;
     position: static;
+}
+
+[data-tags~="hidebar"] #wave-bg {
+    filter: brightness(95%);
+    -webkit-filter: brightness(95%);
 }
