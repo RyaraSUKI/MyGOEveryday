@@ -293,7 +293,7 @@
 
 :root.theme-sober-d {
     /* Sober.js组件配色dark */
-    --s-color-primary: #88ccff;
+    --s-color-primary: var(--color-secondary-d);
     --s-color-on-primary: #c9e6ff;
     --s-color-primary-container: #004b6f;
     --s-color-on-primary-container: #c9e6ff;
@@ -319,7 +319,7 @@
     --s-color-on-surface-variant: #c1c7ce;
     --s-color-inverse-surface: #2e3133;
     --s-color-inverse-on-surface: #e2e2e5;
-    --s-color-inverse-primary: #88ccff;
+    --s-color-inverse-primary: var(--color-secondary-d);
     --s-color-surface-container: #1e2022;
     --s-color-surface-container-lowest: #0c0e11;
     --s-color-surface-container-low: #1a1c1e;
@@ -329,7 +329,7 @@
 
 :root.theme-sober-l {
     /* Sober.js组件配色light */
-    --s-color-primary: #3388bb;
+    --s-color-primary: var(--color-secondary-d);
     --s-color-on-primary: #ffffff;
     --s-color-primary-container: #c9e6ff;
     --s-color-on-primary-container: #001e2f;
@@ -355,7 +355,7 @@
     --s-color-on-surface-variant: #41474d;
     --s-color-inverse-surface: #e2e2e5;
     --s-color-inverse-on-surface: #2e3133;
-    --s-color-inverse-primary: #3388bb;
+    --s-color-inverse-primary: var(--color-secondary-d);
     --s-color-surface-container: #edeef1;
     --s-color-surface-container-lowest: #e2e2e5;
     --s-color-surface-container-low: #e7e8eb;

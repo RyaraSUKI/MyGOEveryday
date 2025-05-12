@@ -1,0 +1,210 @@
+:: StoryData
+{
+    "ifid": "31EC661A-C4DF-4663-B24B-EEA91B363524",
+    "format": "SugarCube",
+    "format-version": "2.37.3"
+}
+
+:: StoryTitle
+Test
+
+:: StoryInit [script]
+if (!localStorage.getItem("gameProgress")) {
+	localStorage.setItem("gameProgress", JSON.stringify({
+		chapterUnlocked: 1,
+		freemodeUnlocked: false,
+		unlockedLocations: []
+	}));
+}
+setup.progress = JSON.parse(localStorage.getItem("gameProgress"));
+State.variables.unlockedLocations = setup.progress.unlockedLocations.slice();
+
+setup.saveProgress = function (changes) {
+	const current = JSON.parse(localStorage.getItem("gameProgress"));
+	const updated = Object.assign({}, current, changes);
+	localStorage.setItem("gameProgress", JSON.stringify(updated));
+	setup.progress = updated;
+};
+
+:: Start
+<br><br><br><br>
+<<link "继续游戏">>
+	<<run Save.autosave.load()>>
+<</link>>
+<br><br>
+[[新的游戏|模式选择]]
+<br><br>
+[[读取存档->Save]]
+<br><br>
+[[设置->设置界面]]
+
+:: 模式选择
+<<set $gameMode to "">>
+
+[[章节选择->主线章节]]
+
+<<if setup.progress.freemodeUnlocked>>
+		[[自由模式->自由模式入口]]
+<<else>>
+	<span class="disabled">自由模式（未解锁）</span>
+<</if>>
+
+:: 主线章节
+<<set $gameMode = "主线">>
+
+[[第一章->解锁森林入口]]
+
+<<if setup.progress.chapterUnlocked >= 2>>
+	[[第二章->主线-第二章]]
+<<else>>
+	<span class="disabled">第二章（未解锁）</span>
+<</if>>
+
+:: 主线-第二章
+你发现了通往港口的道路！
+
+<<set $unlockedLocations.push("港口码头")>>
+<<script>>
+	const progress = JSON.parse(localStorage.getItem("gameProgress"));
+	if (!progress.unlockedLocations.includes("港口码头")) {
+		progress.unlockedLocations.push("港口码头");
+		localStorage.setItem("gameProgress", JSON.stringify(progress));
+		setup.progress = progress;
+		State.variables.unlockedLocations = progress.unlockedLocations.slice();
+	}
+<</script>>
+
+[[继续->Start]]
+
+:: 主线-第一章结尾
+你完成了第一章！
+
+<<script>>
+setup.saveProgress({
+	chapterUnlocked: 2,
+	freemodeUnlocked: true
+});
+<</script>>
+
+[[返回主菜单->Start]]
+
+:: 自由模式入口
+<<set $gameMode = "自由">>
+<<for _loc range ["森林入口", "港口码头"]>>
+	<<if $unlockedLocations.includes(_loc)>>
+		[[_loc|_loc]]
+	<<else>>
+		<span class="disabled"><<= _loc>>（未解锁）</span><br>
+	<</if>>
+<</for>>
+
+:: 解锁森林入口
+你发现了通往森林的道路！
+
+<<set $unlockedLocations.push("森林入口")>>
+<<script>>
+	const progress = JSON.parse(localStorage.getItem("gameProgress"));
+	if (!progress.unlockedLocations.includes("森林入口")) {
+		progress.unlockedLocations.push("森林入口");
+		localStorage.setItem("gameProgress", JSON.stringify(progress));
+		setup.progress = progress;
+		State.variables.unlockedLocations = progress.unlockedLocations.slice();
+	}
+<</script>>
+
+[[继续->主线-第一章结尾]]
+
+:: 森林入口
+[[返回主菜单->Start]]
+
+:: 港口码头
+[[返回主菜单->Start]]
+
+:: 设置界面
+<h3>游戏进度管理</h3>
+<br>
+<<button "导出进度">>
+	<<script>>
+	Dialog.setup("导出选项");
+	Dialog.wikiPassage("导出进度窗口");
+	Dialog.open();
+	<</script>>
+<</button>>
+
+<br><br>
+<label id="importLabel" style="
+	display: inline-block;
+	padding: 8px 16px;
+	background-color: #444;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+">
+	导入进度JSON
+	<input type="file" id="importProgress" accept=".json" style="display: none;">
+</label>
+
+<<script>>
+$(document).ready(function () {
+	$("#importProgress").on("change", function () {
+		const file = this.files[0];
+		if (!file) return;
+		const reader = new FileReader();
+		reader.onload = function (e) {
+			try {
+				const json = JSON.parse(e.target.result);
+				localStorage.setItem("gameProgress", JSON.stringify(json));
+				alert("导入成功！");
+				Engine.restart();
+			} catch (e) {
+				alert("导入失败：JSON格式无效");
+			}
+		};
+		reader.readAsText(file);
+	});
+});
+<</script>>
+<br><br>
+
+<<button "重置进度">>
+	<<script>>
+	localStorage.removeItem("gameProgress");
+	Engine.restart();
+	<</script>>
+<</button>>
+
+:: 导出进度窗口
+<div style="text-align:center">
+	<p>请选择导出方式：</p>
+	<button id="exportDownload">下载为 JSON 文件</button>
+	&nbsp;
+	<button id="exportCopy">复制到剪贴板</button>
+</div>
+
+<<script>>
+$(document).ready(function () {
+	const data = localStorage.getItem("gameProgress");
+	if (!data) {
+		$("#exportDownload, #exportCopy").prop("disabled", true);
+		return;
+	}
+
+	$("#exportDownload").on("click", function () {
+		const blob = new Blob([data], { type: "application/json" });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = "gameProgress.json";
+		a.click();
+		URL.revokeObjectURL(url);
+		Dialog.close();
+	});
+
+	$("#exportCopy").on("click", function () {
+		navigator.clipboard.writeText(data)
+			.then(() => alert("已复制到剪贴板！"))
+			.catch(() => alert("复制失败，请检查浏览器权限"));
+		Dialog.close();
+	});
+});
+<</script>>

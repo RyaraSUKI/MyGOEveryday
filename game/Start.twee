@@ -5,40 +5,42 @@
     </div>
     <div id="menu-button" class="animate__animated animate__fadeInUp">
     	<<if Save.browser.size > 0>>
-    		<div id="menu-button-con" class="hvr-pulse">
-    			<<button "继续迷子">>
-    				<<script>>
-    				Save.browser.continue()
-    					.then(() => Engine.show())
-    					.catch(error => {
-    						console.error(error);
-    						UI.alert('没有找到最近写下的日记！');
-    					});
-    				<</script>>
-    			<</button>>
-    		</div>
+    		<button id="menu-button-con" class="hvr-pulse"><s-icon src="img/icon/mygo_icon.png"></s-icon>&emsp;继续迷子</button>
    		<</if>>
     
-   		<div id="menu-button-new" class="hvr-pulse">
-   			<<button "新的故事">><<goto Start2>><</button>>
-   		</div>
+    	<button id="menu-button-new" class="hvr-pulse"><s-icon src="img/icon/mygo_icon.png"></s-icon>&emsp;新的故事</button>
     
-   		<div id="menu-button-sav" class="hvr-pulse">
-   			<<button "查看日记">><<ui saves>><</button>>
-   		</div>
+    	<button id="menu-button-sav" class="hvr-pulse"><s-icon src="img/icon/mygo_icon.png"></s-icon>&emsp;查阅日记</button>
     
-    	<div id="menu-button-set" class="hvr-pulse">
-    		<<button "调整设置">><<ui settings>><</button>>
-    	</div>
+    	<button id="menu-button-set" class="hvr-pulse"><s-icon src="img/icon/mygo_icon.png"></s-icon>&emsp;调整设置</button>
    	</div>
 </div>
 
 <<script>>
 $(document).ready(function() {
 	$("#menu-logo").on("click", function() {
-		Dialog.create("关于");
-		Dialog.wikiPassage("关于");
-		Dialog.open();
+		Dialog.create("关于").wikiPassage("关于").open();
+	});
+	$("#menu-button-con").on("click", function() {
+    	Save.browser.continue()
+    		.then(() => Engine.show())
+    		.catch(error => {
+    			console.error(error);
+    			UI.alert('没有找到最近写下的日记！');
+    		});
+	});
+	$("#menu-button-new").on("click", function() {
+		if (setup.progress.noticeRead) {
+		    Engine.play("Start3");
+		} else {
+		    Engine.play("Start2");
+		}
+	});
+	$("#menu-button-sav").on("click", function() {
+		UI.saves();
+	});
+    $("#menu-button-set").on("click", function() {
+		UI.settings();
 	});
 });
 <</script>>
@@ -56,21 +58,26 @@ $(document).ready(function() {
 
 </div>
 <br>
-<s-checkbox type="checkbox" id="start2-check" class="animate__animated animate__fadeIn animate__slow">已阅读并接受须知内容</s-checkbox>
+<s-checkbox type="checkbox" id="start2-check" class="animate__animated animate__fadeIn animate__slower">已阅读并接受须知内容</s-checkbox>
 <br>
-<div id="start2-go" class="animate__animated animate__jackInTheBox" style="display: none; item-align: center;">
-    <<button [[It's MyGo !!!!!|Start3]]>><</button>>
+<div id="start2-go" style="display: none;" class="animate__animated animate__jackInTheBox">
+    <button id="start2-go-btn" class="hvr-grow"><s-icon src="img/icon/mygo_icon_o.png"></s-icon>&emsp;It's MyGo !!!!!</button>
 </div>
-
 <<script>>
 $(document).ready(function () {
-    $('#start2-check').on('change', function () {
+    $("#start2-check").on("change", function () {
     	if (this.checked) {
     		$('#start2-go').show();
     	} else {
     		$('#start2-go').hide();
     	}
     });
+    $("#start2-go").on("click", function() {
+        setup.saveProgress({
+    	    noticeRead: true
+        });
+		Engine.play("Start3");
+	});
 });
 <</script>>
 
@@ -95,7 +102,7 @@ $(document).ready(function () {
       <div class="menucard-arrow">&#xf138;</div>
     </div>
 <br><br>
-    <div id="go-daily" class="menucard" style="background-color: #f8e61b;">
+    <div id="go-daily" class="menucard" style="background-color: #facc15;">
       <div class="menucard-text-block">
         <div class="menucard-title">迷子日常</div>
         <br><br>
@@ -120,19 +127,42 @@ $(document).ready(function () {
 
 <<script>>
 $(document).ready(function () {
-  $('.menucard').on('click', function () {
-    const $arrow = $(this).find('.menucard-arrow');
-    $arrow.addClass('clicked');
-    setTimeout(() => {
-      $arrow.removeClass('clicked');
-    }, 300);
-  });
   $("#go-main").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
     setTimeout(() => {
-      Engine.play("StartMS");
+      $arrow.removeClass('clickx');
+    }, 300);
+    setTimeout(() => {
+      Engine.play("Start3");
     }, 450);
   });
-  
+  $("#go-daily").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clicky');
+    setTimeout(() => {
+      $arrow.removeClass('clicky');
+    }, 300);
+    if (setup.progress.dailyUnlocked) {
+    setTimeout(() => {
+      Engine.play("Start3");
+    }, 450);
+    } else {
+    setTimeout(() => {
+      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
+    }, 450);
+    }
+  });
+  $("#go-another").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickr');
+    setTimeout(() => {
+      $arrow.removeClass('clickr');
+    }, 600);
+    setTimeout(() => {
+      Engine.play("Start3");
+    }, 750);
+  });
 });
 <</script>>
 
@@ -142,3 +172,97 @@ $(document).ready(function () {
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
 
 :: StartAS [hidebar nosave nobr]
+
+
+:: 进度数据 [hidebar nosave nobr]
+<div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
+    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
+</div>
+<br>
+<h3>游戏进度管理</h3>
+<br>
+<<button "导出进度">>
+	<<script>>
+	Dialog.setup("导出选项");
+	Dialog.wikiPassage("导出进度弹窗");
+	Dialog.open();
+	<</script>>
+<</button>>
+
+<br><br>
+<label id="importLabel" style="
+	display: inline-block;
+	padding: 8px 16px;
+	background-color: #444;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+">
+	导入进度JSON
+	<input type="file" id="importProgress" accept=".json" style="display: none;">
+</label>
+
+<<script>>
+$(document).ready(function () {
+	$("#importProgress").on("change", function () {
+		const file = this.files[0];
+		if (!file) return;
+		const reader = new FileReader();
+		reader.onload = function (e) {
+			try {
+				const json = JSON.parse(e.target.result);
+				localStorage.setItem("playProgress", JSON.stringify(json));
+				alert("导入成功！");
+				Engine.restart();
+			} catch (e) {
+				alert("导入失败：JSON格式无效");
+			}
+		};
+		reader.readAsText(file);
+	});
+});
+<</script>>
+<br><br>
+
+<<button "重置进度">>
+	<<script>>
+	localStorage.removeItem("playProgress");
+	Engine.restart();
+	<</script>>
+<</button>>
+
+:: 导出进度弹窗 [dialog]
+<div style="text-align: center;">
+	<p>请选择导出进度方式：</p>
+	<button id="export-dl">下载为JSON文件</button>
+	<br>
+	<button id="export-cp">复制到剪贴板</button>
+</div>
+
+<<script>>
+$(document).ready(function () {
+	const data = localStorage.getItem("playProgress");
+	if (!data) {
+		$("#export-dl, #export-cp").prop("disabled", true);
+		return;
+	}
+
+	$("#export-dl").on("click", function () {
+		const blob = new Blob([data], { type: "application/json" });
+		const url = URL.createObjectURL(blob);
+		const dta = document.createElement("a");
+		dta.href = url;
+		dta.download = "迷子们的每一天进度数据.json";
+		dta.click();
+		URL.revokeObjectURL(url);
+		Dialog.close();
+	});
+
+	$("#export-cp").on("click", function () {
+		navigator.clipboard.writeText(data)
+			.then(() => alert("已复制进度数据到剪贴板！"))
+			.catch(() => alert("复制进度数据失败，请检查浏览器权限"));
+		Dialog.close();
+	});
+});
+<</script>>

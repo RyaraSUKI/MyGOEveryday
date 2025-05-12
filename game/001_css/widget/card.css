@@ -1,3 +1,72 @@
+/* 角色文本卡片样式 */
+.charcard {
+    color: var(--color-b1);
+    border: 2px solid var(--color-secondary-d2);
+    box-shadow: 2px 2px 5px rgba(var(--color-shadow-rgb), 0.3);
+    padding: 0.8em 1em;
+    border-radius: 1em;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* 角色图片样式 */
+.charimg {
+    display: block;
+    margin: 0 auto;
+    width: 64px;
+    height: 128px;
+    margin-bottom: 1rem;
+}
+
+/* 角色文本卡片背景色 */
+.char-anon {
+    background-color: var(--color-anon);
+}
+
+.char-soyo {
+    background-color: var(--color-soyo);
+}
+
+.char-tomori {
+    background-color: var(--color-tomori);
+}
+
+.char-taki {
+    background-color: var(--color-taki);
+}
+
+.char-rana {
+    background-color: var(--color-rana);
+}
+
+/* 须知标题卡片 */
+.warn-card {
+    color: var(--color-text2);
+    background-color: var(--color-accent-d2);
+    border: none;
+    box-shadow: 2px 2px 5px rgba(var(--color-shadow-rgb), 0.3);
+    padding: 0 4em;
+    border-radius: 2em;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 2em;
+    text-align: center;
+}
+
+.warn-card .title {
+    color: var(--color-accent-l2);
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.warn-card .subtitle {
+    color: var(--color-accent-l);
+    font-size: 1.5em;
+    margin-top: -0.6em;
+}
+
+/* 菜单选项卡 */
 .menucard-container {
     display: grid;
     gap: 12px;
@@ -83,31 +152,60 @@
 }
 
 .menucard:hover .menucard-arrow {
-    transform: translateX(5px) scale(1.25);
+    transform: scale(1.25);
 }
 
-.menucard-arrow.clicked {
-    animation: menucard-bounce 0.3s ease
+.menucard-arrow.clickx {
+    animation: menucard-x 0.3s ease
 }
 
-.menucard:active .menucard-arrow {
-    menucard-bounce 0.3s ease;
+.menucard-arrow.clicky {
+    animation: menucard-y 0.3s ease
 }
 
-@keyframes menucard-bounce {
+.menucard-arrow.clickr {
+    animation: menucard-r 0.6s ease
+}
+
+@keyframes menucard-x {
     0% {
-        transform: translateX(5px) scale(1.25)
+        transform: translateX(0px) scale(1.25)
     }
 
     50% {
-        transform: translateX(20px) scale(1.25)
+        transform: translateX(30px) scale(1.25)
     }
 
     100% {
-        transform: translateX(5px) scale(1.25)
+        transform: translateX(0px) scale(1.25)
     }
 }
 
+@keyframes menucard-y {
+    0% {
+        transform: translateY(0px) scale(1.25)
+    }
+
+    50% {
+        transform: translateY(-40px) scale(1.25)
+    }
+
+    100% {
+        transform: translateY(0px) scale(1.25)
+    }
+}
+
+@keyframes menucard-r {
+    0% {
+        transform: rotate(0deg) scale(1.25)
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1.25)
+    }
+}
+
+/* 手机适配 */
 @media (max-width:500px) {
     .menucard-container {
         align-items: center;

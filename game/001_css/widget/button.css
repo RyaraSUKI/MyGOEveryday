@@ -1,0 +1,57 @@
+/* 自定义按钮样式部分 */
+.sober-button {
+    display: flex;
+    width: auto;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sugar-button {
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-gap: 1rem;
+    text-align: center;
+}
+
+/* 为自定义sugar类引用sugarcube2图标字体 */
+.sugar-icon {
+    font-family: sc-icons !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    speak: never;
+    text-rendering: auto;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 主页面选项按钮 */
+.menu-button {
+    display: grid;
+    width: auto;
+    height: 50%;
+    text-align: center;
+}
+
+/* 警告按钮 */
+.warn-button {
+    color: var(--color-text2);
+    background: var(--color-accent);
+}
+
+/* 须知页面MyGO按钮 */
+#start2-go-btn {
+    text-align: center;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#start2-go-btn:hover {
+    color: var(--color-link);
+    box-shadow: none;
+}
