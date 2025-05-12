@@ -42,9 +42,10 @@ $(document).ready(function() {
 	});
 });
 <</script>>
+
 :: Start2 [hidebar nosave nobr]
-<div class="sugar-button animate__animated animate__bounceInDown">
-    <<button [[↩️  返回到主页|Start]]>><</button>>
+<div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
+    <<button "&#xf015;&emsp;返回到主页面" "Start">><</button>>
 </div>
 <br>
 <div class="warn-card animate__animated animate__zoomIn">
@@ -74,24 +75,27 @@ $(document).ready(function () {
 <</script>>
 
 :: Start3 [hidebar nosave nobr]
-<div class="sugar-button animate__animated animate__bounceInDown">
-    <<button [[↩️  返回到主页|Start]]>><</button>>
+<div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
+    <<button "&#xf015;&emsp;返回到主页面" "Start">><</button>>
+    <<button "&#xf0a0;&emsp;管理进度数据" "进度数据">><</button>>
+    <<button "&#xf05a;&emsp;查看网页须知" "网页须知">><</button>>
 </div>
-<br>
+<br><br>
 //''请选择要游玩的故事模式：''//
+<br><br>
 <div class="menucard-container animate__animated animate__zoomInUp animate__slow">
-    <div class="menucard" style="background-color: #3388bb;">
+    <div id="go-main" class="menucard" style="background-color: #4a9cd3;">
       <div class="menucard-text-block">
         <div class="menucard-title">主线故事</div>
         <br><br>
-        <div class="menucard-sub">OurStory</div>
+        <div class="menucard-sub">MainStory</div>
         <br>
         <div class="menucard-desc"></div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>
 <br><br>
-    <div class="menucard" style="background-color: #60a5fa;">
+    <div id="go-daily" class="menucard" style="background-color: #f8e61b;">
       <div class="menucard-text-block">
         <div class="menucard-title">迷子日常</div>
         <br><br>
@@ -102,7 +106,7 @@ $(document).ready(function () {
       <div class="menucard-arrow">&#xf138;</div>
     </div>
 <br><br>
-    <div class="menucard" style="background-color: #34d399;">
+    <div id="go-another" class="menucard" style="background-color: #f36d6d;">
       <div class="menucard-text-block">
         <div class="menucard-title">附加故事</div>
         <br><br>
@@ -123,12 +127,18 @@ $(document).ready(function () {
       $arrow.removeClass('clicked');
     }, 300);
   });
+  $("#go-main").on("click", function() {
+    setTimeout(() => {
+      Engine.play("StartMS");
+    }, 450);
+  });
+  
 });
 <</script>>
 
-:: StartOurStory [hidebar nosave nobr]
+:: StartMS [hidebar nosave nobr]
 
-:: StartDailyStory [hidebar nosave nobr]
+:: StartDS [hidebar nosave nobr]
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
 
-:: StartAnotherStory [hidebar nosave nobr]
+:: StartAS [hidebar nosave nobr]
