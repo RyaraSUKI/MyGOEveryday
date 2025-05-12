@@ -1,0 +1,33 @@
+/* interlude标签处理 */
+[data-tags~="interlude"] body {
+    background-color: var(--color-b2);
+    color: var(--color-w4)
+}
+
+[data-tags~="interlude"] #ui-bar {
+    display: none
+}
+
+[data-tags~="interlude"] .passage {
+    text-align: center;
+    position: absolute;
+    top: 3%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding: 3%;
+    height: 100%;
+    background-color: transparent;
+    overflow: auto
+}
+
+[data-tags~="interlude"] #wave-bg {
+    display: none
+}
+
+#interlude-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

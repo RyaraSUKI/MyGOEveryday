@@ -1,0 +1,45 @@
+:: AP [nosave hidebar]
+<s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
+<br>
+<img src="img/city.png" id="go-FC">
+<br>这里记录了所有的''故事片段''，相当于一个目录，方便统计或在没有Twine2可视化编辑器的时候快速预览定位。<br>//点击城市图片查看包括系统片段在内的全部片段(Passage)详尽列表//<br>
+<<script>>
+$(document).ready(function() {
+        $("#go-FC").click(function() {
+            Engine.play("FC");
+        });
+    });
+<</script>>
+:: FC [nosave hidebar]
+<br><br>
+<img src="img/city.png" id="go-AP">
+<br><br>
+<<nobr>>
+    <<script>>
+        var passages = Story.lookup('');
+        var passageNames = passages.map(p => p.title);
+    
+        passageNames.sort(function(a, b) {
+            return a.localeCompare(b, 'zh');
+        });
+    
+        State.temporary.passageList = passageNames;
+        State.temporary.passageCount = passageNames.length;
+        $(document).ready(function() {
+        $("#go-AP").click(function() {
+            Engine.play("AP");
+        });
+    });
+    <</script>>
+    <div style="color: var(--color-accent-l);">
+        //为防止产生严重问题，没有跳转功能，请使用调试模式编译版进行片段跳转//
+    </div>
+    <p>总计 <<= _passageCount>> 个 片段(Passages)</p>
+    <ul>
+        <<for _name range _passageList>>
+            <li>
+                <<= _name>>
+            </li>
+        <</for>>
+    </ul>
+<</nobr>>
