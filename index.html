@@ -3350,7 +3350,7 @@ $(document).ready(function() {
 &lt;s-checkbox type=&quot;checkbox&quot; id=&quot;start2-check&quot; class=&quot;animate__animated animate__fadeIn animate__slower&quot;&gt;已阅读并接受须知内容&lt;/s-checkbox&gt;
 &lt;br&gt;
 &lt;div id=&quot;start2-go&quot; style=&quot;display: none;&quot; class=&quot;animate__animated animate__jackInTheBox&quot;&gt;
-    &lt;button id=&quot;start2-go-btn&quot; class=&quot;hvr-grow&quot;&gt;&lt;s-icon src=&quot;img/icon/mygo_icon_o.png&quot;&gt;&lt;/s-icon&gt;&amp;emsp;It&#39;s MyGo !!!!!&lt;/button&gt;
+    &lt;button id=&quot;start2-go-btn&quot; class=&quot;hvr-bounce-in&quot;&gt;&lt;s-icon src=&quot;img/icon/mygo_icon_o.png&quot;&gt;&lt;/s-icon&gt;&amp;emsp;It&#39;s MyGo !!!!!&lt;/button&gt;
 &lt;/div&gt;
 &lt;&lt;script&gt;&gt;
 $(document).ready(function () {
@@ -3454,32 +3454,28 @@ $(document).ready(function () {
     &lt;&lt;button &quot;&amp;#xf137;&amp;emsp;返回模式选择&quot; &quot;Start3&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;br&gt;
-&lt;h3&gt;游戏进度管理&lt;/h3&gt;
+&lt;h3 class=&quot;animate__animated animate__fadeIn&quot;&gt;游戏进度管理&lt;/h3&gt;
 &lt;br&gt;
-&lt;&lt;button &quot;导出进度&quot;&gt;&gt;
-	&lt;&lt;script&gt;&gt;
-	Dialog.setup(&quot;导出选项&quot;);
-	Dialog.wikiPassage(&quot;导出进度弹窗&quot;);
-	Dialog.open();
-	&lt;&lt;/script&gt;&gt;
-&lt;&lt;/button&gt;&gt;
-
-&lt;br&gt;&lt;br&gt;
-&lt;label id=&quot;importLabel&quot; style=&quot;
-	display: inline-block;
-	padding: 8px 16px;
-	background-color: #444;
-	color: white;
-	border-radius: 5px;
-	cursor: pointer;
-&quot;&gt;
-	导入进度JSON
-	&lt;input type=&quot;file&quot; id=&quot;importProgress&quot; accept=&quot;.json&quot; style=&quot;display: none;&quot;&gt;
-&lt;/label&gt;
-
+&lt;div class=&quot;sugar-button sugar-icon animate__animated animate__zoomInUp&quot;&gt;
+    &lt;button id=&quot;prg-export-btn&quot;&gt;&amp;#xf574;&amp;emsp;导出进度&lt;/button&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;button id=&quot;prg-import-btn&quot;&gt;&amp;#xf56d;&amp;emsp;导入进度&lt;/button&gt;
+    &lt;input type=&quot;file&quot; id=&quot;prg-import&quot; accept=&quot;.json&quot; style=&quot;display: none;&quot;&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;button id=&quot;prg-reset-btn&quot;&gt;&amp;#xf2ea;&amp;emsp;重置进度&lt;/button&gt;
+&lt;/div&gt;
 &lt;&lt;script&gt;&gt;
 $(document).ready(function () {
-	$(&quot;#importProgress&quot;).on(&quot;change&quot;, function () {
+    $(&quot;#prg-import-btn&quot;).on(&quot;click&quot;, function () {
+        $(&quot;#prg-import&quot;).trigger(&quot;click&quot;);
+	});
+	$(&quot;#prg-export-btn&quot;).on(&quot;click&quot;, function () {
+        Dialog.create(&quot;导出选项&quot;).wikiPassage(&quot;导出进度弹窗&quot;).open();
+	});
+	$(&quot;#prg-reset-btn&quot;).on(&quot;click&quot;, function () {
+        Dialog.create(&quot;重置警告&quot;).wikiPassage(&quot;重置进度警告&quot;).open();
+	});
+	$(&quot;#prg-import&quot;).on(&quot;change&quot;, function () {
 		const file = this.files[0];
 		if (!file) return;
 		const reader = new FileReader();
@@ -3496,30 +3492,22 @@ $(document).ready(function () {
 		reader.readAsText(file);
 	});
 });
-&lt;&lt;/script&gt;&gt;
-&lt;br&gt;&lt;br&gt;
-
-&lt;&lt;button &quot;重置进度&quot;&gt;&gt;
-	&lt;&lt;script&gt;&gt;
-	localStorage.removeItem(&quot;playProgress&quot;);
-	Engine.restart();
-	&lt;&lt;/script&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="导出进度弹窗" tags="dialog" position="975,350" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="导出进度弹窗" tags="dialog" position="975,350" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;p&gt;请选择导出进度方式：&lt;/p&gt;
-	&lt;button id=&quot;export-dl&quot;&gt;下载为JSON文件&lt;/button&gt;
+	&lt;button id=&quot;prg-export-dl&quot;&gt;下载为JSON文件&lt;/button&gt;
 	&lt;br&gt;
-	&lt;button id=&quot;export-cp&quot;&gt;复制到剪贴板&lt;/button&gt;
+	&lt;button id=&quot;prg-export-cp&quot;&gt;复制到剪贴板&lt;/button&gt;
 &lt;/div&gt;
 
 &lt;&lt;script&gt;&gt;
 $(document).ready(function () {
 	const data = localStorage.getItem(&quot;playProgress&quot;);
 	if (!data) {
-		$(&quot;#export-dl, #export-cp&quot;).prop(&quot;disabled&quot;, true);
+		$(&quot;#prg-export-dl, #prg-export-cp&quot;).prop(&quot;disabled&quot;, true);
 		return;
 	}
 
-	$(&quot;#export-dl&quot;).on(&quot;click&quot;, function () {
+	$(&quot;#prg-export-dl&quot;).on(&quot;click&quot;, function () {
 		const blob = new Blob([data], { type: &quot;application/json&quot; });
 		const url = URL.createObjectURL(blob);
 		const dta = document.createElement(&quot;a&quot;);
@@ -3530,11 +3518,35 @@ $(document).ready(function () {
 		Dialog.close();
 	});
 
-	$(&quot;#export-cp&quot;).on(&quot;click&quot;, function () {
+	$(&quot;#prg-export-cp&quot;).on(&quot;click&quot;, function () {
 		navigator.clipboard.writeText(data)
 			.then(() =&gt; alert(&quot;已复制进度数据到剪贴板！&quot;))
 			.catch(() =&gt; alert(&quot;复制进度数据失败，请检查浏览器权限&quot;));
 		Dialog.close();
+	});
+});
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="重置进度警告" tags="dialog" position="1100,350" size="100,100">&lt;&lt;nobr&gt;&gt;
+    &lt;div style=&quot;text-align: center;&quot; class=&quot;animate__animated animate__wobble&quot;&gt;
+    	&lt;strong&gt;警告：&lt;/strong&gt;
+    	&lt;p&gt;&lt;u&gt;将会永久重置你的故事进度，&lt;br&gt;这包括自由模式解锁地点、物品等&lt;br&gt;若确定重置将会重新载入网页&lt;/u&gt;&lt;/p&gt;
+    	&lt;p style=&quot;color: var(--color-accent-d2);&quot;&gt;&lt;em&gt;你确定要重置进度吗？&lt;/em&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;div style=&quot;text-align: center;&quot; class=&quot;animate__animated animate__shakeY&quot;&gt;
+	&lt;button id=&quot;prg-reset-no&quot;&gt;我不要！&lt;/button&gt;
+	&lt;br&gt;
+	&lt;button id=&quot;prg-reset-yes&quot; class=&quot;warn-button&quot;&gt;我确定！&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;&lt;script&gt;&gt;
+$(document).ready(function () {
+	$(&quot;#prg-reset-no&quot;).on(&quot;click&quot;, function () {
+		Dialog.close();
+	});
+
+	$(&quot;#prg-reset-yes&quot;).on(&quot;click&quot;, function () {
+        localStorage.removeItem(&quot;playProgress&quot;);
+	    Engine.restart();
 	});
 });
 &lt;&lt;/script&gt;&gt;</tw-passagedata></tw-storydata>

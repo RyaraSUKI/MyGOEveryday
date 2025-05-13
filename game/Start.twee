@@ -61,7 +61,7 @@ $(document).ready(function() {
 <s-checkbox type="checkbox" id="start2-check" class="animate__animated animate__fadeIn animate__slower">已阅读并接受须知内容</s-checkbox>
 <br>
 <div id="start2-go" style="display: none;" class="animate__animated animate__jackInTheBox">
-    <button id="start2-go-btn" class="hvr-grow"><s-icon src="img/icon/mygo_icon_o.png"></s-icon>&emsp;It's MyGo !!!!!</button>
+    <button id="start2-go-btn" class="hvr-bounce-in"><s-icon src="img/icon/mygo_icon_o.png"></s-icon>&emsp;It's MyGo !!!!!</button>
 </div>
 <<script>>
 $(document).ready(function () {
@@ -135,7 +135,7 @@ $(document).ready(function () {
     }, 300);
     setTimeout(() => {
       Engine.play("Start3");
-    }, 450);
+    }, 500);
   });
   $("#go-daily").on("click", function() {
     const $arrow = $(this).find('.menucard-arrow');
@@ -146,11 +146,11 @@ $(document).ready(function () {
     if (setup.progress.dailyUnlocked) {
     setTimeout(() => {
       Engine.play("Start3");
-    }, 450);
+    }, 500);
     } else {
     setTimeout(() => {
       UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
-    }, 450);
+    }, 500);
     }
   });
   $("#go-another").on("click", function() {
@@ -161,7 +161,7 @@ $(document).ready(function () {
     }, 600);
     setTimeout(() => {
       Engine.play("Start3");
-    }, 750);
+    }, 800);
   });
 });
 <</script>>
@@ -179,32 +179,28 @@ $(document).ready(function () {
     <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
 </div>
 <br>
-<h3>游戏进度管理</h3>
+<h3 class="animate__animated animate__fadeIn">游戏进度管理</h3>
 <br>
-<<button "导出进度">>
-	<<script>>
-	Dialog.setup("导出选项");
-	Dialog.wikiPassage("导出进度弹窗");
-	Dialog.open();
-	<</script>>
-<</button>>
-
-<br><br>
-<label id="importLabel" style="
-	display: inline-block;
-	padding: 8px 16px;
-	background-color: #444;
-	color: white;
-	border-radius: 5px;
-	cursor: pointer;
-">
-	导入进度JSON
-	<input type="file" id="importProgress" accept=".json" style="display: none;">
-</label>
-
+<div class="sugar-button sugar-icon animate__animated animate__zoomInUp">
+    <button id="prg-export-btn">&#xf574;&emsp;导出进度</button>
+    <br><br>
+    <button id="prg-import-btn">&#xf56d;&emsp;导入进度</button>
+    <input type="file" id="prg-import" accept=".json" style="display: none;">
+    <br><br>
+    <button id="prg-reset-btn">&#xf2ea;&emsp;重置进度</button>
+</div>
 <<script>>
 $(document).ready(function () {
-	$("#importProgress").on("change", function () {
+    $("#prg-import-btn").on("click", function () {
+        $("#prg-import").trigger("click");
+	});
+	$("#prg-export-btn").on("click", function () {
+        Dialog.create("导出选项").wikiPassage("导出进度弹窗").open();
+	});
+	$("#prg-reset-btn").on("click", function () {
+        Dialog.create("重置警告").wikiPassage("重置进度警告").open();
+	});
+	$("#prg-import").on("change", function () {
 		const file = this.files[0];
 		if (!file) return;
 		const reader = new FileReader();
@@ -222,32 +218,24 @@ $(document).ready(function () {
 	});
 });
 <</script>>
-<br><br>
-
-<<button "重置进度">>
-	<<script>>
-	localStorage.removeItem("playProgress");
-	Engine.restart();
-	<</script>>
-<</button>>
 
 :: 导出进度弹窗 [dialog]
 <div style="text-align: center;">
 	<p>请选择导出进度方式：</p>
-	<button id="export-dl">下载为JSON文件</button>
+	<button id="prg-export-dl">下载为JSON文件</button>
 	<br>
-	<button id="export-cp">复制到剪贴板</button>
+	<button id="prg-export-cp">复制到剪贴板</button>
 </div>
 
 <<script>>
 $(document).ready(function () {
 	const data = localStorage.getItem("playProgress");
 	if (!data) {
-		$("#export-dl, #export-cp").prop("disabled", true);
+		$("#prg-export-dl, #prg-export-cp").prop("disabled", true);
 		return;
 	}
 
-	$("#export-dl").on("click", function () {
+	$("#prg-export-dl").on("click", function () {
 		const blob = new Blob([data], { type: "application/json" });
 		const url = URL.createObjectURL(blob);
 		const dta = document.createElement("a");
@@ -258,11 +246,38 @@ $(document).ready(function () {
 		Dialog.close();
 	});
 
-	$("#export-cp").on("click", function () {
+	$("#prg-export-cp").on("click", function () {
 		navigator.clipboard.writeText(data)
 			.then(() => alert("已复制进度数据到剪贴板！"))
 			.catch(() => alert("复制进度数据失败，请检查浏览器权限"));
 		Dialog.close();
+	});
+});
+<</script>>
+
+:: 重置进度警告 [dialog]
+<<nobr>>
+    <div style="text-align: center;" class="animate__animated animate__wobble">
+    	<strong>警告：</strong>
+    	<p><u>将会永久重置你的故事进度，<br>这包括自由模式解锁地点、物品等<br>若确定重置将会重新载入网页</u></p>
+    	<p style="color: var(--color-accent-d2);"><em>你确定要重置进度吗？</em></p>
+    </div>
+<</nobr>>
+<div style="text-align: center;" class="animate__animated animate__shakeY">
+	<button id="prg-reset-no">我不要！</button>
+	<br>
+	<button id="prg-reset-yes" class="warn-button">我确定！</button>
+</div>
+
+<<script>>
+$(document).ready(function () {
+	$("#prg-reset-no").on("click", function () {
+		Dialog.close();
+	});
+
+	$("#prg-reset-yes").on("click", function () {
+        localStorage.removeItem("playProgress");
+	    Engine.restart();
 	});
 });
 <</script>>
