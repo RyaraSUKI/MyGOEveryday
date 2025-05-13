@@ -320,7 +320,7 @@ Setting.addToggle("autosave", {
     desc: "在这里开启/关闭自动记录功能吧！",
     default: true,
 });
-Config.saves.descriptions = function(saveType) {
+/*Config.saves.descriptions = function(saveType) {
     switch (saveType) {
         case Save.Type.Auto: {
             return "[自动记录]" + passage();
@@ -335,6 +335,118 @@ Config.saves.descriptions = function(saveType) {
         }
     }
 };
+Config.saves.descriptions = function(saveType) {
+    switch (saveType) {
+        case Save.Type.Auto:
+            return "[自动记录]" + passage();
+        default: {
+            let prefix = "";
+
+            if (State.variables.mode) {
+                switch (State.variables.mode) {
+                    case "main":
+                        prefix += "[主线]";
+                        if (State.variables.chapter) {
+                            switch (State.variables.chapter) {
+                                case 1:
+                                    prefix += "[迷路日日]";
+                                    break;
+                                case 2:
+                                    prefix += "[轮符雨]";
+                                    break;
+                                // 可扩展其他章节
+                            }
+                        }
+                        break;
+                    case "daily":
+                        prefix += "[日常]";
+                        if (State.variables.place) {
+                            prefix += "[" + State.variables.place + "]";
+                        }
+                        break;
+                    case "another":
+                        prefix += "[附加]";
+                        if (State.variables.asinfo) {
+                            prefix += "[" + State.variables.asinfo + "]";
+                        }
+                        break;
+                    case "test":
+                        prefix += "[测试]";
+                        break;
+                }
+            }
+
+            // 生成最终描述
+            const baseTitle = passage();
+            const fullTitle = prefix ? prefix + baseTitle : "迷子的日记 - " + baseTitle;
+
+            // 判断是否自动命名
+            if (settings.autoname) {
+                return fullTitle;
+            } else {
+                return prompt("请写下记录名：", fullTitle);
+            }
+        }
+    }
+};*/
+
+Config.saves.descriptions = function(saveType) {
+    // 构造统一的 fullTitle 前缀
+    let prefix = "";
+
+    const vars = State.variables;
+
+    if (vars.mode) {
+        switch (vars.mode) {
+            case "main":
+                prefix += "[主线]";
+                if (vars.chapter) {
+                    switch (vars.chapter) {
+                        case 1:
+                            prefix += "[迷路日日]";
+                            break;
+                        case 2:
+                            prefix += "[轮符雨]";
+                            break;
+                        // 可扩展更多章节
+                    }
+                }
+                break;
+            case "daily":
+                prefix += "[日常]";
+                if (vars.place) {
+                    prefix += "[" + vars.place + "]";
+                }
+                break;
+            case "another":
+                prefix += "[附加]";
+                if (vars.asinfo) {
+                    prefix += "[" + vars.asinfo + "]";
+                }
+                break;
+            case "test":
+                prefix += "[测试]";
+                break;
+        }
+    }
+
+    // 获取当前 passage 名称
+    const baseTitle = passage();
+    const fullTitle = prefix ? prefix + baseTitle : "迷子的日记 - " + baseTitle;
+
+    // 自动记录和手动记录统一使用 fullTitle
+    if (saveType === Save.Type.Auto) {
+        return fullTitle;
+    }
+
+    // 手动记录：判断是否自动命名
+    if (settings.autoname) {
+        return fullTitle;
+    } else {
+        return prompt("请写下记录名：", fullTitle);
+    }
+};
+
 
 Setting.addToggle("autoname", {
     label: "自动命名",

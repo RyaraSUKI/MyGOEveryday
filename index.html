@@ -197,7 +197,7 @@ body {
 /*原生按钮 和 link链接*/
 button {
     color: var(--color-text1);
-    background-color: var(--color-secondary-d);
+    background-color: var(--color-secondary);
     border: none;
     border-radius: 1em;
     outline: none;
@@ -1086,12 +1086,12 @@ html[data-init="loading"] #init-loading {
 
 :root.theme-sober-d {
     /* Sober.js组件配色dark */
-    --s-color-primary: var(--color-secondary-d);
-    --s-color-on-primary: #c9e6ff;
+    --s-color-primary: var(--color-secondary);
+    --s-color-on-primary: var(--color-text1);
     --s-color-primary-container: #004b6f;
     --s-color-on-primary-container: #c9e6ff;
     --s-color-secondary: #b7c9d9;
-    --s-color-on-secondary: #22323f;
+    --s-color-on-secondary: var(--color-text2);
     --s-color-secondary-container: #384956;
     --s-color-on-secondary-container: #d3e5f5;
     --s-color-tertiary: #cfc0e8;
@@ -1112,7 +1112,7 @@ html[data-init="loading"] #init-loading {
     --s-color-on-surface-variant: #c1c7ce;
     --s-color-inverse-surface: #2e3133;
     --s-color-inverse-on-surface: #e2e2e5;
-    --s-color-inverse-primary: var(--color-secondary-d);
+    --s-color-inverse-primary: var(--color-secondary);
     --s-color-surface-container: #1e2022;
     --s-color-surface-container-lowest: #0c0e11;
     --s-color-surface-container-low: #1a1c1e;
@@ -1122,12 +1122,12 @@ html[data-init="loading"] #init-loading {
 
 :root.theme-sober-l {
     /* Sober.js组件配色light */
-    --s-color-primary: var(--color-secondary-d);
-    --s-color-on-primary: #ffffff;
+    --s-color-primary: var(--color-secondary);
+    --s-color-on-primary: var(--color-text1);
     --s-color-primary-container: #c9e6ff;
     --s-color-on-primary-container: #001e2f;
     --s-color-secondary: #50606e;
-    --s-color-on-secondary: #ffffff;
+    --s-color-on-secondary: var(--color-text2);
     --s-color-secondary-container: #d3e5f5;
     --s-color-on-secondary-container: #0c1d29;
     --s-color-tertiary: #64597b;
@@ -1148,7 +1148,7 @@ html[data-init="loading"] #init-loading {
     --s-color-on-surface-variant: #41474d;
     --s-color-inverse-surface: #e2e2e5;
     --s-color-inverse-on-surface: #2e3133;
-    --s-color-inverse-primary: var(--color-secondary-d);
+    --s-color-inverse-primary: var(--color-secondary);
     --s-color-surface-container: #edeef1;
     --s-color-surface-container-lowest: #e2e2e5;
     --s-color-surface-container-low: #e7e8eb;
@@ -2637,7 +2637,7 @@ Setting.addToggle("autosave", {
     desc: "在这里开启/关闭自动记录功能吧！",
     default: true,
 });
-Config.saves.descriptions = function(saveType) {
+/*Config.saves.descriptions = function(saveType) {
     switch (saveType) {
         case Save.Type.Auto: {
             return "[自动记录]" + passage();
@@ -2652,6 +2652,118 @@ Config.saves.descriptions = function(saveType) {
         }
     }
 };
+Config.saves.descriptions = function(saveType) {
+    switch (saveType) {
+        case Save.Type.Auto:
+            return "[自动记录]" + passage();
+        default: {
+            let prefix = "";
+
+            if (State.variables.mode) {
+                switch (State.variables.mode) {
+                    case "main":
+                        prefix += "[主线]";
+                        if (State.variables.chapter) {
+                            switch (State.variables.chapter) {
+                                case 1:
+                                    prefix += "[迷路日日]";
+                                    break;
+                                case 2:
+                                    prefix += "[轮符雨]";
+                                    break;
+                                // 可扩展其他章节
+                            }
+                        }
+                        break;
+                    case "daily":
+                        prefix += "[日常]";
+                        if (State.variables.place) {
+                            prefix += "[" + State.variables.place + "]";
+                        }
+                        break;
+                    case "another":
+                        prefix += "[附加]";
+                        if (State.variables.asinfo) {
+                            prefix += "[" + State.variables.asinfo + "]";
+                        }
+                        break;
+                    case "test":
+                        prefix += "[测试]";
+                        break;
+                }
+            }
+
+            // 生成最终描述
+            const baseTitle = passage();
+            const fullTitle = prefix ? prefix + baseTitle : "迷子的日记 - " + baseTitle;
+
+            // 判断是否自动命名
+            if (settings.autoname) {
+                return fullTitle;
+            } else {
+                return prompt("请写下记录名：", fullTitle);
+            }
+        }
+    }
+};*/
+
+Config.saves.descriptions = function(saveType) {
+    // 构造统一的 fullTitle 前缀
+    let prefix = "";
+
+    const vars = State.variables;
+
+    if (vars.mode) {
+        switch (vars.mode) {
+            case "main":
+                prefix += "[主线]";
+                if (vars.chapter) {
+                    switch (vars.chapter) {
+                        case 1:
+                            prefix += "[迷路日日]";
+                            break;
+                        case 2:
+                            prefix += "[轮符雨]";
+                            break;
+                        // 可扩展更多章节
+                    }
+                }
+                break;
+            case "daily":
+                prefix += "[日常]";
+                if (vars.place) {
+                    prefix += "[" + vars.place + "]";
+                }
+                break;
+            case "another":
+                prefix += "[附加]";
+                if (vars.asinfo) {
+                    prefix += "[" + vars.asinfo + "]";
+                }
+                break;
+            case "test":
+                prefix += "[测试]";
+                break;
+        }
+    }
+
+    // 获取当前 passage 名称
+    const baseTitle = passage();
+    const fullTitle = prefix ? prefix + baseTitle : "迷子的日记 - " + baseTitle;
+
+    // 自动记录和手动记录统一使用 fullTitle
+    if (saveType === Save.Type.Auto) {
+        return fullTitle;
+    }
+
+    // 手动记录：判断是否自动命名
+    if (settings.autoname) {
+        return fullTitle;
+    } else {
+        return prompt("请写下记录名：", fullTitle);
+    }
+};
+
 
 Setting.addToggle("autoname", {
     label: "自动命名",
@@ -3311,7 +3423,10 @@ Copyright (c) 2025 RyaraSUKI
 &lt;&lt;script&gt;&gt;
 $(document).ready(function() {
 	$(&quot;#menu-logo&quot;).on(&quot;click&quot;, function() {
-		Dialog.create(&quot;关于&quot;).wikiPassage(&quot;关于&quot;).open();
+		Dialog
+		    .create(&quot;关于&quot;)
+		    .wikiPassage(&quot;关于&quot;)
+		    .open();
 	});
 	$(&quot;#menu-button-con&quot;).on(&quot;click&quot;, function() {
     	Save.browser.continue()
@@ -3383,18 +3498,18 @@ $(document).ready(function () {
         &lt;br&gt;&lt;br&gt;
         &lt;div class=&quot;menucard-sub&quot;&gt;MainStory&lt;/div&gt;
         &lt;br&gt;
-        &lt;div class=&quot;menucard-desc&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;『迷子们的每一天 !!!!!』主线故事。&lt;br&gt;基于邦多利世界观，通过半线性+互动的叙事方式，以五位迷子的视角，展现她们在每一天的点点滴滴……&lt;/div&gt;
       &lt;/div&gt;
       &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
     &lt;/div&gt;
 &lt;br&gt;&lt;br&gt;
-    &lt;div id=&quot;go-daily&quot; class=&quot;menucard&quot; style=&quot;background-color: #facc15;&quot;&gt;
+    &lt;div id=&quot;go-daily&quot; class=&quot;menucard&quot; style=&quot;background-color: #f1b74b;&quot;&gt;
       &lt;div class=&quot;menucard-text-block&quot;&gt;
         &lt;div class=&quot;menucard-title&quot;&gt;迷子日常&lt;/div&gt;
         &lt;br&gt;&lt;br&gt;
         &lt;div class=&quot;menucard-sub&quot;&gt;DailyStory&lt;/div&gt;
         &lt;br&gt;
-        &lt;div class=&quot;menucard-desc&quot;&gt;探索新的支线任务，为世界增添更多故事与冒险。描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介&lt;/div&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;『迷子们的每一天 !!!!!』设定下的完全开放世界探索。&lt;br&gt;在非线性类文游的叙事下，选择一位迷子的视角，以完全自由的互动方式去看她和身边朋友们的每一天……&lt;/div&gt;
       &lt;/div&gt;
       &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
     &lt;/div&gt;
@@ -3405,7 +3520,7 @@ $(document).ready(function () {
         &lt;br&gt;&lt;br&gt;
         &lt;div class=&quot;menucard-sub&quot;&gt;AnotherStory&lt;/div&gt;
         &lt;br&gt;
-        &lt;div class=&quot;menucard-desc&quot;&gt;纯线性&lt;/div&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;独立于『迷子们的每一天 !!!!!』的附加故事。（内置故事包含cp向文章）&lt;br&gt;基于本网页的互动小说引擎，阅读内置或从外部加载的互动故事，文档持续更新中，欢迎参与创作……&lt;/div&gt;
       &lt;/div&gt;
       &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
     &lt;/div&gt;
@@ -3421,7 +3536,7 @@ $(document).ready(function () {
     }, 300);
     setTimeout(() =&gt; {
       Engine.play(&quot;Start3&quot;);
-    }, 450);
+    }, 500);
   });
   $(&quot;#go-daily&quot;).on(&quot;click&quot;, function() {
     const $arrow = $(this).find(&#39;.menucard-arrow&#39;);
@@ -3432,11 +3547,11 @@ $(document).ready(function () {
     if (setup.progress.dailyUnlocked) {
     setTimeout(() =&gt; {
       Engine.play(&quot;Start3&quot;);
-    }, 450);
+    }, 500);
     } else {
     setTimeout(() =&gt; {
       UI.alert(&quot;&lt;h3&gt;【迷子日常】模式尚未解锁！&lt;/h3&gt;请先游玩主线故事第一章了解&lt;br&gt;『迷子们的每一天 !!!!!』设定背景吧！&quot;);
-    }, 450);
+    }, 500);
     }
   });
   $(&quot;#go-another&quot;).on(&quot;click&quot;, function() {
@@ -3447,34 +3562,51 @@ $(document).ready(function () {
     }, 600);
     setTimeout(() =&gt; {
       Engine.play(&quot;Start3&quot;);
-    }, 750);
+    }, 800);
   });
 });
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="StartMS" tags="hidebar nosave nobr" position="475,350" size="100,100"></tw-passagedata><tw-passagedata pid="25" name="StartDS" tags="hidebar nosave nobr" position="600,350" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="26" name="StartAS" tags="hidebar nosave nobr" position="725,350" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="进度数据" tags="hidebar nosave nobr" position="850,350" size="100,100">&lt;div class=&quot;sugar-button sugar-icon animate__animated animate__bounceInDown&quot;&gt;
     &lt;&lt;button &quot;&amp;#xf137;&amp;emsp;返回模式选择&quot; &quot;Start3&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;br&gt;
-&lt;h3 class=&quot;animate__animated animate__fadeIn&quot;&gt;游戏进度管理&lt;/h3&gt;
-&lt;br&gt;
+&lt;h3 class=&quot;animate__animated animate__fadeIn&quot;&gt;进度数据管理&lt;/h3&gt;
+&lt;p class=&quot;animate__animated animate__fadeIn&quot;&gt;这里提供了『迷子们的每一天 !!!!!』中所有系统进度数据的管理操作，&lt;br&gt;&lt;br&gt;进度数据包括主线故事章节阅读进度、日常故事可访问地点/物品/成就、其它系统进度等，你可以通过导出和导入来备份或修改这些数据&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;
 &lt;div class=&quot;sugar-button sugar-icon animate__animated animate__zoomInUp&quot;&gt;
     &lt;button id=&quot;prg-export-btn&quot;&gt;&amp;#xf574;&amp;emsp;导出进度&lt;/button&gt;
     &lt;br&gt;&lt;br&gt;
     &lt;button id=&quot;prg-import-btn&quot;&gt;&amp;#xf56d;&amp;emsp;导入进度&lt;/button&gt;
-    &lt;input type=&quot;file&quot; id=&quot;prg-import&quot; accept=&quot;.json&quot; style=&quot;display: none;&quot;&gt;
+    &lt;input type=&quot;file&quot; id=&quot;prg-import&quot; accept=&quot;.json, .txt&quot; style=&quot;display: none;&quot;&gt;
     &lt;br&gt;&lt;br&gt;
     &lt;button id=&quot;prg-reset-btn&quot;&gt;&amp;#xf2ea;&amp;emsp;重置进度&lt;/button&gt;
 &lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;p class=&quot;animate__animated animate__fadeIn&quot;&gt;注意，此处的进度数据仅指网页全局的系统进度内容，关于故事内“迷子们的日记”（故事存档），请打开日记本弹窗，并在底部选择导出日记本文件&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;div class=&quot;sugar-button sugar-icon animate__animated animate__zoomInUp&quot;&gt;
+    &lt;button id=&quot;prg-save-btn&quot;&gt;&lt;s-icon src=&quot;img/icon/mygo_logo.png&quot;&gt;&lt;/s-icon&gt;&amp;emsp;迷子们的日记本&lt;/button&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
 &lt;&lt;script&gt;&gt;
 $(document).ready(function () {
     $(&quot;#prg-import-btn&quot;).on(&quot;click&quot;, function () {
         $(&quot;#prg-import&quot;).trigger(&quot;click&quot;);
 	});
+	
 	$(&quot;#prg-export-btn&quot;).on(&quot;click&quot;, function () {
-        Dialog.create(&quot;导出选项&quot;).wikiPassage(&quot;导出进度弹窗&quot;).open();
+        Dialog
+            .create(&quot;导出选项&quot;)
+            .wikiPassage(&quot;导出进度弹窗&quot;)
+            .open();
 	});
+	
 	$(&quot;#prg-reset-btn&quot;).on(&quot;click&quot;, function () {
-        Dialog.create(&quot;重置警告&quot;).wikiPassage(&quot;重置进度警告&quot;).open();
+        Dialog
+            .create(&quot;重置警告&quot;)
+            .wikiPassage(&quot;重置进度警告&quot;)
+            .open();
 	});
+	
 	$(&quot;#prg-import&quot;).on(&quot;change&quot;, function () {
 		const file = this.files[0];
 		if (!file) return;
@@ -3491,11 +3623,15 @@ $(document).ready(function () {
 		};
 		reader.readAsText(file);
 	});
+	
+	$(&quot;#prg-save-btn&quot;).on(&quot;click&quot;, function() {
+		UI.saves();
+	});
 });
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="导出进度弹窗" tags="dialog" position="975,350" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
-	&lt;p&gt;请选择导出进度方式：&lt;/p&gt;
+	&lt;p&gt;请选择导出进度数据的方式：&lt;/p&gt;
 	&lt;button id=&quot;prg-export-dl&quot;&gt;下载为JSON文件&lt;/button&gt;
-	&lt;br&gt;
+	&lt;p&gt;如果无法下载文件，你也可以选择复制数据，待导入时将它粘贴到一个.txt或.json文件里：&lt;/p&gt;
 	&lt;button id=&quot;prg-export-cp&quot;&gt;复制到剪贴板&lt;/button&gt;
 &lt;/div&gt;
 
@@ -3507,18 +3643,26 @@ $(document).ready(function () {
 		return;
 	}
 
-	$(&quot;#prg-export-dl&quot;).on(&quot;click&quot;, function () {
-		const blob = new Blob([data], { type: &quot;application/json&quot; });
-		const url = URL.createObjectURL(blob);
-		const dta = document.createElement(&quot;a&quot;);
-		dta.href = url;
-		dta.download = &quot;迷子们的每一天进度数据.json&quot;;
-		dta.click();
-		URL.revokeObjectURL(url);
-		Dialog.close();
-	});
+    $(&quot;#prg-export-dl&quot;).on(&quot;click&quot;, function () {
+    	const blob = new Blob([data], { type: &quot;application/json&quot; });
+    	const url = URL.createObjectURL(blob);
+    	const dta = document.createElement(&quot;a&quot;);
+    	dta.href = url;    
+    	const now = new Date();
+    	const yyyy = now.getFullYear();
+    	const mm = String(now.getMonth() + 1).padStart(2, &quot;0&quot;);
+    	const dd = String(now.getDate()).padStart(2, &quot;0&quot;);
+    	const hh = String(now.getHours()).padStart(2, &quot;0&quot;);
+    	const mi = String(now.getMinutes()).padStart(2, &quot;0&quot;);
+    	const ss = String(now.getSeconds()).padStart(2, &quot;0&quot;);
+    	const exporttime = `${yyyy}${mm}${dd}_${hh}${mi}${ss}`;   
+    	dta.download = `迷子们的每一天进度数据_${exporttime}.json`;
+    	dta.click();
+    	URL.revokeObjectURL(url);
+    	Dialog.close();
+    });
 
-	$(&quot;#prg-export-cp&quot;).on(&quot;click&quot;, function () {
+    $(&quot;#prg-export-cp&quot;).on(&quot;click&quot;, function () {
 		navigator.clipboard.writeText(data)
 			.then(() =&gt; alert(&quot;已复制进度数据到剪贴板！&quot;))
 			.catch(() =&gt; alert(&quot;复制进度数据失败，请检查浏览器权限&quot;));
@@ -3528,8 +3672,8 @@ $(document).ready(function () {
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="重置进度警告" tags="dialog" position="1100,350" size="100,100">&lt;&lt;nobr&gt;&gt;
     &lt;div style=&quot;text-align: center;&quot; class=&quot;animate__animated animate__wobble&quot;&gt;
     	&lt;strong&gt;警告：&lt;/strong&gt;
-    	&lt;p&gt;&lt;u&gt;将会永久重置你的故事进度，&lt;br&gt;这包括自由模式解锁地点、物品等&lt;br&gt;若确定重置将会重新载入网页&lt;/u&gt;&lt;/p&gt;
-    	&lt;p style=&quot;color: var(--color-accent-d2);&quot;&gt;&lt;em&gt;你确定要重置进度吗？&lt;/em&gt;&lt;/p&gt;
+    	&lt;p&gt;&lt;u&gt;所有包括主线故事章节阅读进度、日常故事可访问地点/物品/成就、其它系统进度等的内容将会消失，同时迷子们的日记本也将清空，完成后将会重新载入网页&lt;/u&gt;&lt;/p&gt;
+    	&lt;p style=&quot;color: var(--color-accent-l);&quot;&gt;&lt;em&gt;你确定要重置进度吗？&lt;/em&gt;&lt;/p&gt;
     &lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;div style=&quot;text-align: center;&quot; class=&quot;animate__animated animate__shakeY&quot;&gt;
@@ -3545,7 +3689,32 @@ $(document).ready(function () {
 	});
 
 	$(&quot;#prg-reset-yes&quot;).on(&quot;click&quot;, function () {
+        Dialog
+            .create(&quot;重置确认&quot;)
+            .wikiPassage(&quot;重置确认&quot;)
+            .open();
+	});
+});
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="重置确认" tags="dialog" position="1225,350" size="100,100">&lt;&lt;nobr&gt;&gt;
+    &lt;div style=&quot;text-align: center;&quot; class=&quot;animate__animated animate__shakeX&quot;&gt;
+    	&lt;strong&gt;&lt;u&gt;请再次确认：&lt;/u&gt;&lt;/strong&gt;
+    	&lt;p style=&quot;color: var(--color-accent-l);&quot;&gt;&lt;em&gt;你确定要重置进度吗？&lt;br&gt;&lt;br&gt;&lt;/em&gt;网页将重新载入&lt;/p&gt;
+    &lt;/div&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;div style=&quot;text-align: center;&quot; class=&quot;animate__animated animate__fadeIn animate__slower&quot;&gt;
+	&lt;button id=&quot;prg-reset2-no&quot;&gt;放弃重置&lt;/button&gt;
+	&lt;br&gt;
+	&lt;button id=&quot;prg-reset2-yes&quot; class=&quot;warn-button&quot;&gt;确认重置&lt;/button&gt;
+&lt;/div&gt;
+&lt;&lt;script&gt;&gt;
+$(document).ready(function () {
+	$(&quot;#prg-reset2-no&quot;).on(&quot;click&quot;, function () {
+		Dialog.close();
+	});
+
+	$(&quot;#prg-reset2-yes&quot;).on(&quot;click&quot;, function () {
         localStorage.removeItem(&quot;playProgress&quot;);
+        Save.browser.clear();
 	    Engine.restart();
 	});
 });

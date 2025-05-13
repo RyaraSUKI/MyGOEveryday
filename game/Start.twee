@@ -19,7 +19,10 @@
 <<script>>
 $(document).ready(function() {
 	$("#menu-logo").on("click", function() {
-		Dialog.create("关于").wikiPassage("关于").open();
+		Dialog
+		    .create("关于")
+		    .wikiPassage("关于")
+		    .open();
 	});
 	$("#menu-button-con").on("click", function() {
     	Save.browser.continue()
@@ -97,18 +100,18 @@ $(document).ready(function () {
         <br><br>
         <div class="menucard-sub">MainStory</div>
         <br>
-        <div class="menucard-desc"></div>
+        <div class="menucard-desc">『迷子们的每一天 !!!!!』主线故事。<br>基于邦多利世界观，通过半线性+互动的叙事方式，以五位迷子的视角，展现她们在每一天的点点滴滴……</div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>
 <br><br>
-    <div id="go-daily" class="menucard" style="background-color: #facc15;">
+    <div id="go-daily" class="menucard" style="background-color: #f1b74b;">
       <div class="menucard-text-block">
         <div class="menucard-title">迷子日常</div>
         <br><br>
         <div class="menucard-sub">DailyStory</div>
         <br>
-        <div class="menucard-desc">探索新的支线任务，为世界增添更多故事与冒险。描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介描述简介</div>
+        <div class="menucard-desc">『迷子们的每一天 !!!!!』设定下的完全开放世界探索。<br>在非线性类文游的叙事下，选择一位迷子的视角，以完全自由的互动方式去看她和身边朋友们的每一天……</div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>
@@ -119,7 +122,7 @@ $(document).ready(function () {
         <br><br>
         <div class="menucard-sub">AnotherStory</div>
         <br>
-        <div class="menucard-desc">纯线性</div>
+        <div class="menucard-desc">独立于『迷子们的每一天 !!!!!』的附加故事。（内置故事包含cp向文章）<br>基于本网页的互动小说引擎，阅读内置或从外部加载的互动故事，文档持续更新中，欢迎参与创作……</div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>
@@ -179,27 +182,44 @@ $(document).ready(function () {
     <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
 </div>
 <br>
-<h3 class="animate__animated animate__fadeIn">游戏进度管理</h3>
-<br>
+<h3 class="animate__animated animate__fadeIn">进度数据管理</h3>
+<p class="animate__animated animate__fadeIn">这里提供了『迷子们的每一天 !!!!!』中所有系统进度数据的管理操作，<br><br>进度数据包括主线故事章节阅读进度、日常故事可访问地点/物品/成就、其它系统进度等，你可以通过导出和导入来备份或修改这些数据</p>
+<br><br>
 <div class="sugar-button sugar-icon animate__animated animate__zoomInUp">
     <button id="prg-export-btn">&#xf574;&emsp;导出进度</button>
     <br><br>
     <button id="prg-import-btn">&#xf56d;&emsp;导入进度</button>
-    <input type="file" id="prg-import" accept=".json" style="display: none;">
+    <input type="file" id="prg-import" accept=".json, .txt" style="display: none;">
     <br><br>
     <button id="prg-reset-btn">&#xf2ea;&emsp;重置进度</button>
 </div>
+<br><br>
+<p class="animate__animated animate__fadeIn">注意，此处的进度数据仅指网页全局的系统进度内容，关于故事内“迷子们的日记”（故事存档），请打开日记本弹窗，并在底部选择导出日记本文件</p>
+<br><br>
+<div class="sugar-button sugar-icon animate__animated animate__zoomInUp">
+    <button id="prg-save-btn"><s-icon src="img/icon/mygo_logo.png"></s-icon>&emsp;迷子们的日记本</button>
+</div>
+<br><br>
 <<script>>
 $(document).ready(function () {
     $("#prg-import-btn").on("click", function () {
         $("#prg-import").trigger("click");
 	});
+	
 	$("#prg-export-btn").on("click", function () {
-        Dialog.create("导出选项").wikiPassage("导出进度弹窗").open();
+        Dialog
+            .create("导出选项")
+            .wikiPassage("导出进度弹窗")
+            .open();
 	});
+	
 	$("#prg-reset-btn").on("click", function () {
-        Dialog.create("重置警告").wikiPassage("重置进度警告").open();
+        Dialog
+            .create("重置警告")
+            .wikiPassage("重置进度警告")
+            .open();
 	});
+	
 	$("#prg-import").on("change", function () {
 		const file = this.files[0];
 		if (!file) return;
@@ -216,14 +236,18 @@ $(document).ready(function () {
 		};
 		reader.readAsText(file);
 	});
+	
+	$("#prg-save-btn").on("click", function() {
+		UI.saves();
+	});
 });
 <</script>>
 
 :: 导出进度弹窗 [dialog]
 <div style="text-align: center;">
-	<p>请选择导出进度方式：</p>
+	<p>请选择导出进度数据的方式：</p>
 	<button id="prg-export-dl">下载为JSON文件</button>
-	<br>
+	<p>如果无法下载文件，你也可以选择复制数据，待导入时将它粘贴到一个.txt或.json文件里：</p>
 	<button id="prg-export-cp">复制到剪贴板</button>
 </div>
 
@@ -235,18 +259,26 @@ $(document).ready(function () {
 		return;
 	}
 
-	$("#prg-export-dl").on("click", function () {
-		const blob = new Blob([data], { type: "application/json" });
-		const url = URL.createObjectURL(blob);
-		const dta = document.createElement("a");
-		dta.href = url;
-		dta.download = "迷子们的每一天进度数据.json";
-		dta.click();
-		URL.revokeObjectURL(url);
-		Dialog.close();
-	});
+    $("#prg-export-dl").on("click", function () {
+    	const blob = new Blob([data], { type: "application/json" });
+    	const url = URL.createObjectURL(blob);
+    	const dta = document.createElement("a");
+    	dta.href = url;    
+    	const now = new Date();
+    	const yyyy = now.getFullYear();
+    	const mm = String(now.getMonth() + 1).padStart(2, "0");
+    	const dd = String(now.getDate()).padStart(2, "0");
+    	const hh = String(now.getHours()).padStart(2, "0");
+    	const mi = String(now.getMinutes()).padStart(2, "0");
+    	const ss = String(now.getSeconds()).padStart(2, "0");
+    	const exporttime = `${yyyy}${mm}${dd}_${hh}${mi}${ss}`;   
+    	dta.download = `迷子们的每一天进度数据_${exporttime}.json`;
+    	dta.click();
+    	URL.revokeObjectURL(url);
+    	Dialog.close();
+    });
 
-	$("#prg-export-cp").on("click", function () {
+    $("#prg-export-cp").on("click", function () {
 		navigator.clipboard.writeText(data)
 			.then(() => alert("已复制进度数据到剪贴板！"))
 			.catch(() => alert("复制进度数据失败，请检查浏览器权限"));
@@ -259,8 +291,8 @@ $(document).ready(function () {
 <<nobr>>
     <div style="text-align: center;" class="animate__animated animate__wobble">
     	<strong>警告：</strong>
-    	<p><u>将会永久重置你的故事进度，<br>这包括自由模式解锁地点、物品等<br>若确定重置将会重新载入网页</u></p>
-    	<p style="color: var(--color-accent-d2);"><em>你确定要重置进度吗？</em></p>
+    	<p><u>所有包括主线故事章节阅读进度、日常故事可访问地点/物品/成就、其它系统进度等的内容将会消失，同时迷子们的日记本也将清空，完成后将会重新载入网页</u></p>
+    	<p style="color: var(--color-accent-l);"><em>你确定要重置进度吗？</em></p>
     </div>
 <</nobr>>
 <div style="text-align: center;" class="animate__animated animate__shakeY">
@@ -276,7 +308,35 @@ $(document).ready(function () {
 	});
 
 	$("#prg-reset-yes").on("click", function () {
+        Dialog
+            .create("重置确认")
+            .wikiPassage("重置确认")
+            .open();
+	});
+});
+<</script>>
+
+:: 重置确认 [dialog]
+<<nobr>>
+    <div style="text-align: center;" class="animate__animated animate__shakeX">
+    	<strong><u>请再次确认：</u></strong>
+    	<p style="color: var(--color-accent-l);"><em>你确定要重置进度吗？<br><br></em>网页将重新载入</p>
+    </div>
+<</nobr>>
+<div style="text-align: center;" class="animate__animated animate__fadeIn animate__slower">
+	<button id="prg-reset2-no">放弃重置</button>
+	<br>
+	<button id="prg-reset2-yes" class="warn-button">确认重置</button>
+</div>
+<<script>>
+$(document).ready(function () {
+	$("#prg-reset2-no").on("click", function () {
+		Dialog.close();
+	});
+
+	$("#prg-reset2-yes").on("click", function () {
         localStorage.removeItem("playProgress");
+        Save.browser.clear();
 	    Engine.restart();
 	});
 });

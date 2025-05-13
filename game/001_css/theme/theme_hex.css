@@ -293,12 +293,12 @@
 
 :root.theme-sober-d {
     /* Sober.js组件配色dark */
-    --s-color-primary: var(--color-secondary-d);
-    --s-color-on-primary: #c9e6ff;
+    --s-color-primary: var(--color-secondary);
+    --s-color-on-primary: var(--color-text1);
     --s-color-primary-container: #004b6f;
     --s-color-on-primary-container: #c9e6ff;
     --s-color-secondary: #b7c9d9;
-    --s-color-on-secondary: #22323f;
+    --s-color-on-secondary: var(--color-text2);
     --s-color-secondary-container: #384956;
     --s-color-on-secondary-container: #d3e5f5;
     --s-color-tertiary: #cfc0e8;
@@ -319,7 +319,7 @@
     --s-color-on-surface-variant: #c1c7ce;
     --s-color-inverse-surface: #2e3133;
     --s-color-inverse-on-surface: #e2e2e5;
-    --s-color-inverse-primary: var(--color-secondary-d);
+    --s-color-inverse-primary: var(--color-secondary);
     --s-color-surface-container: #1e2022;
     --s-color-surface-container-lowest: #0c0e11;
     --s-color-surface-container-low: #1a1c1e;
@@ -329,12 +329,12 @@
 
 :root.theme-sober-l {
     /* Sober.js组件配色light */
-    --s-color-primary: var(--color-secondary-d);
-    --s-color-on-primary: #ffffff;
+    --s-color-primary: var(--color-secondary);
+    --s-color-on-primary: var(--color-text1);
     --s-color-primary-container: #c9e6ff;
     --s-color-on-primary-container: #001e2f;
     --s-color-secondary: #50606e;
-    --s-color-on-secondary: #ffffff;
+    --s-color-on-secondary: var(--color-text2);
     --s-color-secondary-container: #d3e5f5;
     --s-color-on-secondary-container: #0c1d29;
     --s-color-tertiary: #64597b;
@@ -355,7 +355,7 @@
     --s-color-on-surface-variant: #41474d;
     --s-color-inverse-surface: #e2e2e5;
     --s-color-inverse-on-surface: #2e3133;
-    --s-color-inverse-primary: var(--color-secondary-d);
+    --s-color-inverse-primary: var(--color-secondary);
     --s-color-surface-container: #edeef1;
     --s-color-surface-container-lowest: #e2e2e5;
     --s-color-surface-container-low: #e7e8eb;
