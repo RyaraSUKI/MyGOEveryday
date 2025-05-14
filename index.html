@@ -1777,7 +1777,7 @@ html[data-init="loading"] #init-loading {
     }
 
     .menucard {
-        width: auto;
+        width: 250px;
         padding: 15px;
     }
 
@@ -2294,6 +2294,10 @@ if (!localStorage.getItem("playProgress")) {
 		chapterUnlocked: 1,
 		dailyUnlocked: false,
 		noticeRead: false,
+		mainRead: false,
+		msNotice: false,
+		dsNotice: false,
+		asNotice: false,
 		unlockedLocations: []
 	}));
 }
@@ -2637,130 +2641,59 @@ Setting.addToggle("autosave", {
     desc: "在这里开启/关闭自动记录功能吧！",
     default: true,
 });
-/*Config.saves.descriptions = function(saveType) {
-    switch (saveType) {
-        case Save.Type.Auto: {
-            return "[自动记录]" + passage();
-            break;
-        }
-        default: {
-            if (settings.autoname) {
-                return "迷子的日记" + " - " + passage();
-            } else {
-                return prompt("请写下记录名：", "迷子的日记" + " - " + passage());
-            }
-        }
-    }
-};
-Config.saves.descriptions = function(saveType) {
-    switch (saveType) {
-        case Save.Type.Auto:
-            return "[自动记录]" + passage();
-        default: {
-            let prefix = "";
-
-            if (State.variables.mode) {
-                switch (State.variables.mode) {
-                    case "main":
-                        prefix += "[主线]";
-                        if (State.variables.chapter) {
-                            switch (State.variables.chapter) {
-                                case 1:
-                                    prefix += "[迷路日日]";
-                                    break;
-                                case 2:
-                                    prefix += "[轮符雨]";
-                                    break;
-                                // 可扩展其他章节
-                            }
-                        }
-                        break;
-                    case "daily":
-                        prefix += "[日常]";
-                        if (State.variables.place) {
-                            prefix += "[" + State.variables.place + "]";
-                        }
-                        break;
-                    case "another":
-                        prefix += "[附加]";
-                        if (State.variables.asinfo) {
-                            prefix += "[" + State.variables.asinfo + "]";
-                        }
-                        break;
-                    case "test":
-                        prefix += "[测试]";
-                        break;
-                }
-            }
-
-            // 生成最终描述
-            const baseTitle = passage();
-            const fullTitle = prefix ? prefix + baseTitle : "迷子的日记 - " + baseTitle;
-
-            // 判断是否自动命名
-            if (settings.autoname) {
-                return fullTitle;
-            } else {
-                return prompt("请写下记录名：", fullTitle);
-            }
-        }
-    }
-};*/
 
 Config.saves.descriptions = function(saveType) {
-    // 构造统一的 fullTitle 前缀
-    let prefix = "";
+    let saveTag = "";
 
-    const vars = State.variables;
-
-    if (vars.mode) {
-        switch (vars.mode) {
+    if (State.variables.mode) {
+        switch (State.variables.mode) {
             case "main":
-                prefix += "[主线]";
-                if (vars.chapter) {
-                    switch (vars.chapter) {
+                saveTag += "[主线]";
+
+                if (State.variables.chapter) {
+                    switch (State.variables.chapter) {
                         case 1:
-                            prefix += "[迷路日日]";
+                            saveTag += "[迷路日日]";
                             break;
                         case 2:
-                            prefix += "[轮符雨]";
+                            saveTag += "[輪符雨]";
                             break;
-                        // 可扩展更多章节
+                            // 章节待更新
                     }
+                }
+
+                if (State.variables.section) {
+                    saveTag += "：" + State.variables.section;
                 }
                 break;
             case "daily":
-                prefix += "[日常]";
-                if (vars.place) {
-                    prefix += "[" + vars.place + "]";
+                saveTag += "[日常]";
+                if (State.variables.dsname) {
+                    saveTag += "：" + State.variables.dsname;
                 }
                 break;
             case "another":
-                prefix += "[附加]";
-                if (vars.asinfo) {
-                    prefix += "[" + vars.asinfo + "]";
+                saveTag += "[附加]";
+                if (State.variables.asname) {
+                    saveTag += "：" + State.variables.asname;
                 }
                 break;
             case "test":
-                prefix += "[测试]";
+                saveTag += "[测试]" + passage();
                 break;
         }
     }
 
-    // 获取当前 passage 名称
-    const baseTitle = passage();
-    const fullTitle = prefix ? prefix + baseTitle : "迷子的日记 - " + baseTitle;
+    const saveTitle = saveTag ? saveTag : "迷子的日记 - " + passage();
 
-    // 自动记录和手动记录统一使用 fullTitle
     if (saveType === Save.Type.Auto) {
-        return fullTitle;
+        return "[自动记录]" + saveTitle;
     }
 
-    // 手动记录：判断是否自动命名
     if (settings.autoname) {
-        return fullTitle;
+        return saveTitle;
     } else {
-        return prompt("请写下记录名：", fullTitle);
+        return prompt("请写下日记标题：", saveTitle);
     }
 };
 
@@ -2809,7 +2742,7 @@ $(document).ready(function () {
     // 拦截返回操作，显示popout提示
     $(window).on('popstate', function () {
         history.pushState({ page: 'twine-custom' }, '', location.href);
-        setup.popout("⚠️''再按一次以退出''<br>若要回溯操作，请打开侧边栏", 5000, "side");
+        setup.popout("⚠️''再操作一次以退出''<br><br>若要回溯操作，请打开侧边栏", 5000, "bottom");
     });
     // 刷新或关闭页面时弹窗提示
     $(window).on('beforeunload', function() {
@@ -3273,7 +3206,8 @@ $(document).ready(function() {
 &lt;s-rate&gt;&lt;/s-rate&gt;
 &lt;s-circular-progress indeterminate=&quot;true&quot;&gt;&lt;/s-circular-progress&gt;&lt;br&gt;
 &lt;s-slider labeled=&quot;true&quot;&gt;&lt;/s-slider&gt;&lt;br&gt;
-&lt;s-linear-progress indeterminate=&quot;true&quot;&gt;&lt;/s-linear-progress&gt;</tw-passagedata><tw-passagedata pid="9" name="StoryInit" tags="" position="1100,100" size="100,100"></tw-passagedata><tw-passagedata pid="10" name="进入测试页面" tags="autosave" position="1225,100" size="100,100">&lt;div class=&quot;animate__animated animate__tada&quot;&gt;&lt;h2&gt;&lt;u&gt;&lt;strong&gt;请注意！&lt;/strong&gt;&lt;/u&gt;&lt;/h2&gt;&lt;strong&gt;这不是修改器页面！&lt;/strong&gt;&lt;br&gt;你接下来要进入游戏测试主页，&lt;u&gt;这个页面主要用于开发，非正常游戏流程不会使用该页面，且只能通过主页面弹窗进入&lt;/u&gt;，是否继续？&lt;/div&gt;
+&lt;s-linear-progress indeterminate=&quot;true&quot;&gt;&lt;/s-linear-progress&gt;</tw-passagedata><tw-passagedata pid="9" name="StoryInit" tags="" position="1100,100" size="100,100"></tw-passagedata><tw-passagedata pid="10" name="进入测试页面" tags="autosave" position="1225,100" size="100,100">&lt;&lt;set $mode = &quot;test&quot;&gt;&gt;
+&lt;div class=&quot;animate__animated animate__tada&quot;&gt;&lt;h2&gt;&lt;u&gt;&lt;strong&gt;请注意！&lt;/strong&gt;&lt;/u&gt;&lt;/h2&gt;&lt;strong&gt;这不是修改器页面！&lt;/strong&gt;&lt;br&gt;你接下来要进入游戏测试主页，&lt;u&gt;这个页面主要用于开发，非正常游戏流程不会使用该页面，且只能通过主页面弹窗进入&lt;/u&gt;，是否继续？&lt;/div&gt;
 &lt;s-divider&gt;剪切线&lt;/s-divider&gt;
 &lt;br&gt;
 &lt;s-button id=&quot;no-test-home&quot; class=&quot;sober-button&quot;&gt;不，等等!&lt;/s-button&gt;
@@ -3489,7 +3423,7 @@ $(document).ready(function () {
     &lt;&lt;button &quot;&amp;#xf05a;&amp;emsp;查看网页须知&quot; &quot;网页须知&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;br&gt;&lt;br&gt;
-//&#39;&#39;请选择要游玩的故事模式：&#39;&#39;//
+//&#39;&#39;请选择要阅读的故事模式：&#39;&#39;//
 &lt;br&gt;&lt;br&gt;
 &lt;div class=&quot;menucard-container animate__animated animate__zoomInUp animate__slow&quot;&gt;
     &lt;div id=&quot;go-main&quot; class=&quot;menucard&quot; style=&quot;background-color: #4a9cd3;&quot;&gt;
@@ -3534,15 +3468,95 @@ $(document).ready(function () {
     setTimeout(() =&gt; {
       $arrow.removeClass(&#39;clickx&#39;);
     }, 300);
+    if (setup.progress.mainRead) {
     setTimeout(() =&gt; {
-      Engine.play(&quot;Start3&quot;);
+      Engine.play(&quot;StartMS&quot;);
     }, 500);
+    } else {
+    setTimeout(() =&gt; {
+      Engine.play(&quot;MS0-0&quot;)
+    }, 500);
+    }
   });
   $(&quot;#go-daily&quot;).on(&quot;click&quot;, function() {
     const $arrow = $(this).find(&#39;.menucard-arrow&#39;);
-    $arrow.addClass(&#39;clicky&#39;);
+    $arrow.addClass(&#39;clickx&#39;);
     setTimeout(() =&gt; {
-      $arrow.removeClass(&#39;clicky&#39;);
+      $arrow.removeClass(&#39;clickx&#39;);
+    }, 300);
+    if (setup.progress.dailyUnlocked) {
+    setTimeout(() =&gt; {
+      Engine.play(&quot;StartDS&quot;);
+    }, 500);
+    } else {
+    setTimeout(() =&gt; {
+      UI.alert(&quot;&lt;h3&gt;【迷子日常】模式尚未解锁！&lt;/h3&gt;请先游玩主线故事第一章了解&lt;br&gt;『迷子们的每一天 !!!!!』设定背景吧！&quot;);
+    }, 500);
+    }
+  });
+  $(&quot;#go-another&quot;).on(&quot;click&quot;, function() {
+    const $arrow = $(this).find(&#39;.menucard-arrow&#39;);
+    $arrow.addClass(&#39;clickx&#39;);
+    setTimeout(() =&gt; {
+      $arrow.removeClass(&#39;clickx&#39;);
+    }, 600);
+    setTimeout(() =&gt; {
+      Engine.play(&quot;StartAS&quot;);
+    }, 800);
+  });
+});
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="StartMS" tags="hidebar nosave nobr" position="475,350" size="100,100">&lt;div class=&quot;sugar-button sugar-icon animate__animated animate__bounceInDown&quot;&gt;
+    &lt;&lt;button &quot;&amp;#xf137;&amp;emsp;返回模式选择&quot; &quot;Start3&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+    &lt;button id=&quot;main-notice-btn&quot;&gt;&amp;#xf05a;&amp;emsp;主线故事须知&lt;/button&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+//&#39;&#39;请选择要阅读的主线故事章节：&#39;&#39;//
+&lt;br&gt;&lt;br&gt;
+&lt;div class=&quot;menucard-container animate__animated animate__zoomInUp animate__slow&quot;&gt;
+    &lt;div id=&quot;main-1&quot; class=&quot;menucard&quot; style=&quot;background-color: #4a9cd3;&quot;&gt;
+      &lt;div class=&quot;menucard-text-block&quot;&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;序&amp;ensp;焚音打&lt;/div&gt;
+        &lt;br&gt;&lt;br&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;Chapter0:Tanebi&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+    &lt;div id=&quot;main-2&quot; class=&quot;menucard&quot; style=&quot;background-color: #f1b74b;&quot;&gt;
+      &lt;div class=&quot;menucard-text-block&quot;&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;壹&amp;ensp;迷路日&lt;/div&gt;
+        &lt;br&gt;&lt;br&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;Chapter1:Malody&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+    &lt;div id=&quot;main-2&quot; class=&quot;menucard&quot; style=&quot;background-color: #f36d6d;&quot;&gt;
+      &lt;div class=&quot;menucard-text-block&quot;&gt;
+        &lt;div class=&quot;menucard-title&quot;&gt;贰&amp;ensp;輪符雨&lt;/div&gt;
+        &lt;br&gt;&lt;br&gt;
+        &lt;div class=&quot;menucard-sub&quot;&gt;Chapter2:Refrain&lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;menucard-desc&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;menucard-arrow&quot;&gt;&amp;#xf138;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;u&gt;&lt;em&gt;更多章节更新中，欢迎参与共创！&lt;/em&gt;&lt;/u&gt;
+
+
+&lt;&lt;script&gt;&gt;
+$(document).ready(function () {
+  $(&quot;#main-0&quot;).on(&quot;click&quot;, function() {
+     const $arrow = $(this).find(&#39;.menucard-arrow&#39;);
+    $arrow.addClass(&#39;clickx&#39;);
+    setTimeout(() =&gt; {
+      $arrow.removeClass(&#39;clickx&#39;);
     }, 300);
     if (setup.progress.dailyUnlocked) {
     setTimeout(() =&gt; {
@@ -3554,18 +3568,46 @@ $(document).ready(function () {
     }, 500);
     }
   });
-  $(&quot;#go-another&quot;).on(&quot;click&quot;, function() {
+  $(&quot;#main-1&quot;).on(&quot;click&quot;, function() {
     const $arrow = $(this).find(&#39;.menucard-arrow&#39;);
-    $arrow.addClass(&#39;clickr&#39;);
+    $arrow.addClass(&#39;clickx&#39;);
     setTimeout(() =&gt; {
-      $arrow.removeClass(&#39;clickr&#39;);
-    }, 600);
+      $arrow.removeClass(&#39;clickx&#39;);
+    }, 300);
+    if (setup.progress.dailyUnlocked) {
     setTimeout(() =&gt; {
       Engine.play(&quot;Start3&quot;);
-    }, 800);
+    }, 500);
+    } else {
+    setTimeout(() =&gt; {
+      UI.alert(&quot;&lt;h3&gt;【迷子日常】模式尚未解锁！&lt;/h3&gt;请先游玩主线故事第一章了解&lt;br&gt;『迷子们的每一天 !!!!!』设定背景吧！&quot;);
+    }, 500);
+    }
+  });
+  $(&quot;#main-2&quot;).on(&quot;click&quot;, function() {
+    const $arrow = $(this).find(&#39;.menucard-arrow&#39;);
+    $arrow.addClass(&#39;clickx&#39;);
+    setTimeout(() =&gt; {
+      $arrow.removeClass(&#39;clickx&#39;);
+    }, 300);
+    if (setup.progress.dailyUnlocked) {
+    setTimeout(() =&gt; {
+      Engine.play(&quot;Start3&quot;);
+    }, 500);
+    } else {
+    setTimeout(() =&gt; {
+      UI.alert(&quot;&lt;h3&gt;【迷子日常】模式尚未解锁！&lt;/h3&gt;请先游玩主线故事第一章了解&lt;br&gt;『迷子们的每一天 !!!!!』设定背景吧！&quot;);
+    }, 500);
+    }
+  });
+  $(&quot;#main-notice-btn&quot;).on(&quot;click&quot;, function() {
+    Dialog
+        .create(&quot;主线故事 须知&quot;)
+        .wikiPassage(&quot;主线须知&quot;)
+        .open();
   });
 });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="StartMS" tags="hidebar nosave nobr" position="475,350" size="100,100"></tw-passagedata><tw-passagedata pid="25" name="StartDS" tags="hidebar nosave nobr" position="600,350" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="26" name="StartAS" tags="hidebar nosave nobr" position="725,350" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="进度数据" tags="hidebar nosave nobr" position="850,350" size="100,100">&lt;div class=&quot;sugar-button sugar-icon animate__animated animate__bounceInDown&quot;&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="主线须知" tags="dialog" position="600,350" size="100,100">=</tw-passagedata><tw-passagedata pid="26" name="StartDS" tags="hidebar nosave nobr" position="725,350" size="100,100">在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——</tw-passagedata><tw-passagedata pid="27" name="StartAS" tags="hidebar nosave nobr" position="850,350" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="进度数据" tags="hidebar nosave nobr" position="975,350" size="100,100">&lt;div class=&quot;sugar-button sugar-icon animate__animated animate__bounceInDown&quot;&gt;
     &lt;&lt;button &quot;&amp;#xf137;&amp;emsp;返回模式选择&quot; &quot;Start3&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;br&gt;
@@ -3628,7 +3670,7 @@ $(document).ready(function () {
 		UI.saves();
 	});
 });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="导出进度弹窗" tags="dialog" position="975,350" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="导出进度弹窗" tags="dialog" position="1100,350" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;p&gt;请选择导出进度数据的方式：&lt;/p&gt;
 	&lt;button id=&quot;prg-export-dl&quot;&gt;下载为JSON文件&lt;/button&gt;
 	&lt;p&gt;如果无法下载文件，你也可以选择复制数据，待导入时将它粘贴到一个.txt或.json文件里：&lt;/p&gt;
@@ -3669,7 +3711,7 @@ $(document).ready(function () {
 		Dialog.close();
 	});
 });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="重置进度警告" tags="dialog" position="1100,350" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="重置进度警告" tags="dialog" position="1225,350" size="100,100">&lt;&lt;nobr&gt;&gt;
     &lt;div style=&quot;text-align: center;&quot; class=&quot;animate__animated animate__wobble&quot;&gt;
     	&lt;strong&gt;警告：&lt;/strong&gt;
     	&lt;p&gt;&lt;u&gt;所有包括主线故事章节阅读进度、日常故事可访问地点/物品/成就、其它系统进度等的内容将会消失，同时迷子们的日记本也将清空，完成后将会重新载入网页&lt;/u&gt;&lt;/p&gt;
@@ -3695,7 +3737,7 @@ $(document).ready(function () {
             .open();
 	});
 });
-&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="重置确认" tags="dialog" position="1225,350" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="重置确认" tags="dialog" position="100,475" size="100,100">&lt;&lt;nobr&gt;&gt;
     &lt;div style=&quot;text-align: center;&quot; class=&quot;animate__animated animate__shakeX&quot;&gt;
     	&lt;strong&gt;&lt;u&gt;请再次确认：&lt;/u&gt;&lt;/strong&gt;
     	&lt;p style=&quot;color: var(--color-accent-l);&quot;&gt;&lt;em&gt;你确定要重置进度吗？&lt;br&gt;&lt;br&gt;&lt;/em&gt;网页将重新载入&lt;/p&gt;

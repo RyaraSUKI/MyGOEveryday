@@ -3,6 +3,10 @@ if (!localStorage.getItem("playProgress")) {
 		chapterUnlocked: 1,
 		dailyUnlocked: false,
 		noticeRead: false,
+		mainRead: false,
+		msNotice: false,
+		dsNotice: false,
+		asNotice: false,
 		unlockedLocations: []
 	}));
 }

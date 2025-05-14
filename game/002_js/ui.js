@@ -36,7 +36,7 @@ $(document).ready(function () {
     // 拦截返回操作，显示popout提示
     $(window).on('popstate', function () {
         history.pushState({ page: 'twine-custom' }, '', location.href);
-        setup.popout("⚠️''再按一次以退出''<br>若要回溯操作，请打开侧边栏", 5000, "side");
+        setup.popout("⚠️''再操作一次以退出''<br><br>若要回溯操作，请打开侧边栏", 5000, "bottom");
     });
     // 刷新或关闭页面时弹窗提示
     $(window).on('beforeunload', function() {

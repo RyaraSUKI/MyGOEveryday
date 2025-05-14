@@ -91,7 +91,7 @@ $(document).ready(function () {
     <<button "&#xf05a;&emsp;查看网页须知" "网页须知">><</button>>
 </div>
 <br><br>
-//''请选择要游玩的故事模式：''//
+//''请选择要阅读的故事模式：''//
 <br><br>
 <div class="menucard-container animate__animated animate__zoomInUp animate__slow">
     <div id="go-main" class="menucard" style="background-color: #4a9cd3;">
@@ -136,15 +136,98 @@ $(document).ready(function () {
     setTimeout(() => {
       $arrow.removeClass('clickx');
     }, 300);
+    if (setup.progress.mainRead) {
     setTimeout(() => {
-      Engine.play("Start3");
+      Engine.play("StartMS");
     }, 500);
+    } else {
+    setTimeout(() => {
+      Engine.play("MS0-0")
+    }, 500);
+    }
   });
   $("#go-daily").on("click", function() {
     const $arrow = $(this).find('.menucard-arrow');
-    $arrow.addClass('clicky');
+    $arrow.addClass('clickx');
     setTimeout(() => {
-      $arrow.removeClass('clicky');
+      $arrow.removeClass('clickx');
+    }, 300);
+    if (setup.progress.dailyUnlocked) {
+    setTimeout(() => {
+      Engine.play("StartDS");
+    }, 500);
+    } else {
+    setTimeout(() => {
+      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
+    }, 500);
+    }
+  });
+  $("#go-another").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
+    }, 600);
+    setTimeout(() => {
+      Engine.play("StartAS");
+    }, 800);
+  });
+});
+<</script>>
+
+:: StartMS [hidebar nosave nobr]
+<div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
+    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
+    <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>
+</div>
+<br><br>
+//''请选择要阅读的主线故事章节：''//
+<br><br>
+<div class="menucard-container animate__animated animate__zoomInUp animate__slow">
+    <div id="main-1" class="menucard" style="background-color: #4a9cd3;">
+      <div class="menucard-text-block">
+        <div class="menucard-title">序&ensp;焚音打</div>
+        <br><br>
+        <div class="menucard-sub">Chapter0:Tanebi</div>
+        <br>
+        <div class="menucard-desc"></div>
+      </div>
+      <div class="menucard-arrow">&#xf138;</div>
+    </div>
+<br><br>
+    <div id="main-2" class="menucard" style="background-color: #f1b74b;">
+      <div class="menucard-text-block">
+        <div class="menucard-title">壹&ensp;迷路日</div>
+        <br><br>
+        <div class="menucard-sub">Chapter1:Malody</div>
+        <br>
+        <div class="menucard-desc"></div>
+      </div>
+      <div class="menucard-arrow">&#xf138;</div>
+    </div>
+<br><br>
+    <div id="main-2" class="menucard" style="background-color: #f36d6d;">
+      <div class="menucard-text-block">
+        <div class="menucard-title">贰&ensp;輪符雨</div>
+        <br><br>
+        <div class="menucard-sub">Chapter2:Refrain</div>
+        <br>
+        <div class="menucard-desc"></div>
+      </div>
+      <div class="menucard-arrow">&#xf138;</div>
+    </div>
+</div>
+<br><br>
+<u><em>更多章节更新中，欢迎参与共创！</em></u>
+
+
+<<script>>
+$(document).ready(function () {
+  $("#main-0").on("click", function() {
+     const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
     }, 300);
     if (setup.progress.dailyUnlocked) {
     setTimeout(() => {
@@ -156,20 +239,49 @@ $(document).ready(function () {
     }, 500);
     }
   });
-  $("#go-another").on("click", function() {
+  $("#main-1").on("click", function() {
     const $arrow = $(this).find('.menucard-arrow');
-    $arrow.addClass('clickr');
+    $arrow.addClass('clickx');
     setTimeout(() => {
-      $arrow.removeClass('clickr');
-    }, 600);
+      $arrow.removeClass('clickx');
+    }, 300);
+    if (setup.progress.dailyUnlocked) {
     setTimeout(() => {
       Engine.play("Start3");
-    }, 800);
+    }, 500);
+    } else {
+    setTimeout(() => {
+      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
+    }, 500);
+    }
+  });
+  $("#main-2").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
+    }, 300);
+    if (setup.progress.dailyUnlocked) {
+    setTimeout(() => {
+      Engine.play("Start3");
+    }, 500);
+    } else {
+    setTimeout(() => {
+      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
+    }, 500);
+    }
+  });
+  $("#main-notice-btn").on("click", function() {
+    Dialog
+        .create("主线故事 须知")
+        .wikiPassage("主线须知")
+        .open();
   });
 });
 <</script>>
 
-:: StartMS [hidebar nosave nobr]
+:: 主线须知 [dialog]
+=
 
 :: StartDS [hidebar nosave nobr]
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
