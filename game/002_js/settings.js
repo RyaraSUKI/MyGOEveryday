@@ -358,7 +358,7 @@ Config.saves.descriptions = function(saveType) {
                 }
                 break;
             case "test":
-                saveTag += "[测试]" + passage();
+                saveTag += "[测试]：" + passage();
                 break;
         }
     }

@@ -154,11 +154,11 @@ $(document).ready(function () {
     }, 300);
     if (setup.progress.dailyUnlocked) {
     setTimeout(() => {
-      Engine.play("StartDS");
+      UI.alert("<h3>【迷子日常】模式尚未完成！</h3>正在积极开发中，欢迎参与制作&提供建议！");
     }, 500);
     } else {
     setTimeout(() => {
-      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
+      UI.alert("<h3>【迷子日常】模式尚未完成！</h3>正在积极开发中，欢迎参与制作&提供建议！<!--<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！-->");
     }, 500);
     }
   });
@@ -169,13 +169,13 @@ $(document).ready(function () {
       $arrow.removeClass('clickx');
     }, 600);
     setTimeout(() => {
-      Engine.play("StartAS");
+      UI.alert("<h3>【附加故事】模式尚未完成！</h3>正在积极开发中，欢迎参与制作&提供建议！");
     }, 800);
   });
 });
 <</script>>
 
-:: StartMS [hidebar nosave nobr]
+:: StartMS [hidebar nosave nobr noreturn]
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
     <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
     <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>
@@ -184,60 +184,61 @@ $(document).ready(function () {
 //''请选择要阅读的主线故事章节：''//
 <br><br>
 <div class="menucard-container animate__animated animate__zoomInUp animate__slow">
-    <div id="main-1" class="menucard" style="background-color: #4a9cd3;">
+    <div id="main-0" class="menucard">
       <div class="menucard-text-block">
         <div class="menucard-title">序&ensp;焚音打</div>
         <br><br>
-        <div class="menucard-sub">Chapter0:Tanebi</div>
+        <div class="menucard-sub">Chapter0&ensp;Tanebi</div>
         <br>
-        <div class="menucard-desc"></div>
       </div>
-      <div class="menucard-arrow">&#xf138;</div>
+      <div class="menucard-arrow">&#xf054;</div>
     </div>
 <br><br>
-    <div id="main-2" class="menucard" style="background-color: #f1b74b;">
+    <div id="main-1" class="menucard maincard">
       <div class="menucard-text-block">
-        <div class="menucard-title">壹&ensp;迷路日</div>
+        <div class="menucard-title">壹&ensp;迷路日日</div>
         <br><br>
-        <div class="menucard-sub">Chapter1:Malody</div>
+        <div class="menucard-sub">Chapter1&ensp;Malody</div>
         <br>
-        <div class="menucard-desc"></div>
       </div>
-      <div class="menucard-arrow">&#xf138;</div>
+      <div class="menucard-arrow">&#xf054;</div>
     </div>
 <br><br>
-    <div id="main-2" class="menucard" style="background-color: #f36d6d;">
+    <div id="main-2" class="menucard">
       <div class="menucard-text-block">
         <div class="menucard-title">贰&ensp;輪符雨</div>
         <br><br>
-        <div class="menucard-sub">Chapter2:Refrain</div>
+        <div class="menucard-sub">Chapter2&ensp;Refrain</div>
         <br>
-        <div class="menucard-desc"></div>
       </div>
-      <div class="menucard-arrow">&#xf138;</div>
+      <div class="menucard-arrow">&#xf054;</div>
     </div>
 </div>
 <br><br>
 <u><em>更多章节更新中，欢迎参与共创！</em></u>
+<br><br><br>
 
 
 <<script>>
 $(document).ready(function () {
-  $("#main-0").on("click", function() {
+    if (!setup.progress.msNotice) {
+        Dialog
+            .create("主线故事 须知")
+            .wikiPassage("主线须知")
+            .open();
+        setup.saveProgress({
+    	    msNotice: true
+        });
+    };
+    $("#main-0").on("click", function() {
      const $arrow = $(this).find('.menucard-arrow');
     $arrow.addClass('clickx');
     setTimeout(() => {
       $arrow.removeClass('clickx');
     }, 300);
-    if (setup.progress.dailyUnlocked) {
     setTimeout(() => {
-      Engine.play("Start3");
+      Engine.play("StartMS");
     }, 500);
-    } else {
-    setTimeout(() => {
-      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
-    }, 500);
-    }
   });
   $("#main-1").on("click", function() {
     const $arrow = $(this).find('.menucard-arrow');
@@ -245,13 +246,15 @@ $(document).ready(function () {
     setTimeout(() => {
       $arrow.removeClass('clickx');
     }, 300);
-    if (setup.progress.dailyUnlocked) {
+    if (setup.progress.unlockedChapter >= 1) {
     setTimeout(() => {
-      Engine.play("Start3");
+      Engine.play("StartMS");
     }, 500);
     } else {
+    const $card = $(this).find('#menucard');
+    $card.addClass('dis');
     setTimeout(() => {
-      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
+      UI.alert("<h3>【第一章：迷路日日】尚未解锁！</h3>请先阅读主线故事【序章：焚音打】！");
     }, 500);
     }
   });
@@ -261,13 +264,15 @@ $(document).ready(function () {
     setTimeout(() => {
       $arrow.removeClass('clickx');
     }, 300);
-    if (setup.progress.dailyUnlocked) {
+    if (setup.progress.unlockedChapter >= 2) {
     setTimeout(() => {
-      Engine.play("Start3");
+      Engine.play("StartMS");
     }, 500);
     } else {
+    const $card = $(this).find('#menucard');
+    $card.addClass('dis');
     setTimeout(() => {
-      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
+      UI.alert("<h3>【第二章：輪符雨】尚未解锁！</h3>请先阅读主线故事【第一章：迷路日日】！");
     }, 500);
     }
   });
@@ -281,13 +286,227 @@ $(document).ready(function () {
 <</script>>
 
 :: 主线须知 [dialog]
-=
+须知
 
-:: StartDS [hidebar nosave nobr]
+:: StartDS [hidebar nosave nobr noreturn]
+<div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
+    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
+    <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>
+</div>
+<br><br>
+//''请选择要阅读的主线故事章节：''//
+<br><br>
+<div class="menucard-container animate__animated animate__zoomInUp animate__slow">
+    <div id="main-0" class="menucard">
+      <div class="menucard-text-block">
+        <div class="menucard-title">序&ensp;焚音打</div>
+        <br><br>
+        <div class="menucard-sub">Chapter0&ensp;Tanebi</div>
+        <br>
+      </div>
+      <div class="menucard-arrow">&#xf054;</div>
+    </div>
+<br><br>
+    <div id="main-1" class="menucard maincard">
+      <div class="menucard-text-block">
+        <div class="menucard-title">壹&ensp;迷路日日</div>
+        <br><br>
+        <div class="menucard-sub">Chapter1&ensp;Malody</div>
+        <br>
+      </div>
+      <div class="menucard-arrow">&#xf054;</div>
+    </div>
+<br><br>
+    <div id="main-2" class="menucard">
+      <div class="menucard-text-block">
+        <div class="menucard-title">贰&ensp;輪符雨</div>
+        <br><br>
+        <div class="menucard-sub">Chapter2&ensp;Refrain</div>
+        <br>
+      </div>
+      <div class="menucard-arrow">&#xf054;</div>
+    </div>
+</div>
+<br><br>
+<u><em>更多章节更新中，欢迎参与共创！</em></u>
+<br><br><br>
 在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
 
-:: StartAS [hidebar nosave nobr]
+<<script>>
+$(document).ready(function () {
+    if (!setup.progress.msNotice) {
+        Dialog
+            .create("主线故事 须知")
+            .wikiPassage("主线须知")
+            .open();
+        setup.saveProgress({
+    	    msNotice: true
+        });
+    };
+    $("#main-0").on("click", function() {
+     const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
+    }, 300);
+    setTimeout(() => {
+      Engine.play("StartMS");
+    }, 500);
+  });
+  $("#main-1").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
+    }, 300);
+    if (setup.progress.unlockedChapter >= 1) {
+    setTimeout(() => {
+      Engine.play("StartMS");
+    }, 500);
+    } else {
+    const $card = $(this).find('#menucard');
+    $card.addClass('dis');
+    setTimeout(() => {
+      UI.alert("<h3>【第一章：迷路日日】尚未解锁！</h3>请先阅读主线故事【序章：焚音打】！");
+    }, 500);
+    }
+  });
+  $("#main-2").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
+    }, 300);
+    if (setup.progress.unlockedChapter >= 2) {
+    setTimeout(() => {
+      Engine.play("StartMS");
+    }, 500);
+    } else {
+    const $card = $(this).find('#menucard');
+    $card.addClass('dis');
+    setTimeout(() => {
+      UI.alert("<h3>【第二章：輪符雨】尚未解锁！</h3>请先阅读主线故事【第一章：迷路日日】！");
+    }, 500);
+    }
+  });
+  $("#main-notice-btn").on("click", function() {
+    Dialog
+        .create("主线故事 须知")
+        .wikiPassage("主线须知")
+        .open();
+  });
+});
+<</script>>
 
+:: StartAS [hidebar nosave nobr noreturn]
+<div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
+    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
+    <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>
+</div>
+<br><br>
+//''请选择要阅读的主线故事章节：''//
+<br><br>
+<div class="menucard-container animate__animated animate__zoomInUp animate__slow">
+    <div id="main-0" class="menucard">
+      <div class="menucard-text-block">
+        <div class="menucard-title">序&ensp;焚音打</div>
+        <br><br>
+        <div class="menucard-sub">Chapter0&ensp;Tanebi</div>
+        <br>
+      </div>
+      <div class="menucard-arrow">&#xf054;</div>
+    </div>
+<br><br>
+    <div id="main-1" class="menucard maincard">
+      <div class="menucard-text-block">
+        <div class="menucard-title">壹&ensp;迷路日日</div>
+        <br><br>
+        <div class="menucard-sub">Chapter1&ensp;Malody</div>
+        <br>
+      </div>
+      <div class="menucard-arrow">&#xf054;</div>
+    </div>
+<br><br>
+    <div id="main-2" class="menucard">
+      <div class="menucard-text-block">
+        <div class="menucard-title">贰&ensp;輪符雨</div>
+        <br><br>
+        <div class="menucard-sub">Chapter2&ensp;Refrain</div>
+        <br>
+      </div>
+      <div class="menucard-arrow">&#xf054;</div>
+    </div>
+</div>
+<br><br>
+<u><em>更多章节更新中，欢迎参与共创！</em></u>
+<br><br><br>
+
+
+<<script>>
+$(document).ready(function () {
+    if (!setup.progress.msNotice) {
+        Dialog
+            .create("主线故事 须知")
+            .wikiPassage("主线须知")
+            .open();
+        setup.saveProgress({
+    	    msNotice: true
+        });
+    };
+    $("#main-0").on("click", function() {
+     const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
+    }, 300);
+    setTimeout(() => {
+      Engine.play("StartMS");
+    }, 500);
+  });
+  $("#main-1").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
+    }, 300);
+    if (setup.progress.unlockedChapter >= 1) {
+    setTimeout(() => {
+      Engine.play("StartMS");
+    }, 500);
+    } else {
+    const $card = $(this).find('#menucard');
+    $card.addClass('dis');
+    setTimeout(() => {
+      UI.alert("<h3>【第一章：迷路日日】尚未解锁！</h3>请先阅读主线故事【序章：焚音打】！");
+    }, 500);
+    }
+  });
+  $("#main-2").on("click", function() {
+    const $arrow = $(this).find('.menucard-arrow');
+    $arrow.addClass('clickx');
+    setTimeout(() => {
+      $arrow.removeClass('clickx');
+    }, 300);
+    if (setup.progress.unlockedChapter >= 2) {
+    setTimeout(() => {
+      Engine.play("StartMS");
+    }, 500);
+    } else {
+    const $card = $(this).find('#menucard');
+    $card.addClass('dis');
+    setTimeout(() => {
+      UI.alert("<h3>【第二章：輪符雨】尚未解锁！</h3>请先阅读主线故事【第一章：迷路日日】！");
+    }, 500);
+    }
+  });
+  $("#main-notice-btn").on("click", function() {
+    Dialog
+        .create("主线故事 须知")
+        .wikiPassage("主线须知")
+        .open();
+  });
+});
+<</script>>
 
 :: 进度数据 [hidebar nosave nobr]
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">

@@ -31,7 +31,7 @@
 <s-divider>Sugarcube2宏组件</s-divider>
 <div class="sugar-button"><<button "打开存档">><<ui saves>><</button>></div>
 <div class="sugar-button"><<button "打开设置">><<ui settings>><</button>></div>
-<div class="sugar-button"><<button "显示一条通知，持续五秒">><<notify 5000>>''🔔 MyGo!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</notify>><</button>></div>
+<div class="sugar-button"><<button "显示一条通知，持续五秒">><<popout "top" 5000>>''🔔 MyGo!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</popout>><</button>></div>
 
 :: DebugSample [nosave]
 <s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>

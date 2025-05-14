@@ -96,6 +96,11 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.menucard.dis {
+    color: var(--color-b4);
+    cursor: not-allowed;
+}
+
 .menucard-text-block {
     flex: 1
 }
@@ -103,7 +108,7 @@
 .menucard-title {
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: var(--color-w5);
     transition: transform 0.4s ease;
     transform-origin: left top;
 }
@@ -112,14 +117,14 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin-top: 4px;
-    color: white;
+    color: var(--color-w5);
     transition: transform 0.4s ease;
     transform-origin: left top;
 }
 
 .menucard-desc {
     font-size: .75rem;
-    color: white;
+    color: var(--color-w5);
     margin-top: 12px;
     max-height: 100px;
     line-height: 1.4;
@@ -140,13 +145,18 @@
     transform: scale(2)
 }
 
+/* 主线故事四字标题适配 */
+.maincard:hover .menucard-title {
+    transform: scale(1.7)
+}
+
 .menucard:hover .menucard-sub {
     transform: translateY(10px) translateX(2px) scale(1.5)
 }
 
 .menucard-arrow {
     font-size: 2.5rem;
-    color: white;
+    color: var(--color-w5);
     margin-top: 10px;
     transition: transform 0.3s ease
 }
@@ -233,4 +243,32 @@
     .menucard-arrow {
         font-size: 2rem;
     }
+}
+
+/* 主线故事章节卡片背景色 */
+#main-0 {
+    background: linear-gradient(0.45turn,
+            #cc6a7a,
+            #ccb06a,
+            #5d96a8,
+            #5d5d88,
+            #5da85d);
+}
+
+#main-1 {
+    background: linear-gradient(0.45turn,
+            #345b77,
+            #598b99,
+            #5dbece,
+            #93c9d5,
+            #d2e9ee);
+}
+
+#main-2 {
+    background: linear-gradient(0.45turn,
+            #1c4a68,
+            #0f5591,
+            #307298,
+            #4790b5,
+            #dbedce);
 }

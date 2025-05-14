@@ -8,19 +8,19 @@
         rana: "char-rana"
     };
 
-    // 获取当前为 true 的角色变量名
+    // 获取当前角色变量名
     function getActiveCharacters() {
         return Object.keys(styleMap).filter(char => State.getVar(`$${char}`));
     }
 
-    // 为每个角色添加带 if 前缀的宏，例如 <<ifsoyo>>
+    // if角色判定
     Object.entries(styleMap).forEach(([char, className]) => {
         Macro.add(`if${char}`, {
             tags: null, // 说明这是个闭合标签
             handler() {
-                const activeChars = getActiveCharacters(); // 当前为 true 的角色
+                const activeChars = getActiveCharacters();
 
-                // 如果当前角色变量为 true，显示内容
+                // 显示当前角色内容
                 if (activeChars.includes(char)) {
                     const content = this.payload[0].contents;
 
@@ -44,6 +44,7 @@
                 new Wikifier(this.output, html);
             }
         });
+        // 角色图片
         Macro.add(`${char}img`, {
             handler: function() {
                 let emo = null;
@@ -70,7 +71,7 @@
     });
 
 
-    // 当没有任何角色变量为 true 时显示内容
+    // 当没有任何角色变量时显示的宏
     Macro.add("nochar", {
         tags: null,
         handler() {

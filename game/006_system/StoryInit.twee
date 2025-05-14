@@ -1,1 +1,6 @@
 :: StoryInit
+<<set $anon = false>>
+<<set $soyo = false>>
+<<set $tomori = false>>
+<<set $taki = false>>
+<<set $rana = false>>
