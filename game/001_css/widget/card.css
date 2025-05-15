@@ -74,6 +74,7 @@
 }
 
 .menucard {
+    color: var(--color-w5);
     border-radius: 1em;
     padding: 24px;
     width: 500px;
@@ -96,8 +97,8 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.menucard.dis {
-    color: var(--color-b4);
+.menucard-dis {
+    color: var(--color-b2);
     cursor: not-allowed;
 }
 
@@ -108,7 +109,6 @@
 .menucard-title {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--color-w5);
     transition: transform 0.4s ease;
     transform-origin: left top;
 }
@@ -117,14 +117,12 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin-top: 4px;
-    color: var(--color-w5);
     transition: transform 0.4s ease;
     transform-origin: left top;
 }
 
 .menucard-desc {
     font-size: .75rem;
-    color: var(--color-w5);
     margin-top: 12px;
     max-height: 100px;
     line-height: 1.4;

@@ -230,6 +230,15 @@ $(document).ready(function () {
     	    msNotice: true
         });
     };
+    const unlocked = setup.progress.unlockedChapter;
+	for (let i = 0; i <= 2; i++) {
+		const card = $(`#main-${i}`);
+		if (i > unlocked) {
+			card.addClass("menucard-dis");
+		} else {
+			card.removeClass("menucard-dis");
+		}
+	};
     $("#main-0").on("click", function() {
      const $arrow = $(this).find('.menucard-arrow');
     $arrow.addClass('clickx');
@@ -251,8 +260,6 @@ $(document).ready(function () {
       Engine.play("StartMS");
     }, 500);
     } else {
-    const $card = $(this).find('#menucard');
-    $card.addClass('dis');
     setTimeout(() => {
       UI.alert("<h3>【第一章：迷路日日】尚未解锁！</h3>请先阅读主线故事【序章：焚音打】！");
     }, 500);
@@ -269,8 +276,6 @@ $(document).ready(function () {
       Engine.play("StartMS");
     }, 500);
     } else {
-    const $card = $(this).find('#menucard');
-    $card.addClass('dis');
     setTimeout(() => {
       UI.alert("<h3>【第二章：輪符雨】尚未解锁！</h3>请先阅读主线故事【第一章：迷路日日】！");
     }, 500);
@@ -364,7 +369,7 @@ $(document).ready(function () {
       Engine.play("StartMS");
     }, 500);
     } else {
-    const $card = $(this).find('#menucard');
+    const $card = $(this).find('.menucard');
     $card.addClass('dis');
     setTimeout(() => {
       UI.alert("<h3>【第一章：迷路日日】尚未解锁！</h3>请先阅读主线故事【序章：焚音打】！");
@@ -382,7 +387,7 @@ $(document).ready(function () {
       Engine.play("StartMS");
     }, 500);
     } else {
-    const $card = $(this).find('#menucard');
+    const $card = $(this).find('.menucard');
     $card.addClass('dis');
     setTimeout(() => {
       UI.alert("<h3>【第二章：輪符雨】尚未解锁！</h3>请先阅读主线故事【第一章：迷路日日】！");
@@ -474,7 +479,7 @@ $(document).ready(function () {
       Engine.play("StartMS");
     }, 500);
     } else {
-    const $card = $(this).find('#menucard');
+    const $card = $(this).find('.menucard');
     $card.addClass('dis');
     setTimeout(() => {
       UI.alert("<h3>【第一章：迷路日日】尚未解锁！</h3>请先阅读主线故事【序章：焚音打】！");
@@ -492,7 +497,7 @@ $(document).ready(function () {
       Engine.play("StartMS");
     }, 500);
     } else {
-    const $card = $(this).find('#menucard');
+    const $card = $(this).find('.menucard');
     $card.addClass('dis');
     setTimeout(() => {
       UI.alert("<h3>【第二章：輪符雨】尚未解锁！</h3>请先阅读主线故事【第一章：迷路日日】！");

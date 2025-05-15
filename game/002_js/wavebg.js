@@ -24,13 +24,16 @@ $(document).on(':storyready', function() {
         const subWaves = [];
         for (let j = 0; j < subWaveCount; j++) {
             subWaves.push({
-                baseAmp: Math.random() * 25 + 20,// 基础振幅
-                baseFreq: Math.random() * 0.01 + 0.002,// 基础频率
-                phase: Math.random() * Math.PI * 2,// 相位
-                speed: Math.random() * 0.01 + 0.005,// 波动速度
+                baseAmp: Math.random() * 25 + 20, // 基础振幅
+                baseFreq: Math.random() * 0.01 + 0.002, // 基础频率
+                phase: Math.random() * Math.PI * 2, // 相位
+                speed: Math.random() * 0.01 + 0.005, // 波动速度
             });
         }
-        waves.push({ subWaves, color: colors[i] });
+        waves.push({
+            subWaves,
+            color: colors[i]
+        });
     }
 
     const step = 2;
@@ -40,7 +43,7 @@ $(document).on(':storyready', function() {
         for (const w of subWaves) {
             const amp = w.baseAmp * (1 + 0.3 * Math.sin(t * w.speed));
             const freq = w.baseFreq * (1 + 0.3 * Math.cos(t * w.speed));
-            x += amp * Math.sin(freq * y + w.phase + t);// 正弦波曲线
+            x += amp * Math.sin(freq * y + w.phase + t); // 正弦波曲线
         }
         return x;
     }

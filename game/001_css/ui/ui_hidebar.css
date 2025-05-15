@@ -24,6 +24,8 @@
 }
 
 [data-tags~="hidebar"] #wave-bg {
+    opacity: 0.9;
+    -webkit-opacity: 0.9;
     filter: brightness(95%);
     -webkit-filter: brightness(95%);
 }

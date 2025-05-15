@@ -1,6 +1,6 @@
 if (!localStorage.getItem("playProgress")) {
 	localStorage.setItem("playProgress", JSON.stringify({
-		unlockedChapter: 1,
+		unlockedChapter: 0,
 		dailyUnlocked: false,
 		noticeRead: false,
 		mainRead: false,

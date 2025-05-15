@@ -1411,6 +1411,8 @@ html[data-init="loading"] #init-loading {
 }
 
 [data-tags~="hidebar"] #wave-bg {
+    opacity: 0.9;
+    -webkit-opacity: 0.9;
     filter: brightness(95%);
     -webkit-filter: brightness(95%);
 }
@@ -1637,6 +1639,7 @@ html[data-init="loading"] #init-loading {
 }
 
 .menucard {
+    color: var(--color-w5);
     border-radius: 1em;
     padding: 24px;
     width: 500px;
@@ -1659,8 +1662,8 @@ html[data-init="loading"] #init-loading {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.menucard.dis {
-    color: var(--color-b4);
+.menucard-dis {
+    color: var(--color-b2);
     cursor: not-allowed;
 }
 
@@ -1671,7 +1674,6 @@ html[data-init="loading"] #init-loading {
 .menucard-title {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--color-w5);
     transition: transform 0.4s ease;
     transform-origin: left top;
 }
@@ -1680,14 +1682,12 @@ html[data-init="loading"] #init-loading {
     font-size: 1.25rem;
     font-weight: 600;
     margin-top: 4px;
-    color: var(--color-w5);
     transition: transform 0.4s ease;
     transform-origin: left top;
 }
 
 .menucard-desc {
     font-size: .75rem;
-    color: var(--color-w5);
     margin-top: 12px;
     max-height: 100px;
     line-height: 1.4;
@@ -1862,8 +1862,8 @@ html[data-init="loading"] #init-loading {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    filter: brightness(50%);
-    -webkit-filter: brightness(50%);
+    opacity: 0.3;
+    -webkit-opacity: 0.3;
 }
 
 .wbg-close #wave-bg {
@@ -2330,7 +2330,7 @@ html[data-init="loading"] #init-loading {
 /* twine-user-script #5: "progress_data.js" */
 if (!localStorage.getItem("playProgress")) {
 	localStorage.setItem("playProgress", JSON.stringify({
-		unlockedChapter: 1,
+		unlockedChapter: 0,
 		dailyUnlocked: false,
 		noticeRead: false,
 		mainRead: false,
@@ -2815,13 +2815,16 @@ $(document).on(':storyready', function() {
         const subWaves = [];
         for (let j = 0; j < subWaveCount; j++) {
             subWaves.push({
-                baseAmp: Math.random() * 25 + 20,// 基础振幅
-                baseFreq: Math.random() * 0.01 + 0.002,// 基础频率
-                phase: Math.random() * Math.PI * 2,// 相位
-                speed: Math.random() * 0.01 + 0.005,// 波动速度
+                baseAmp: Math.random() * 25 + 20, // 基础振幅
+                baseFreq: Math.random() * 0.01 + 0.002, // 基础频率
+                phase: Math.random() * Math.PI * 2, // 相位
+                speed: Math.random() * 0.01 + 0.005, // 波动速度
             });
         }
-        waves.push({ subWaves, color: colors[i] });
+        waves.push({
+            subWaves,
+            color: colors[i]
+        });
     }
 
     const step = 2;
@@ -2831,7 +2834,7 @@ $(document).on(':storyready', function() {
         for (const w of subWaves) {
             const amp = w.baseAmp * (1 + 0.3 * Math.sin(t * w.speed));
             const freq = w.baseFreq * (1 + 0.3 * Math.cos(t * w.speed));
-            x += amp * Math.sin(freq * y + w.phase + t);// 正弦波曲线
+            x += amp * Math.sin(freq * y + w.phase + t); // 正弦波曲线
         }
         return x;
     }
@@ -3602,6 +3605,15 @@ $(document).ready(function () {
     	    msNotice: true
         });
     };
+    const unlocked = setup.progress.unlockedChapter;
+	for (let i = 0; i &lt;= 2; i++) {
+		const card = $(`#main-${i}`);
+		if (i &gt; unlocked) {
+			card.addClass(&quot;menucard-dis&quot;);
+		} else {
+			card.removeClass(&quot;menucard-dis&quot;);
+		}
+	};
     $(&quot;#main-0&quot;).on(&quot;click&quot;, function() {
      const $arrow = $(this).find(&#39;.menucard-arrow&#39;);
     $arrow.addClass(&#39;clickx&#39;);
@@ -3623,8 +3635,6 @@ $(document).ready(function () {
       Engine.play(&quot;StartMS&quot;);
     }, 500);
     } else {
-    const $card = $(this).find(&#39;#menucard&#39;);
-    $card.addClass(&#39;dis&#39;);
     setTimeout(() =&gt; {
       UI.alert(&quot;&lt;h3&gt;【第一章：迷路日日】尚未解锁！&lt;/h3&gt;请先阅读主线故事【序章：焚音打】！&quot;);
     }, 500);
@@ -3641,8 +3651,6 @@ $(document).ready(function () {
       Engine.play(&quot;StartMS&quot;);
     }, 500);
     } else {
-    const $card = $(this).find(&#39;#menucard&#39;);
-    $card.addClass(&#39;dis&#39;);
     setTimeout(() =&gt; {
       UI.alert(&quot;&lt;h3&gt;【第二章：輪符雨】尚未解锁！&lt;/h3&gt;请先阅读主线故事【第一章：迷路日日】！&quot;);
     }, 500);
@@ -3730,7 +3738,7 @@ $(document).ready(function () {
       Engine.play(&quot;StartMS&quot;);
     }, 500);
     } else {
-    const $card = $(this).find(&#39;#menucard&#39;);
+    const $card = $(this).find(&#39;.menucard&#39;);
     $card.addClass(&#39;dis&#39;);
     setTimeout(() =&gt; {
       UI.alert(&quot;&lt;h3&gt;【第一章：迷路日日】尚未解锁！&lt;/h3&gt;请先阅读主线故事【序章：焚音打】！&quot;);
@@ -3748,7 +3756,7 @@ $(document).ready(function () {
       Engine.play(&quot;StartMS&quot;);
     }, 500);
     } else {
-    const $card = $(this).find(&#39;#menucard&#39;);
+    const $card = $(this).find(&#39;.menucard&#39;);
     $card.addClass(&#39;dis&#39;);
     setTimeout(() =&gt; {
       UI.alert(&quot;&lt;h3&gt;【第二章：輪符雨】尚未解锁！&lt;/h3&gt;请先阅读主线故事【第一章：迷路日日】！&quot;);
@@ -3837,7 +3845,7 @@ $(document).ready(function () {
       Engine.play(&quot;StartMS&quot;);
     }, 500);
     } else {
-    const $card = $(this).find(&#39;#menucard&#39;);
+    const $card = $(this).find(&#39;.menucard&#39;);
     $card.addClass(&#39;dis&#39;);
     setTimeout(() =&gt; {
       UI.alert(&quot;&lt;h3&gt;【第一章：迷路日日】尚未解锁！&lt;/h3&gt;请先阅读主线故事【序章：焚音打】！&quot;);
@@ -3855,7 +3863,7 @@ $(document).ready(function () {
       Engine.play(&quot;StartMS&quot;);
     }, 500);
     } else {
-    const $card = $(this).find(&#39;#menucard&#39;);
+    const $card = $(this).find(&#39;.menucard&#39;);
     $card.addClass(&#39;dis&#39;);
     setTimeout(() =&gt; {
       UI.alert(&quot;&lt;h3&gt;【第二章：輪符雨】尚未解锁！&lt;/h3&gt;请先阅读主线故事【第一章：迷路日日】！&quot;);
