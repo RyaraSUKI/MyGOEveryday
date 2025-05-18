@@ -3,7 +3,7 @@
 初创：RyaraSUKI
 
 ## 引用与鸣谢
-> 『迷子们的每一天 !!!!!』的主体引擎使用了以下项目，在此表示感谢！
+> 『迷子们的每一天 !!!!!』的主体引擎使用了以下开源项目，在此表示感谢！
 
 - [Twine](https://twinery.org/)
 - [Sugarcube2](https://github.com/tmedwards/sugarcube-2)
@@ -16,7 +16,7 @@
 
 - [Unifont](https://unifoundry.com/unifont/index.html)
 
-> 同时，本项目也参考或引用了下列项目的全部或部分内容，在此表示感谢！
+> 同时，本网页也参考或引用了下列开源项目的全部或部分内容，在此表示感谢！
 
 - [TweeGo](https://github.com/tmedwards/tweego)
 - [sober.js](https://soberjs.com/)

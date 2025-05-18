@@ -1,16 +1,16 @@
 ## 版权声明
 
-1. **本项目系粉丝二次创作，与官方无关，仅供学习和研究，修改内容不得用于商业用途。**
+1. **本网页系粉丝二次创作，与官方无关，仅供学习和研究，修改内容不得用于商业用途。**
 任何衍生作品都必须保持：
 - 明确的原作者/贡献者指向
 - 承诺非商业性质
 - 使用相同的许可证书
 
-2. 本项目基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有，本项目只引用了BanGDream!世界观的角色名、形象和特征等必要设定。
+2. 本网页基于BanGDream!世界观创作，相关角色、设定版权等归属Bushiroad所有，本网页只引用了BanGDream!世界观的角色名、形象和特征等必要设定。
 
-3. 本项目为文字互动同人小说网页，不含完整游戏性，实质上是通过WEB形式表现的同人小说。
+3. 本作品为文字互动同人小说网页，不含完整游戏性，实质上是通过WEB形式表现的同人小说。
 
-4. 本项目中的代码部分采用 **[MIT LICENSE](https://mit-license.org/)** 许可，**依雅莱所属原创素材（包括但不限于文本，图像等）**采用 **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** 协议，社区共创内容版权所属，由作者**自行决定**，本项目将**严格尊守**。
+4. 本网页中的代码部分采用 **[MIT LICENSE](https://mit-license.org/)** 许可，**依雅莱所属原创素材（包括但不限于文本，图像等）**采用 **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** 协议，社区共创内容版权属于**它们的作者们**，本网页将**严格遵守每一位贡献者的决定**。
 
 ## Copyright Notice
 
@@ -20,11 +20,11 @@ Any derivative works must maintain:
 - Non-commercial promise
 - Same license terms
 
-2. This project is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. This project only uses the necessary settings such as character names, appearance, and characteristics of the BanGDream! worldview. 
+2. This web page is a derivative work based on the BanGDream! universe. All original characters and settings are copyright © Bushiroad. This web page only uses the necessary settings such as character names, appearance, and characteristics of the BanGDream! worldview. 
 
-3. This project is a text-interactive fan-made fiction web page and does not include any gameplay. This project is actually a fan-made fiction expressed in the WEB form.
+3. This web page is a text-interactive fan-made fiction work and does not include any gameplay. This web page is actually a fan-made fiction expressed in the WEB form.
 
-4. Original created codes in this project are licensed under **[MIT LICENSE](https://mit-license.org/)** & **resources by RyaraSUKI (including but not limited to texts , images)** in this project are licensed under **[CC BY-NC-SA 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)**. The copyright of the content co-created by the community belongs to **the author's decision** and this project will **strictly abide by**.
+4. Original created codes in this web page are licensed under **[MIT LICENSE](https://mit-license.org/)** and **resources by RyaraSUKI (including but not limited to texts , images)** in this web page are licensed under **[CC BY-NC-SA 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)**. The copyright of the content co-created by the community belongs to **their authors** and this web page will **strictly abide every contributors' decisions**.
 
 
 ## MIT License (Code part)
