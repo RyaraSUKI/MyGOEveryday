@@ -64,7 +64,7 @@ $(document).ready(function() {
 <s-checkbox type="checkbox" id="start2-check" class="animate__animated animate__fadeIn animate__slower">已阅读并接受须知内容</s-checkbox>
 <br>
 <div id="start2-go" style="display: none;" class="animate__animated animate__jackInTheBox">
-    <button id="start2-go-btn" class="hvr-bounce-in"><s-icon src="img/icon/mygo_icon_o.png"></s-icon>&emsp;It's MyGo !!!!!</button>
+    <button id="start2-go-btn" class="hvr-bounce-in"><s-icon src="img/icon/mygo_icon_o.png"></s-icon>&emsp;It's MyGO !!!!!</button>
 </div>
 <<script>>
 $(document).ready(function () {
@@ -628,7 +628,7 @@ $(document).ready(function () {
     <div style="text-align: center;" class="animate__animated animate__wobble">
     	<strong>警告：</strong>
     	<p><u>所有包括主线故事章节阅读进度、日常故事可访问地点/物品/成就、其它系统进度等的内容将会消失，同时迷子们的日记本也将清空，完成后将会重新载入网页</u></p>
-    	<p style="color: var(--color-accent-l);"><em>你确定要重置进度吗？</em></p>
+    	<p style="color: var(--color-warn);"><em>你确定要重置进度吗？</em></p>
     </div>
 <</nobr>>
 <div style="text-align: center;" class="animate__animated animate__shakeY">
@@ -656,7 +656,7 @@ $(document).ready(function () {
 <<nobr>>
     <div style="text-align: center;" class="animate__animated animate__shakeX">
     	<strong><u>请再次确认：</u></strong>
-    	<p style="color: var(--color-accent-l);"><em>你确定要重置进度吗？<br><br></em>网页将重新载入</p>
+    	<p style="color: var(--color-warn);"><em>你确定要重置进度吗？<br><br></em>网页将重新载入</p>
     </div>
 <</nobr>>
 <div style="text-align: center;" class="animate__animated animate__fadeIn animate__slower">

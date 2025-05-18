@@ -1,7 +1,10 @@
 :: 关于 [nobr dialog]
 <div style="text-align: center;">
     <div id="about-title" class="animate__animated animate__slideInDown">
-        <h2 class="hvr-grow">『迷子们的每一天!!!!!』</h2>
+        <div class="hvr-grow">
+            <h2>『迷子们的每一天 !!!!!』</h2>
+                <h3>MyGO Everyday !!!!!</h3>
+        </div>
     </div>
     <div id="about-version" class="animate__animated animate__zoomIn">
        <h3>版本 Alpha 1.0.0</h3>
@@ -9,11 +12,11 @@
     </div>
 <br><br>
 <div id="about-urls" class="animate__animated animate__slideInUp">
-GitHub:<br>[[RyaraSUKI/MyGoEveryday|https://github.com/RyaraSUKI/MyGoEveryday]]
+GitHub:<br>[[RyaraSUKI/MyGOEveryday|https://github.com/RyaraSUKI/MyGOEveryday]]
 <br><br>
 BiliBili:<br>[[依雅莱Ryara的B站空间|https://space.bilibili.com/454918815]]
 <br><br>
-QQ群:<br>[[等待补充|https://github.com/RyaraSUKI/MyGoEveryday]]
+QQ群:<br>[[等待补充|https://github.com/RyaraSUKI/MyGOEveryday]]
 <br><br>
 </div>
 <<script>>

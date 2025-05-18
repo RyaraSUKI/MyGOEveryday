@@ -5,4 +5,14 @@
 
 
 :: StoryCaption
-<br>
+<<if $mode === "main">>
+    img
+<<elseif $mode === "daily">>
+    mig
+<<elseif $mode === "another">>
+    gim
+<<elseif $mode === "test">>
+    if
+<<else>>
+    none
+<</if>>

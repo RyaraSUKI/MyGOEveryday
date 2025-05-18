@@ -1,0 +1,5 @@
+/* SoberJs组件特殊样式类 */
+#start2-check {
+    --s-color-primary: var(--color-warn);
+    --s-color-inverse-primary: var(--color-warn);
+}

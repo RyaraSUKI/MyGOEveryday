@@ -1,28 +1,28 @@
 ## 本项目正在积极开发中，敬请期待
-### 你可以通过[部署的pages](https://ryarasuki.github.io/MyGoEveryday/)进行最新进度预览
+### 你可以通过[部署的pages](https://ryarasuki.github.io/MyGOEveryday/)进行最新进度预览
 
 <div id="top"></div>
 
 <br />
 <div align="center">
-  <a href="https://github.com/RyaraSUKI/MyGoEveryday">
+  <a href="https://github.com/RyaraSUKI/MyGOEveryday">
     <img src="img/icon/mygoe_logo.png" alt="Logo" width="auto" height="auto">
   </a>
 
   <h2 align="center">迷子们的每一天 !!!!!</h2>
-  <h3 align="center">MyGo Everyday !!!!!</h3>
+  <h3 align="center">MyGO Everyday !!!!!</h3>
   <p align="center">  
 一个基于BanGDream！世界观的二次创作文字互动网页，主体部分使用Sugarcube2完成，原创代码部分遵从 [MIT LICENSE] 开源许可，原创文字、图像等遵从 [CC BY-NC-SA 4.0] 协议
     <br />
     <br />
-    <a href="https://ryarasuki.github.io/MyGoEveryday/"><strong>游玩网页版 »</strong></a>
+    <a href="https://ryarasuki.github.io/MyGOEveryday/"><strong>游玩网页版 »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/RyaraSUKI/MyGoEveryday/releases/latest">最新发布版</a>
+    <a href="https://github.com/RyaraSUKI/MyGOEveryday/releases/latest">最新发布版</a>
     ·
-    <a href="https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/COWORK.md">[参与创作！]</a>
+    <a href="https://github.com/RyaraSUKI/MyGOEveryday/blob/master/docs/COWORK.md">[参与创作！]</a>
     ·
-    <a href="https://github.com/RyaraSUKI/MyGoEveryday/issues">反馈与建议</a>
+    <a href="https://github.com/RyaraSUKI/MyGOEveryday/issues">反馈与建议</a>
   </p>
 </div>
 
@@ -56,12 +56,12 @@
 
 ## 参与创作
 
-『迷子们的每一天 !!!!!』欢迎所有热爱者的共同创作，请在[此处](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/COWORK.md)查看指引！
+『迷子们的每一天 !!!!!』欢迎所有热爱者的共同创作，请在[此处](https://github.com/RyaraSUKI/MyGOEveryday/blob/master/docs/COWORK.md)查看指引！
 另外，欢迎加入[讨论群]():
 
 ## 使用说明
 
-- 你可以直接前往[GitHub Pages](https://ryarasuki.github.io/MyGoEveryday/)游玩已部署的最新版，如果你要下载本地版或历史版本，请前往[Releases](https://github.com/RyaraSUKI/MyGoEveryday/releases)
+- 你可以直接前往[GitHub Pages](https://ryarasuki.github.io/MyGOEveryday/)游玩已部署的最新版，如果你要下载本地版或历史版本，请前往[Releases](https://github.com/RyaraSUKI/MyGOEveryday/releases)
 
 **格式说明：**
 - apk：安卓软件安装包，可自行安装，本项目完全安全无风险
@@ -81,21 +81,21 @@
 
 ## 创作者
 
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/CREDITS.md)
+- [点击查看](https://github.com/RyaraSUKI/MyGOEveryday/blob/master/CREDITS.md)
 
 ## 版权声明
 
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/LICENSE.md)
+- [点击查看](https://github.com/RyaraSUKI/MyGOEveryday/blob/master/LICENSE.md)
 
 ## 更新记录
 
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/docs/UPDATE.md)
+- [点击查看](https://github.com/RyaraSUKI/MyGOEveryday/blob/master/docs/UPDATE.md)
 
 ## 引用与鸣谢
 
 > 以下是『迷子们的每一天 !!!!!』完整的引用列表，感谢所有提供支持的开源项目贡献者的无私奉献！
 
-- [点击查看](https://github.com/RyaraSUKI/MyGoEveryday/blob/master/CREDITS.md)
+- [点击查看](https://github.com/RyaraSUKI/MyGOEveryday/blob/master/CREDITS.md)
 
 **特别鸣谢**
 

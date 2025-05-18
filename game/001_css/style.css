@@ -594,6 +594,17 @@ hr {
     }
 }
 
+/* 报错块 */
+.error-view {
+    background-color: var(--color-accent-d);
+    border-left: .5em solid var(--color-accent-l);
+    display: inline-block;
+    margin: .1em;
+    max-width: 100%;
+    padding: 0 .25em;
+    position: relative;
+}
+
 /*加载页面*/
 html[data-init="loading"] #init-loading {
     animation: init-loading-spin 2s linear infinite;
