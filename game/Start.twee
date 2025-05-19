@@ -202,10 +202,10 @@ $(document).ready(function () {
     $arrow.addClass('clickx');
     setTimeout(() => {
       $arrow.removeClass('clickx');
-    }, 600);
+    }, 300);
     setTimeout(() => {
       UI.alert("<h3>【附加故事】模式尚未完成！</h3>正在积极开发中，欢迎参与制作&提供建议！");
-    }, 800);
+    }, 500);
   });
 });
 <</script>>
