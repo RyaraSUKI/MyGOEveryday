@@ -7,8 +7,8 @@
     <div class="title">须知</div>
     <div class="subtitle">Notice</div>
 </div>
-<br><br>
-<div class="animate__animated animate__zoomIn" style="text-align: left;">
+<br>
+<div class="animate__animated animate__zoomIn" style="text-align: left; padding: 5%;">
     <p>
     <strong>欢迎阅读『迷子们的每一天 !!!!!』互动网页小说！这同时也是一个开放的互动小说引擎，欢迎参与创作！</strong>
     </p>
@@ -18,6 +18,7 @@
             <li>本网页基于Twine2开源引擎及其开源故事格式SugarCube2创作，本网页也在GitHub上<strong><u>完全开源</u></strong>，获取网页本体<strong><u>完全免费</u></strong></li>
             <br>
             <li>『迷子们的每一天 !!!!!』提供了三种不同的互动模式，分别是：
+                <br>
                 <ul>
                     <strong>
                         <li>主线故事『MainStory』</li>
@@ -33,6 +34,7 @@
             <br>
             <li>如果你有意参与网页的共创，欢迎前往<a href="https://github.com/RyaraSUKI/MyGOEveryday/blob/master/CREDITS.md">GitHub上的开源仓库</a>或<a>本网页的QQ交流群</a></li>
         </ol>
+        <br>
         <p style="text-align: center;">
             <strong>
                 迷子们的平淡日常，<br>
@@ -43,5 +45,139 @@
         </p>
     </p>
 </div>
+<br><br>
 
-:: 主线须知 [dialog]
+:: 主线须知 [dialog nobr]
+<div class="animate__animated animate__zoomIn" style="text-align: left;">
+    <p>
+    <strong>欢迎阅读『迷子们的每一天 !!!!!』主线故事！</strong>
+    </p>
+    <p>
+    <strong>在主线故事开始前，请先仔细阅读以下的须知：</strong>
+        <ol>
+            <li>主线故事<u>基于</u>企划BanGDream!相关官方设定世界观，是一个通过网页实现的非线性叙事可互动的<strong><u>二次创作同人小说</u></strong>，相关内容的创作严格遵从<strong><u>Bushiroad的二创规则以及BanGDream!社区普遍认同的创作导向。</u></strong></li>
+            <br>
+            <li>主线故事相关内容（设定、剧情、互动等）由&ensp;@RyaraSUKI&ensp;进行最初的创作，其中不可避免地会<strong><u>产生OOC内容</u></strong>，敬请谅解！</li>
+            <br>
+            <li>主线故事分为多个章节，持续更新，每个章节都是一个星期内以乐队MyGO!!!!!的五人为中心发生的故事。<br>故事将通过一定顺序团内角色的视角展开迷子们每一天的故事。<br>章节内将聚焦官方手游的剧情（对话/活动）展开具有主题的一周，其中，细节性的考据内容（时间线、地点等）来自网络社区。</li>
+            <br>
+            <li>随着主线故事的推进，将解锁迷子日常模式及其可访问地点等。</li>
+            <br>
+            <li>主线故事为全员向，因此请接受所有成员间的互动（包括Ave&ensp;Mujica的成员）。<br>同时，对于动画中某些争议点，本二创小说做出了部分修改：
+                <br>
+                <ul>
+                    <strong>
+                        <li>MyGO!!!!!与Ave&ensp;Mujica的大家都是关系极亲密的朋友，强大的团魂保障着她们不会轻易炸团</li>
+                        <br>
+                        <li>CRYCHIC是存在于过去的美好回忆，不应该反复诈尸，而是作为两团之间美好感情的桥梁</li>
+                        <br>
+                        <li>Sumimi永远不会解散！</li>
+                        <br>
+                        <li>淡化所谓“丰川家的黑暗”，清告回到了丰川家且和定治一起支持Ave&ensp;Mujica的个活动。</li>
+                        <br>
+                        <li>淡化初华双子设定</li>
+                        <br>
+                        <li>淡化睦多重人格经历设定，故事主要描写的是MyGO动画时期的黄瓜睦，但<u>不否定莫提斯的存在，莫提斯和小睦都是同等重要的存在</u></li>
+                    </strong>
+                </ul>
+                <br>
+                <em>随着故事更新和社区动向，上述内容可能会有增改</em></li>
+            <br>
+            <li>作者诚挚的邀请各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到主线故事的创作中！</li>
+            <br>
+            <li>如果你有意参与主线故事的共创，欢迎前往<a href="https://github.com/RyaraSUKI/MyGOEveryday/blob/master/CREDITS.md">GitHub上的开源仓库</a>了解更多或加入<a>QQ交流群</a>以更好联络！</li>
+        </ol>
+        <br>
+    </p>
+</div>
+<br>
+
+:: 日常须知 [dialog nobr]
+<div class="animate__animated animate__zoomIn" style="text-align: left;">
+    <p>
+    <strong>欢迎阅读『迷子们的每一天 !!!!!』主线故事！</strong>
+    </p>
+    <p>
+    <strong>在主线故事开始前，请先仔细阅读以下的须知：</strong>
+        <ol>
+            <li>主线故事<u>基于</u>企划BanGDream!相关官方设定世界观，是一个通过网页实现的非线性叙事可互动的<strong><u>二次创作同人小说</u></strong>，相关内容的创作严格遵从<strong><u>Bushiroad的二创规则以及BanGDream!社区普遍认同的创作导向。</u></strong></li>
+            <br>
+            <li>主线故事相关内容（设定、剧情、互动等）由&ensp;@RyaraSUKI&ensp;进行最初的创作，其中不可避免地会<strong><u>产生OOC内容</u></strong>，敬请谅解！</li>
+            <br>
+            <li>主线故事分为多个章节，持续更新，每个章节都是一个星期内以乐队MyGO!!!!!的五人为中心发生的故事。<br>故事将通过一定顺序团内角色的视角展开迷子们每一天的故事。<br>章节内将聚焦官方手游的剧情（对话/活动）展开具有主题的一周，其中，细节性的考据内容（时间线、地点等）来自网络社区。</li>
+            <br>
+            <li>随着主线故事的推进，将解锁迷子日常模式及其可访问地点等。</li>
+            <br>
+            <li>主线故事为全员向，因此请接受所有成员间的互动（包括Ave&ensp;Mujica的成员）。<br>同时，对于动画中某些争议点，本二创小说做出了部分修改：
+                <br>
+                <ul>
+                    <strong>
+                        <li>MyGO!!!!!与Ave&ensp;Mujica的大家都是关系极亲密的朋友，强大的团魂保障着她们不会轻易炸团</li>
+                        <br>
+                        <li>CRYCHIC是存在于过去的美好回忆，不应该反复诈尸，而是作为两团之间美好感情的桥梁</li>
+                        <br>
+                        <li>Sumimi永远不会解散！</li>
+                        <br>
+                        <li>淡化所谓“丰川家的黑暗”，清告回到了丰川家且和定治一起支持Ave&ensp;Mujica的个活动。</li>
+                        <br>
+                        <li>淡化初华双子设定</li>
+                        <br>
+                        <li>淡化睦多重人格经历设定，故事主要描写的是MyGO动画时期的黄瓜睦，但<u>不否定莫提斯的存在，莫提斯和小睦都是同等重要的存在</u></li>
+                    </strong>
+                </ul>
+                <br>
+                <em>随着故事更新和社区动向，上述内容可能会有增改</em></li>
+            <br>
+            <li>作者诚挚的邀请各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到主线故事的创作中！</li>
+            <br>
+            <li>如果你有意参与主线故事的共创，欢迎前往<a href="https://github.com/RyaraSUKI/MyGOEveryday/blob/master/CREDITS.md">GitHub上的开源仓库</a>了解更多或加入<a>QQ交流群</a>以更好联络！</li>
+        </ol>
+        <br>
+    </p>
+</div>
+<br>
+
+:: 附加须知 [dialog nobr]
+<div class="animate__animated animate__zoomIn" style="text-align: left;">
+    <p>
+    <strong>欢迎阅读『迷子们的每一天 !!!!!』主线故事！</strong>
+    </p>
+    <p>
+    <strong>在主线故事开始前，请先仔细阅读以下的须知：</strong>
+        <ol>
+            <li>主线故事<u>基于</u>企划BanGDream!相关官方设定世界观，是一个通过网页实现的非线性叙事可互动的<strong><u>二次创作同人小说</u></strong>，相关内容的创作严格遵从<strong><u>Bushiroad的二创规则以及BanGDream!社区普遍认同的创作导向。</u></strong></li>
+            <br>
+            <li>主线故事相关内容（设定、剧情、互动等）由&ensp;@RyaraSUKI&ensp;进行最初的创作，其中不可避免地会<strong><u>产生OOC内容</u></strong>，敬请谅解！</li>
+            <br>
+            <li>主线故事分为多个章节，持续更新，每个章节都是一个星期内以乐队MyGO!!!!!的五人为中心发生的故事。<br>故事将通过一定顺序团内角色的视角展开迷子们每一天的故事。<br>章节内将聚焦官方手游的剧情（对话/活动）展开具有主题的一周，其中，细节性的考据内容（时间线、地点等）来自网络社区。</li>
+            <br>
+            <li>随着主线故事的推进，将解锁迷子日常模式及其可访问地点等。</li>
+            <br>
+            <li>主线故事为全员向，因此请接受所有成员间的互动（包括Ave&ensp;Mujica的成员）。<br>同时，对于动画中某些争议点，本二创小说做出了部分修改：
+                <br>
+                <ul>
+                    <strong>
+                        <li>MyGO!!!!!与Ave&ensp;Mujica的大家都是关系极亲密的朋友，强大的团魂保障着她们不会轻易炸团</li>
+                        <br>
+                        <li>CRYCHIC是存在于过去的美好回忆，不应该反复诈尸，而是作为两团之间美好感情的桥梁</li>
+                        <br>
+                        <li>Sumimi永远不会解散！</li>
+                        <br>
+                        <li>淡化所谓“丰川家的黑暗”，清告回到了丰川家且和定治一起支持Ave&ensp;Mujica的个活动。</li>
+                        <br>
+                        <li>淡化初华双子设定</li>
+                        <br>
+                        <li>淡化睦多重人格经历设定，故事主要描写的是MyGO动画时期的黄瓜睦，但<u>不否定莫提斯的存在，莫提斯和小睦都是同等重要的存在</u></li>
+                    </strong>
+                </ul>
+                <br>
+                <em>随着故事更新和社区动向，上述内容可能会有增改</em></li>
+            <br>
+            <li>作者诚挚的邀请各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到主线故事的创作中！</li>
+            <br>
+            <li>如果你有意参与主线故事的共创，欢迎前往<a href="https://github.com/RyaraSUKI/MyGOEveryday/blob/master/CREDITS.md">GitHub上的开源仓库</a>了解更多或加入<a>QQ交流群</a>以更好联络！</li>
+        </ol>
+        <br>
+    </p>
+</div>
+<br>

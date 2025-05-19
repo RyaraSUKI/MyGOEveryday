@@ -57,8 +57,8 @@ $(document).ready(function() {
     <div class="title">须知</div>
     <div class="subtitle">Notice</div>
 </div>
-<br><br>
-<div class="animate__animated animate__zoomIn" style="text-align: left;">
+<br>
+<div class="animate__animated animate__zoomIn" style="text-align: left; padding: 5%;">
     <p>
     <strong>欢迎阅读『迷子们的每一天 !!!!!』互动网页小说！这同时也是一个开放的互动小说引擎，欢迎参与创作！</strong>
     </p>
@@ -68,6 +68,7 @@ $(document).ready(function() {
             <li>本网页基于Twine2开源引擎及其开源故事格式SugarCube2创作，本网页也在GitHub上<strong><u>完全开源</u></strong>，获取网页本体<strong><u>完全免费</u></strong></li>
             <br>
             <li>『迷子们的每一天 !!!!!』提供了三种不同的互动模式，分别是：
+                <br>
                 <ul>
                     <strong>
                         <li>主线故事『MainStory』</li>
@@ -83,6 +84,7 @@ $(document).ready(function() {
             <br>
             <li>如果你有意参与网页的共创，欢迎前往<a href="https://github.com/RyaraSUKI/MyGOEveryday/blob/master/CREDITS.md">GitHub上的开源仓库</a>或<a>本网页的QQ交流群</a></li>
         </ol>
+        <br>
         <p style="text-align: center;">
             <strong>
                 迷子们的平淡日常，<br>
@@ -100,7 +102,7 @@ $(document).ready(function() {
 <div id="start2-go" style="display: none;" class="animate__animated animate__jackInTheBox">
     <button id="start2-go-btn" class="hvr-bounce-in"><s-icon src="img/icon/mygo_icon_o.png"></s-icon>&emsp;It's MyGO !!!!!</button>
 </div>
-<br><br><br>
+<br><br>
 <<script>>
 $(document).ready(function () {
     $("#start2-check").on("change", function () {
@@ -328,7 +330,7 @@ $(document).ready(function () {
 :: StartDS [hidebar nosave nobr noreturn]
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
     <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
-    <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>
+    <button id="daily-notice-btn">&#xf05a;&emsp;迷子日常须知</button>
 </div>
 <br><br>
 //''请选择要阅读的主线故事章节：''//
@@ -371,13 +373,13 @@ $(document).ready(function () {
 
 <<script>>
 $(document).ready(function () {
-    if (!setup.progress.msNotice) {
+    if (!setup.progress.dsNotice) {
         Dialog
-            .create("主线故事 须知")
-            .wikiPassage("主线须知")
+            .create("迷子日常 须知")
+            .wikiPassage("日常须知")
             .open();
         setup.saveProgress({
-    	    msNotice: true
+    	    dsNotice: true
         });
     };
     $("#main-0").on("click", function() {
@@ -426,10 +428,10 @@ $(document).ready(function () {
     }, 500);
     }
   });
-  $("#main-notice-btn").on("click", function() {
+  $("#daily-notice-btn").on("click", function() {
     Dialog
-        .create("主线故事 须知")
-        .wikiPassage("主线须知")
+        .create("迷子日常 须知")
+        .wikiPassage("日常须知")
         .open();
   });
 });
