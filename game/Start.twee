@@ -137,7 +137,7 @@ $(document).ready(function () {
         <br><br>
         <div class="menucard-sub">MainStory</div>
         <br>
-        <div class="menucard-desc">『迷子们的每一天 !!!!!』主线故事。<br>基于邦多利世界观，通过半线性+互动的叙事方式，以五位迷子的视角，展现她们在每一天的点点滴滴……</div>
+        <div class="menucard-desc">『迷子们的每一天 !!!!!』主线故事。<br>基于邦多利世界观，通过半线性互动的叙事方式，以五位迷子的视角，展现她们在每一天的点点滴滴……</div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>
@@ -148,7 +148,7 @@ $(document).ready(function () {
         <br><br>
         <div class="menucard-sub">DailyStory</div>
         <br>
-        <div class="menucard-desc">『迷子们的每一天 !!!!!』设定下的完全开放世界探索。<br>在非线性类文游的叙事下，选择一位迷子的视角，以完全自由的互动方式去看她和身边朋友们的每一天……</div>
+        <div class="menucard-desc">『迷子们的每一天 !!!!!』设定下的完全开放世界探索。<br>在非线性类文游的互动模式下，选择一位迷子的视角，以完全自由的选择体验她和身边朋友们的每一天……</div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>
@@ -159,7 +159,7 @@ $(document).ready(function () {
         <br><br>
         <div class="menucard-sub">AnotherStory</div>
         <br>
-        <div class="menucard-desc">独立于『迷子们的每一天 !!!!!』的附加故事。（内置故事包含cp向文章）<br>基于本网页的互动小说引擎，阅读内置或从外部加载的互动故事，文档持续更新中，欢迎参与创作……</div>
+        <div class="menucard-desc">独立于『迷子们的每一天 !!!!!』设定下的附加故事，其中内置故事包含cp向文章。<br>基于本网页的互动小说引擎，可以从外部加载社区创作的互动小说附加包，创作文档持续更新中，欢迎参与……</div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>

@@ -102,6 +102,10 @@
     cursor: not-allowed;
 }
 
+.menucard-dis .menucard-arrow {
+    color: var(--color-b2);
+}
+
 .menucard-text-block {
     flex: 1
 }
