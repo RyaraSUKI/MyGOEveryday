@@ -143,7 +143,7 @@
     transform: scale(2)
 }
 
-/* 主线故事四字标题适配 */
+/* 主线故事章节卡片适配 */
 .maincard:hover .menucard-title {
     transform: scale(1.7)
 }

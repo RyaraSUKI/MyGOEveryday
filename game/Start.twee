@@ -221,7 +221,7 @@ $(document).ready(function () {
 //''请选择要阅读的主线故事章节：''//
 <br><br>
 <div class="menucard-container animate__animated animate__zoomInUp animate__slow">
-    <div id="main-0" class="menucard">
+    <div id="main-0" class="menucard maincard">
       <div class="menucard-text-block">
         <div class="menucard-title">序&ensp;焚音打</div>
         <br><br>
@@ -241,7 +241,7 @@ $(document).ready(function () {
       <div class="menucard-arrow">&#xf054;</div>
     </div>
 <br><br>
-    <div id="main-2" class="menucard">
+    <div id="main-2" class="menucard maincard">
       <div class="menucard-text-block">
         <div class="menucard-title">贰&ensp;輪符雨</div>
         <br><br>

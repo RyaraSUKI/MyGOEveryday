@@ -3,7 +3,7 @@
 <div class="animate__animated animate__tada"><h2><u><strong>请注意！</strong></u></h2><strong>这不是修改器页面！</strong><br>你接下来要进入游戏测试主页，<u>这个页面主要用于开发，非正常游戏流程不会使用该页面，且只能通过主页面弹窗进入</u>，是否继续？</div>
 <s-divider>剪切线</s-divider>
 <br>
-<s-button id="no-test-home" class="sober-button">不，等等!</s-button>
+<s-button id="no-test-home" class="sober-button">不，等等…</s-button>
 <s-button id="go-test-home" class="sober-button warn-button">我知道我要去哪!</s-button>
 <<script>>
     $(document).ready(function() {
@@ -22,7 +22,7 @@
 <br><s-button class="sober-button" data-passage="Start"><s-icon slot="start" name="home"></s-icon>退出到主页</s-button>
 <s-divider>剪切线</s-divider>
 <s-button class="sober-button" data-passage="AP"><s-icon slot="start" name="search" style="color: #fff"></s-icon>页面导航</s-button>
-<s-button class="sober-button" data-passage="DebugMain"><s-icon slot="start" name="star" style="color: #ffdd88"></s-icon>调试空间</s-button>
+<s-button class="sober-button" data-passage="DebugMain"><s-icon slot="start" name="star" style="color: #ffdd88"></s-icon>变量总览</s-button>
 <s-button class="sober-button" data-passage="TestPlace"><s-icon slot="start" name="favorite" style="color: #ff8899"></s-icon>测试空间</s-button>
 <s-divider>DEMO</s-divider>
 <s-button class="sober-button" data-passage="sober介绍">Sober.Js</s-button>
@@ -34,43 +34,61 @@
 <div class="sugar-button"><<button "显示一条通知，持续五秒">><<popout "top" 5000>>''🔔 MyGO!!!!!(5) · 刚刚''<br>小爱：我和灯灯已经到RiNG了哟~<</popout>><</button>></div>
 
 :: DebugSample [nosave]
-<s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
-//这是我第一次接触并使用Twine和Sugarcube2时尝试写出的测试实例，一切的开始……//<br>
-所以特地保留了下来:D<br>
+<s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回测试主页</s-button>
+<br>
+//这是我第一次接触并使用Twine和SugarCube2时尝试写出的测试实例，一切的开始……//
+<br>
+为测试功能demo，所以保留了下来:D
+<br>
 [[开始游戏！->DebugSampleStart]]
 
 :: DebugSampleStart [nosave]
-你进入了RiNG的后台。<br>
-<img src="img/icon/ring_logo.png" style="max-width:300px;"><br>
-前方有两条过道，你选择哪一条？<br>
+<br>
+你进入了RiNG的后台。
+<br>
+    <img src="img/icon/ring_logo.png" style="max-width:300px;">
+<br>
+前方有两条过道，你选择哪一条？
+<br>
 [[左边的过道->DebugSampleLeftPath]] | [[右边的过道->DebugSampleRightPath]]
 
 :: DebugSampleLeftPath [nosave]
-你走进了左边的过道，遇到了一只偷摸零企鹅，在这待着也太可爱了吧~<br>
-<img src="img/char/tmr.png" style="max-width:300px;"><br>
+<br>
+你走进了左边的过道，遇到了一只偷摸零企鹅，在这待着也太可爱了吧~
+<br>
+    <img src="img/char/tmr.png" style="max-width:300px;">
+<br>
 [[组一辈子乐队吧！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
 
 :: DebugSampleRightPath [nosave]
-你走上了右边的过道，发现了一只抹茶小猫。<br>
-<img src="img/char/rana.png" style="max-width:300px;"><br>
+<br>
+你走上了右边的过道，发现了一只抹茶小猫。
+<br>
+    <img src="img/char/rana.png" style="max-width:300px;">
+<br>
 [[给她抹茶芭菲！->DebugSampleEnding]] | [[返回->DebugSampleStart]]
 
 :: DebugSampleEnding [nosave]
-''迷子でもいい、迷子でも進め！！！！！<br>
-即使迷茫，也要前进！！！！！''<br>
-[[重新开始->DebugSampleStart]]<br>[[退出->DebugSample]]
+<br>
+''迷子でもいい、迷子でも進め！！！！！
+<br><br>
+即使迷茫，也要前进！！！！！''
+<br>
+[[重新开始->DebugSampleStart]]
+<br>
+[[退出->DebugSample]]
 
 :: TestPlace [nosave nobr]
-<s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回调试主页</s-button>
-<h1>测试空间</h1>
+<s-button class="sober-button" data-passage="DebugHome"><s-icon slot="start" name="home"></s-icon>返回测试主页</s-button>
+<h1>''测试空间''</h1>
 <p style="text-align: center;">用于开发测试，正式发布版应该将<u>下面的所有内容注释掉或清空</u></p>
 <br><br><br>
 这是所有人都会看到的普通内容。<br>
-<<set $soyo to true>>
+/* <<set $soyo to true>>
 <<set $anon to true>>
 <<set $tomori to true>>
 <<set $taki to true>>
-<<set $rana to true>>
+<<set $rana to true>> */
 <<ifanon>>爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰爱音爱音🥰<</ifanon>>
 <<soyoimg happy "animate__animated animate__tada">><br>
 <<soyoimg "animate__animated animate__tada">>
