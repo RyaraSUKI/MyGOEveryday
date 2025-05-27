@@ -4,6 +4,35 @@
     color: var(--color-w4)
 }
 
+[data-tags~="interlude"] hr {
+    border: none;
+    background-color: var(--color-w3);
+}
+
+/* passage内链接 */
+[data-tags~="interlude"] .passage a.link-internal {
+    display: inline;
+    font-weight: bold;
+    color: var(--color-secondary-l);
+    /* 去除passage内文本下划线 */
+    text-decoration: none;
+    background-color: transparent;
+    padding: 3px 15px;
+    text-align: center;
+    border-radius: 1em;
+    line-height: 2rem;
+    outline: none;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    background-clip: padding-box;
+}
+
+[data-tags~="interlude"] .passage a.link-internal:hover {
+    color: var(--color-accent-d2);
+    background-color: transparent;
+    box-shadow: none;
+}
+
 [data-tags~="interlude"] #ui-bar {
     display: none
 }

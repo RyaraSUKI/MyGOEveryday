@@ -1,11 +1,12 @@
 (function() {
     // 定义角色对应卡片css
     const styleMap = {
-        anon: "char-anon",
-        soyo: "char-soyo",
-        tomori: "char-tomori",
-        taki: "char-taki",
-        rana: "char-rana"
+        anon: "charcard-anon",
+        soyo: "charcard-soyo",
+        tomori: "charcard-tomori",
+        taki: "charcard-taki",
+        rana: "charcard-rana",
+        mygo: "charcard-mygo"
     };
 
     // 获取当前角色变量名
@@ -48,12 +49,12 @@
         Macro.add(`${char}img`, {
             handler: function() {
                 let emo = null;
-                let cls = "";
+                let style = "";
 
                 this.args.forEach(arg => {
                     if (typeof arg === "string") {
                         if (arg.includes(" ")) {
-                            cls = arg;
+                            style = arg;
                         } else {
                             emo = arg;
                         }
@@ -64,7 +65,7 @@
                     `img/char/${char}_${emo}.png` :
                     `img/char/${char}.png`;
 
-                const html = `<img src="${src}" class="charimg ${cls}">`;
+                const html = `<img src="${src}" class="charimg ${style}">`;
                 new Wikifier(this.output, html);
             }
         });

@@ -18,27 +18,6 @@
     margin-bottom: 1rem;
 }
 
-/* 角色文本卡片背景色 */
-.char-anon {
-    background-color: var(--color-anon);
-}
-
-.char-soyo {
-    background-color: var(--color-soyo);
-}
-
-.char-tomori {
-    background-color: var(--color-tomori);
-}
-
-.char-taki {
-    background-color: var(--color-taki);
-}
-
-.char-rana {
-    background-color: var(--color-rana);
-}
-
 /* 须知标题卡片 */
 .warn-card {
     color: var(--color-text2);

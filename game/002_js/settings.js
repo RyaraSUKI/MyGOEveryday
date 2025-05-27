@@ -331,6 +331,9 @@ Config.saves.descriptions = function(saveType) {
 
                 if (State.variables.chapter) {
                     switch (State.variables.chapter) {
+                        case "0":
+                            saveTag += "[焚音打]";
+                            break;
                         case 1:
                             saveTag += "[迷路日日]";
                             break;

@@ -4,3 +4,4 @@
 <<set $tomori = false>>
 <<set $taki = false>>
 <<set $rana = false>>
+<<newclock 2020 1 1 0 0>>

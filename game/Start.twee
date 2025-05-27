@@ -98,11 +98,11 @@ $(document).ready(function() {
     </p>
 </div>
 <s-checkbox type="checkbox" id="start2-check" class="animate__animated animate__fadeIn animate__slower">已阅读并接受须知内容</s-checkbox>
-<br>
+<br><br>
 <div id="start2-go" style="display: none;" class="animate__animated animate__jackInTheBox">
     <button id="start2-go-btn" class="hvr-bounce-in"><s-icon src="img/icon/mygo_icon_o.png"></s-icon>&emsp;It's MyGO !!!!!</button>
 </div>
-<br><br>
+<br><br><br>
 <<script>>
 $(document).ready(function () {
     $("#start2-check").on("change", function () {
@@ -213,6 +213,7 @@ $(document).ready(function () {
 <</script>>
 
 :: StartMS [hidebar nosave nobr noreturn]
+<<set $mode = "main">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
     <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
     <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>
@@ -328,6 +329,7 @@ $(document).ready(function () {
 <</script>>
 
 :: StartDS [hidebar nosave nobr noreturn]
+<<set $mode = "daily">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
     <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
     <button id="daily-notice-btn">&#xf05a;&emsp;迷子日常须知</button>
@@ -438,6 +440,7 @@ $(document).ready(function () {
 <</script>>
 
 :: StartAS [hidebar nosave nobr noreturn]
+<<set $mode = "another">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
     <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
     <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>

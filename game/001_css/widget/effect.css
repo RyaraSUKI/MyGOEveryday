@@ -59,3 +59,20 @@
 .wbg-x-200 #wave-bg {
     transform: rotate(90deg) scale(2);
 }
+
+/* 闪烁 */
+@keyframes blinking {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    animation: blinking 3s infinite;
+}
