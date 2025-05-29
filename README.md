@@ -59,9 +59,9 @@
 <p>
     本网页提供了三种不同的互动小说模式，分为：<br>
     <strong>
-        <li>主线故事『MainStory』</li>
-        <li>迷子日常『DailyStory』</li>
-        <li>附加故事『AnotherStory』</li>
+        <li>主线故事『MainStory』选项互动小说模式</li>
+        <li>迷子日常『DailyStory』开放世界文游模式</li>
+        <li>附加故事『AnotherStory』自制互动剧本模式</li>
     </strong>
 </p>
 <p>
