@@ -77,7 +77,7 @@ $(document).ready(function() {
                     </strong>
                 </ul>
                 <br>
-                从普通的线性小说到半线性互动，甚至是完全随机的非线性开放式类文游互动，都各具特色。<br><br>
+                本网页提供了类似安科和开放世界文字游戏的互动功能，从普通的线性小说到半线性互动，甚至是完全随机的非线性开放式类文游互动，都各具特色。<br><br>
                 在正式开始某个故事模式的互动体验前，请记得阅读该故事模式的“须知”</li>
             <br>
             <li>同时，本网页意在建设一个开放包容的二创社区。<br>欢迎各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到创作中！</li>
@@ -137,7 +137,7 @@ $(document).ready(function () {
         <br><br>
         <div class="menucard-sub">MainStory</div>
         <br>
-        <div class="menucard-desc">『迷子们的每一天 !!!!!』主线故事。<br>基于邦多利世界观，通过半线性互动的叙事方式，以五位迷子的视角，展现她们在每一天的点点滴滴……</div>
+        <div class="menucard-desc">『迷子们的每一天 !!!!!』主线故事。<br>基于邦多利世界观，通过半线性搭配互动选项的叙事方式，以五位迷子的视角，展现她们在每一天的点点滴滴……</div>
       </div>
       <div class="menucard-arrow">&#xf138;</div>
     </div>
@@ -191,11 +191,11 @@ $(document).ready(function () {
     }, 300);
     if (setup.progress.dailyUnlocked) {
     setTimeout(() => {
-      UI.alert("<h3>【迷子日常】模式尚未完成！</h3>正在积极开发中，欢迎参与制作&提供建议！");
+      Engine.play("StartDS");
     }, 500);
     } else {
     setTimeout(() => {
-      UI.alert("<h3>【迷子日常】模式尚未完成！</h3>正在积极开发中，欢迎参与制作&提供建议！<!--<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！-->");
+      UI.alert("<h3>【迷子日常】模式尚未解锁！</h3>请先游玩主线故事第一章了解<br>『迷子们的每一天 !!!!!』设定背景吧！");
     }, 500);
     }
   });
@@ -206,7 +206,7 @@ $(document).ready(function () {
       $arrow.removeClass('clickx');
     }, 300);
     setTimeout(() => {
-      UI.alert("<h3>【附加故事】模式尚未完成！</h3>正在积极开发中，欢迎参与制作&提供建议！");
+      Engine.play("StartAS");
     }, 500);
   });
 });
@@ -335,7 +335,11 @@ $(document).ready(function () {
     <button id="daily-notice-btn">&#xf05a;&emsp;迷子日常须知</button>
 </div>
 <br><br>
-//''请选择要阅读的主线故事章节：''//
+
+//''在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
+<br><br>
+要以谁的视角开始日常故事呢？''//
+
 <br><br>
 <div class="menucard-container animate__animated animate__zoomInUp animate__slow">
     <div id="main-0" class="menucard">
@@ -368,10 +372,9 @@ $(document).ready(function () {
       <div class="menucard-arrow">&#xf054;</div>
     </div>
 </div>
-<br><br>
-<u><em>更多章节更新中，欢迎参与共创！</em></u>
 <br><br><br>
-在布满裂痕的星空下，五个迷茫的少女正编织着她们的日常——
+//''请写下日记本的标题吧！（存档名）''//
+
 
 <<script>>
 $(document).ready(function () {
@@ -443,7 +446,7 @@ $(document).ready(function () {
 <<set $mode = "another">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
     <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
-    <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>
+    <button id="another-notice-btn">&#xf05a;&emsp;附加故事须知</button>
 </div>
 <br><br>
 //''请选择要阅读的主线故事章节：''//

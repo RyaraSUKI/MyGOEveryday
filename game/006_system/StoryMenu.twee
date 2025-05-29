@@ -6,13 +6,13 @@
 
 :: StoryCaption
 <<if $mode === "main">>
-    img
+    main
 <<elseif $mode === "daily">>
-    mig
+    daily
 <<elseif $mode === "another">>
-    gim
+    another
 <<elseif $mode === "test">>
-    if
+    test
 <<else>>
     none
 <</if>>

@@ -3,18 +3,20 @@
 /* 打印角色名字文本组件 */
 <<widget "charName">>
     <<if $char === "anon">>
-        <span class="name-anon">千早 爱音</span>
+        <span class="charname charname-anon">千早 爱音</span>
     <<elseif $char === "soyo">>
-        <span class="name-soyo">长崎 爽世</span>
+        <span class="charname charname-soyo">长崎 爽世</span>
     <<elseif $char === "tomori">>
-        <span class="name-tomori">高松 灯</span>
+        <span class="charname charname-tomori">高松 灯</span>
     <<elseif $char === "taki">>
-        <span class="name-taki">椎名 立希</span>
+        <span class="charname charname-taki">椎名 立希</span>
     <<elseif $char === "rana">>
-        <span class="name-rana">要 乐奈</span>
+        <span class="charname charname-rana">要 乐奈</span>
     <<elseif $char === "mygo">>
-        <span class="name-mygo">MyGO!!!!!</span>
+        <span class="charname charname-mygo">MyGO!!!!!</span>
     <<else>>
-        <span class="name-undef">某人</span>
+        <span class="charname charname-undef">某人</span>
     <</if>>
 <</widget>>
+
+:: mge icons [widget nobr]

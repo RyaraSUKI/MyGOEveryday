@@ -1,0 +1,67 @@
+/* 角色文本卡片背景色 */
+.charcard-anon {
+    background-color: var(--color-anon);
+}
+
+.charcard-soyo {
+    background-color: var(--color-soyo);
+}
+
+.charcard-tomori {
+    background-color: var(--color-tomori);
+}
+
+.charcard-taki {
+    background-color: var(--color-taki);
+}
+
+.charcard-rana {
+    background-color: var(--color-rana);
+}
+
+.charcard-mygo {
+    background-color: var(--color-mygo);
+}
+
+/* 角色名字文本颜色 */
+.charname {
+    text-shadow:
+        -1px -1px 0 var(--color-b1);
+    ,
+    1px -1px 0 var(--color-b1);
+    ,
+    -1px 1px 0 var(--color-b1);
+    ,
+    1px 1px 0 var(--color-b1);
+    ;
+    font-weight: bold;
+}
+
+.charname-anon {
+    color: var(--color-anon);
+}
+
+.charname-soyo {
+    color: var(--color-soyo);
+}
+
+.charname-tomori {
+    color: var(--color-tomori);
+}
+
+.charname-taki {
+    color: var(--color-taki);
+}
+
+.charname-rana {
+    color: var(--color-rana);
+}
+
+.charname-mygo {
+    color: var(--color-mygo);
+}
+
+/* 未定义角色变量 */
+.charname-undef {
+    color: var(--color-w2);
+}
