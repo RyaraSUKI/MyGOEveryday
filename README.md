@@ -1,4 +1,4 @@
-## 本互动网页正在积极开发中，敬请期待
+## 本互动网页正在积极开发中，敬请期待！
 ### 你可以通过[部署的pages](https://ryarasuki.github.io/MyGOEveryday/)进行最新进度预览
 
 <div id="top"></div>
