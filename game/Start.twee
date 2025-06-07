@@ -5,14 +5,14 @@
     </div>
     <div id="menu-button" class="animate__animated animate__fadeInUp">
     	<<if Save.browser.size > 0>>
-    		<button id="menu-button-con" class="hvr-pulse"><s-icon src="img/icon/mygo_icon.png"></s-icon>&emsp;继续迷子</button>
+    		<button id="menu-button-con" class="hvr-pulse"><<icon-menu1>>&emsp;继续迷子</button>
    		<</if>>
     
-    	<button id="menu-button-new" class="hvr-pulse"><s-icon src="img/icon/mygo_icon.png"></s-icon>&emsp;新的故事</button>
+    	<button id="menu-button-new" class="hvr-pulse"><<icon-menu2>>&emsp;新的故事</button>
     
-    	<button id="menu-button-sav" class="hvr-pulse"><s-icon src="img/icon/mygo_icon.png"></s-icon>&emsp;查阅日记</button>
+    	<button id="menu-button-sav" class="hvr-pulse"><<icon-menu3>>&emsp;查阅日记</button>
     
-    	<button id="menu-button-set" class="hvr-pulse"><s-icon src="img/icon/mygo_icon.png"></s-icon>&emsp;调整设置</button>
+    	<button id="menu-button-set" class="hvr-pulse"><<icon-menu4>>&emsp;调整设置</button>
    	</div>
 </div>
 
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 :: Start2 [hidebar nosave nobr]
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "&#xf015;&emsp;返回到主页面" "Start">><</button>>
+    <<button "<<scicon-home>>&emsp;返回到主页面" "Start">><</button>>
 </div>
 <br>
 <div class="warn-card animate__animated animate__zoomIn">
@@ -71,13 +71,13 @@ $(document).ready(function() {
                 <br>
                 <ul>
                     <strong>
-                        <li>主线故事『MainStory』</li>
-                        <li>迷子日常『DailyStory』</li>
-                        <li>附加故事『AnotherStory』</li>
+                        <li>主线故事『MainStory』选项互动小说模式</li>
+                        <li>迷子日常『DailyStory』开放世界文游模式</li>
+                        <li>附加故事『AnotherStory』自制互动剧本模式</li>
                     </strong>
                 </ul>
                 <br>
-                本网页提供了多个互动功能，从普通的线性小说到半线性互动，甚至是完全随机的非线性开放式类文游互动，都各具特色。<br><br>
+                本网页提供了经典的互动小说以及开放世界文字游戏的功能。<br><br>
                 在正式开始某个故事模式的互动体验前，请记得阅读该故事模式的“须知”</li>
             <br>
             <li>同时，本网页意在建设一个开放包容的二创社区。<br>欢迎各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到创作中！</li>
@@ -100,7 +100,7 @@ $(document).ready(function() {
 <s-checkbox type="checkbox" id="start2-check" class="animate__animated animate__fadeIn animate__slower">已阅读并接受须知内容</s-checkbox>
 <br><br>
 <div id="start2-go" style="display: none;" class="animate__animated animate__jackInTheBox">
-    <button id="start2-go-btn" class="hvr-bounce-in"><s-icon src="img/icon/mygo_icon_o.png"></s-icon>&emsp;It's MyGO !!!!!</button>
+    <button id="start2-go-btn" class="hvr-bounce-in"><<icon-mygo-r>>&emsp;It's MyGO !!!!!</button>
 </div>
 <br><br><br>
 <<script>>
@@ -123,9 +123,9 @@ $(document).ready(function () {
 
 :: Start3 [hidebar nosave nobr]
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "&#xf015;&emsp;返回到主页面" "Start">><</button>>
-    <<button "&#xf0a0;&emsp;管理进度数据" "进度数据">><</button>>
-    <<button "&#xf05a;&emsp;查看网页须知" "网页须知">><</button>>
+    <<button "<<scicon-home>>&emsp;返回到主页面" "Start">><</button>>
+    <<button "<<scicon-disk>>&emsp;管理进度数据" "进度数据">><</button>>
+    <<button "<<scicon-info>>&emsp;查看网页须知" "网页须知">><</button>>
 </div>
 <br><br>
 //''请选择要阅读的故事模式：''//
@@ -139,7 +139,7 @@ $(document).ready(function () {
         <br>
         <div class="menucard-desc">『迷子们的每一天 !!!!!』主线故事。<br>基于邦多利世界观，通过半线性搭配互动选项的叙事方式，以五位迷子的视角，展现她们在每一天的点点滴滴……</div>
       </div>
-      <div class="menucard-arrow">&#xf138;</div>
+      <div class="menucard-arrow"><<scicon-arrow1-go>></div>
     </div>
 <br><br>
     <div id="go-daily" class="menucard" style="background-color: #f1b74b;">
@@ -150,7 +150,7 @@ $(document).ready(function () {
         <br>
         <div class="menucard-desc">『迷子们的每一天 !!!!!』设定下的完全开放世界探索。<br>在非线性类文游的互动模式下，选择一位迷子的视角，以完全自由的选择体验她和身边朋友们的每一天……</div>
       </div>
-      <div class="menucard-arrow">&#xf138;</div>
+      <div class="menucard-arrow"><<scicon-arrow1-go>></div>
     </div>
 <br><br>
     <div id="go-another" class="menucard" style="background-color: #f36d6d;">
@@ -161,7 +161,7 @@ $(document).ready(function () {
         <br>
         <div class="menucard-desc">独立于『迷子们的每一天 !!!!!』设定下的附加故事，其中内置故事包含cp向文章。<br>基于本网页的互动小说引擎，可以从外部加载社区创作的互动小说附加包，创作文档持续更新中，欢迎参与……</div>
       </div>
-      <div class="menucard-arrow">&#xf138;</div>
+      <div class="menucard-arrow"><<scicon-arrow1-go>></div>
     </div>
 </div>
 
@@ -215,8 +215,8 @@ $(document).ready(function () {
 :: StartMS [hidebar nosave nobr noreturn]
 <<set $mode = "main">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
-    <button id="main-notice-btn">&#xf05a;&emsp;主线故事须知</button>
+    <<button "<<scicon-arrow1-back>>;&emsp;返回模式选择" "Start3">><</button>>
+    <button id="main-notice-btn"><<scicon-info>>&emsp;主线故事须知</button>
 </div>
 <br><br>
 //''请选择要阅读的主线故事章节：''//
@@ -229,7 +229,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter0&ensp;Tanebi</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 <br><br>
     <div id="main-1" class="menucard maincard">
@@ -239,7 +239,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter1&ensp;Malody</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 <br><br>
     <div id="main-2" class="menucard maincard">
@@ -249,7 +249,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter2&ensp;Refrain</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 </div>
 <br><br>
@@ -331,8 +331,8 @@ $(document).ready(function () {
 :: StartDS [hidebar nosave nobr noreturn]
 <<set $mode = "daily">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
-    <button id="daily-notice-btn">&#xf05a;&emsp;迷子日常须知</button>
+    <<button "<<scicon-arrow1-back>>;&emsp;返回模式选择" "Start3">><</button>>
+    <button id="daily-notice-btn"><<scicon-info>>&emsp;迷子日常须知</button>
 </div>
 <br><br>
 
@@ -349,7 +349,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter0&ensp;Tanebi</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 <br><br>
     <div id="main-1" class="menucard maincard">
@@ -359,7 +359,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter1&ensp;Malody</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 <br><br>
     <div id="main-2" class="menucard">
@@ -369,7 +369,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter2&ensp;Refrain</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 </div>
 <br><br><br>
@@ -445,8 +445,8 @@ $(document).ready(function () {
 :: StartAS [hidebar nosave nobr noreturn]
 <<set $mode = "another">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
-    <button id="another-notice-btn">&#xf05a;&emsp;附加故事须知</button>
+    <<button "<<scicon-arrow1-back>>;&emsp;返回模式选择" "Start3">><</button>>
+    <button id="another-notice-btn"><<scicon-info>>&emsp;附加故事须知</button>
 </div>
 <br><br>
 //''请选择要阅读的主线故事章节：''//
@@ -459,7 +459,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter0&ensp;Tanebi</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 <br><br>
     <div id="main-1" class="menucard maincard">
@@ -469,7 +469,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter1&ensp;Malody</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 <br><br>
     <div id="main-2" class="menucard">
@@ -479,7 +479,7 @@ $(document).ready(function () {
         <div class="menucard-sub">Chapter2&ensp;Refrain</div>
         <br>
       </div>
-      <div class="menucard-arrow">&#xf054;</div>
+      <div class="menucard-arrow"><<scicon-arrow2-go>></div>
     </div>
 </div>
 <br><br>
@@ -555,25 +555,25 @@ $(document).ready(function () {
 
 :: 进度数据 [hidebar nosave nobr]
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
+    <<button "<<scicon-arrow1-back>>;&emsp;返回模式选择" "Start3">><</button>>
 </div>
 <br>
 <h3 class="animate__animated animate__fadeIn">进度数据管理</h3>
 <p class="animate__animated animate__fadeIn">这里提供了『迷子们的每一天 !!!!!』中所有系统进度数据的管理操作，<br><br>进度数据包括主线故事章节阅读进度、日常故事可访问地点/物品/成就、其它系统进度等，你可以通过导出和导入来备份或修改这些数据</p>
 <br><br>
 <div class="sugar-button sugar-icon animate__animated animate__zoomInUp">
-    <button id="prg-export-btn">&#xf574;&emsp;导出进度</button>
+    <button id="prg-export-btn"><<scicon-export>>&emsp;导出进度</button>
     <br><br>
-    <button id="prg-import-btn">&#xf56d;&emsp;导入进度</button>
+    <button id="prg-import-btn"><<scicon-import>>&emsp;导入进度</button>
     <input type="file" id="prg-import" accept=".json, .txt" style="display: none;">
     <br><br>
-    <button id="prg-reset-btn">&#xf2ea;&emsp;重置进度</button>
+    <button id="prg-reset-btn"><<scicon-reset>>&emsp;重置进度</button>
 </div>
 <br><br>
 <p class="animate__animated animate__fadeIn">注意，此处的进度数据仅指网页全局的系统进度内容，关于故事内“迷子们的日记”（故事存档），请打开日记本弹窗，并在底部选择导出日记本文件</p>
 <br><br>
 <div class="sugar-button sugar-icon animate__animated animate__zoomInUp">
-    <button id="prg-save-btn"><s-icon src="img/icon/mygo_logo.png"></s-icon>&emsp;迷子们的日记本</button>
+    <button id="prg-save-btn"><<icon-menu3>>&emsp;迷子们的日记本</button>
 </div>
 <br><br>
 <<script>>

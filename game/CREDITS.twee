@@ -18,9 +18,10 @@
 <ul>
     <li><a href="https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader">Modloader</a></li>
 </ul>
-<p><em>像素字体使用了unifont点阵字体，遵守GNU General Public协议</em></p>
+<p><em>像素字体使用了unifont点阵字体，遵守GNU General Public协议；图标使用Font Awesome 6.4免费版</em></p>
 <ul>
     <li><a href="https://unifoundry.com/unifont/index.html">Unifont</a></li>
+    <li><a href="https://fontawesome.com/">Font Awesome</a></li>
 </ul>
 <p><em>其余贡献请至本互动网页的仓库查看</em></p>
 <ul>

@@ -1,6 +1,6 @@
 :: 网页须知 [hidebar nosave nobr]
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "&#xf137;&emsp;返回模式选择" "Start3">><</button>>
+    <<button "<<scicon-arrow1-back>>&emsp;返回模式选择" "Start3">><</button>>
 </div>
 <br>
 <div class="warn-card animate__animated animate__zoomIn">
@@ -21,13 +21,13 @@
                 <br>
                 <ul>
                     <strong>
-                        <li>主线故事『MainStory』</li>
-                        <li>迷子日常『DailyStory』</li>
-                        <li>附加故事『AnotherStory』</li>
+                        <li>主线故事『MainStory』选项互动小说模式</li>
+                        <li>迷子日常『DailyStory』开放世界文游模式</li>
+                        <li>附加故事『AnotherStory』自制互动剧本模式</li>
                     </strong>
                 </ul>
                 <br>
-                本网页提供了多个互动功能，从普通的线性小说到半线性互动，甚至是完全随机的非线性开放式类文游互动，都各具特色。<br><br>
+                本网页提供了经典的互动小说以及开放世界文字游戏的功能。<br><br>
                 在正式开始某个故事模式的互动体验前，请记得阅读该故事模式的“须知”</li>
             <br>
             <li>同时，本网页意在建设一个开放包容的二创社区。<br>欢迎各位热爱MyGO!!!!!&Ave Mujica以及BanGDream!的邦邦人参与到创作中！</li>

@@ -1,0 +1,74 @@
+:: mge icons [widget nobr]
+/* sc-icon 内置图标 */
+<<widget "scicon-home">>
+    &#xf015;
+<</widget>>
+
+<<widget "scicon-disk">>
+    &#xf0a0;
+<</widget>>
+
+<<widget "scicon-info">>
+    &#xf05a;
+<</widget>>
+
+<<widget "scicon-arrow1-go">>
+    &#xf138;
+<</widget>>
+
+<<widget "scicon-arrow1-back">>
+    &#xf137;
+<</widget>>
+
+<<widget "scicon-arrow2-go">>
+    &#xf054;
+<</widget>>
+
+<<widget "scicon-export">>
+    &#xf574;
+<</widget>>
+
+<<widget "scicon-import">>
+    &#xf56d;
+<</widget>>
+
+<<widget "scicon-reset">>
+    &#xf2ea;
+<</widget>>
+
+/* sober icon */
+<<widget "icon-mygo">>
+    <s-icon src="img/icon/mygo_icon.png"></s-icon>
+<</widget>>
+
+<<widget "icon-mygo-r">>
+    <s-icon src="img/icon/mygo_icon_r.png"></s-icon>
+<</widget>>
+
+<<widget "icon-menu1">>
+    <s-icon src="img/icon/svg/compass.svg"></s-icon>
+<</widget>>
+
+<<widget "icon-menu2">>
+    <s-icon src="img/icon/svg/umbrella.svg"></s-icon>
+<</widget>>
+
+<<widget "icon-menu3">>
+    <s-icon src="img/icon/svg/note.svg"></s-icon>
+<</widget>>
+
+<<widget "icon-menu4">>
+    <s-icon src="img/icon/svg/gear.svg"></s-icon>
+<</widget>>
+
+<<widget "icon-copyright">>
+    <s-icon src="img/icon/svg/copyright.svg"></s-icon>
+<</widget>>
+
+<<widget "icon-people">>
+    <s-icon src="img/icon/svg/people.svg"></s-icon>
+<</widget>>
+
+<<widget "icon-toolbox">>
+    <s-icon src="img/icon/svg/toolbox.svg"></s-icon>
+<</widget>>
