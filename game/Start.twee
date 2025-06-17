@@ -215,7 +215,7 @@ $(document).ready(function () {
 :: StartMS [hidebar nosave nobr noreturn]
 <<set $mode = "main">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "<<scicon-arrow1-back>>;&emsp;返回模式选择" "Start3">><</button>>
+    <<button "<<scicon-arrow1-back>>&emsp;返回模式选择" "Start3">><</button>>
     <button id="main-notice-btn"><<scicon-info>>&emsp;主线故事须知</button>
 </div>
 <br><br>
@@ -331,7 +331,7 @@ $(document).ready(function () {
 :: StartDS [hidebar nosave nobr noreturn]
 <<set $mode = "daily">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "<<scicon-arrow1-back>>;&emsp;返回模式选择" "Start3">><</button>>
+    <<button "<<scicon-arrow1-back>>&emsp;返回模式选择" "Start3">><</button>>
     <button id="daily-notice-btn"><<scicon-info>>&emsp;迷子日常须知</button>
 </div>
 <br><br>
@@ -445,7 +445,7 @@ $(document).ready(function () {
 :: StartAS [hidebar nosave nobr noreturn]
 <<set $mode = "another">>
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "<<scicon-arrow1-back>>;&emsp;返回模式选择" "Start3">><</button>>
+    <<button "<<scicon-arrow1-back>>&emsp;返回模式选择" "Start3">><</button>>
     <button id="another-notice-btn"><<scicon-info>>&emsp;附加故事须知</button>
 </div>
 <br><br>
@@ -555,7 +555,7 @@ $(document).ready(function () {
 
 :: 进度数据 [hidebar nosave nobr]
 <div class="sugar-button sugar-icon animate__animated animate__bounceInDown">
-    <<button "<<scicon-arrow1-back>>;&emsp;返回模式选择" "Start3">><</button>>
+    <<button "<<scicon-arrow1-back>>&emsp;返回模式选择" "Start3">><</button>>
 </div>
 <br>
 <h3 class="animate__animated animate__fadeIn">进度数据管理</h3>

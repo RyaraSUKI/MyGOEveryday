@@ -42,7 +42,7 @@
 <</widget>>
 
 <<widget "icon-mygo-r">>
-    <s-icon src="img/icon/mygo_icon_r.png"></s-icon>
+    <s-icon src="img/icon/svg/mygo_icon_r.svg"></s-icon>
 <</widget>>
 
 <<widget "icon-menu1">>
